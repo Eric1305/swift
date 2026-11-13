@@ -1,14 +1,14 @@
 [
   {
+    "t_min": 10,
+    "text": "98 not called, 34 safe, 9 need help, 4 no answer, 5 can help. Top rescue: walker (crutches), power wheelchair, power chair. Mobility needs: manual wheelchairs, oxygen users. No-answer homes require door knocks. Neighbors with trucks/boats available if any."
+  },
+  {
+    "t_min": 30,
+    "text": "82 safe. 35 need help. 21 no answer (require door knocks). 12 can help. Top rescue: walker (crutches), power wheelchair users. Mobility needs: manual wheelchairs, oxygen users. Neighbors with trucks/boats available if needed."
+  },
+  {
     "t_min": 60,
-    "text": "82 safe. 21 no answer (require door knocks). 35 need help. 12 can help. Top rescue queue empty. Mobility needs: 3 manual wheelchair users, 3 oxygen users. Neighbors with trucks/boats available if needed."
-  },
-  {
-    "t_min": 180,
-    "text": "82 safe. 21 no answer (need door knocks). 35 need help. 12 can help. Top rescue queue empty. Mobility needs: 3 manual wheelchair users, 3 oxygen users. Neighbors with trucks/boats available if needed."
-  },
-  {
-    "t_min": 300,
-    "text": "82 safe. 21 no answer (require door knocks). 35 need help. 12 can help. Top rescue queue empty. Mobility needs: 3 manual wheelchair users, 3 oxygen users. Neighbors with trucks/boats available if needed."
+    "text": "82 safe. 35 need help. 21 no answer (require door knocks). 12 can help. Top rescue: walker (crutches), power wheelchair users. Mobility needs: manual wheelchairs, oxygen users. Neighbors with trucks/boats available if needed."
   }
 ]

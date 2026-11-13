@@ -11,7 +11,7 @@
     "p10": 68.6,
     "p90": 94.3,
     "n": 1000,
-    "seconds": 0.005
+    "seconds": 0.007
   },
   "promises_blocked": 47
 }

@@ -175,6 +175,23 @@ def _queue(timeline: list[dict], records: dict[str, Record], depths: pd.DataFram
     return snapshots
 
 
+BRIEFING_TIMES = (10, 30, 60)
+
+
+def _write_briefings(out: Path, timeline: list[dict], records: dict[str, Record], depths: pd.DataFrame) -> None:
+    """Commander briefings from what was known at each time: finished calls only, and the queue at that moment."""
+    from agent.content import briefing
+
+    briefings = []
+    for t in BRIEFING_TIMES:
+        finished = {e["household_id"]: e["status"] for e in timeline
+                    if e["event"] in ("complete", "no_answer") and e["t_min"] <= t}
+        snapshot = [records[hid].model_copy(update={"status": finished.get(hid, "not_called")}) for hid in records]
+        ranked = rank([r for r in snapshot if r.status == "needs_help"], depths)
+        briefings.append({"t_min": t, "text": briefing(t, snapshot, ranked)})
+    (out / "briefings.json").write_text(json.dumps(briefings, indent=2) + "\n")
+
+
 def build_dispatch(source: str, out: Path, cache: Path, depths: pd.DataFrame) -> None:
     from pipeline.area import DEMO_BBOX, dem_index, load_area
     from pipeline.baseline import compare, monte_carlo
@@ -212,6 +229,8 @@ def build_dispatch(source: str, out: Path, cache: Path, depths: pd.DataFrame) ->
     ranked = rank(list(records.values()), called)
     trips = routes(graph, ranked, list(records.values()), called, lonlat, tuple(meta["staging"]), edge_depth_ft, known_at)
     (out / "routes.json").write_text(json.dumps(trips) + "\n")
+
+    _write_briefings(out, timeline, records, called)
 
     no_answer = [e for e in timeline if e["event"] == "no_answer"]
     knock = doorknock({e["household_id"]: lonlat[e["household_id"]] for e in no_answer if e["household_id"] in lonlat},
