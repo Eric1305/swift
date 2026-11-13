@@ -67,7 +67,8 @@ NEXT TASK: build the Render relay (Eric chose this)
   create call https://docs.retellai.com/api-references/create-phone-call
 
 OTHER OPEN ITEMS
-- Frontend (teammate, branch `web`): nothing pushed yet as of this handoff — biggest risk. Real data is on main.
+- Frontend (teammate Josie): merged to main via PR #1 (web/src, ~2.7k lines). Not yet checked against the REAL fixtures
+  in web/public/data — run `cd web && npm install && npm run build` and `npm run dev` to verify it loads them.
   The dashboard model panel shows "Qwen3-VL on GB10 · calls in flight · calls · latency" from /api/gpu.
 - README: still needs problem stats with sources, results, "how it works in a real event" (see docs/PLAN.md).
 - Demo prep: backup video, rehearse 3x, make repo public at submission (gh repo edit --visibility public ...).
