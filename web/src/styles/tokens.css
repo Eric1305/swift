@@ -1,0 +1,57 @@
+/* Design tokens: mirrors the "Swift" variable collection in Figma
+   (file YhoNZc4KQoXfwPlDbow9bc). Semantic tokens alias the palette, as in Figma. */
+:root {
+  /* palette */
+  --palette-cloud-veil: #f2f8ff;
+  --palette-ice-petal: #e3f1ff;
+  --palette-cool-blue: #cfe6ff;
+  --palette-sky-ripple: #b7d8f7;
+  --palette-lagoon-mist: #9fc8ee;
+  --palette-navy: #001b48;
+  --palette-ocean: #004e78;
+  --palette-teal: #008ab4;
+
+  /* semantic */
+  --bg: var(--palette-cloud-veil);
+  --surface: var(--palette-cloud-veil);
+  --surface-2: var(--palette-ice-petal);
+  --border: var(--palette-lagoon-mist);
+  --text: var(--palette-navy);
+  --text-muted: #375a78;
+  --text-dim: #466681;
+  --accent: var(--palette-ocean);
+  --accent-ink: var(--palette-cloud-veil);
+
+  /* household status (CONTRACT.md) */
+  --status-needs-help: #ef4444;
+  --status-can-help: #f59e0b;
+  --status-safe: #22c55e;
+  --status-unconfirmed: #eab308;
+  --status-no-answer: #111827;
+  --status-not-called: #6b7280;
+  --status-calling: #38bdf8;
+
+  /* readable status text on light surfaces */
+  --status-ink-needs-help: #b4233a;
+  --status-ink-can-help: #8a5700;
+  --status-ink-safe: #0c7048;
+  --status-ink-unconfirmed: #806000;
+
+  /* site-plan map overlays */
+  --map-ink: #1e2433;
+  --map-navy: #2b3354;
+  --map-terracotta: #b85a3c;
+  --map-paper: #f5ede3;
+  --map-house-white: #fcfbf8;
+
+  /* gradients used across panels */
+  --grad-panel: linear-gradient(135deg, var(--palette-cloud-veil) 0%, var(--palette-ice-petal) 71%);
+  --grad-accent: linear-gradient(135deg, var(--palette-ocean) 0%, var(--palette-teal) 71%);
+  --grad-briefing: linear-gradient(150deg, var(--palette-ice-petal) 0%, var(--palette-cool-blue) 71%);
+  --grad-resident: linear-gradient(90deg, var(--palette-cool-blue) 0%, var(--palette-sky-ripple) 100%);
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --shadow-pop: 0 8px 24px rgba(0, 27, 72, 0.18);
+}
