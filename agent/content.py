@@ -11,8 +11,8 @@ from agent.script import Record, guard
 
 DATA_DIR = Path(os.environ.get("SWIFT_DATA_DIR", Path.home() / "Texas_Flood_Student_Data"))
 
-# Demo area: densest cluster of georeferenced Harvey response images (west Houston, Barker/Addicks reservoirs).
-DEMO_BBOX = (-95.70, 29.74, -95.66, 29.78)  # (west, south, east, north)
+# Demo area: Bear Creek, west Houston (Addicks Reservoir backflow): dense homes + 21 georeferenced response images.
+DEMO_BBOX = (-95.66, 29.835, -95.62, 29.865)  # (west, south, east, north)
 
 IMAGERY_PROMPT = (
     "This is an aerial photo taken after Hurricane Harvey. Is floodwater visibly covering roads or land around "

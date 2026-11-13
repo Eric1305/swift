@@ -9,16 +9,17 @@ import networkx as nx
 import numpy as np
 import osmnx as ox
 
-# West Houston by the Barker/Addicks reservoirs: the densest cluster of georeferenced Harvey response images.
-DEMO_BBOX = (-95.70, 29.74, -95.66, 29.78)  # (west, south, east, north)
+# Bear Creek, west Houston (Addicks Reservoir backflow, Harvey 2017): dense homes + 21 georeferenced response images.
+DEMO_BBOX = (-95.66, 29.835, -95.62, 29.865)  # (west, south, east, north)
 N_HOUSEHOLDS = 150
 SEED = 7
 HOUSE_TYPES = {"house", "residential", "detached", "semidetached_house", "yes"}
 
 
-OVERPASS_MIRRORS = ["https://overpass.kumi.systems/api", "https://overpass.private.coffee/api",
-                    "https://overpass-api.de/api"]
+OVERPASS_MIRRORS = ["https://maps.mail.ru/osm/tools/overpass/api", "https://overpass-api.de/api",
+                    "https://overpass.kumi.systems/api", "https://overpass.private.coffee/api"]
 ox.settings.http_user_agent = "Swift flood-response hackathon (UTSA datathon)"
+ox.settings.requests_timeout = 300
 
 
 def _with_mirrors(fetch):
