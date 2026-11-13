@@ -335,9 +335,9 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       flood = [a, b].filter(Boolean).map((s, k) =>
         new BitmapLayer<BeforeId>({
           id: `depth-${k}`,
-          image: dataUrl(INK_STYLE ? s.png.replace('depth_', 'halftone_') : s.png),
+          image: dataUrl(s.png),
           bounds: [s.bounds[0][0], s.bounds[0][1], s.bounds[1][0], s.bounds[1][1]],
-          opacity: (INK_STYLE ? 0.95 : PIPELINE_DEPTH_OPACITY) * (k === 0 ? 1 - f : f),
+          opacity: (INK_STYLE ? 0.85 : PIPELINE_DEPTH_OPACITY) * (k === 0 ? 1 - f : f),
           beforeId: CONTEXT_BUILDINGS_LAYER,
         }),
       );

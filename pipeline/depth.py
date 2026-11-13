@@ -80,14 +80,18 @@ def write_depth_stages(area: Area, curve: list[tuple[int, float]], out: Path) ->
     stages = []
     from scipy.ndimage import gaussian_filter
 
-    shallow, deep = np.array([110, 175, 245]), np.array([25, 90, 200])
+    # Three-stop ramp: shallow cyan -> mid blue -> deep navy, so depth reads as hue, not just opacity.
+    stops = np.array([[150, 214, 252], [64, 140, 232], [20, 62, 160]], dtype=float)
     for t, depth in zip(times, stack):
         depth = gaussian_filter(depth, sigma=1.5)  # soften DEM noise so water reads as water, not cloud
-        k = np.clip(depth / 6.0, 0, 1)[..., None]
+        k = np.clip(depth / 6.0, 0, 1)
+        lo = np.clip(k * 2, 0, 1)[..., None]
+        hi = np.clip(k * 2 - 1, 0, 1)[..., None]
+        rgb = np.where(k[..., None] < 0.5, stops[0] * (1 - lo) + stops[1] * lo, stops[1] * (1 - hi) + stops[2] * hi)
         rgba = np.zeros(depth.shape + (4,), dtype=np.uint8)
-        rgba[..., :3] = (shallow * (1 - k) + deep * k).astype(np.uint8)
+        rgba[..., :3] = rgb.astype(np.uint8)
         wet = depth > 0.3
-        rgba[..., 3] = np.where(wet, 150 + 60 * k[..., 0], 0).astype(np.uint8)
+        rgba[..., 3] = np.where(wet, 165 + 70 * k, 0).astype(np.uint8)
         name = f"depth_{t:03d}.png"
         Image.fromarray(rgba, "RGBA").save(out / name)
         stages.append({"t_min": t, "png": name, "bounds": bounds})
