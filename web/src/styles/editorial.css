@@ -479,3 +479,18 @@
 .app .lean-row__crew { font-size: 11px; font-weight: 500; color: var(--accent); }
 .app .gb10__brief { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
 .app .gb10__brief p { margin: 0; font-size: 12px; line-height: 17px; color: var(--text); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Ink style (default; ?style=color restores the original): flat white cards on a monochrome paper map */
+.app.ink { --ui-line: #E4E1DB; --ui-radius: 12px; --ui-wash: #FFFFFF; --ui-shadow: 0 1px 2px rgba(20, 20, 20, 0.06), 0 6px 18px rgba(20, 20, 20, 0.06); }
+.app.ink .panel, .app.ink .legend, .app.ink .results, .app.ink .imagery-popup, .app.ink .drawer, .app.ink .sheet-tag, .app.ink .top-bar {
+  background: #FFFFFF; border: 1px solid #E4E1DB; border-radius: 12px; box-shadow: 0 1px 2px rgba(20, 20, 20, 0.06), 0 6px 18px rgba(20, 20, 20, 0.06); backdrop-filter: none;
+}
+.app.ink .panel-title { font-size: 17px; letter-spacing: -0.3px; font-weight: 650; }
+.app.ink .lean-counter { background: #F6F5F2; border-color: #E8E5DF; }
+.app.ink .lean-row { border-color: #ECE9E3; box-shadow: none; }
+.app.ink .lean-row:hover, .app.ink .lean-row.is-selected { border-color: #1F2937; }
+.app.ink .lean-row--later .lean-row__eta { background: #F2F1EE; color: #3F3B36; }
+.app.ink .lean-row__crew { color: #2563EB; }
+.app.ink .status-bar { height: 6px; border-radius: 3px; }
+.app.ink .gb10__brief { border-top-color: #ECE9E3; }
+.app.ink .stat { background: #F6F5F2; border: 1px solid #ECE9E3; }

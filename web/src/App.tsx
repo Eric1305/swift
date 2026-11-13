@@ -15,6 +15,7 @@ import Gb10Panel from './components/Gb10Panel';
 import HouseholdDrawer from './components/HouseholdDrawer';
 import { Legend, LiveCallBanner, MapControls, ResultsCard, SheetTag } from './components/Overlays';
 import cx from './components/cx';
+import { INK } from './map/sitePlanStyle';
 import './App.css';
 import './styles/editorial.css';
 
@@ -195,7 +196,7 @@ function Dashboard({ fx }: { fx: Fixtures }) {
       : queue.findIndex((q) => q.household_id === selectedId) + 1 || null;
 
   return (
-    <div className={cx('app', drawerOpen && 'has-drawer', showResults && 'has-results')}>
+    <div className={cx('app', INK && 'ink', drawerOpen && 'has-drawer', showResults && 'has-results')}>
       <div className="map-layer">
         <SwiftMap
           ref={mapRef}

@@ -6,7 +6,11 @@ export const BASEMAP_URL = 'https://basemaps.cartocdn.com/gl/positron-gl-style/s
 /** Our white 3D context buildings; the flood is drawn just below this layer. */
 export const CONTEXT_BUILDINGS_LAYER = 'swift-context-buildings';
 
-export const SITE = {
+/** Default "ink" style: monochrome paper map so only the water (halftone blue) and status colors carry color.
+ *  `?style=color` restores the original site-plan palette. */
+export const INK = new URLSearchParams(window.location.search).get('style') !== 'color';
+
+const COLOR_SITE = {
   land: '#EEE7DB',
   road: '#8F8A82',
   roadCase: '#837E77',
@@ -16,7 +20,19 @@ export const SITE = {
   shore: '#EFE4CE',
   context: '#F2F0EC',
   label: '#5F5A52',
-} as const;
+};
+const INK_SITE: typeof COLOR_SITE = {
+  land: '#F3F2EF',
+  road: '#B4B1AB',
+  roadCase: '#A29F99',
+  park: '#E3E2DD',
+  water: '#CBD0D8',
+  waterDeep: '#8E98A8',
+  shore: '#ECEBE7',
+  context: '#FFFFFF',
+  label: '#76726B',
+};
+export const SITE = INK ? INK_SITE : COLOR_SITE;
 
 function safe(fn: () => void) {
   try {
