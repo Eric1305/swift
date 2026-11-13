@@ -15,6 +15,7 @@ import HouseholdDrawer from './components/HouseholdDrawer';
 import { Legend, LiveCallBanner, MapControls, ResultsCard, SheetTag } from './components/Overlays';
 import cx from './components/cx';
 import './App.css';
+import './styles/editorial.css';
 
 /** Model panel (Qwen3-VL on GB10 · calls in flight · total calls · latency), PLAN T4/T5. */
 const SHOW_GPU_PANEL = true;

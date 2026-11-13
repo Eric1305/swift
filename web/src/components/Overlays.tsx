@@ -1,20 +1,14 @@
-import type { DisplayStatus, Results } from '../data/types';
+import type { Results } from '../data/types';
 import type { LiveCall } from '../demo/useLiveCall';
-import { IconButton, StatusChip } from './ui';
+import { IconButton } from './ui';
 import cx from './cx';
 import plusIcon from '../assets/icons/plus.svg';
 import minusIcon from '../assets/icons/minus.svg';
 import compassIcon from '../assets/icons/compass.svg';
 
-const LEGEND: DisplayStatus[] = ['needs_help', 'can_help', 'safe', 'unconfirmed', 'no_answer', 'not_called'];
-
 export function Legend({ narrow }: { narrow: boolean }) {
   return (
-    <div className={cx('legend', narrow && 'is-narrow')} aria-label="Legend">
-      {LEGEND.map((s) => (
-        <StatusChip key={s} status={s} />
-      ))}
-      <i className="legend__divider" />
+    <div className={cx('legend', narrow && 'is-narrow')} aria-label="Water depth scale">
       <div className="legend__depth">
         <span>Water depth&nbsp;&nbsp;0 → 6 ft</span>
         <i />

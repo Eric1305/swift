@@ -27,7 +27,9 @@ export default function TopBar({ clock, startIso, households, mode, scene, runni
   return (
     <header className="top-bar top-bar--compact">
       <div className="top-bar__brand" aria-label={`Swift · Bear Creek, Houston · Harvey replay · ${households} households`}>
-        <img className="top-bar__logo" src={swiftLogo} width={32} height={32} alt="" />
+        <span className="top-bar__mascot" aria-hidden="true">
+          <img className="top-bar__logo" src={swiftLogo} width={62} height={62} alt="" />
+        </span>
         <div className="brand-text">
           <strong>Swift</strong>
         </div>

@@ -4,6 +4,7 @@ import { formatT } from '../demo/timeline';
 import { statusVar } from '../map/colors';
 import { Dot, Eyebrow } from './ui';
 import cx from './cx';
+import swiftLogo from '../assets/swift-logo.png';
 
 interface Props {
   counts: Counts;
@@ -30,7 +31,7 @@ export default function LeftPanel({ counts, queue, addresses, statuses, briefing
   return (
     <aside className="panel left-panel" aria-label="Call progress">
       <div className="row-between">
-        <Eyebrow>Call progress</Eyebrow>
+        <h2 className="panel-title">Call progress</h2>
         <span className="mono-meta">
           {counts.called} / {counts.total} called
         </span>
@@ -61,6 +62,7 @@ export default function LeftPanel({ counts, queue, addresses, statuses, briefing
         </div>
         {queue.length === 0 ? (
           <div className="queue__empty">
+            <img src={swiftLogo} width={64} height={64} alt="" />
             <strong>No one in the queue yet</strong>
             <span>Households that need help are ranked here as calls complete.</span>
           </div>

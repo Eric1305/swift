@@ -13,12 +13,15 @@ export function ImageryPin({ item, active, onClick }: { item: ImageryItem; activ
       className={cx('imagery-pin', active && 'is-active')}
       style={{ ['--verdict' as string]: VERDICT[item.verdict].color }}
       aria-label={`Imagery ${item.image_id}: ${VERDICT[item.verdict].label}`}
+      aria-expanded={active}
+      title={`View image · ${VERDICT[item.verdict].label}`}
       onClick={(e) => {
         e.stopPropagation();
         onClick();
       }}
     >
-      <img src={cameraIcon} width={14} height={14} alt="" />
+      <img src={cameraIcon} width={20} height={20} alt="" draggable={false} />
+      <span className="imagery-pin__status" aria-hidden="true" />
     </button>
   );
 }

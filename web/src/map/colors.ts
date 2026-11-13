@@ -7,21 +7,38 @@ const hex = (h: string, a = 255): RGBA => {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255, a];
 };
 
-/** Roof colors on the site-plan map. Unreached homes stay white like context buildings. */
+/**
+ * Soft household status colors on the map, with muted edges to keep pale roofs distinct
+ * from the surrounding context buildings.
+ */
 export const ROOF: Record<DisplayStatus, RGBA> = {
-  needs_help: hex('#EF4444'),
-  can_help: hex('#F59E0B'),
-  safe: hex('#22C55E'),
-  unconfirmed: hex('#EAB308'),
-  no_answer: hex('#111827'),
-  not_called: hex('#FCFBF8'),
+  needs_help: hex('#F5B8BE'),
+  can_help: hex('#F6D5AA'),
+  safe: hex('#B6E4CA'),
+  unconfirmed: hex('#F1E2AC'),
+  no_answer: hex('#CBD7E6'),
+  not_called: hex('#D8DCE2'),
   calling: hex('#38BDF8'),
 };
+
+/** Muted edge of each status: roof wireframe, ground-disc ring. */
+export const EDGE: Record<DisplayStatus, RGBA> = {
+  needs_help: hex('#C47C86'),
+  can_help: hex('#BE9869'),
+  safe: hex('#79AB90'),
+  unconfirmed: hex('#B3A06A'),
+  no_answer: hex('#899BB2'),
+  not_called: hex('#9CA6B3'),
+  calling: hex('#0369A1'),
+};
+
+/** Statuses an operator has to act on: get a larger pin and an address label. */
+export const ACTIONABLE = new Set<DisplayStatus>(['needs_help', 'no_answer', 'calling']);
 
 export const VEHICLE: Record<Vehicle, RGBA> = {
   hwv: hex('#F97316'),
   boat: hex('#22D3EE'),
-  neighbor_truck: hex('#F59E0B'),
+  neighbor_truck: hex('#F6D5AA'),
   neighbor_boat: hex('#FCD34D'),
 };
 
