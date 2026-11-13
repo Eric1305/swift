@@ -10,11 +10,11 @@ Spoken, informal, about 70–80 seconds. Every number below is from our data (`w
 >
 > That's the problem we went after. In floods, the people who die are mostly the ones who **can't get out on their own**, and they're stuck in the same line as everyone else.
 >
-> So we built **Swift**, which flips it around. **Instead of waiting for people to call 911, an AI agent calls them**: every house, starting with the ones the water will reach first. In about a minute it learns who can't leave and why, whether water's already inside, and who has a truck or boat to help a neighbor. Nobody who stays silent gets marked safe; they go on a door-knock list.
+> So we built **Swift**, which flips it around. **Instead of waiting for people to call 911, an AI agent calls them**: every house, in the order the water reaches them. In about a minute it learns who can't leave and why, whether water's already inside, and who has a truck or boat to help a neighbor. Nobody who stays silent gets marked safe; they go on a door-knock list.
 >
 > Every call runs through **Qwen**, a vision-language model. It understands what people actually say on a real phone call, even messy answers or Spanish. It looked at the real Harvey aerial photos from the datathon dataset to confirm where it flooded. And it writes short cards for rescue crews, like "mom, power wheelchair, needs two lifters."
 >
-> We replayed Harvey on 150 real homes in Bear Creek using the actual reservoir gauge readings. **Using only what was known that night, Swift reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under.** When people had to get through to 911 themselves, **fewer than half made it**.
+> We replayed Harvey on 150 real homes in Bear Creek, using the actual reservoir gauge readings and **USGS elevation data** for every house. Bear Creek flooded because the reservoir backed into it, so the lowest ground floods first. That gives Swift its **calling order: lowest homes first**. **Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under.** When people had to get through to 911 themselves, **fewer than half made it**.
 >
 > And it has one hard rule: it never tells anyone help is on the way until a crew has actually said yes.
 >
@@ -45,9 +45,9 @@ Spoken, informal, about 70–80 seconds. Every number below is from our data (`w
 | Area | Bear Creek, west Houston, next to the Addicks Reservoir | Reservoir backflow flooded about 65% of the subdivision in Harvey (KHOU / KPRC, in README) |
 | Homes modeled | **150** real buildings | OpenStreetMap footprints |
 | Water level | Real Addicks pool, **87.8 ft at the trigger → 109.06 ft peak (Aug 30, 2017)** | USGS gauge 08073000, approved daily means, matched exactly |
-| Elevation | USGS 3DEP 10 m | Depth = pool − ground, only where connected to the reservoir |
+| Elevation | **USGS 3DEP 10 m elevation data** for every house and street | Depth = pool − ground, only where connected to the reservoir; lowest ground floods first, which sets the calling order |
 | Homes that flood | **57 of 150**, up to about 6.6 ft deep | From the real pool over real ground |
-| Call order vs. what actually flooded | **Spearman 0.996** | Using only gauge readings published before the trigger (Aug 25–26) |
+| Calling order vs. the order homes actually flooded | **Spearman 0.996** | An order, not a prediction of exactly which homes flood: lowest ground first, from USGS elevation + gauge readings published before the trigger (Aug 25–26) |
 
 **Harvey aerial imagery (the datathon dataset):**
 | Metric | Value |
@@ -106,4 +106,5 @@ Spoken, informal, about 70–80 seconds. Every number below is from our data (`w
 ## If they ask "is it real?"
 - **Real:** the water (USGS gauge), the ground (USGS elevation), the homes (OpenStreetMap), the Harvey photos, and a real phone call we placed through the system today.
 - **Simulated:** the residents and their answers. We can't know who would actually have picked up.
+- **Order, not prediction:** Swift doesn't predict exactly which houses will flood or when the water stops. It knows the order (lowest ground first, from USGS elevation data) and calls everyone in the zone in that order. Homes that stay dry still get a call.
 - **Scope:** the flood model covers the reservoir backing up, which is what flooded Bear Creek, not rain flooding citywide. In a real event the inputs swap to live National Weather Service warnings, gauge forecasts and county phone lists (reverse-911, the STEAR registry).

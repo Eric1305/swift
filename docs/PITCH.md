@@ -33,7 +33,7 @@ Before going on stage:
 
 ### 0:25–0:45 · Scene 2, water rises and calls fan out (demo 5 s) [Creativity] [LLM/AI]
 
-> The water you see is the real Addicks Reservoir level the USGS gauge recorded during Harvey: three and a half days, compressed into six hours. Swift only uses what that gauge had published when the calls started, so each home gets a forecast time for the water, and Swift dials in that order: first water, first call. A home that doesn't pick up is retried at two and five minutes and then goes on a door-knock list, because silence never counts as safe.
+> The water you see is the real Addicks Reservoir level the USGS gauge recorded during Harvey: three and a half days, compressed into six hours. The reservoir surface is nearly flat, so with USGS elevation data for every house, the lowest homes flood first. Swift doesn't predict exactly which homes will flood; it uses that order, from only what the gauge had published when the calls started: lowest ground, first call. A home that doesn't pick up is retried at two and five minutes and then goes on a door-knock list, because silence never counts as safe.
 >
 > Top right: those are real requests going to Qwen3-VL on the event's model server right now. Every reply on every call is decided by that model and our code. Retell only carries the voice.
 
@@ -72,7 +72,7 @@ Before going on stage:
 
 ### 2:25–2:50 · Scene 7, results card [Impact] [Data]
 
-> We replayed Harvey on 150 real homes in Bear Creek using the actual reservoir gauge readings. Using only what was known that night, Swift reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under. When people had to get through to 911 themselves, fewer than half made it: 42.9%, with the same vehicles.
+> We replayed Harvey on 150 real homes in Bear Creek, using the actual reservoir gauge readings and USGS elevation data for every house. The lowest ground floods first, so that's Swift's calling order. Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under. When people had to get through to 911 themselves, fewer than half made it: 42.9%, with the same vehicles.
 >
 > We tested the calls with 150 simulated residents, each role-played by the model with a hidden truth. Swift recorded the right status for 91.5% of them and flagged all 34 who truly needed help. Over 1,000 randomized storms the median goes from 28.6% to 82.9%. The residents are simulated, so this is a policy comparison, not a prediction; the water and the timing are real.
 
