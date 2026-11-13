@@ -76,3 +76,12 @@ HOW TO RETEST LIVE
 RULES
 - Never print or commit secrets from .env. Commits end with: Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 - Don't credit other hackathon projects anywhere.
+
+STATUS: ALL FOUR FIXED (see commit "fix(agent): ground extracted people ..."), 18 tests pass.
+- 1: people kept only if a word of who/need appears in what the resident said; bare "yes" -> follow-up
+     "Who is it that can't leave on their own, and what do they need to get out?" (step cant_leave_detail).
+- 2: answer without the step's required field -> "Sorry, I didn't catch that." + same question once, no fake ack.
+- 3: people count + named people are captured on any step; out-of-turn values only fill gaps.
+- 4: "no" to the read-back -> "What should I fix?" -> merge -> read back once more -> close.
+Verified on the live model by replaying the misaligned call and the rehearsal: both end with people 2,
+mom / power wheelchair, needs_help.
