@@ -25,12 +25,22 @@ export function ImageryPin({ item, active, onClick }: { item: ImageryItem; activ
 
 export function ImageryPopup({ item, onClose }: { item: ImageryItem; onClose: () => void }) {
   const [broken, setBroken] = useState(false);
+  const [beforeBroken, setBeforeBroken] = useState(false);
   const v = VERDICT[item.verdict];
+  const hasBefore = !!item.before_thumb && !beforeBroken;
   return (
     <div className="imagery-popup" onClick={(e) => e.stopPropagation()}>
-      <div className="imagery-popup__thumb">
-        {!broken && <img src={dataUrl(item.thumb)} alt={`Harvey after-image ${item.image_id}`} onError={() => setBroken(true)} />}
-        <span>Harvey after-image</span>
+      <div className="imagery-popup__pair">
+        {hasBefore && (
+          <div className="imagery-popup__thumb">
+            <img src={dataUrl(item.before_thumb!)} alt={`Before Harvey ${item.image_id}`} onError={() => setBeforeBroken(true)} />
+            <span className="imagery-popup__label">Before</span>
+          </div>
+        )}
+        <div className="imagery-popup__thumb">
+          {!broken && <img src={dataUrl(item.thumb)} alt={`Harvey after-image ${item.image_id}`} onError={() => setBroken(true)} />}
+          <span className="imagery-popup__label">{hasBefore ? `After · ${item.date}` : `Harvey after-image · ${item.date}`}</span>
+        </div>
       </div>
       <div className="row-between">
         <span className="verdict" style={{ ['--verdict' as string]: v.color }}>

@@ -27,7 +27,8 @@ export interface Meta {
 export interface HouseholdProps {
   id: string;
   address: string;
-  water_arrival_min: number;
+  /** null = the depth model never floods this home. */
+  water_arrival_min: number | null;
   depth_ft_peak: number;
   height_m: number;
 }
@@ -93,7 +94,14 @@ export interface ImageryItem {
   image_id: string;
   lon: number;
   lat: number;
+  /** Georeferenced footprint of the aerial: [[w,s],[e,n]]. */
+  bounds: [LonLat, LonLat];
+  /** Post-Harvey aerial (2017). */
   thumb: string;
+  /** Pre-storm aerial of the same tile, when available. */
+  before_thumb: string | null;
+  date: string;
+  rain_3d_mm: number;
   verdict: 'flooded' | 'not_flooded' | 'uncertain';
   explanation: string;
 }
@@ -102,7 +110,10 @@ export interface Results {
   baseline_pct: number;
   swift_pct: number;
   record_accuracy: number;
+  /** Promises actually spoken to residents (should be 0). */
   promise_violations: number;
+  /** Model lines the honesty guard caught before they were spoken. */
+  promises_blocked: number;
   parallel_calls: number;
   n_households: number;
   mc: { median_baseline: number; median_swift: number; p10: number; p90: number; n: number; seconds: number };
@@ -118,7 +129,11 @@ export interface GpuStats {
   mem_used_gb: number;
   mem_total_gb: number;
   temp_c: number;
+  /** LLM requests in flight on the hosted GB10 model. */
   llm_running: number;
+  /** Total LLM calls served. */
+  llm_calls: number;
+  latency_ms: number;
 }
 
 export type CallStatus = 'idle' | 'ringing' | 'in-progress' | 'completed' | 'no-answer';

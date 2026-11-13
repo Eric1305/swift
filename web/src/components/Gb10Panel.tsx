@@ -4,10 +4,10 @@ import cx from './cx';
 const W = 150;
 const H = 40;
 
-function Sparkline({ values }: { values: number[] }) {
+function Sparkline({ values, max }: { values: number[]; max: number }) {
   if (values.length < 2) return <svg width={W} height={H} className="sparkline" aria-hidden />;
   const step = W / (values.length - 1);
-  const d = values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)} ${(H - 2 - (Math.min(100, v) / 100) * (H - 4)).toFixed(1)}`).join(' ');
+  const d = values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)} ${(H - 2 - (Math.min(max, v) / max) * (H - 4)).toFixed(1)}`).join(' ');
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="sparkline" aria-hidden>
       <path d={d} fill="none" stroke="var(--accent)" strokeWidth={2} strokeLinejoin="round" />
@@ -15,15 +15,19 @@ function Sparkline({ values }: { values: number[] }) {
   );
 }
 
+/**
+ * Model panel. The model is hosted on the organizers' GB10 server, so /api/gpu reports LLM load
+ * (calls in flight, total calls, latency); the GPU fields are usually 0 and are not shown.
+ */
 export default function Gb10Panel({ gpu, shifted }: { gpu: GpuState; shifted: boolean }) {
   const { stats, history, source } = gpu;
   const idle = source === 'idle';
-  const memPct = stats.mem_total_gb ? (stats.mem_used_gb / stats.mem_total_gb) * 100 : 0;
+  const peak = Math.max(4, ...history);
   return (
-    <aside className={cx('panel', 'gb10', shifted && 'is-shifted')} aria-label="GB10 status">
+    <aside className={cx('panel', 'gb10', shifted && 'is-shifted')} aria-label="Model status">
       <div className="row-between">
         <span className="gb10__title">
-          <strong>GB10</strong> <span>DGX Spark</span>
+          <strong>Qwen3-VL</strong> <span>on GB10</span>
         </span>
         <span className="gb10__live">
           <i className={cx(idle ? 'is-idle' : source === 'sample' ? 'is-sample' : 'is-live')} />
@@ -32,30 +36,19 @@ export default function Gb10Panel({ gpu, shifted }: { gpu: GpuState; shifted: bo
       </div>
       <div className="gb10__gpu">
         <div>
-          <span className="micro">GPU</span>
-          <strong>{idle ? '—' : `${Math.round(stats.gpu_util)}%`}</strong>
+          <span className="micro">Calls in flight</span>
+          <strong>{idle ? 0 : stats.llm_running}</strong>
         </div>
-        <Sparkline values={history} />
-      </div>
-      <div className="gb10__mem">
-        <div className="row-between">
-          <span className="micro">Memory</span>
-          <span className="mono-strong">
-            {stats.mem_used_gb.toFixed(1)} / {Math.round(stats.mem_total_gb)} GB
-          </span>
-        </div>
-        <div className="meter">
-          <i style={{ width: `${idle ? 0 : memPct}%` }} />
-        </div>
+        <Sparkline values={history} max={peak} />
       </div>
       <div className="gb10__stats">
         <div className="stat stat--grow">
-          <span>LLM calls in flight</span>
-          <strong className={cx(!idle && stats.llm_running > 0 && 'is-accent')}>{idle ? 0 : stats.llm_running}</strong>
+          <span>Total calls</span>
+          <strong className={cx(!idle && stats.llm_running > 0 && 'is-accent')}>{idle ? '—' : (stats.llm_calls ?? 0).toLocaleString()}</strong>
         </div>
-        <div className="stat">
-          <span>Temp</span>
-          <strong>{Math.round(stats.temp_c)}°C</strong>
+        <div className="stat stat--grow">
+          <span>Latency</span>
+          <strong>{idle || !stats.latency_ms ? '—' : `${Math.round(stats.latency_ms)} ms`}</strong>
         </div>
       </div>
     </aside>

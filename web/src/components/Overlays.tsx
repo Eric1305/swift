@@ -130,7 +130,7 @@ export function ResultsCard({ r, onClose }: { r: Results; onClose: () => void })
         <div className={cx('tile', r.promise_violations === 0 && 'tile--good')}>
           <span>Promise violations</span>
           <strong>{r.promise_violations}</strong>
-          <small>guard blanked {r.promise_violations}</small>
+          <small>guard blocked {r.promises_blocked} before speaking</small>
         </div>
         <div className="tile">
           <span>Peak parallel calls</span>

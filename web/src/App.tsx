@@ -16,7 +16,8 @@ import { Legend, LiveCallBanner, MapControls, ResultsCard, SheetTag } from './co
 import cx from './components/cx';
 import './App.css';
 
-const SHOW_GPU_PANEL = false;
+/** Model panel (Qwen3-VL on GB10 · calls in flight · total calls · latency), PLAN T4/T5. */
+const SHOW_GPU_PANEL = true;
 
 export default function App() {
   const [fx, setFx] = useState<Fixtures | null>(null);
