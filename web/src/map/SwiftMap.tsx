@@ -42,7 +42,9 @@ interface Props {
 const FLOOD_Q_START = 0.03;
 const FLOOD_Q_END = 0.4;
 /** 'terrain' = flood from real elevation tiles; 'pipeline' = depth_*.png from the pipeline. */
-const FLOOD_SOURCE: 'terrain' | 'pipeline' = 'terrain';
+/** Override with `?flood=pipeline` (offline / venue firewall: no S3 terrain tiles needed). */
+const FLOOD_SOURCE: 'terrain' | 'pipeline' =
+  new URLSearchParams(window.location.search).get('flood') === 'pipeline' ? 'pipeline' : 'terrain';
 const PIPELINE_DEPTH_OPACITY = 0.55;
 
 /** Interleaved-mode prop (@deck.gl/mapbox): insert the layer below this MapLibre layer. */
@@ -248,8 +250,22 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       );
     }
 
+    // The open imagery item's real georeferenced Harvey aerial, draped at its bounds.
+    const aerials: LayersList = fx.imagery
+      .filter((img) => img.image_id === imageryId)
+      .map((img) =>
+        new BitmapLayer<BeforeId>({
+          id: `aerial-${img.image_id}`,
+          image: dataUrl(img.thumb),
+          bounds: [img.bounds[0][0], img.bounds[0][1], img.bounds[1][0], img.bounds[1][1]],
+          opacity: 0.92,
+          beforeId: CONTEXT_BUILDINGS_LAYER,
+        }),
+      );
+
     return [
       ...flood,
+      ...aerials,
       new PolygonLayer<DoorknockFeature>({
         id: 'doorknock-fill',
         data: knock,
@@ -318,7 +334,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         updateTriggers: { getWidth: t },
       }),
     ];
-  }, [fx, meta, t, statuses, centers, onSelect, area, getTileData, terrainFailed, level, floor]);
+  }, [fx, meta, t, statuses, centers, onSelect, area, getTileData, terrainFailed, level, floor, imageryId]);
 
   const knockLabels = fx.doorknock.filter((d) => d.properties.t_min <= t);
   const selected = selectedId ? centers.get(selectedId) : undefined;
