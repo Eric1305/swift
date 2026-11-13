@@ -20,9 +20,11 @@ interface Props {
   finished: boolean;
   onRun: () => void;
   onStop: () => void;
+  /** Split layout: the clock controls live in the bottom playback bar; the top bar shows place + elapsed time. */
+  split?: boolean;
 }
 
-export default function TopBar({ clock, startIso, households, mode, scene, running, finished, onRun, onStop }: Props) {
+export default function TopBar({ clock, startIso, households, mode, scene, running, finished, onRun, onStop, split }: Props) {
   const progress = clock.endMin ? clock.t / clock.endMin : 0;
   return (
     <header className="top-bar top-bar--compact">
@@ -39,6 +41,12 @@ export default function TopBar({ clock, startIso, households, mode, scene, runni
         </span>}
       </div>
 
+      {split ? (
+        <div className="top-bar__place">
+          <span>Bear Creek, Houston</span>
+          <em>Hurricane Harvey replay · {households} homes</em>
+        </div>
+      ) : (
       <div className="top-bar__clock">
         <IconButton icon={clock.playing ? pauseIcon : playIcon} label={clock.playing ? 'Pause' : 'Play'} onClick={clock.toggle} />
         <div className="clock">
@@ -71,8 +79,16 @@ export default function TopBar({ clock, startIso, households, mode, scene, runni
           ))}
         </div>
       </div>
+      )}
 
       <div className="top-bar__demo">
+        {split && (
+          <div className="top-bar__since">
+            <span>Since the warning</span>
+            <strong>{formatT(clock.t).replace('T+', '')}</strong>
+            <em>{formatClock(startIso, clock.t)}</em>
+          </div>
+        )}
         {running ? (
           <>
             <div className="stepper" aria-label={`Scene ${scene} of ${SCENE_COUNT}`}>

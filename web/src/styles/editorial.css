@@ -494,3 +494,64 @@
 .app.ink .status-bar { height: 6px; border-radius: 3px; }
 .app.ink .gb10__brief { border-top-color: #ECE9E3; }
 .app.ink .stat { background: #F6F5F2; border: 1px solid #ECE9E3; }
+
+/* Split layout (default): left + right card columns, bottom playback bar */
+.app .column { position: absolute; z-index: 5; top: 76px; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+.app .column > * { pointer-events: auto; }
+.app .column--left { left: 16px; width: 340px; bottom: 16px; }
+.app .column--right { right: 16px; width: 330px; max-height: calc(100% - 92px); overflow: auto; }
+.app.has-drawer .column--right { display: none; }
+.app .card { background: #FFFFFF; border: 1px solid #E4E1DB; border-radius: 12px; box-shadow: 0 1px 2px rgba(20,20,20,.06), 0 6px 18px rgba(20,20,20,.06); padding: 0; flex: none; }
+.app .card--grow { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.app .card--grow .card__body { overflow: auto; min-height: 0; }
+.app .card__head { width: 100%; display: flex; align-items: center; gap: 10px; padding: 13px 16px; background: none; border: 0; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+.app .card__head strong { font-size: 15px; font-weight: 650; letter-spacing: -0.2px; flex: 1; }
+.app .card__count { font-family: var(--font-mono); font-size: 12.5px; color: #4B4740; }
+.app .card__chevron { width: 8px; height: 8px; border-right: 1.6px solid #6B665F; border-bottom: 1.6px solid #6B665F; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.app .card.is-collapsed .card__chevron { transform: rotate(-45deg); }
+.app .card__body { padding: 0 16px 14px; display: flex; flex-direction: column; gap: 8px; }
+.app .card__empty { margin: 6px 0 4px; text-align: center; font-size: 12.5px; color: #6B665F; }
+.app .card__note { margin: 0; font-size: 11.5px; color: #6B665F; }
+.app .card .queue__list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.app .zone-bar { height: 8px; border-radius: 4px; background: #ECEAE5; overflow: hidden; }
+.app .zone-bar i { display: block; height: 100%; background: #1F2328; border-radius: 4px; transition: width .4s; }
+.app .zone-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 4px; }
+.app .zone-stats strong { display: block; font-family: var(--font-mono); font-size: 26px; font-weight: 700; line-height: 1.1; color: #1F2328; }
+.app .zone-stats strong.is-red { color: var(--status-ink-needs-help); }
+.app .zone-stats span { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #4B4740; }
+.app .sw { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.app .sw--red { background: var(--status-ink-needs-help); } .app .sw--ink { background: #1F2328; } .app .sw--ring { border: 1.5px solid #8A857D; }
+.app .zone-note { margin: 2px 0 0; font-size: 11.5px; color: #6B665F; }
+.app .crew-list, .app .door-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.app .crew-list li { display: flex; align-items: center; gap: 10px; }
+.app .crew-list li span:nth-child(2) { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.app .crew-list strong { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app .crew-list em { font-style: normal; font-size: 11.5px; color: #6B665F; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app .crew-dot { width: 22px; height: 22px; flex: none; border-radius: 50%; background: #1F2328; position: relative; }
+.app .crew-dot::after { content: ''; position: absolute; inset: 7px; border-radius: 50%; background: #fff; }
+.app .crew-dot.is-active { background: #2563EB; }
+.app .crew-done { font-family: var(--font-mono); font-size: 12px; color: #6B665F; }
+.app .door-list button { width: 100%; display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+.app .door-n { width: 20px; height: 20px; flex: none; display: grid; place-items: center; border-radius: 50%; background: #F2F1EE; font-family: var(--font-mono); font-size: 11px; }
+.app .door-addr { flex: 1; min-width: 0; font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app .door-eta { font-family: var(--font-mono); font-size: 11px; color: #4B4740; white-space: nowrap; }
+.app .column--right .gb10 { position: static; width: auto; right: auto; top: auto; border-radius: 12px; }
+.app .playback { position: absolute; z-index: 6; left: 50%; transform: translateX(-50%); bottom: 16px; width: min(640px, calc(100% - 760px)); min-width: 420px;
+  background: #FFFFFF; border: 1px solid #E4E1DB; border-radius: 12px; box-shadow: 0 1px 2px rgba(20,20,20,.06), 0 6px 18px rgba(20,20,20,.06); padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+.app .playback__row { display: flex; align-items: center; gap: 12px; }
+.app .playback__row .scrubber { flex: 1; }
+.app .playback__t { font-family: var(--font-mono); font-size: 12.5px; min-width: 56px; text-align: right; }
+.app .playback__legend { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #4B4740; }
+.app .playback__swatch { width: 54px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgb(150,214,252), rgb(64,140,232), rgb(20,62,160)); }
+.app .playback__scale { margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: #6B665F; }
+.app .top-bar__place { display: flex; flex-direction: column; margin-right: auto; margin-left: 18px; }
+.app .top-bar__place span { font-size: 14px; font-weight: 600; }
+.app .top-bar__place em { font-style: normal; font-size: 11.5px; color: #6B665F; }
+.app .top-bar__since { display: flex; align-items: baseline; gap: 8px; margin-right: 14px; }
+.app .top-bar__since span { font-size: 12px; color: #6B665F; }
+.app .top-bar__since strong { font-family: var(--font-mono); font-size: 22px; font-weight: 700; }
+.app .top-bar__since em { font-style: normal; font-size: 11px; color: #8A857D; }
+
+/* split layout: keep zoom controls clear of the right card column */
+.app.split .map-controls { right: 362px; }
+.app.split.has-drawer .map-controls { right: calc(var(--drawer-w) + 16px); }

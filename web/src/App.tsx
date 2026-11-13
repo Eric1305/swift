@@ -14,6 +14,7 @@ import LeftPanel from './components/LeftPanel';
 import Gb10Panel from './components/Gb10Panel';
 import HouseholdDrawer from './components/HouseholdDrawer';
 import { Legend, LiveCallBanner, MapControls, ResultsCard, SheetTag } from './components/Overlays';
+import { LeftColumn, PlaybackBar, RightColumn } from './components/Columns';
 import cx from './components/cx';
 import { INK } from './map/sitePlanStyle';
 import './App.css';
@@ -66,6 +67,10 @@ function Dashboard({ fx }: { fx: Fixtures }) {
   const counts = useMemo(() => countStatuses(ids, statuses), [ids, statuses]);
   const queue = useMemo(() => queueAt(fx.queue, clock.t), [fx.queue, clock.t]);
   const briefing = useMemo(() => briefingAt(fx.briefings, clock.t), [fx.briefings, clock.t]);
+  const pickedUp = useMemo(
+    () => new Set(fx.routes.filter((r) => r.timestamps[r.timestamps.length - 1] <= clock.t).map((r) => r.to_household_id)).size,
+    [fx.routes, clock.t],
+  );
   const leanRows = useMemo(
     () => (LEAN ? liveQueue(clock.t, statuses, households, fx.queue[fx.queue.length - 1], fx.routes) : null),
     [clock.t, statuses, households, fx.queue, fx.routes],
@@ -196,7 +201,7 @@ function Dashboard({ fx }: { fx: Fixtures }) {
       : queue.findIndex((q) => q.household_id === selectedId) + 1 || null;
 
   return (
-    <div className={cx('app', INK && 'ink', drawerOpen && 'has-drawer', showResults && 'has-results')}>
+    <div className={cx('app', INK && 'ink', LEAN && 'split', drawerOpen && 'has-drawer', showResults && 'has-results')}>
       <div className="map-layer">
         <SwiftMap
           ref={mapRef}
@@ -224,16 +229,31 @@ function Dashboard({ fx }: { fx: Fixtures }) {
         finished={finished}
         onRun={run}
         onStop={stop}
+        split={LEAN}
       />
 
-      <LeftPanel counts={counts} queue={queue} addresses={addresses} statuses={statuses} briefing={briefing} selectedId={selectedId} onPick={pick} lean={leanRows} />
-      {SHOW_GPU_PANEL && <Gb10Panel gpu={gpu} shifted={drawerOpen} briefing={LEAN ? briefing : undefined} />}
+      {LEAN && leanRows ? (
+        <>
+          <LeftColumn counts={counts} pickedUp={pickedUp} rows={leanRows} selectedId={selectedId} onPick={pick} />
+          <RightColumn routes={fx.routes} t={clock.t} addresses={addresses} statuses={statuses} households={households} onPick={pick}>
+            {SHOW_GPU_PANEL && <Gb10Panel gpu={gpu} shifted={false} briefing={briefing} />}
+          </RightColumn>
+          {!showResults && <PlaybackBar clock={clock} />}
+        </>
+      ) : (
+        <>
+          <LeftPanel counts={counts} queue={queue} addresses={addresses} statuses={statuses} briefing={briefing} selectedId={selectedId} onPick={pick} lean={leanRows} />
+          {SHOW_GPU_PANEL && <Gb10Panel gpu={gpu} shifted={drawerOpen} briefing={LEAN ? briefing : undefined} />}
+        </>
+      )}
       {liveMode && !showResults && <LiveCallBanner live={live} elapsedS={liveElapsed} />}
 
-      <div className="bottom-chrome">
-        <Legend narrow={drawerOpen || showResults} />
-        {!showResults && <SheetTag scene={scene} live={liveMode} />}
-      </div>
+      {!LEAN && (
+        <div className="bottom-chrome">
+          <Legend narrow={drawerOpen || showResults} />
+          {!showResults && <SheetTag scene={scene} live={liveMode} />}
+        </div>
+      )}
       <span className="attribution">© CARTO © OpenStreetMap</span>
       <MapControls onZoomIn={() => mapRef.current?.zoomBy(0.75)} onZoomOut={() => mapRef.current?.zoomBy(-0.75)} onNorth={() => mapRef.current?.resetNorth()} />
 
