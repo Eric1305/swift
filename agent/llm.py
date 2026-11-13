@@ -20,11 +20,10 @@ PERSON = {"type": "object", "properties": {"who": {"type": "string"}, "need": {"
           "required": ["who", "need"]}
 STEP_FIELDS = {
     "confirm_address": {"confirmed": {"type": "boolean"}, "language": {"type": "string", "enum": ["en", "es"]}},
-    "people": {"people": {"type": "integer"}, "cant_leave_alone": {"type": "array", "items": PERSON}},
+    "people": {"people": {"type": "integer"}},
     "cant_leave": {"cant_leave_alone": {"type": "array", "items": PERSON}},
     "water_inside": {"water_inside": {"type": "boolean"}},
-    "can_help": {"can_help": {"type": "object", "properties": {
-        "truck": {"type": "boolean"}, "boat": {"type": "boolean"}, "seats": {"type": "integer"}}}},
+    "can_help": {"truck": {"type": "boolean"}, "boat": {"type": "boolean"}, "seats": {"type": "integer"}},
     "readback": {"correct": {"type": "boolean"}, "people": {"type": "integer"},
                  "cant_leave_alone": {"type": "array", "items": PERSON}, "water_inside": {"type": "boolean"}},
     "close": {},
@@ -40,7 +39,7 @@ QUESTIONS = {
 }
 SYSTEM = (
     "You extract facts from one turn of a flood-safety phone call. Use only what the caller said; "
-    "omit any key the caller did not answer. Also write 'ack': a warm acknowledgment of at most 12 words. "
+    "use null for anything the caller did not answer. Also write 'ack': a warm acknowledgment of at most 12 words. "
     "Never promise help, rescue, or safety, and never say anyone is coming. Reply with JSON only."
 )
 
@@ -84,9 +83,21 @@ def _create_once(**kwargs):
         return client.chat.completions.create(**kwargs)
 
 
+def _nullable(prop: dict) -> dict:
+    return prop if prop.get("type") == "array" else {**prop, "type": [prop["type"], "null"]}
+
+
 def _schema(step: str) -> dict:
-    props = {**STEP_FIELDS[step], "ack": {"type": "string"}}
-    return {"type": "object", "properties": props, "required": ["ack"]}
+    """Every key is required (null = not answered): under structured output the model skips optional keys."""
+    props = {key: _nullable(prop) for key, prop in STEP_FIELDS[step].items()}
+    props["ack"] = {"type": "string"}
+    return {"type": "object", "properties": props, "required": list(props), "additionalProperties": False}
+
+
+def _template(step: str) -> str:
+    keys = [f'"{key}": ' + ('[{"who": ..., "need": ...}]' if prop.get("type") == "array" else "...")
+            for key, prop in STEP_FIELDS[step].items()]
+    return "{" + ", ".join(keys + ['"ack": "..."']) + "}"
 
 
 def extract(step: str, utterance: str) -> tuple[dict, str]:
@@ -100,7 +111,8 @@ def extract(step: str, utterance: str) -> tuple[dict, str]:
             max_tokens=150,
             messages=[
                 {"role": "system", "content": SYSTEM},
-                {"role": "user", "content": f"We asked about {QUESTIONS[step]}.\nCaller said: {utterance}"},
+                {"role": "user", "content": (f"We asked about {QUESTIONS[step]}.\nCaller said: {utterance}\n"
+                                             f"Reply with exactly these keys (null if not answered): {_template(step)}")},
             ],
             response_format={"type": "json_schema", "json_schema": {"name": step, "schema": _schema(step)}},
             extra_body=NO_THINKING,
@@ -113,8 +125,23 @@ def extract(step: str, utterance: str) -> tuple[dict, str]:
     if not isinstance(data, dict):
         return {}, ""
     fields = {k: v for k, v in data.items() if k in STEP_FIELDS[step] and v is not None}
+    if "cant_leave_alone" in fields:
+        fields["cant_leave_alone"] = _real_people(fields["cant_leave_alone"])
+    help_keys = {k: fields.pop(k) for k in ("truck", "boat", "seats") if k in fields}
+    if help_keys:
+        fields["can_help"] = help_keys
     ack = data.get("ack") if isinstance(data.get("ack"), str) else ""
     return fields, ack.strip()
+
+
+def _real_people(people) -> list[dict]:
+    """Drop entries the model filled with placeholders like "null" or an empty need."""
+    if not isinstance(people, list):
+        return []
+    blank = {"", "null", "none", "n/a", "unknown"}
+    return [{"who": p["who"].strip(), "need": p["need"].strip()} for p in people
+            if isinstance(p, dict) and isinstance(p.get("who"), str) and isinstance(p.get("need"), str)
+            and p["who"].strip().lower() not in blank and p["need"].strip().lower() not in blank]
 
 
 def _image_url(path: str) -> str:
