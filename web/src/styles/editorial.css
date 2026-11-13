@@ -555,3 +555,29 @@
 /* split layout: keep zoom controls clear of the right card column */
 .app.split .map-controls { right: 362px; }
 .app.split.has-drawer .map-controls { right: calc(var(--drawer-w) + 16px); }
+
+/* Collapsed cards shrink to their header, even the stretching queue card */
+.app .card.is-collapsed { flex: none; }
+
+/* Blue panels (from the original UI) on the card layout */
+.app.split .card, .app.split .playback, .app.split .top-bar, .app.split .column--right .gb10, .app.split .drawer, .app.split .results, .app.split .imagery-popup {
+  background: linear-gradient(107deg, var(--palette-cloud-veil) 0%, var(--palette-ice-petal) 71%);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(0, 40, 90, 0.10);
+}
+.app.split .card__head strong, .app.split .zone-stats strong, .app.split .top-bar__since strong, .app.split .playback__t { color: var(--text); }
+.app.split .card__count, .app.split .zone-stats span, .app.split .card__note, .app.split .zone-note, .app.split .crew-list em,
+.app.split .door-eta, .app.split .top-bar__place em, .app.split .top-bar__since span, .app.split .playback__legend, .app.split .card__empty { color: var(--text-muted); }
+.app.split .card__chevron { border-color: var(--text); }
+.app.split .zone-bar { background: #FFFFFF; }
+.app.split .zone-bar i { background: var(--accent); }
+.app.split .sw--ink { background: var(--text); }
+.app.split .crew-dot { background: var(--text); }
+.app.split .crew-dot.is-active { background: var(--accent); }
+.app.split .door-n, .app.split .stat, .app.split .lean-counter { background: #FFFFFF; border-color: var(--border); }
+.app.split .lean-row { background: #FFFFFF; border-color: var(--border); }
+.app.split .lean-row:hover, .app.split .lean-row.is-selected { border-color: var(--accent); }
+.app.split .lean-row--later .lean-row__eta { background: var(--palette-ice-petal); color: var(--text); }
+.app.split .lean-row__crew { color: var(--accent); }
+.app.split .gb10__brief { border-top-color: var(--border); }
+.app.split .zone-stats strong.is-red { color: var(--status-ink-needs-help); }
