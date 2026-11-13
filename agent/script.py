@@ -134,6 +134,8 @@ def _next_step(state: CallState, fields: dict) -> str:
         return "cant_leave_detail"  # "yes" without saying who: ask, never guess
     if step == "readback" and fields.get("correct") is False and not state.corrected:
         return "fix"
+    if step == "fix" and fields.get("no_change"):
+        return "close"
     return NEXT.get(step) or STEPS[min(STEPS.index(step) + 1, len(STEPS) - 1)]
 
 
@@ -153,5 +155,6 @@ def advance(state: CallState, fields: dict, ack: str) -> tuple[CallState, str]:
     next_step = _next_step(state, fields)
     new = CallState(record=record, step=next_step, reasked=False,
                     corrected=state.corrected or state.step == "fix")
-    safe_ack = guard(ack).strip() if answered else ""
+    # The follow-up question speaks for itself; an ack there tends to restate the answer wrongly.
+    safe_ack = guard(ack).strip() if answered and next_step != "cant_leave_detail" else ""
     return new, (safe_ack + " " if safe_ack else "") + prompt_for(new)

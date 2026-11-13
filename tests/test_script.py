@@ -72,3 +72,8 @@ def test_status_rules():
     assert status_of(Record(id="d", people=2, can_help={"truck": False, "boat": False, "seats": 3})) == "can_help"
     assert status_of(Record(id="e", people=4)) == "safe"
     assert status_of(Record(id="f")) == "unconfirmed"
+
+
+def test_nothing_to_fix_closes_the_call():
+    state, _ = advance(new_state("fix"), {"no_change": True}, "Okay.")
+    assert state.step == "close"

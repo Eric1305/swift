@@ -152,6 +152,9 @@ def extract(step: str, utterance: str) -> tuple[dict, str]:
         fields["cant_leave_alone"] = people
     if step == "water_inside" and "water_inside" not in fields and negative:
         fields["water_inside"] = False
+    if step == "fix" and not people and not any(k in fields for k in ("people", "water_inside", "truck", "boat", "seats")) \
+            and (negative or re.match(r"^(nothing|that'?s (it|all|fine)|it'?s fine|all good)\b", utterance.strip(), re.I)):
+        fields["no_change"] = True
     if step == "readback" and "correct" not in fields and (negative or AFFIRMATIVE.match(utterance.strip())):
         fields["correct"] = not negative
     help_keys = {k: fields.pop(k) for k in ("truck", "boat", "seats") if k in fields}
