@@ -1,7 +1,7 @@
 {
   "id": "h112",
   "status": "can_help",
-  "people": 1,
+  "people": null,
   "cant_leave_alone": [],
   "water_inside": false,
   "can_help": {
@@ -21,47 +21,55 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your address and safety status. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Got it, you’re at 1322 Tumbling Rapids Drive. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Just me here, all by myself, no one else around—so I’m good to go, no problem."
+      "text": "Just me here at the house, no one else, and I’m fine—no water inside, and I can help if you need a boat, though no truck’s available."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you're alone and ready. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Sorry, I didn't catch that. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own, and I’m all by myself—no wheelchair, no oxygen, nothing like that, just me and the house, dry as a bone inside."
+      "text": "Just me here, all by myself, no one else around — and I’m totally fine, no water in the house either."
     },
     {
       "who": "agent",
-      "text": "Is there water inside the home right now?"
+      "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the house right now—just me, and I’m good to go, no need to worry about flooding in here."
+      "text": "No one here can’t leave on their own, and I’m the only person—no wheelchair, no oxygen, no bedbound folks, and I’m fine, just me."
     },
     {
       "who": "agent",
-      "text": "Thanks for checking in, staying safe is key. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, you’re the only person here and fine. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "I’ve got a boat handy if anyone needs a ride out, but no truck or extra seats in a vehicle—just me and my own two feet here at 1322 Tumbling Rapids Drive."
+      "text": "No water inside at all, just me here, and I’m good — no need for a truck, but hey, if you’ve got a boat, I’m all ears, though I’m not sure how that’d help since I’m not even near water."
     },
     {
       "who": "agent",
-      "text": "Thanks for sharing your situation and offering help. Let me read that back: people at the home not confirmed; no water inside yet; you can help with a boat. Is that right?"
+      "text": "You’re all set here, no water inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—just me here, no water in yet, and I can help with a boat, no problem."
+      "text": "No water inside, just me here, but I’ve got a boat—I can help if anyone needs a ride out, just say the word!"
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering help with a boat. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Thanks for offering to help others if needed. Let me read that back: people at the home not confirmed; no water inside yet; you can help with a boat. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just me here, no water in yet, and I can help with a boat if needed, though I don’t have a truck or any seats to spare."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you’re here and ready to help with a boat if needed. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

@@ -6,7 +6,7 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
@@ -16,7 +16,7 @@
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -25,7 +25,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -34,7 +34,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -43,7 +43,7 @@
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -57,17 +57,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -76,7 +86,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -85,7 +95,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -94,7 +104,7 @@
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -103,18 +113,9 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    }
   ]
@@ -126,17 +127,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -145,7 +156,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -154,7 +165,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -163,7 +174,7 @@
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -172,7 +183,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -190,18 +201,9 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    }
   ]
@@ -213,17 +215,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -232,7 +244,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -251,7 +263,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -277,20 +289,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -299,7 +301,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -317,18 +319,27 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h034",
-    "score": 79.3,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
@@ -358,17 +369,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -377,7 +398,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -396,7 +417,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -422,20 +443,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -444,7 +455,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -453,7 +464,7 @@
     "household_id": "h064",
     "score": 129.3,
     "reasons": [
-     "walker",
+     "walker, a walker, his walker to move",
      "water inside",
      "0.8 ft peak",
      "water in ~282 min"
@@ -463,7 +474,7 @@
     "household_id": "h025",
     "score": 114.0,
     "reasons": [
-     "manual wheelchair, help to get out",
+     "manual wheelchair, his manual wheelchair",
      "water inside",
      "no flooding forecast"
     ]
@@ -481,43 +492,43 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h146",
-    "score": 86.4,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "truck ready to go",
-     "1.1 ft peak",
-     "water in ~250 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
     "household_id": "h143",
     "score": 80.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, get him out",
      "0.8 ft peak",
      "water in ~278 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    },
    {
     "household_id": "h005",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving because of manual wheelchair",
+     "a manual wheelchair, manual wheelchair, help leaving",
      "no flooding forecast"
     ]
    },
@@ -533,7 +544,7 @@
     "household_id": "h017",
     "score": 64.0,
     "reasons": [
-     "recovering from surgery, walk",
+     "can't walk, help getting out, can\u2019t walk\u2014she\u2019s recovering from surgery, can't walk, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -564,17 +575,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -583,7 +604,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -602,7 +623,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -628,20 +649,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -650,7 +661,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -659,7 +670,7 @@
     "household_id": "h064",
     "score": 129.3,
     "reasons": [
-     "walker",
+     "walker, a walker, his walker to move",
      "water inside",
      "0.8 ft peak",
      "water in ~282 min"
@@ -669,7 +680,16 @@
     "household_id": "h025",
     "score": 114.0,
     "reasons": [
-     "manual wheelchair, help to get out",
+     "manual wheelchair, his manual wheelchair",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h033",
+    "score": 114.0,
+    "reasons": [
+     "can't leave",
      "water inside",
      "no flooding forecast"
     ]
@@ -687,43 +707,43 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h146",
-    "score": 86.4,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "truck ready to go",
-     "1.1 ft peak",
-     "water in ~250 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
     "household_id": "h143",
     "score": 80.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, get him out",
      "0.8 ft peak",
      "water in ~278 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    },
    {
     "household_id": "h005",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving because of manual wheelchair",
+     "a manual wheelchair, manual wheelchair, help leaving",
      "no flooding forecast"
     ]
    },
@@ -739,7 +759,7 @@
     "household_id": "h017",
     "score": 64.0,
     "reasons": [
-     "recovering from surgery, walk",
+     "can't walk, help getting out, can\u2019t walk\u2014she\u2019s recovering from surgery, can't walk, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -759,14 +779,6 @@
      "water inside",
      "1.5 ft peak",
      "water in ~234 min"
-    ]
-   },
-   {
-    "household_id": "h033",
-    "score": 14.0,
-    "reasons": [
-     "water inside",
-     "no flooding forecast"
     ]
    }
   ]
@@ -778,17 +790,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -797,7 +819,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -816,7 +838,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -842,20 +864,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -864,7 +876,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -873,7 +885,7 @@
     "household_id": "h064",
     "score": 129.3,
     "reasons": [
-     "walker",
+     "walker, a walker, his walker to move",
      "water inside",
      "0.8 ft peak",
      "water in ~282 min"
@@ -883,7 +895,25 @@
     "household_id": "h025",
     "score": 114.0,
     "reasons": [
-     "manual wheelchair, help to get out",
+     "manual wheelchair, his manual wheelchair",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h033",
+    "score": 114.0,
+    "reasons": [
+     "can't leave",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h074",
+    "score": 114.0,
+    "reasons": [
+     "to be rescued",
      "water inside",
      "no flooding forecast"
     ]
@@ -901,43 +931,43 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h146",
-    "score": 86.4,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "truck ready to go",
-     "1.1 ft peak",
-     "water in ~250 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
     "household_id": "h143",
     "score": 80.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, get him out",
      "0.8 ft peak",
      "water in ~278 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    },
    {
     "household_id": "h005",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving because of manual wheelchair",
+     "a manual wheelchair, manual wheelchair, help leaving",
      "no flooding forecast"
     ]
    },
@@ -953,7 +983,7 @@
     "household_id": "h017",
     "score": 64.0,
     "reasons": [
-     "recovering from surgery, walk",
+     "can't walk, help getting out, can\u2019t walk\u2014she\u2019s recovering from surgery, can't walk, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -961,7 +991,7 @@
     "household_id": "h054",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help getting out",
+     "manual wheelchair, manual wheelchair, can't get out on his own, help getting out",
      "no flooding forecast"
     ]
    },
@@ -969,7 +999,7 @@
     "household_id": "h055",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, his manual wheelchair, wheelchair",
      "no flooding forecast"
     ]
    },
@@ -977,7 +1007,7 @@
     "household_id": "h084",
     "score": 64.0,
     "reasons": [
-     "oxygen",
+     "oxygen, help leaving because he\u2019s on oxygen",
      "no flooding forecast"
     ]
    },
@@ -998,22 +1028,6 @@
      "1.5 ft peak",
      "water in ~234 min"
     ]
-   },
-   {
-    "household_id": "h033",
-    "score": 14.0,
-    "reasons": [
-     "water inside",
-     "no flooding forecast"
-    ]
-   },
-   {
-    "household_id": "h074",
-    "score": 14.0,
-    "reasons": [
-     "water inside",
-     "no flooding forecast"
-    ]
    }
   ]
  },
@@ -1024,17 +1038,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -1043,7 +1067,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -1062,7 +1086,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -1088,20 +1112,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -1110,7 +1124,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -1119,7 +1133,7 @@
     "household_id": "h064",
     "score": 129.3,
     "reasons": [
-     "walker",
+     "walker, a walker, his walker to move",
      "water inside",
      "0.8 ft peak",
      "water in ~282 min"
@@ -1129,7 +1143,7 @@
     "household_id": "h116",
     "score": 115.8,
     "reasons": [
-     "recovering from surgery",
+     "can't walk, help getting out",
      "water inside",
      "0.2 ft peak",
      "no flooding forecast"
@@ -1139,7 +1153,25 @@
     "household_id": "h025",
     "score": 114.0,
     "reasons": [
-     "manual wheelchair, help to get out",
+     "manual wheelchair, his manual wheelchair",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h033",
+    "score": 114.0,
+    "reasons": [
+     "can't leave",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h074",
+    "score": 114.0,
+    "reasons": [
+     "to be rescued",
      "water inside",
      "no flooding forecast"
     ]
@@ -1154,15 +1186,6 @@
     ]
    },
    {
-    "household_id": "h128",
-    "score": 114.0,
-    "reasons": [
-     "no truck or boat coming, no seats either",
-     "water inside",
-     "no flooding forecast"
-    ]
-   },
-   {
     "household_id": "h100",
     "score": 110.7,
     "reasons": [
@@ -1175,43 +1198,43 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h146",
-    "score": 86.4,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "truck ready to go",
-     "1.1 ft peak",
-     "water in ~250 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
     "household_id": "h143",
     "score": 80.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, get him out",
      "0.8 ft peak",
      "water in ~278 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    },
    {
     "household_id": "h005",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving because of manual wheelchair",
+     "a manual wheelchair, manual wheelchair, help leaving",
      "no flooding forecast"
     ]
    },
@@ -1227,7 +1250,7 @@
     "household_id": "h017",
     "score": 64.0,
     "reasons": [
-     "recovering from surgery, walk",
+     "can't walk, help getting out, can\u2019t walk\u2014she\u2019s recovering from surgery, can't walk, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -1235,7 +1258,7 @@
     "household_id": "h054",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help getting out",
+     "manual wheelchair, manual wheelchair, can't get out on his own, help getting out",
      "no flooding forecast"
     ]
    },
@@ -1243,7 +1266,7 @@
     "household_id": "h055",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, his manual wheelchair, wheelchair",
      "no flooding forecast"
     ]
    },
@@ -1251,7 +1274,7 @@
     "household_id": "h084",
     "score": 64.0,
     "reasons": [
-     "oxygen",
+     "oxygen, help leaving because he\u2019s on oxygen",
      "no flooding forecast"
     ]
    },
@@ -1259,7 +1282,7 @@
     "household_id": "h105",
     "score": 64.0,
     "reasons": [
-     "bedbound, can't walk, recovering from surgery",
+     "can't walk, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, bedbound, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -1275,7 +1298,7 @@
     "household_id": "h115",
     "score": 64.0,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, a truck or boat, can't walk, totally dependent on me, can't walk at all",
      "no flooding forecast"
     ]
    },
@@ -1298,15 +1321,7 @@
     ]
    },
    {
-    "household_id": "h033",
-    "score": 14.0,
-    "reasons": [
-     "water inside",
-     "no flooding forecast"
-    ]
-   },
-   {
-    "household_id": "h074",
+    "household_id": "h128",
     "score": 14.0,
     "reasons": [
      "water inside",
@@ -1322,17 +1337,27 @@
     "household_id": "h101",
     "score": 194.2,
     "reasons": [
-     "walker, help to get out because he uses crutches",
+     "un andador, ayuda para salir porque usa un andador, ayuda con el andador",
      "water inside",
      "6.0 ft peak",
      "water in ~157 min"
     ]
    },
    {
+    "household_id": "h034",
+    "score": 179.3,
+    "reasons": [
+     "to be rescued",
+     "water inside",
+     "4.7 ft peak",
+     "water in ~173 min"
+    ]
+   },
+   {
     "household_id": "h043",
     "score": 149.5,
     "reasons": [
-     "power wheelchair",
+     "power wheelchair, power wheelchair, motorized, her power wheelchair, wheelchair, help leaving \u2014 power wheelchair",
      "6.5 ft peak",
      "water in ~152 min"
     ]
@@ -1341,7 +1366,7 @@
     "household_id": "h030",
     "score": 148.5,
     "reasons": [
-     "power, ayuda para salir porque usa silla de ruedas el\u00e9ctrica",
+     "silla de ruedas el\u00e9ctrica, silla de ruedas motorizada, ayuda para salir por su silla de ruedas motorizada",
      "6.4 ft peak",
      "water in ~153 min"
     ]
@@ -1360,7 +1385,7 @@
     "household_id": "h007",
     "score": 143.6,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, help getting out",
      "5.9 ft peak",
      "water in ~158 min"
     ]
@@ -1386,20 +1411,10 @@
     ]
    },
    {
-    "household_id": "h140",
-    "score": 142.7,
-    "reasons": [
-     "walker, no truck or boat coming",
-     "water inside",
-     "1.6 ft peak",
-     "water in ~231 min"
-    ]
-   },
-   {
     "household_id": "h050",
     "score": 141.3,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, can't walk at all, she's totally bedbound, can't walk at all",
      "5.7 ft peak",
      "water in ~160 min"
     ]
@@ -1408,7 +1423,7 @@
     "household_id": "h147",
     "score": 136.2,
     "reasons": [
-     "bedbound, help leaving",
+     "can't walk, she's recovering from surgery, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, can't walk, bedbound",
      "5.3 ft peak",
      "water in ~166 min"
     ]
@@ -1417,7 +1432,7 @@
     "household_id": "h064",
     "score": 129.3,
     "reasons": [
-     "walker",
+     "walker, a walker, his walker to move",
      "water inside",
      "0.8 ft peak",
      "water in ~282 min"
@@ -1427,7 +1442,7 @@
     "household_id": "h116",
     "score": 115.8,
     "reasons": [
-     "recovering from surgery",
+     "can't walk, help getting out",
      "water inside",
      "0.2 ft peak",
      "no flooding forecast"
@@ -1437,7 +1452,25 @@
     "household_id": "h025",
     "score": 114.0,
     "reasons": [
-     "manual wheelchair, help to get out",
+     "manual wheelchair, his manual wheelchair",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h033",
+    "score": 114.0,
+    "reasons": [
+     "can't leave",
+     "water inside",
+     "no flooding forecast"
+    ]
+   },
+   {
+    "household_id": "h074",
+    "score": 114.0,
+    "reasons": [
+     "to be rescued",
      "water inside",
      "no flooding forecast"
     ]
@@ -1447,15 +1480,6 @@
     "score": 114.0,
     "reasons": [
      "bedbound",
-     "water inside",
-     "no flooding forecast"
-    ]
-   },
-   {
-    "household_id": "h128",
-    "score": 114.0,
-    "reasons": [
-     "no truck or boat coming, no seats either",
      "water inside",
      "no flooding forecast"
     ]
@@ -1473,43 +1497,43 @@
     "household_id": "h079",
     "score": 101.1,
     "reasons": [
-     "manual wheelchair, help leaving because he uses a manual wheelchair",
+     "manual wheelchair, his manual wheelchair, a manual wheelchair to get out, help leaving because he uses a manual wheelchair",
      "2.2 ft peak",
      "water in ~213 min"
     ]
    },
    {
-    "household_id": "h146",
-    "score": 86.4,
+    "household_id": "h140",
+    "score": 92.7,
     "reasons": [
-     "truck ready to go",
-     "1.1 ft peak",
-     "water in ~250 min"
+     "his walker to get around, walker",
+     "1.6 ft peak",
+     "water in ~231 min"
+    ]
+   },
+   {
+    "household_id": "h109",
+    "score": 91.6,
+    "reasons": [
+     "truck, boat, or free seats",
+     "1.5 ft peak",
+     "water in ~234 min"
     ]
    },
    {
     "household_id": "h143",
     "score": 80.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, get him out",
      "0.8 ft peak",
      "water in ~278 min"
-    ]
-   },
-   {
-    "household_id": "h034",
-    "score": 79.3,
-    "reasons": [
-     "water inside",
-     "4.7 ft peak",
-     "water in ~173 min"
     ]
    },
    {
     "household_id": "h005",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving because of manual wheelchair",
+     "a manual wheelchair, manual wheelchair, help leaving",
      "no flooding forecast"
     ]
    },
@@ -1525,7 +1549,7 @@
     "household_id": "h017",
     "score": 64.0,
     "reasons": [
-     "recovering from surgery, walk",
+     "can't walk, help getting out, can\u2019t walk\u2014she\u2019s recovering from surgery, can't walk, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -1533,7 +1557,7 @@
     "household_id": "h054",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help getting out",
+     "manual wheelchair, manual wheelchair, can't get out on his own, help getting out",
      "no flooding forecast"
     ]
    },
@@ -1541,7 +1565,7 @@
     "household_id": "h055",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair",
+     "manual wheelchair, his manual wheelchair, wheelchair",
      "no flooding forecast"
     ]
    },
@@ -1549,7 +1573,7 @@
     "household_id": "h084",
     "score": 64.0,
     "reasons": [
-     "oxygen",
+     "oxygen, help leaving because he\u2019s on oxygen",
      "no flooding forecast"
     ]
    },
@@ -1557,7 +1581,7 @@
     "household_id": "h105",
     "score": 64.0,
     "reasons": [
-     "bedbound, can't walk, recovering from surgery",
+     "can't walk, she\u2019s recovering from surgery. She\u2019s bedbound., can't walk, bedbound, recovering from surgery",
      "no flooding forecast"
     ]
    },
@@ -1573,7 +1597,7 @@
     "household_id": "h115",
     "score": 64.0,
     "reasons": [
-     "bedbound, can't walk",
+     "can't walk, a truck or boat, can't walk, totally dependent on me, can't walk at all",
      "no flooding forecast"
     ]
    },
@@ -1581,7 +1605,7 @@
     "household_id": "h136",
     "score": 64.0,
     "reasons": [
-     "manual wheelchair, help leaving",
+     "manual wheelchair, his manual wheelchair, manual wheelchair to get out, help leaving because of his manual wheelchair",
      "no flooding forecast"
     ]
    },
@@ -1589,7 +1613,7 @@
     "household_id": "h148",
     "score": 64.0,
     "reasons": [
-     "bedbound",
+     "bedbound, can\u2019t move or leave alone, bedbound",
      "no flooding forecast"
     ]
    },
@@ -1612,15 +1636,7 @@
     ]
    },
    {
-    "household_id": "h033",
-    "score": 14.0,
-    "reasons": [
-     "water inside",
-     "no flooding forecast"
-    ]
-   },
-   {
-    "household_id": "h074",
+    "household_id": "h128",
     "score": 14.0,
     "reasons": [
      "water inside",

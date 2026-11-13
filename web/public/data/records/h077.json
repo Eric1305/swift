@@ -1,7 +1,7 @@
 {
   "id": "h077",
-  "status": "safe",
-  "people": 1,
+  "status": "unconfirmed",
+  "people": null,
   "cant_leave_alone": [],
   "water_inside": false,
   "can_help": {
@@ -29,27 +29,35 @@
     },
     {
       "who": "agent",
+      "text": "Sorry, I didn't catch that. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me, all by myself, no one else here, and I’m totally fine, no water in the house either."
+    },
+    {
+      "who": "agent",
       "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Nope, just me, all good, no one here who can’t leave on their own, not even a wheelchair or oxygen—everything’s fine, no need for help."
+      "text": "Nope, just me, all good, no one here who can’t leave on their own, and I’m not stuck inside or needing any special help—water’s fine, no issues at all."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you're all set. Is there water inside the home right now?"
+      "text": "Understood, you’re alone and unimpeded. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Nope, no water inside at all, just me here, all good, no need for any help or trucks or boats—everything’s dry and fine."
+      "text": "No water inside at all, just me here by myself, no trouble leaving or anything, everything’s dry and fine."
     },
     {
       "who": "agent",
-      "text": "Glad to hear everything’s dry and fine. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Nope, no truck, no boat, and I’m all alone—no seats to spare, sorry!"
+      "text": "Nope, no truck, no boat, and I’m all by myself—no seats to spare, sorry!"
     },
     {
       "who": "agent",
@@ -61,7 +69,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation is calm and clear. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "You’re at 136 Stroudwater Lane, no water in yet. I wasn't able to confirm everything, so a responder may follow up with you. Goodbye."
     }
   ],
   "house_card": null,

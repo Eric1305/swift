@@ -21,35 +21,35 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar su situación actual. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Understood, you’re at 1630 Seven Springs Drive. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Solo estoy yo aquí. No hay nadie más."
+      "text": "Soy solo yo aquí. No hay nadie más."
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know you're alone at home. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I heard you're alone at home right now. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No, no uno que no pueda salir solo. Todo bien aquí."
+      "text": "No, no hay nadie que no pueda salir solo. Todo está bien."
     },
     {
       "who": "agent",
-      "text": "Understood, everything seems okay here. Is there water inside the home right now?"
+      "text": "Understood, no one is unable to leave alone. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, no hay agua adentro. Todo está bien."
+      "text": "No, no hay agua adentro. Estoy bien, solo estoy aquí."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming everything is okay inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No tengo camión con buena altura, ni bote, ni asientos libres en un vehículo."
+      "text": "No tengo camioneta con buena altura, ni bote, ni asientos libres en un vehículo."
     },
     {
       "who": "agent",

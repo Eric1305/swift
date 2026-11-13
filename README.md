@@ -74,14 +74,15 @@ From `web/public/data/results.json`, using seed 7 and 150 households.
 
 | Metric | Value | What it means |
 |---|---|---|
-| Record accuracy | **96.1%** | Share of simulated residents whose final status (needs help / can help / safe / unconfirmed / no answer) matches their hidden ground truth |
+| Record accuracy | **91.5%** | Share of simulated residents whose final status (needs help / can help / safe / unconfirmed / no answer) matches their hidden ground truth |
+| Needs-help homes flagged | **34 of 34** (1 false alarm) | Every simulated household that truly needed help was recorded as needs help. The misses are cautious ones: 5 safe homes left "unconfirmed" and 5 helpers recorded as safe |
 | Promises spoken to residents | **0** | Lines that reached a resident and implied rescue or safety |
-| Promises blocked by the guard | **47** | Model acknowledgments that contained a banned phrase and were blanked before they were spoken |
-| Needs-help homes reached before water arrives (replay night) | **911 baseline 48.6% → Swift 100%** | Same fleet of 3 vehicles. In the baseline, 55% of needs-help homes get through to 911, 20 min before their water arrives, and are served first come, first served. Swift knows every needs-help home once its call completes and serves them in rank order. |
-| 1,000 randomized nights (Monte Carlo) | **median 34.3% → 82.9%** (Swift p10–p90: 68.6–94.3%) | Each night varies peak rise (8–16 ft), no-answer rate (5–30%), fleet (2–5 vehicles) and 911 reach rate (30–70%) |
+| Promises blocked by the guard | **48** | Model acknowledgments that contained a banned phrase and were blanked before they were spoken |
+| Needs-help homes reached before water arrives (replay night) | **911 baseline 57.1% → Swift 100%** | Same fleet of 3 vehicles. In the baseline, 55% of needs-help homes get through to 911, 20 min before their water arrives, and are served first come, first served. Swift knows every needs-help home once its call completes and serves them in rank order. |
+| 1,000 randomized nights (Monte Carlo) | **median 34.3% → 82.9%** (Swift p10–p90: 68.6–91.4%) | Each night varies peak rise (8–16 ft), no-answer rate (5–30%), fleet (2–5 vehicles) and 911 reach rate (30–70%) |
 | Parallel call lines in the simulation | 8 | Kept low because every team shares the hosted model |
 
-Replay outcome: 82 safe, 35 need help, 12 can help, 21 no answer (11 door-knock clusters), and 35 vehicle trips (2 high-water vehicles, 1 boat, and neighbor trucks and boats offered on the calls).
+Replay outcome: 77 safe, 35 need help, 12 can help, 5 unconfirmed, 21 no answer (11 door-knock clusters), and 35 vehicle trips: 9 by the agency fleet (2 high-water vehicles, 1 boat) and 26 by neighbors' trucks and boats offered on the calls.
 
 **Caveats.**
 - The households are real OSM buildings, but the residents are synthetic. The personas and their mix (20% need help, 15% can help, 50% safe, 15% no answer) are ours, and the accuracy figure measures how well our system reads LLM-simulated residents, not real people under stress.

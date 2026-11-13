@@ -17,11 +17,11 @@
     },
     {
       "who": "resident",
-      "text": "Yes, this is 1660 Blueberry Hill Court. I’m safe and alone, no water inside, and I can’t leave on my own."
+      "text": "Yes, this is 1660 Blueberry Hill Court. I’m safe and alone, no water inside, and I can’t leave on my own — but I don’t need help right now."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your address and safety status. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -29,23 +29,31 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I heard you're alone at the house. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. I just corrected myself — there’s only me, and I’m fine."
+      "text": "No, I’m alone and no one here can’t leave on their own. I didn’t say I’m alone — I meant no one here is unable to leave."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you're fine. Is there water inside the home right now?"
+      "text": "Understood, no one here is unable to leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the home right now. Just to clarify, I’m alone and not in immediate danger."
+      "text": "No, there’s no water inside the home right now.  \n*(corrects themselves)*  \nActually, I’m alone, and I can’t leave on my own — but there’s no water inside."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming you’re not in immediate danger. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re alone and can’t leave — I’m here to listen. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "I’m alone, but I can leave if needed — no truck, boat, or extra seats here."
+    },
+    {
+      "who": "agent",
+      "text": "Sorry, I didn't catch that. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",

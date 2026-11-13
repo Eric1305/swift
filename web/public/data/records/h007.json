@@ -6,6 +6,10 @@
     {
       "who": "dad",
       "need": "manual wheelchair"
+    },
+    {
+      "who": "dad",
+      "need": "help getting out"
     }
   ],
   "water_inside": false,
@@ -22,53 +26,53 @@
     },
     {
       "who": "resident",
-      "text": "Yeah, this is me at 190 Sandy Hill Drive, just me and my dad stuck here—dad’s in a manual wheelchair and we can’t leave alone, no truck or boat coming, and the water’s not in yet but we’re definitely in trouble."
+      "text": "Yeah, this is me at 190 Sandy Hill Drive, just me and my dad stuck here—dad’s in a manual wheelchair and can’t leave alone, and we’re totally stuck with no way to get out or get help, no truck, no boat, no seats anywhere."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck and in trouble—staying safe is key. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "I hear you’re stuck and need support right now. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There’s two of us here, but my dad’s stuck in his manual wheelchair and can’t move without help—he’s the one who can’t come to the phone."
+      "text": "There’s two of us here, but my dad’s stuck in his manual wheelchair and can’t move without help—so yeah, we’re both stuck and need someone to come get us."
     },
     {
       "who": "agent",
-      "text": "I hear you’re here with your dad in the wheelchair. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I hear you’re both stuck and need assistance. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Yeah, my dad’s here with his manual wheelchair—he can’t leave on his own, and it’s not motorized, just a regular one."
+      "text": "Yeah, my dad’s stuck—he’s in a manual wheelchair, so he can’t get out by himself, and we’re both here, no one else can help, and we don’t have a truck or boat or any seats to get out."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know about your dad’s situation. Is there water inside the home right now?"
+      "text": "I hear you’re stuck with your dad in the wheelchair. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the house, but my dad’s in a manual wheelchair and can’t leave alone—just us two here, no truck or boat or seats to help."
+      "text": "No water inside at all, thank God—just us two stuck here, my dad’s in his manual wheelchair and he can’t leave without help, and I’m not sure how we’re gonna get out since we don’t have a truck or boat or even a spare seat to lift him out."
     },
     {
       "who": "agent",
-      "text": "I hear you’re staying with your dad—staying safe is key right now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re stuck with your dad in the wheelchair. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Nope, no truck, no boat, and I’m not driving anywhere—dad’s in his manual wheelchair and I can’t leave him alone, so we’re stuck here, just us two, no way out."
+      "text": "Nope, no truck, no boat, and we’re not got any seats to spare—just us two stuck here, dad in his wheelchair, can’t leave without help, and we’re not getting out on our own."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck with dad—no way out right now. Let me read that back: 2 people; dad needs help leaving because of manual wheelchair; no water inside yet. Is that right?"
+      "text": "I hear you’re stuck and need help to leave. Let me read that back: 2 people; dad needs help leaving because of manual wheelchair; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—just me and dad, he’s in a manual wheelchair and can’t get out alone, no water in yet but we’re stuck, no truck or boat or seats coming our way."
+      "text": "Yeah, that’s right—two of us, my dad’s in a manual wheelchair and can’t leave alone, no water in the house yet, but we’re stuck and need help getting out."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation, we’re listening. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "I heard you, we’re here to help you get out. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people live here. Dad needs a manual wheelchair and can’t leave alone. No water inside. Language: English.",
+  "house_card": "Two people. Dad needs manual wheelchair and help getting out. No water inside. English.",
   "attempts": 1
 }

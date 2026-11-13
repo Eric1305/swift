@@ -4,8 +4,28 @@
   "people": 4,
   "cant_leave_alone": [
     {
-      "who": "mom",
+      "who": "mother",
       "need": "power wheelchair"
+    },
+    {
+      "who": "Mom",
+      "need": "power wheelchair"
+    },
+    {
+      "who": "Mom",
+      "need": "power wheelchair, motorized"
+    },
+    {
+      "who": "mom",
+      "need": "her power wheelchair"
+    },
+    {
+      "who": "mom",
+      "need": "wheelchair"
+    },
+    {
+      "who": "mom",
+      "need": "help leaving — power wheelchair"
     }
   ],
   "water_inside": false,
@@ -26,49 +46,49 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Acknowledged, you’re at 486 Shawna Street. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Four people total. Mom’s in her power wheelchair—she can’t leave alone."
+      "text": "Four people total. Mom’s in a power wheelchair, can’t leave alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that important detail with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, four people including Mom in power wheelchair. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Yes, my mom can’t leave alone—she uses a power wheelchair. It’s motorized."
+      "text": "Yes, Mom can’t leave alone—she’s in a power wheelchair. It’s motorized."
     },
     {
       "who": "agent",
-      "text": "Thanks for sharing that info. Is there water inside the home right now?"
+      "text": "Understood, Mom can’t leave alone due to her power wheelchair. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside. Just us four stuck here. Mom’s in her power wheelchair—can’t leave her alone."
+      "text": "No water inside. Mom can’t leave alone—she needs her power wheelchair."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck with Mom in her wheelchair—staying close is key. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear mom needs her power wheelchair and can’t leave alone. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No truck, no boat, no seats. We’re stuck here with Mom in her wheelchair."
+      "text": "No truck, no boat, no seats. Mom’s wheelchair can’t leave without it."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck with Mom in her wheelchair. Let me read that back: 4 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+      "text": "Understood, mom’s wheelchair can’t leave without it. Let me read that back: 4 people; mother needs help leaving because of power wheelchair; Mom needs help leaving because of power wheelchair; Mom needs help leaving because of power wheelchair, motorized; mom needs help leaving because of her power wheelchair; mom needs help leaving because of wheelchair; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes. Four people. Mom’s in power wheelchair. No water in yet."
+      "text": "Yes. Four people. Mom needs help leaving — power wheelchair. No water inside yet."
     },
     {
       "who": "agent",
-      "text": "Got it. Four people, mom in power wheelchair, no water in yet. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Got it, thanks for confirming. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people live here. Mom needs power wheelchair to leave. No water inside. Language: English. Power chair: ~400 lb, bring 2-3 lifters.",
+  "house_card": "4 people. Mom needs power wheelchair to leave. Water not inside. English. Power chair: ~400 lb, bring 2-3 lifters.",
   "attempts": 1
 }

@@ -4,12 +4,16 @@
   "people": 2,
   "cant_leave_alone": [
     {
-      "who": "mother",
-      "need": "power"
+      "who": "madre",
+      "need": "silla de ruedas eléctrica"
+    },
+    {
+      "who": "una madre",
+      "need": "silla de ruedas motorizada"
     },
     {
       "who": "la madre",
-      "need": "ayuda para salir porque usa silla de ruedas eléctrica"
+      "need": "ayuda para salir por su silla de ruedas motorizada"
     }
   ],
   "water_inside": false,
@@ -30,7 +34,7 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar tu ubicación y necesidades. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Gracias por confirmar tu dirección y situación. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -38,7 +42,7 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por informar, estamos atentos a su situación. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Gracias por informar, estamos atentos. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -46,33 +50,33 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing this important detail. Is there water inside the home right now?"
+      "text": "Entendido, la madre necesita silla de ruedas motorizada. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, no hay agua adentro. Pero mi mamá necesita su silla de ruedas eléctrica y no podemos salir solos."
+      "text": "No hay agua adentro. La madre necesita la silla motorizada, no podemos salir solo."
     },
     {
       "who": "agent",
-      "text": "I hear your mom needs her wheelchair, and you’re stuck inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, you’re staying inside for now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No tengo camioneta, bote ni asientos libres en un vehículo.  \nMi mamá necesita su silla de ruedas, pero no podemos salir."
+      "text": "No tengo camioneta con altura suficiente, ni bote, ni asientos libres en un vehículo."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck and can’t move right now. Let me read that back: 2 people; mother needs help leaving because of power; no water inside yet. Is that right?"
+      "text": "Understood, no high-clearance truck, boat, or free seats available. Let me read that back: 2 people; madre needs help leaving because of silla de ruedas eléctrica; una madre needs help leaving because of silla de ruedas motorizada; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Sí, dos personas. La madre necesita ayuda para salir porque usa silla de ruedas eléctrica. No hay agua adentro."
+      "text": "Sí, eso es correcto. Dos personas, la madre necesita ayuda para salir por su silla de ruedas motorizada, y no hay agua adentro."
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar los detalles de la situación. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Gracias por confirmar los detalles. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Dos personas. Madre necesita energía para salir; usa silla de ruedas eléctrica. No hay agua dentro. Español.",
+  "house_card": "Dos personas. Madre necesita silla de ruedas eléctrica/motorizada; no puede salir sola. No hay agua dentro. Español.",
   "attempts": 1
 }

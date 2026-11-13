@@ -29,27 +29,27 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone can speak on the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for letting me know everyone can come to the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. I just want to clarify — no one is bedbound or uses a wheelchair, so no motorized equipment needed."
+      "text": "No one here can’t leave on their own. I just want to clarify — no one is bedbound, on oxygen, or uses a wheelchair."
     },
     {
       "who": "agent",
-      "text": "Got it, no one here needs special equipment to leave. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside the home right now. Just four people here, all able to leave on their own."
+      "text": "No, there’s no water inside the home.  \n*(corrects themselves)*  \nActually, there are four people here, and no one needs help leaving alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for the update, everyone is accounted for. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Thank you for the update, we’re listening. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No, we don’t have a high-clearance truck, boat, or any free seats in a vehicle to help neighbors."
+      "text": "No, I don’t have a high-clearance truck, boat, or any free seats in a vehicle to help neighbors evacuate."
     },
     {
       "who": "agent",
@@ -61,7 +61,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your safety and current status. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Thank you for confirming your safety and status. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

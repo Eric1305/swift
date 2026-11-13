@@ -7,7 +7,7 @@
   "can_help": {
     "truck": false,
     "boat": true,
-    "seats": 3
+    "seats": 0
   },
   "language": "en",
   "transcript": [
@@ -21,47 +21,47 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your address and safety status. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Got it, you’re at 986 Creekhaven Drive with two others. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There are three people here total, and everyone’s able to be at the phone—no one’s stuck inside or can’t leave alone."
+      "text": "Yeah, just the three of us here at 986 Creekhaven Drive, no one’s stuck inside or anything—everyone’s accounted for, and we’re all good to go."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone is able to be at the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for confirming everyone is accounted for and ready to go. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own, not even a wheelchair or oxygen user—everyone’s good to go, and we’re all able to move around fine, no motorized chairs or anything like that."
+      "text": "No one here can’t leave on their own, and no wheelchairs or oxygen needs—just three of us, all good to go, and we’ve got a boat ready if needed."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming everyone can move around safely. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside at all, just a dry house, and I’m good to go—no one’s stuck or needing help leaving, and I’ve got a boat ready if needed, though no truck."
+      "text": "No water inside at all, just us three folks hanging tight, and yeah, we’ve got a boat handy if you’re coming—no truck though, sorry."
     },
     {
       "who": "agent",
-      "text": "Thanks for the update—stay safe and ready. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Thanks for the update, staying safe is key. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yeah, I’ve got a boat ready to go if anyone needs a ride out—just let me know, I’m at 986 Creekhaven Drive, and I’ve got three people here, no one’s stuck alone, and the water’s not in yet."
+      "text": "Yeah, I’m good here, no water inside, and I’ve got a boat handy if anyone needs to get out—just say the word, 986 Creekhaven Drive!"
     },
     {
       "who": "agent",
-      "text": "Thanks for offering help and sharing your situation. Let me read that back: 3 people; no water inside yet; you can help with a boat and 3 free seats. Is that right?"
+      "text": "Thanks for offering your boat, 986 Creekhaven Drive. Let me read that back: 3 people; no water inside yet; you can help with a boat. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—three people here, no water in yet, and I’ve got a boat ready to go, though no seats are taken right now."
+      "text": "Yeah, that’s right—three people here, no water in yet, and I’ve got a boat ready to go, no problem!"
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation and readiness. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Got it, three people, no water in, boat ready. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

@@ -1,17 +1,17 @@
 {
-  "record_accuracy": 0.961,
+  "record_accuracy": 0.915,
   "promise_violations": 0,
   "parallel_calls": 8,
   "n_households": 150,
-  "baseline_pct": 48.6,
+  "baseline_pct": 57.1,
   "swift_pct": 100.0,
   "mc": {
     "median_baseline": 34.3,
     "median_swift": 82.9,
     "p10": 68.6,
-    "p90": 94.3,
+    "p90": 91.4,
     "n": 1000,
     "seconds": 0.007
   },
-  "promises_blocked": 47
+  "promises_blocked": 48
 }

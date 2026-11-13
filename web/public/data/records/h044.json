@@ -1,13 +1,13 @@
 {
   "id": "h044",
-  "status": "safe",
+  "status": "can_help",
   "people": 5,
   "cant_leave_alone": [],
   "water_inside": false,
   "can_help": {
     "truck": false,
     "boat": false,
-    "seats": 0
+    "seats": 1
   },
   "language": "en",
   "transcript": [
@@ -17,51 +17,51 @@
     },
     {
       "who": "resident",
-      "text": "Yes, this is 1170 Rolling Timber Drive. I’m here with five people, no water inside, and I can help—just a boat available, no truck or seats."
+      "text": "Yes, this is 1170 Rolling Timber Drive. I’m here with five people, no water inside, and I can help — we have a boat available."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering to help. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thank you for confirming your address and offering assistance. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There are five people at the home right now."
+      "text": "There are five people here total, and everyone can come to the phone."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for confirming everyone can use the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. I just corrected myself — there are five people, all able to move around, and no one uses a wheelchair or needs oxygen."
+      "text": "No one here can’t leave on their own. I just want to clarify — no one is bedbound, on oxygen, or uses a wheelchair."
     },
     {
       "who": "agent",
-      "text": "Thanks for the update — I’ve noted everyone can move around freely. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the home right now. I just corrected myself — everyone can move around freely, and we’re not flooded."
+      "text": "No, there’s no water inside the home. I’m sorry, I meant to say there are five people here, not four."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming the home is dry and safe to move around in. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Thanks for the update, I’ve noted the correction. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "I don’t have a high-clearance truck or a boat, but I do have free seats in a vehicle if neighbors need a ride out."
+      "text": "I don’t have a high-clearance truck or a boat, but I do have free seats in a vehicle."
     },
     {
       "who": "agent",
-      "text": "Thanks for offering rides to neighbors if needed. Let me read that back: 5 people; no water inside yet. Is that right?"
+      "text": "Thanks for letting us know about your available seats. Let me read that back: 5 people; no water inside yet; you can help with 1 free seats. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes, that’s right — five people, no water inside yet. I can help with a boat, but no truck or seats available."
+      "text": "Yes, that’s right — 5 people, no water inside yet, and I can help with 1 free seat. (Correction: I meant “1 free seat” — not “free seats” — since the system shows 0 seats available.)"
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering help with the boat. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Got it — 5 people, no water, 1 free seat confirmed. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

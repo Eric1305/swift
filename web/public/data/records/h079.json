@@ -9,6 +9,14 @@
     },
     {
       "who": "father",
+      "need": "his manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "a manual wheelchair to get out"
+    },
+    {
+      "who": "father",
       "need": "help leaving because he uses a manual wheelchair"
     }
   ],
@@ -38,7 +46,7 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thank you for sharing that information. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -46,33 +54,41 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information. Is there water inside the home right now?"
+      "text": "I heard you mentioned your father and his wheelchair. Who is it that can't leave on their own, and what do they need to get out?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the home right now. I just meant to say, there’s no water inside — not that there’s water outside."
+      "text": "My father can’t leave on his own—he needs his manual wheelchair to get out."
     },
     {
       "who": "agent",
-      "text": "Thanks for clarifying your situation. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I heard you need help getting your father out. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, we don’t have a high-clearance truck, boat, or any free seats in a vehicle. I just corrected myself — we’re stuck inside, but my father needs help getting out in his manual wheelchair."
+      "text": "No, there’s no water inside the home. But my father needs a manual wheelchair to get out, and I can’t leave him alone."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck inside and your father needs help getting out. Let me read that back: 2 people; father needs help leaving because of manual wheelchair; no water inside yet. Is that right?"
+      "text": "I hear your concern about your father needing help. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yes, that’s right — two people here, my father needs help leaving because he uses a manual wheelchair, and there’s no water inside yet."
+      "text": "No, we don’t have a high-clearance truck, boat, or any free seats in a vehicle. My father needs a manual wheelchair to get out, and we can’t leave him alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your situation clearly. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "I hear you’re concerned about your father’s mobility and safety. Let me read that back: 2 people; father needs help leaving because of manual wheelchair; father needs help leaving because of his manual wheelchair; father needs help leaving because of a manual wheelchair to get out; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right — two people, my father needs help leaving because of his manual wheelchair, no water inside yet.  \n*(corrects themselves)*  \nActually, he needs help leaving because he uses a manual wheelchair — not because of a wheelchair to get out."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming and correcting the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people. Father needs help leaving due to manual wheelchair. No water inside. Language: English.",
+  "house_card": "Two people. Father needs manual wheelchair to leave; can’t go alone. No water inside. English.",
   "attempts": 1
 }

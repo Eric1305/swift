@@ -361,7 +361,7 @@
   "t_min": 6.0,
   "household_id": "h113",
   "event": "complete",
-  "status": "can_help"
+  "status": "safe"
  },
  {
   "t_min": 6.0,
@@ -403,7 +403,7 @@
   "t_min": 6.0,
   "household_id": "h111",
   "event": "complete",
-  "status": "safe"
+  "status": "unconfirmed"
  },
  {
   "t_min": 6.0,
@@ -643,7 +643,7 @@
   "t_min": 9.0,
   "household_id": "h085",
   "event": "complete",
-  "status": "safe"
+  "status": "unconfirmed"
  },
  {
   "t_min": 9.0,
@@ -855,7 +855,7 @@
   "t_min": 12.0,
   "household_id": "h109",
   "event": "complete",
-  "status": "safe"
+  "status": "needs_help"
  },
  {
   "t_min": 12.0,
@@ -1010,13 +1010,13 @@
   "t_min": 15.0,
   "household_id": "h146",
   "event": "complete",
-  "status": "needs_help"
+  "status": "can_help"
  },
  {
   "t_min": 15.0,
   "household_id": "h077",
   "event": "complete",
-  "status": "safe"
+  "status": "unconfirmed"
  },
  {
   "t_min": 15.0,
@@ -1270,13 +1270,13 @@
   "t_min": 18.0,
   "household_id": "h044",
   "event": "complete",
-  "status": "safe"
+  "status": "can_help"
  },
  {
   "t_min": 18.0,
   "household_id": "h046",
   "event": "complete",
-  "status": "can_help"
+  "status": "safe"
  },
  {
   "t_min": 18.0,
@@ -1452,7 +1452,7 @@
   "t_min": 21.0,
   "household_id": "h059",
   "event": "complete",
-  "status": "safe"
+  "status": "unconfirmed"
  },
  {
   "t_min": 21.0,
@@ -1500,7 +1500,7 @@
   "t_min": 21.0,
   "household_id": "h081",
   "event": "complete",
-  "status": "safe"
+  "status": "unconfirmed"
  },
  {
   "t_min": 21.0,

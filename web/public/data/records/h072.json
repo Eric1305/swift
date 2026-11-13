@@ -29,39 +29,39 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know about the people here. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, two people here, no one can’t come to the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. No wheelchair or medical needs."
+      "text": "No one can’t leave on their own. No wheelchair or medical needs here."
     },
     {
       "who": "agent",
-      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
+      "text": "Understood, no one is unable to leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Yes, there’s water inside. Two people are here, and no help is coming."
+      "text": "Yes, there’s water inside. We’re two people, and we need help."
     },
     {
       "who": "agent",
-      "text": "I hear you’re managing with two people here. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re inside with water and need help. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No truck, no boat, no free seats. We’re stuck inside with two people."
+      "text": "No truck, no boat, no free seats. We’re stuck inside with water."
     },
     {
       "who": "agent",
-      "text": "Understood, you’re inside with two people. Let me read that back: 2 people; water is inside. Is that right?"
+      "text": "Understood, you’re stuck inside with water. Let me read that back: 2 people; water is inside. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes. Two people inside. Water’s in the house."
+      "text": "Yes. Two people inside. Water’s in."
     },
     {
       "who": "agent",
-      "text": "Got it. Staying put with water inside. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Got it. Two people inside. Water’s in. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
   "house_card": "Two people reside; none barred from leaving. Water inside. Language: English.",

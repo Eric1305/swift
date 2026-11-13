@@ -21,47 +21,47 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your safety and location. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thank you for confirming your safety and address. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There are three people here total, and no one is unable to come to the phone."
+      "text": "There are three people here total, and no one needs to be left alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, three people here, none need to be left alone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. I just want to clarify — there’s no wheelchair or anyone bedbound."
+      "text": "No one here can’t leave on their own. Just three people, all able to move around fine."
     },
     {
       "who": "agent",
-      "text": "Got it, no one here can’t leave on their own. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside the home right now. Just three people here, all able to leave on their own."
+      "text": "No, there’s no water inside the home. Just to clarify, I’m at 604 Concord Grove."
     },
     {
       "who": "agent",
-      "text": "Thank you for the update. Stay alert and prepared. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Got it, you’re at 604 Concord Grove, no water inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No, I don’t have a high-clearance truck, boat, or any free seats in a vehicle to help neighbors. (I meant to say “I don’t have any vehicles available to help.”)"
+      "text": "No water inside, and I don’t have a truck, boat, or any free seats to give rides."
     },
     {
       "who": "agent",
-      "text": "Thanks for sharing your situation honestly. Let me read that back: 3 people; no water inside yet. Is that right?"
+      "text": "Understood, no truck, boat, or free seats available. Let me read that back: 3 people; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes, that’s right — three people, no water inside yet. Just to clarify, we’re all safe and able to help each other."
+      "text": "Yes, that’s right — three people, no water inside yet. Just to clarify, I’m safe and no one needs to be left alone."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming — you’re all okay and helping each other. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

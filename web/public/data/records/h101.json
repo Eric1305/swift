@@ -4,12 +4,16 @@
   "people": 1,
   "cant_leave_alone": [
     {
-      "who": "my son",
-      "need": "walker"
+      "who": "mi hijo",
+      "need": "un andador"
     },
     {
-      "who": "my son",
-      "need": "help to get out because he uses crutches"
+      "who": "mi hijo",
+      "need": "ayuda para salir porque usa un andador"
+    },
+    {
+      "who": "mi hijo",
+      "need": "ayuda con el andador"
     }
   ],
   "water_inside": true,
@@ -26,53 +30,69 @@
     },
     {
       "who": "resident",
-      "text": "Sí, soy yo en 638 Hidden Acres Drive. Tengo a mi hijo con un andador, el agua está adentro y no puedo salir solo."
+      "text": "Sí, soy yo en 638 Hidden Acres Drive. Tengo a mi hijo con un andador y el agua está adentro, no puedo salir solo."
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar tu ubicación y situación. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Understood, you’re at 638 Hidden Acres Drive with your son. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Hay una persona en casa, y mi hijo, que necesita un andador, no puede salir solo."
+      "text": "Sí, estoy en 638 Hidden Acres Drive con mi hijo. Solo hay una persona en casa, pero él necesita un andador para moverse."
     },
     {
       "who": "agent",
-      "text": "I heard you have two people at home, including your son who needs a walker. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Gracias por informar, estamos atentos. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Sí, mi hijo necesita un andador y no puede salir solo. No tiene silla de ruedas ni oxígeno, solo necesita el andador."
+      "text": "Sí, hay alguien que no puede salir solo: mi hijo necesita un andador. No tiene silla de ruedas ni oxígeno."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information. Is there water inside the home right now?"
+      "text": "Gracias por compartir esa información. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Sí, hay agua dentro de la casa. Lo siento, me equivoqué al decir que no."
+      "text": "Sí, hay agua adentro de la casa.  \n(Lo siento, me equivoqué: hay agua adentro de la casa.)"
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, entendemos la situación. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Gracias por confirmar el agua adentro de la casa. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No tengo camioneta con buena altura, ni bote, ni asientos libres en ningún vehículo.  \n(Lo siento, me equivoqué: no tengo camioneta con buena altura, ni bote, ni asientos libres en ningún vehículo.)"
+      "text": "No, no tengo camioneta con buena altura, barco ni asientos libres en un vehículo. Mi hijo necesita un andador y no puedo salir solo."
     },
     {
       "who": "agent",
-      "text": "Understood, no high-clearance truck, boat, or free seats available. Let me read that back: 2 people; my son needs help leaving because of walker; water is inside. Is that right?"
+      "text": "Understood, you’re not alone in this. Let me read that back: 2 people; mi hijo needs help leaving because of un andador; water is inside. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Sí, es correcto, pero solo hay una persona aquí, no dos; mi hijo necesita ayuda para salir porque usa muletas."
+      "text": "No, solo hay una persona aquí; mi hijo necesita ayuda para salir porque usa un andador, y el agua está adentro."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming and sharing your son’s situation. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Entendido, tu hijo necesita ayuda por el andador. Sorry about that. What should I fix?"
+    },
+    {
+      "who": "resident",
+      "text": "Lo siento, me equivoqué: mi hijo necesita ayuda con el andador, pero no puedo salir solo. Vivo en 638 Hidden Acres Drive."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re staying with your child needing walker help. Let me read that back: 1 people; mi hijo needs help leaving because of un andador; mi hijo needs help leaving because of ayuda para salir porque usa un andador; mi hijo needs help leaving because of ayuda con el andador; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, mi hijo necesita ayuda para salir porque usa un andador, y el agua está adentro.  \n(¡Corrección! No es “ayuda para salir porque usa un andador”, sino “ayuda para salir porque necesita un andador”.)"
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por la corrección, entiendo la situación. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Una persona. Mi hijo necesita andador y ayuda para salir por muletas. Agua dentro. Español.",
+  "house_card": "1 persona. Mi hijo necesita ayuda con andador, no puede salir solo. Agua dentro. Español.",
   "attempts": 1
 }

@@ -29,39 +29,39 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone’s okay and accounted for. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for letting us know you’re all safe and accounted for. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own, and no wheelchairs or medical needs—everyone’s fine and mobile, just five of us chilling inside, no water in, and we’re all good to go."
+      "text": "Nope, everyone’s good to go—no one’s stuck or needs special help, not even a wheelchair or oxygen, and we’re all fine inside, no water in the house either."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone’s fine and mobile. Is there water inside the home right now?"
+      "text": "Everyone’s good to go, no one needs help. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside at all, just everyone’s hanging out fine right here at 410 Georgetown Colony Drive, no need for any help or evacuation—everything’s dry and under control."
+      "text": "No water inside at all, everyone’s fine here, just us five hanging out, no need for anything—trucks, boats, or seats, nothing’s needed."
     },
     {
       "who": "agent",
-      "text": "Good to hear everyone’s safe and dry at your home. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Thanks for letting us know you’re all safe. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Nope, no truck, no boat, and I don’t have any free seats in a vehicle—everyone’s here, no one’s leaving, and we’re all good, just chillin’ inside."
+      "text": "Nope, no truck, no boat, and we’re all good—no free seats either, just five of us stuck here, but we’re safe and cozy inside!"
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you’re all settled inside. Let me read that back: 5 people; no water inside yet. Is that right?"
+      "text": "Let me read that back: 5 people; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—five of us are all good inside, no water in yet, and we’re not in any hurry to leave, but we’re not stuck either, just chillin’ here."
+      "text": "Yeah, that’s right—five of us here, no water in yet, and we’re all good, no one needs to be left alone, and we don’t have any truck or boat or seats to help with anything, but we’re fine."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming everyone’s safe and comfortable right now. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Thanks for confirming you’re all okay and safe. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

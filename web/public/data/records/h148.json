@@ -5,10 +5,10 @@
   "cant_leave_alone": [
     {
       "who": "grandmother",
-      "need": "bedbound"
+      "need": "bedbound, can’t move or leave alone"
     },
     {
-      "who": "grandma",
+      "who": "grandmother",
       "need": "bedbound"
     }
   ],
@@ -30,23 +30,23 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Acknowledged, we’ve noted your situation. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Four people are here. One is bedbound and can’t leave alone."
+      "text": "Four people total. One is bedbound and can’t leave alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that important detail with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, four people including one who can’t leave alone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Yes, my grandmother is bedbound. She can’t move or get out alone."
+      "text": "Yes, my grandmother is bedbound. She can’t move or leave alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know about your grandmother. Is there water inside the home right now?"
+      "text": "I heard you mentioned your grandmother. Is there water inside the home right now?"
     },
     {
       "who": "resident",
@@ -54,25 +54,25 @@
     },
     {
       "who": "agent",
-      "text": "I hear you’re caring for Grandma—stay alert and safe. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re caring for grandma right now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No truck, no boat, no free seats. Grandma’s bedbound—can’t leave her alone."
+      "text": "No truck, no boat, no free seats. Can’t help with rides right now."
     },
     {
       "who": "agent",
-      "text": "We hear you’re caring for Grandma—thank you for sharing. Let me read that back: 4 people; grandmother needs help leaving because of bedbound; no water inside yet. Is that right?"
+      "text": "Understood, no truck, boat, or free seats right now. Let me read that back: 4 people; grandmother needs help leaving because of bedbound, can’t move or leave alone; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes, that’s right. Four people here, grandma’s bedbound and can’t leave alone. No water inside yet."
+      "text": "Yes. Four people. Grandmother bedbound, can’t leave alone. No water inside."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Thank you for confirming the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people: grandmother and grandma bedbound, cannot leave alone. No water inside. English language.",
+  "house_card": "Four people. Grandmother bedbound, can’t move or leave alone. No water inside. English.",
   "attempts": 1
 }

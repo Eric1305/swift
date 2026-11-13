@@ -21,47 +21,47 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your address and helping with a truck. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Got it, you’re at 1500 Afton Ridge Lane. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There’s one person here, and I can help with a truck.  \n*(corrects themselves)*  \nActually, there’s just me — no one else is here."
+      "text": "There’s one person here, and they can come to the phone."
     },
     {
       "who": "agent",
-      "text": "I hear you’re alone here — I’m here to listen. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thank you for letting us know who’s here. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No, I’m alone and no one here can’t leave on their own. I just corrected myself — I’m the only person here."
+      "text": "No one here can’t leave on their own. I’m the only person, and I’m able to move around without assistance."
     },
     {
       "who": "agent",
-      "text": "Thanks for clarifying you’re the only person here. Is there water inside the home right now?"
+      "text": "Understood, you’re the only person here and can move without help. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No, there’s no water inside the home right now. I’m the only person here, and I can help—there’s a truck available, but no boat or extra seats."
+      "text": "No, there’s no water inside the home. I’m the only person here and can move without help."
     },
     {
       "who": "agent",
-      "text": "Thanks for your alert and readiness to assist. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Thank you for your update and for being able to move safely. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "I have a high-clearance truck available to help, but no boat or free seats in any vehicle."
+      "text": "I have a high-clearance truck available, but no boat or free seats in any vehicle."
     },
     {
       "who": "agent",
-      "text": "Thanks for sharing your truck availability. Let me read that back: 1 people; no water inside yet; you can help with a truck. Is that right?"
+      "text": "Got it, high-clearance truck available. Let me read that back: 1 people; no water inside yet; you can help with a truck. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes, that’s right — one person here, no water inside yet, and I can help with a truck."
+      "text": "Yes, that’s right — one person, no water inside, and I can help with a truck."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering the truck. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Got it — you’re ready to help with a truck. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

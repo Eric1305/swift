@@ -44,3 +44,11 @@ def test_plain_no_answers_can_help(monkeypatch):
 def test_plain_no_to_readback_means_incorrect(monkeypatch):
     monkeypatch.setattr(llm, "_client", lambda: fake_client('{"correct": null, "people": null, "ack": "Okay."}'))
     assert llm.extract("readback", "No. I do not.")[0]["correct"] is False
+
+
+def test_chatty_negatives_are_not_people(monkeypatch):
+    reply = ('{"water_inside": false, "people": 3, "cant_leave_alone": [{"who": "everyone", "need": "no need"},'
+             ' {"who": "us", "need": "no truck or boat or seats"}], "ack": "Okay."}')
+    monkeypatch.setattr(llm, "_client", lambda: fake_client(reply))
+    fields, _ = llm.extract("water_inside", "No water, everyone's fine, no need for a truck or boat or seats, three of us.")
+    assert "cant_leave_alone" not in fields and fields["water_inside"] is False

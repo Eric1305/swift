@@ -1,7 +1,7 @@
 {
   "id": "h111",
-  "status": "safe",
-  "people": 1,
+  "status": "unconfirmed",
+  "people": null,
   "cant_leave_alone": [],
   "water_inside": false,
   "can_help": {
@@ -21,7 +21,7 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your safety and current status. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -29,19 +29,27 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know you're alone at home. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Sorry, I didn't catch that. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave alone. No wheelchair or medical needs."
+      "text": "Just me. No one else here."
     },
     {
       "who": "agent",
-      "text": "Got it, no one here can’t leave alone. Is there water inside the home right now?"
+      "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No water inside. I’m alone, safe here."
+      "text": "No one can’t leave alone. No wheelchair or oxygen needed."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no one needs assistance to leave. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. I’m safe alone."
     },
     {
       "who": "agent",
@@ -53,15 +61,15 @@
     },
     {
       "who": "agent",
-      "text": "Let me read that back: 1 people; no water inside yet. Is that right?"
+      "text": "Let me read that back: people at the home not confirmed; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right. Just me, no water inside yet."
+      "text": "Yeah, that’s right. Just me here, no water inside yet."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation is clear. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Got it, you’re alone and no water inside yet. I wasn't able to confirm everything, so a responder may follow up with you. Goodbye."
     }
   ],
   "house_card": null,

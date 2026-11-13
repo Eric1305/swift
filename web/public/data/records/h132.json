@@ -17,23 +17,23 @@
     },
     {
       "who": "resident",
-      "text": "Yeah, this is me at 598 Timber Creek Place Lane, just hanging out with my two roommates—no water in here, and we’re all good, no need to come over or send anything, we’re totally fine!"
+      "text": "Yeah, this is me at 598 Timber Creek Place Lane—just me and two others, we’re all good, no water in the house, and we’re not stuck or needing help from a truck or boat, but we’re happy to chat if you’ve got tips!"
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming you’re all safe and well. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thanks for confirming your safety and sharing your situation. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Just three of us here, all good, no one stuck inside or needing help—just us chilling, no water in, and we’re all set."
+      "text": "Just three of us here, all good, no one’s stuck inside or can’t come to the phone—everyone’s accounted for and we’re fine!"
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you’re all safe and settled. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for confirming everyone is accounted for and fine. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Nope, everyone’s good to go—no one’s stuck or needs special help, not even a wheelchair or oxygen, and definitely no motorized chair here."
+      "text": "Nope, everyone’s good to go—no one’s stuck or needs special help, not even a wheelchair or oxygen, and definitely no motorized chair or bedbound folks here at 598 Timber Creek Place Lane."
     },
     {
       "who": "agent",
@@ -45,23 +45,23 @@
     },
     {
       "who": "agent",
-      "text": "You’re all set and hanging out fine—no need for anything. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "You’re all good to go, no need for a truck or boat. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yeah, we’re all good here, no water or anything, just hanging out fine—no need for anything, and sorry, no truck, boat, or free seats to spare."
+      "text": "Nope, no truck, no boat, and I don’t have any free seats in a vehicle—just me and the gang stuck here, but we’re all good, no water inside, and nobody’s stuck alone."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you’re all fine. Let me read that back: 3 people; no water inside yet. Is that right?"
+      "text": "Thanks for letting us know you’re all safe and dry. Let me read that back: 3 people; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—three of us, no water in the house yet, and we’re all good here, no one needs to be left alone or anything."
+      "text": "Yeah, that’s right—three of us, all safe and dry inside, no water in yet, and we’re good to stay put for now."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming everyone’s safe and accounted for. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "You’re all safe and dry inside for now. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

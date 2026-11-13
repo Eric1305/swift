@@ -1,11 +1,19 @@
 {
   "id": "h064",
   "status": "needs_help",
-  "people": 1,
+  "people": 2,
   "cant_leave_alone": [
     {
-      "who": "son",
+      "who": "me",
       "need": "walker"
+    },
+    {
+      "who": "son",
+      "need": "a walker"
+    },
+    {
+      "who": "son",
+      "need": "his walker to move"
     }
   ],
   "water_inside": true,
@@ -22,7 +30,7 @@
     },
     {
       "who": "resident",
-      "text": "Yes, this is 432 Gaelic Lane. I’m alone, but my son needs a walker and can’t leave. Water’s in the house. No truck, boat, or seats available."
+      "text": "Yes, this is 432 Gaelic Lane. I’m alone, my son needs a walker, water’s in the house, and I can’t get help from a truck, boat, or seats."
     },
     {
       "who": "agent",
@@ -34,41 +42,41 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I heard you're here with your son who needs a walker. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "My son can’t leave alone—he needs a walker. He’s inside with the water."
+      "text": "My son needs a walker and can’t leave alone. He’s the only one here who can’t get out by himself."
     },
     {
       "who": "agent",
-      "text": "I hear your son needs a walker and is inside with water. Is there water inside the home right now?"
+      "text": "I hear your son needs a walker and can’t leave alone. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Yes, water is inside. My son needs a walker and can’t leave alone."
+      "text": "Yes, water’s inside. My son needs a walker and can’t leave alone."
     },
     {
       "who": "agent",
-      "text": "I hear your concern about your son needing support. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear water’s inside and your son needs a walker. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No truck, no boat, no free seats. My son needs his walker, and I can’t leave him alone."
+      "text": "No truck, no boat, no seats. My son needs a walker and I can’t leave him alone."
     },
     {
       "who": "agent",
-      "text": "I hear your concern about your son and his walker. Let me read that back: 2 people; son needs help leaving because of walker; water is inside. Is that right?"
+      "text": "I hear you’re caring for your son with a walker. Let me read that back: 2 people; me needs help leaving because of walker; son needs help leaving because of a walker; water is inside. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes. One person here. Son needs walker to leave. Water’s inside. Can’t get help."
+      "text": "Yes. Just me and my son. He needs his walker to move. Water’s in the house. No truck, boat, or seats to help."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your situation. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Got it. Staying put with your son and walker. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "One person lives here. Son needs walker and can’t leave alone. Water inside. Language: English.",
+  "house_card": "Two people: me and son. Both need walkers; son needs his walker to move. Water inside. English.",
   "attempts": 1
 }

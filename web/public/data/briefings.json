@@ -1,14 +1,14 @@
 [
   {
     "t_min": 10,
-    "text": "98 not called, 34 safe, 9 need help, 4 no answer, 5 can help. Top rescue: walker (crutches), power wheelchair, power chair. Mobility needs: manual wheelchairs, oxygen users. No-answer homes require door knocks. Neighbors with trucks/boats available if any."
+    "text": "98 not called, 33 safe, 9 need help, 4 no answer, 2 unconfirmed, 4 can help. Top queue: h101 (andador, 6.0ft, 157min), h034 (4.7ft, 173min), h043 (power wheelchair, 6.5ft, 152min). Mobility needs: manual wheelchair users. No-answer homes require door knocks. Neighbors with trucks/boats available if any."
   },
   {
     "t_min": 30,
-    "text": "82 safe. 35 need help. 21 no answer (require door knocks). 12 can help. Top rescue: walker (crutches), power wheelchair users. Mobility needs: manual wheelchairs, oxygen users. Neighbors with trucks/boats available if needed."
+    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top rescue: h101 (andador, 6ft, 157min), h034 (4.7ft, 173min), h043 (power wheelchair, 6.5ft, 152min). Mobility needs: manual wheelchair users. Neighbors with trucks/boats available if any."
   },
   {
     "t_min": 60,
-    "text": "82 safe. 35 need help. 21 no answer (require door knocks). 12 can help. Top rescue: walker (crutches), power wheelchair users. Mobility needs: manual wheelchairs, oxygen users. Neighbors with trucks/boats available if needed."
+    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top rescue: h101 (andador, 6ft, 157min), h034 (4.7ft, 173min), h043 (power wheelchair, 6.5ft, 152min). Mobility needs: manual wheelchair users. Neighbors with trucks/boats available if any."
   }
 ]

@@ -29,7 +29,7 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar la cantidad de personas presentes. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Gracias por confirmar la situación actual. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -37,7 +37,7 @@
     },
     {
       "who": "agent",
-      "text": "Understood, everyone can move independently. Is there water inside the home right now?"
+      "text": "Understood, everyone can move on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
@@ -45,11 +45,11 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming everything is okay inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, no water inside, everything is fine. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "No tengo camión con buena altura, ni bote, ni asientos libres en un vehículo."
+      "text": "No, no tengo camión con buena altura, barco ni asientos libres en ningún vehículo."
     },
     {
       "who": "agent",
@@ -61,7 +61,7 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, todo parece en orden. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Gracias por confirmar, todo bien. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

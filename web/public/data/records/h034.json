@@ -2,7 +2,12 @@
   "id": "h034",
   "status": "needs_help",
   "people": 4,
-  "cant_leave_alone": [],
+  "cant_leave_alone": [
+    {
+      "who": "four people",
+      "need": "to be rescued"
+    }
+  ],
   "water_inside": true,
   "can_help": {
     "truck": false,
@@ -21,31 +26,31 @@
     },
     {
       "who": "agent",
-      "text": "We heard you’re trapped and water’s in the house. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Acknowledged, we’ve noted your situation. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Four people total. Everyone can hear me. Water’s in the house."
+      "text": "Four people total. Everyone can hear me."
     },
     {
       "who": "agent",
-      "text": "I heard you. Water’s in the house. Stay safe. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I heard you, everyone can hear you. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one can’t leave alone. No wheelchair or oxygen needed. Just us four, water’s in."
+      "text": "No one can’t leave alone. No wheelchairs or oxygen here."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know about your situation. Is there water inside the home right now?"
+      "text": "Understood, no one is unable to leave alone. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Yes, water’s inside. We’re stuck, four people here."
+      "text": "Yes, water’s inside. We’re stuck, no help coming."
     },
     {
       "who": "agent",
-      "text": "I hear you’re stuck with four people inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re stuck and water’s inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
@@ -61,9 +66,9 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming the situation with us. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Got it, four people stuck, water in the house. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people reside; none barred from leaving. Water inside. Language: English.",
+  "house_card": "Four people trapped inside, can't leave alone due to water inside. English language. Rescue needed immediately.",
   "attempts": 1
 }

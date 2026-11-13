@@ -21,7 +21,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for the update, staying safe is key. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thanks for confirming your address and safety status. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -29,7 +29,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone’s reachable. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, everyone here can be reached. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -37,31 +37,31 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone can leave on their own. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside at all, just the three of us here, no need for a truck or boat, and we’ve got two seats available if you’re coming to help—though we’re fine on our own!"
+      "text": "No water inside at all, just us three folks hanging tight, and I’ve got a truck and boat ready to go if you need us—wait, no, actually, no truck or boat, just two seats available, but we’re good here."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you’re okay and have space if needed. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "You’re holding tight, and we’re aware of your setup. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yeah, I’m good, just three people here, no water inside, and I’ve got two free seats in my car if anyone needs a ride out—no truck or boat though, sorry."
+      "text": "Nope, no truck or boat here, but I’ve got two seats in my car if anyone needs a ride out—just say the word, 1106 Cairngrove Lane."
     },
     {
       "who": "agent",
-      "text": "Thanks for offering your car’s seats—stay safe out there. Let me read that back: 3 people; no water inside yet; you can help with 2 free seats. Is that right?"
+      "text": "Thanks for offering a ride—your info noted. Let me read that back: 3 people; no water inside yet; you can help with 2 free seats. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—three of us, no water in yet, and I’ve got two free seats to help out, 1106 Cairngrove Lane. Thanks for checking!"
+      "text": "Yeah, that’s right—three of us, no water in yet, and I’ve got two seats free, so we’re good to go if you’re coming by."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation and offering help. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Got it, three people, no water in, two seats free. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

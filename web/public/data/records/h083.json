@@ -9,7 +9,7 @@
     "boat": false,
     "seats": 0
   },
-  "language": "es",
+  "language": "en",
   "transcript": [
     {
       "who": "agent",
@@ -21,47 +21,55 @@
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, estamos atentos a su situación. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "¡Gracias! Hay tres personas en casa, y todos pueden hablar por teléfono, no hay nadie que no pueda salir solo."
+      "text": "¡Hola! Aquí estoy, hay tres personas en casa, y todos podemos hablar, no hay nadie que no pueda salir solo."
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Gracias por confirmar, estamos atentos. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No, no uno aquí necesita ayuda especial, todos pueden moverse bien, ni sillas de ruedas ni oxígeno ni nada, todo está bien aquí en 1544 Bishop Knoll Lane."
+      "text": "No, no hay nadie que no pueda salir solo, estamos todos bien, y no hay nadie con silla de ruedas ni que necesite oxígeno, todo está bajo control aquí."
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, todo parece estar bien aquí. Is there water inside the home right now?"
+      "text": "Understood, everyone can leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "Gracias, no hay agua adentro, estamos bien, solo tres personas aquí, y no necesitamos ayuda ni nada, todo tranquilo."
+      "text": "No, no hay agua adentro, estamos bien, solo tres personas aquí y todos podemos salir solos, no necesitamos ayuda."
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, todo tranquilo aquí. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, you’re all safe and can leave alone. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Gracias, todo tranquilo aquí, no tengo truck, bote ni asientos libres para llevar a nadie, pero estoy bien con mis tres."
+      "text": "¡Sí, estamos todos bien y no necesitamos ayuda! No tenemos camioneta con buena altura, bote ni asientos libres en ningún vehículo."
     },
     {
       "who": "agent",
-      "text": "Gracias por informar, cuidado con el agua. Let me read that back: 3 people; no water inside yet. Is that right?"
+      "text": "Sorry, I didn't catch that. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Sí, eso es correcto, tenemos tres personas aquí, y todavía no hay agua adentro, gracias por confirmar."
+      "text": "No tengo ni camioneta con buena altura, ni bote, ni asientos libres en ningún vehículo, pero estamos todos bien aquí en casa, no necesitamos ayuda."
     },
     {
       "who": "agent",
-      "text": "Gracias por confirmar, quedamos atentos a su situación. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Understood, you’re all well at home. Let me read that back: 3 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, eso es correcto, estamos todos bien en casa, tres personas, y aún no hay agua adentro."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, todo bien en casa. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

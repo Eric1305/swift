@@ -27,7 +27,7 @@
       },
       {
         "who": "agent",
-        "text": "Thank you for confirming your address and language. How many people are at the home right now, including anyone who can't come to the phone?"
+        "text": "Acknowledged, address confirmed as correct. How many people are at the home right now, including anyone who can't come to the phone?"
       },
       {
         "who": "resident",
@@ -35,7 +35,7 @@
       },
       {
         "who": "agent",
-        "text": "Thank you for letting us know about the people at home. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+        "text": "Thank you for letting us know about your mom. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
       },
       {
         "who": "resident",
@@ -43,7 +43,7 @@
       },
       {
         "who": "agent",
-        "text": "Thanks for sharing that detail. Is there water inside the home right now?"
+        "text": "I heard your mom uses a power wheelchair. Is there water inside the home right now?"
       },
       {
         "who": "resident",
@@ -51,7 +51,7 @@
       },
       {
         "who": "agent",
-        "text": "Thank you for checking the water status at your front step. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+        "text": "Water at front step, not inside yet. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
       },
       {
         "who": "resident",
@@ -59,7 +59,7 @@
       },
       {
         "who": "agent",
-        "text": "Understood, no high-clearance truck, boat, or free seats reported. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+        "text": "Understood, no high-clearance truck, boat, or free seats mentioned. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
       },
       {
         "who": "resident",
@@ -67,7 +67,7 @@
       },
       {
         "who": "agent",
-        "text": "Thank you for confirming the read-back is correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+        "text": "Thank you for confirming the read-back was correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
       }
     ],
     "house_card": "Two people live here. Mom needs power wheelchair and can\u2019t leave alone. No water inside. Language: English. Power chair: ~400 lb, bring 2-3 lifters.",
@@ -87,7 +87,7 @@
     {
       "delay_ms": 3600,
       "who": "agent",
-      "text": "Thank you for confirming your address and language. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Acknowledged, address confirmed as correct. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "delay_ms": 5400,
@@ -97,7 +97,7 @@
     {
       "delay_ms": 7200,
       "who": "agent",
-      "text": "Thank you for letting us know about the people at home. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thank you for letting us know about your mom. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "delay_ms": 9000,
@@ -107,7 +107,7 @@
     {
       "delay_ms": 10800,
       "who": "agent",
-      "text": "Thanks for sharing that detail. Is there water inside the home right now?"
+      "text": "I heard your mom uses a power wheelchair. Is there water inside the home right now?"
     },
     {
       "delay_ms": 12600,
@@ -117,7 +117,7 @@
     {
       "delay_ms": 14400,
       "who": "agent",
-      "text": "Thank you for checking the water status at your front step. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Water at front step, not inside yet. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "delay_ms": 16200,
@@ -127,7 +127,7 @@
     {
       "delay_ms": 18000,
       "who": "agent",
-      "text": "Understood, no high-clearance truck, boat, or free seats reported. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+      "text": "Understood, no high-clearance truck, boat, or free seats mentioned. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
     },
     {
       "delay_ms": 19800,
@@ -137,7 +137,7 @@
     {
       "delay_ms": 21600,
       "who": "agent",
-      "text": "Thank you for confirming the read-back is correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Thank you for confirming the read-back was correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ]
 }

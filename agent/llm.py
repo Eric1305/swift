@@ -139,7 +139,9 @@ def extract(step: str, utterance: str) -> tuple[dict, str]:
     if not isinstance(data, dict):
         return {}, ""
     fields = {k: v for k, v in data.items() if k in step_fields(step) and v is not None}
-    people = _grounded(_real_people(fields.pop("cant_leave_alone", [])), utterance)
+    people = [p for p in _grounded(_real_people(fields.pop("cant_leave_alone", [])), utterance) if _plausible(p)]
+    if step not in ("cant_leave", "cant_leave_detail", "readback", "fix"):
+        people = [p for p in people if MOBILITY.search(p["need"])]  # volunteered: only clear mobility/medical needs
     negative = bool(NEGATIVE.match(utterance.strip()))
     if step in ("cant_leave", "cant_leave_detail"):
         if negative and not people:
@@ -166,6 +168,18 @@ NEGATIVE = re.compile(r"^(no|nope|nah|not really|no,? (sorry|thanks|thank you|we
 AFFIRMATIVE = re.compile(r"^(yes|yep|yeah|yup|correct|right|that'?s (right|correct)|sure|s[ií])\b", re.I)
 STOPWORDS = {"the", "and", "who", "can", "can't", "cant", "has", "needs", "need", "uses", "use", "with", "her", "his",
              "she", "they", "them", "their", "on", "a", "an", "to", "of", "my", "our", "is", "be", "help", "leave"}
+
+
+NEGATED = re.compile(r"\b(no|not|none|nobody|no one|nothing|don'?t|doesn'?t|fine|good|okay|ok)\b", re.I)
+GROUP = re.compile(r"^(everyone|everybody|all of us|us|we|no one|nobody|me and|the (two|three|four|five)|\w+ of us)", re.I)
+MOBILITY = re.compile(r"wheel ?chair|oxygen|bed ?bound|bedridden|walker|crutch|cane|can'?t walk|cannot walk|stretcher|"
+                      r"dialysis|disab|paraly|blind|deaf|hospice|surgery|injur|frail|dementia|mobility|silla de ruedas|"
+                      r"ox[ií]geno|en cama|andadera|muletas", re.I)
+
+
+def _plausible(person: dict) -> bool:
+    """Reject chatty negatives the model turns into people ("everyone: no need", "us: no truck or boat")."""
+    return not NEGATED.search(person["need"]) and not GROUP.match(person["who"])
 
 
 def _grounded(people: list[dict], utterance: str) -> list[dict]:

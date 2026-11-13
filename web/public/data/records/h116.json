@@ -5,7 +5,11 @@
   "cant_leave_alone": [
     {
       "who": "wife",
-      "need": "recovering from surgery"
+      "need": "can't walk"
+    },
+    {
+      "who": "wife",
+      "need": "help getting out"
     }
   ],
   "water_inside": true,
@@ -26,15 +30,15 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your situation. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "I hear you're dealing with a flood and medical needs. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "One person here, my wife’s recovering from surgery and can’t walk."
+      "text": "Just me and my wife. She’s recovering from surgery and can’t walk."
     },
     {
       "who": "agent",
-      "text": "I hear you’re caring for someone who can’t walk right now. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "I hear you’re staying with your wife. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -42,15 +46,23 @@
     },
     {
       "who": "agent",
-      "text": "I hear you’re caring for your wife during recovery. Is there water inside the home right now?"
+      "text": "I heard you, and I’m listening. Who is it that can't leave on their own, and what do they need to get out?"
     },
     {
       "who": "resident",
-      "text": "Yes, water’s inside. She can’t walk—need help."
+      "text": "My wife, she’s recovering from surgery and can’t walk. She needs help getting out."
     },
     {
       "who": "agent",
-      "text": "I hear you’re in trouble. Stay put and wait for help. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "I hear you’re helping your wife get out safely. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, water’s inside. She can’t walk—need help getting her out."
+    },
+    {
+      "who": "agent",
+      "text": "I hear water’s inside and she can’t walk alone. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
@@ -58,17 +70,17 @@
     },
     {
       "who": "agent",
-      "text": "I hear you’re without transport or seating options right now. Let me read that back: 1 people; wife needs help leaving because of recovering from surgery; water is inside. Is that right?"
+      "text": "I hear you’re caring for your wife right now. Let me read that back: 2 people; wife needs help leaving because of can't walk; wife needs help leaving because of help getting out; water is inside. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yes. Wife can’t walk. Water’s in. No truck or boat."
+      "text": "Yes. Just me and my wife. She can’t walk, needs help getting out. Water’s inside. Can’t leave alone."
     },
     {
       "who": "agent",
-      "text": "Thank you for confirming your situation. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Acknowledged, you’re not alone in this. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people. Wife can’t leave—recovering from surgery. Water inside. English.",
+  "house_card": "Two people. Wife can’t walk; needs help getting out. Water inside. English.",
   "attempts": 1
 }

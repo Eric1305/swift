@@ -21,7 +21,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering help. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Address confirmed. You’re not alone here. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -29,7 +29,7 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thanks for letting us know everyone can come to the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
@@ -37,15 +37,15 @@
     },
     {
       "who": "agent",
-      "text": "Got it, no one here can’t leave alone or needs special help. Is there water inside the home right now?"
+      "text": "Understood, no one is unable to leave alone. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside. Just us three, no one needs special help."
+      "text": "No water inside. We’re safe."
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know you’re all well. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
@@ -53,7 +53,7 @@
     },
     {
       "who": "agent",
-      "text": "Got it, two seats free in your car. Let me read that back: 3 people; no water inside yet; you can help with 2 free seats. Is that right?"
+      "text": "Got it, two free seats in your car. Let me read that back: 3 people; no water inside yet; you can help with 2 free seats. Is that right?"
     },
     {
       "who": "resident",
@@ -61,7 +61,7 @@
     },
     {
       "who": "agent",
-      "text": "Got it. Three people. No water. Two seats free. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Got it, thanks for confirming. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

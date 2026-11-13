@@ -21,47 +21,47 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation and needs. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thanks for confirming your address and safety status. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "Just three of us here, all good, no one’s stuck inside or can’t make it to the phone—water’s not even in the house, so we’re all fine and no help needed right now."
+      "text": "There’s three of us here total, and no one’s stuck inside or unable to come to the phone—everyone’s good to go, no water in the house either."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know you’re all safe and okay. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Everyone’s good to go, no water in the house either. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "Nope, everyone’s good to go—no one’s stuck or needs special help, and no wheelchairs or oxygen here, just three of us chilling fine inside, no water in yet either."
+      "text": "No one here can’t leave on their own, and no water’s in the house either—just three of us, all good to go, no special needs or equipment to worry about."
     },
     {
       "who": "agent",
-      "text": "Thanks for checking in, everyone’s fine inside right now. Is there water inside the home right now?"
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside at all, just us three hanging out fine, no need to worry about flooding in here."
+      "text": "No water inside at all, just us three hanging out fine, no need for any truck or boat or seats—everything’s dry and we’re good to go."
     },
     {
       "who": "agent",
-      "text": "Good to hear you’re all safe and dry inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "You’re all dry and fine, no need for help. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Nope, no truck, no boat, and we’re all good—no free seats either, just three of us stuck here, but we’re safe and dry, no worries!"
+      "text": "Nope, we’re all dry and fine, no need for help—just three of us here, no one needs a ride, and we don’t have a truck, boat, or any spare seats to spare."
     },
     {
       "who": "agent",
-      "text": "Let me read that back: 3 people; no water inside yet. Is that right?"
+      "text": "You’re all dry and fine, no need for help. Let me read that back: 3 people; no water inside yet. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—three of us here, no water in yet, and we’re all good, no one needs to be left alone, and we don’t have any truck or boat or seats to help with anything, but we’re fine."
+      "text": "Yeah, that’s right—three of us, totally dry inside, no water in at all, and we’re all good, no one needs to be left alone or anything."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming you’re all safe and accounted for. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+      "text": "Thanks for confirming you’re all safe and dry. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
     }
   ],
   "house_card": null,

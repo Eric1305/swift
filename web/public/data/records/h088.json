@@ -21,7 +21,7 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming and offering help. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Thank you for confirming your address and availability. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
@@ -29,23 +29,23 @@
     },
     {
       "who": "agent",
-      "text": "Thank you for letting us know everyone is reachable. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Thank you for confirming everyone can come to the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own. No wheelchair or oxygen needed."
+      "text": "No one can’t leave on their own. No wheelchairs or oxygen needed."
     },
     {
       "who": "agent",
-      "text": "Thanks for letting us know everyone can leave on their own. Is there water inside the home right now?"
+      "text": "Understood, no one needs help leaving. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside. Everyone can leave on their own."
+      "text": "No water inside. I’m here alone, no need for help."
     },
     {
       "who": "agent",
-      "text": "Understood, no water inside, everyone can leave on their own. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, you’re alone and no water inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
@@ -61,7 +61,7 @@
     },
     {
       "who": "agent",
-      "text": "Got it, thank you for confirming. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+      "text": "Got it, five people, no water, one seat free. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
   "house_card": null,

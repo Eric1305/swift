@@ -1,13 +1,8 @@
 {
   "id": "h146",
-  "status": "needs_help",
+  "status": "can_help",
   "people": 3,
-  "cant_leave_alone": [
-    {
-      "who": "caller",
-      "need": "truck ready to go"
-    }
-  ],
+  "cant_leave_alone": [],
   "water_inside": false,
   "can_help": {
     "truck": true,
@@ -26,49 +21,49 @@
     },
     {
       "who": "agent",
-      "text": "Thanks for the update, we’re noting your situation. How many people are at the home right now, including anyone who can't come to the phone?"
+      "text": "Got it, you’re at 1322 Scone Street with three others. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
       "who": "resident",
-      "text": "There’s three people here total, and everyone’s able to be on the phone—no one’s stuck inside or can’t leave alone, and the water’s not even in the house yet, so we’re all good to go!"
+      "text": "Yeah, there’s three of us total here at 1322 Scone Street, and everyone’s able to be here—no one’s stuck inside or can’t come to the phone, we’re all good to go!"
     },
     {
       "who": "agent",
-      "text": "Thanks for checking in and staying safe. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+      "text": "Got it, everyone here is able to stay and respond. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
       "who": "resident",
-      "text": "No one here can’t leave on their own, and no wheelchair—just us three, all good to go, no water inside either."
+      "text": "No one here can’t leave on their own, and no wheelchairs or oxygen needs—everyone’s good to go, and I’m all set to help with the truck if needed."
     },
     {
       "who": "agent",
-      "text": "Thanks for the update, everyone seems ready to go. Is there water inside the home right now?"
+      "text": "Understood, everyone can leave on their own. Is there water inside the home right now?"
     },
     {
       "who": "resident",
-      "text": "No water inside at all, just the three of us here, no one needs to be left alone, and we’re good to go—just waiting for the truck since we don’t have a boat or seats for anyone else."
+      "text": "No water inside at all, just us three folks here, no one needs to be left behind, and we’ve got a truck that can come get us if needed—no boat though, and no seats on the truck right now."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming you’re ready and waiting for the truck. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      "text": "Understood, you’re all here and have a truck for transport. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
     },
     {
       "who": "resident",
-      "text": "Yeah, I’ve got a high-clearance truck ready to go, no boat though, and I’m not offering any free seats in a vehicle right now—just the truck for evacuations if needed."
+      "text": "Yeah, we’ve got the truck—high-clearance, no problem—and we’re all here, but no boat or extra seats in any vehicle right now."
     },
     {
       "who": "agent",
-      "text": "Thanks for sharing your truck availability. Let me read that back: 3 people; no water inside yet; you can help with a truck. Is that right?"
+      "text": "Got it, you’ve got the high-clearance truck and everyone’s here. Let me read that back: 3 people; no water inside yet; you can help with a truck. Is that right?"
     },
     {
       "who": "resident",
-      "text": "Yeah, that’s right—three people here, no water in yet, and I’ve got a truck ready to go, no problem."
+      "text": "Yeah, that’s right—three people here, no water in yet, and I’ve got the high-clearance truck ready to go, no problem."
     },
     {
       "who": "agent",
-      "text": "Thanks for confirming your situation and readiness. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+      "text": "Got it, you’re ready with the truck. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
     }
   ],
-  "house_card": "Three people. Caller can’t leave alone—needs truck ready. No water inside. English.",
+  "house_card": null,
   "attempts": 1
 }
