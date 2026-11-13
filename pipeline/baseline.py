@@ -62,7 +62,7 @@ def monte_carlo(depths: pd.DataFrame, records: list[Record], n: int = 1000, trav
                 parallel: int = 20, call_min: float = 3.0, seed: int = 7) -> dict:
     """Baseline vs. Swift over `n` randomized flood nights, all nights at once as (n,) / (n, households) arrays.
 
-    Per night: peak rise U(8, 16) ft scales arrival times by 12/peak (higher peak, earlier water); no-answer rate
+    Per night: the pool rises U(0.75, 1.5)x as fast as in Harvey (arrival times divided by it); no-answer rate
     U(5%, 30%) hides households from Swift; fleet U{2..5}; 911 reach rate U(30%, 70%). Each pickup takes
     travel U(0.5, 1.5) x `travel_min` plus boarding. Requests are walked once in a fixed order (baseline: by
     deadline, which is its 911 order; Swift: rank order) and each goes to that night's earliest-free vehicle,
@@ -77,7 +77,7 @@ def monte_carlo(depths: pd.DataFrame, records: list[Record], n: int = 1000, trav
     ranked = [item["household_id"] for item in rank(needs, depths)]
     m = len(ranked)
     rng = np.random.default_rng(seed)
-    peak = xp.asarray(rng.uniform(8, 16, n))
+    speed = xp.asarray(rng.uniform(0.75, 1.5, n))
     no_answer = xp.asarray(rng.uniform(0.05, 0.30, n))
     fleet = xp.asarray(rng.integers(2, 6, n))
     reach = xp.asarray(rng.uniform(0.30, 0.70, n))
@@ -87,7 +87,7 @@ def monte_carlo(depths: pd.DataFrame, records: list[Record], n: int = 1000, trav
     arrivals = [lookup.get(h, (None, 0.0))[0] for h in ranked]
     base_arrival = xp.asarray([math.nan if a is None else a for a in arrivals], dtype=xp.float64)
     deadline = xp.where(xp.isnan(base_arrival)[None], NO_ARRIVAL_MIN,
-                        xp.minimum(NO_ARRIVAL_MIN, base_arrival[None] * (12.0 / peak)[:, None]))
+                        xp.minimum(NO_ARRIVAL_MIN, base_arrival[None] / speed[:, None]))
     called_at = xp.asarray([complete.get(h, 0.0) for h in ranked], dtype=xp.float64)[None]
     swift_known = xp.where(draw_known >= no_answer[:, None], called_at, xp.inf)
     base_known = xp.where(draw_reach < reach[:, None], xp.maximum(0.0, deadline - LEAD_MIN), xp.inf)

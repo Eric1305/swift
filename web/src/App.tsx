@@ -222,6 +222,7 @@ function Dashboard({ fx }: { fx: Fixtures }) {
       <TopBar
         clock={clock}
         startIso={meta.timeline.start_iso}
+        timeScale={meta.timeline.time_scale}
         households={ids.length}
         mode={mode}
         scene={scene}

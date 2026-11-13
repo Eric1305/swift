@@ -161,7 +161,7 @@ export function PlaybackBar({ clock }: { clock: Clock }) {
       </div>
       <div className="playback__legend">
         <span className="playback__swatch" />
-        <span>Water depth, from our flood model</span>
+        <span>Water depth: Addicks Reservoir level recorded by USGS in Harvey</span>
         <span className="playback__scale">shallow → 6+ ft</span>
       </div>
     </div>

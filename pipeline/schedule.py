@@ -1,4 +1,4 @@
-"""Call schedule: dial every household in order of predicted water arrival, `parallel` lines at once.
+"""Call schedule: dial every household in order of forecast water arrival, `parallel` lines at once.
 
 A no-answer household keeps its line through both retries (rings at t, t+2, t+5) and is marked
 `no_answer` once the last ring times out, RING_MIN after the final retry."""
@@ -12,9 +12,13 @@ RING_MIN = 1.0
 
 
 def call_order(depths: pd.DataFrame) -> list[str]:
-    """Household ids by ascending water arrival; never-flooding households last."""
-    arrival = pd.to_numeric(depths["water_arrival_min"], errors="coerce").fillna(math.inf)
-    order = pd.DataFrame({"id": depths["id"].astype(str), "arrival": arrival}).sort_values(["arrival", "id"], kind="stable")
+    """Household ids by ascending forecast arrival (only what was known at the trigger), lowest ground breaking
+    ties; households with no forecast arrival last. Falls back to `water_arrival_min` when there's no forecast."""
+    column = "forecast_arrival_min" if "forecast_arrival_min" in depths else "water_arrival_min"
+    arrival = pd.to_numeric(depths[column], errors="coerce").fillna(math.inf)
+    ground = depths["ground_ft"] if "ground_ft" in depths else 0.0
+    order = pd.DataFrame({"id": depths["id"].astype(str), "arrival": arrival, "ground": ground})
+    order = order.sort_values(["arrival", "ground", "id"], kind="stable")
     return order["id"].tolist()
 
 

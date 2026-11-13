@@ -17,7 +17,7 @@ Built for the UTSA × Dell Social Impact AI Datathon. The demo replays Hurricane
 
 ```text
  households (OSM footprints + addresses)
-      │  predicted water arrival per home (3DEP DEM, HAND-lite depth model)
+      │  water arrival per home (Addicks Reservoir gauge level over the 3DEP DEM)
       ▼
  call scheduler ── dials in water-arrival order, N lines in parallel,
       │            retries no-answers at +2 and +5 min
@@ -62,11 +62,14 @@ The dashboard's model panel polls `/api/gpu` and shows "Qwen3-VL on GB10 · call
 
 | Source | Used for |
 |---|---|
-| [UTSA flood images dataset](https://huggingface.co/datasets/jennifer-fowler/UTSA-flood-images) (1,204 georeferenced Texas images, 273 metadata columns) | Picking the study area (densest cluster of Harvey response images), 21 NOAA 2017 after-images and their 2016 NAIP before-images draped at their true footprints, and the storm's 3-day rainfall (`preceding_3d_precipitation_mm`, 660 mm median in the area). This rainfall shapes the water-rise curve. |
+| [UTSA flood images dataset](https://huggingface.co/datasets/jennifer-fowler/UTSA-flood-images) (1,204 georeferenced Texas images, 273 metadata columns) | Picking the study area (densest cluster of Harvey response images), 21 NOAA 2017 after-images and their 2016 NAIP before-images draped at their true footprints, and the storm's 3-day rainfall (`preceding_3d_precipitation_mm`, 660 mm median in the area), shown as context. |
 | USGS 3DEP 10 m DEM (via `py3dep`) | Ground elevation for the depth model |
+| [USGS gauge 08073000](https://waterdata.usgs.gov/monitoring-location/08073000/), Addicks Reservoir near Addicks | Daily mean pool elevation (ft NAVD88, the same datum as 3DEP) for Aug 20 – Sep 10, 2017, saved in `pipeline/data/addicks_pool_2017.csv`. This is the water level in the replay |
 | OpenStreetMap buildings and drive network (via `osmnx`) | 150 sampled household footprints, addresses and the routing graph |
 
-**Depth model (HAND-lite, `pipeline/depth.py`).** Each cell's height above the local low point (the lowest elevation within 1 km, smoothed so the square search window can't create rectangular wet/dry blocks) is compared with a water level that rises along a rainfall-shaped logistic curve to 12 ft over 6 hours. Depth = max(0, rise − height). A home's water arrival is the first minute its depth exceeds 0.5 ft. In the replay, 73 of 150 homes flood, with arrivals between 143 and 338 minutes and peak depths up to about 7 ft.
+**Depth model (`pipeline/depth.py`).** Bear Creek flooded because the Addicks Reservoir pool backed into it, and a reservoir pool is nearly flat. So depth = observed pool elevation − ground elevation, counted only where the ground is connected to the main body of water (8-way flood fill from the lowest cell). The pool is USGS gauge 08073000's recorded daily mean, from midnight Aug 27 (87.8 ft) to the Aug 30 peak (109.1 ft), with 3½ real days compressed into the 6-hour replay (14 real minutes per replay minute; the dashboard clock shows real dates). A home's water arrival is the first minute it has 0.5 ft of water. In the replay, 57 of 150 homes flood, with arrivals between minutes 136 and 355 and peak depths up to 6.6 ft.
+
+**Only what was known at the time.** The water on the map and every "before the water arrived" score use the observed gauge. Swift's own decisions, the call order and the rescue ranking, use only a forecast made at the trigger: the last two daily gauge readings published before midnight Aug 27, extended at their slope (11.9 ft/day), give each home an ETA. With a flat, rising pool that order is simply lowest ground first, so the forecast's error changes the ETAs, not who is called first. Its ETAs (minutes 131–278) run early, and their rank order matches the observed arrivals with Spearman 0.996. A test (`tests/test_depth.py`) checks that changing any reading after the trigger leaves the forecast unchanged.
 
 ## Results
 
@@ -78,15 +81,15 @@ From `web/public/data/results.json`, using seed 7 and 150 households.
 | Needs-help homes flagged | **34 of 34** (1 false alarm) | Every simulated household that truly needed help was recorded as needs help. The misses are cautious ones: 5 safe homes left "unconfirmed" and 5 helpers recorded as safe |
 | Promises spoken to residents | **0** | Lines that reached a resident and implied rescue or safety |
 | Promises blocked by the guard | **48** | Model acknowledgments that contained a banned phrase and were blanked before they were spoken |
-| Needs-help homes reached before water arrives (replay night) | **911 baseline 45.7% → Swift 100%** | Same fleet of 3 vehicles. In the baseline, 55% of needs-help homes get through to 911, 20 min before their water arrives, and are served first come, first served. Swift knows every needs-help home once its call completes and serves them in rank order. |
-| 1,000 randomized nights (Monte Carlo) | **median 28.6% → 82.9%** (Swift p10–p90: 68.6–94.3%) | Each night varies peak rise (8–16 ft), no-answer rate (5–30%), fleet (2–5 vehicles) and 911 reach rate (30–70%) |
+| Needs-help homes reached before water arrives (replay night) | **911 baseline 42.9% → Swift 100%** | Same fleet of 3 vehicles. In the baseline, 55% of needs-help homes get through to 911, 20 min before their water arrives, and are served first come, first served. Swift knows every needs-help home once its call completes and serves them in rank order. |
+| 1,000 randomized nights (Monte Carlo) | **median 28.6% → 82.9%** (Swift p10–p90: 68.6–94.3%) | Each night varies how fast the pool rises (0.75–1.5× Harvey), no-answer rate (5–30%), fleet (2–5 vehicles) and 911 reach rate (30–70%) |
 | Parallel call lines in the simulation | 8 | Kept low because every team shares the hosted model |
 
 Replay outcome: 77 safe, 35 need help, 12 can help, 5 unconfirmed, 21 no answer (11 door-knock clusters), and 35 vehicle trips: 9 by the agency fleet (2 high-water vehicles, 1 boat) and 26 by neighbors' trucks and boats offered on the calls.
 
 **Caveats.**
 - The households are real OSM buildings, but the residents are synthetic. The personas and their mix (20% need help, 15% can help, 50% safe, 15% no answer) are ours, and the accuracy figure measures how well our system reads LLM-simulated residents, not real people under stress.
-- HAND-lite is a terrain screen, not a hydraulic model. It ignores channel flow, storm drains and the reservoir's actual operations, and the 12 ft peak is chosen, not forecast.
+- The depth model is a level-pool fill, not a hydraulic model. It fits Bear Creek, where the flooding was reservoir backwater, but it ignores local rain ponding and street drainage. It uses bare-earth 10 m elevation (not each home's floor height) and daily, not hourly, gauge readings. It has not been checked against Harvey high-water marks house by house.
 - The baseline and Monte Carlo are policy simulations that compare two ways of learning who needs help under the same assumptions. They are not a prediction of lives saved. The 100% on the replay night comes from a small number of needs-help homes (35) and a generous fleet. The Monte Carlo range is the more honest number.
 
 ## The honesty rule
@@ -104,8 +107,8 @@ The pipeline takes `--source replay` today. A live deployment swaps the inputs a
 
 | Replay today | Real event |
 |---|---|
-| Harvey replay clock | Triggered by NWS Flood / Flash Flood Warnings for the area (`api.weather.gov/alerts`) |
-| Rainfall-shaped rise curve to 12 ft | Stage forecasts from NWS river forecast points and USGS gauges, mapped onto the same HAND-lite grid (`rise_curve(source)`) |
+| Harvey replay clock (3½ days compressed into 6 hours) | Triggered by NWS Flood / Flash Flood Warnings for the area (`api.weather.gov/alerts`) |
+| Recorded Addicks pool level, plus a trend forecast from the readings before the trigger | The same gauge's real-time feed (USGS publishes it every 15 minutes) and the Army Corps' pool projections, through the same `forecast_trend` → ETA → call order path. Along rivers rather than reservoirs, NWS stage forecasts mapped through flood inundation maps |
 | 150 sampled OSM buildings, synthetic residents | Address and phone lists from county reverse-911 / CodeRED systems, with STEAR registrants flagged and called first within their arrival window |
 | Modeled depth on streets | Modeled depth corrected by live reports: road-closure feeds, gauge readings, and residents saying "water is at the front step" |
 | One Retell number, one live call | Retell or Twilio trunks with many concurrent lines; the scheduler already runs N lines in parallel |
@@ -115,7 +118,7 @@ The pipeline takes `--source replay` today. A live deployment swaps the inputs a
 
 - **Language.** The extraction schema and guard handle English and Spanish, and the simulation includes Spanish-speaking residents. The live Retell voice is English only for now. Next: pick the voice and script by the detected or registered language.
 - **Validation with real people.** Every accuracy number here comes from LLM-simulated residents. Next: scripted test calls with volunteers, and review by emergency managers and disability advocates.
-- **Depth model.** HAND-lite should be replaced or calibrated with a hydraulic model or the NWS National Water Model, and checked against Harvey high-water marks.
+- **Depth model.** Check against USGS Harvey high-water marks, use hourly gauge data, and add a rainfall-ponding term for streets far from the pool.
 - **Privacy.** Records hold medical and mobility details. They stay on the agency's server and go only to the model server for extraction, and nothing is sent to a third-party LLM. A real deployment needs a retention policy and access controls.
 - **Trust.** An unknown number calling during a disaster may be ignored or mistaken for a scam. Calls should come from a number residents already know (the county's alert number), and the door-knock list exists because some people will never answer.
 - **Infrastructure.** The model server is only reachable on the venue network, so the live call needs a tunnel or relay from the laptop to Retell.

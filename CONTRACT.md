@@ -19,7 +19,7 @@ While a call is ringing or in progress the frontend shows the derived state `cal
 ## Files
 | File | Shape |
 |---|---|
-| `meta.json` | `{demo_household_id, center:[lon,lat], zoom, pitch, bearing, timeline:{start_iso, end_min, step_min}, staging:[lon,lat], hub:[lon,lat], depth_stages:[{t_min, png, bounds:[[w,s],[e,n]]}]}` |
+| `meta.json` | `{demo_household_id, center:[lon,lat], zoom, pitch, bearing, timeline:{start_iso, end_min, step_min, time_scale (real min per replay min)}, staging:[lon,lat], hub:[lon,lat], gauge:{name, pool_ft_at_trigger, rise_ft_per_day, pool_ft_peak}, depth_stages:[{t_min, png, bounds:[[w,s],[e,n]]}]}` |
 | `households.geojson` | FeatureCollection of Polygon footprints, `properties:{id, address, water_arrival_min, depth_ft_peak, height_m}` |
 | `timeline.json` | `[{t_min, household_id, event:"call_start"\|"retry"\|"no_answer"\|"complete", status?}]` (`status` present on `complete` and `no_answer`) |
 | `records/{id}.json` | `{id, status, people:int\|null, cant_leave_alone:[{who, need}], water_inside:bool\|null, can_help:{truck:bool, boat:bool, seats:int}, language, transcript:[{who:"agent"\|"resident", text}], house_card:str\|null, attempts:int}` |

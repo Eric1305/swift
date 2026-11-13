@@ -1,5 +1,5 @@
 {
-  "demo_household_id": "h050",
+  "demo_household_id": "h095",
   "center": [
     -95.64,
     29.85
@@ -10,17 +10,24 @@
   "timeline": {
     "start_iso": "2017-08-27T00:00:00-05:00",
     "end_min": 360,
-    "step_min": 1
+    "step_min": 1,
+    "time_scale": 14.0
   },
   "staging": [
-    -95.63984,
-    29.864899
+    -95.658673,
+    29.85586
   ],
   "hub": [
     -95.656,
     29.861
   ],
   "rain_3d_mm": 660.0,
+  "gauge": {
+    "name": "USGS 08073000 Addicks Reservoir near Addicks, TX",
+    "pool_ft_at_trigger": 87.8,
+    "rise_ft_per_day": 11.9,
+    "pool_ft_peak": 109.06
+  },
   "depth_stages": [
     {
       "t_min": 0,

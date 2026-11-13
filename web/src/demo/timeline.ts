@@ -64,12 +64,12 @@ export function formatT(min: number): string {
   return `T+${pad(m / 60)}:${pad(m % 60)}`;
 }
 
-/** Wall-clock label for minute `min` of the replay, in the replay's own offset. */
-export function formatClock(startIso: string, min: number): string {
+/** Wall-clock label for minute `min` of the replay, in the replay's own offset; `scale` real minutes per replay minute. */
+export function formatClock(startIso: string, min: number, scale = 1): string {
   const start = new Date(startIso);
   const offsetMatch = /([+-])(\d\d):?(\d\d)$/.exec(startIso);
   const offsetMin = offsetMatch ? (offsetMatch[1] === '-' ? -1 : 1) * (Number(offsetMatch[2]) * 60 + Number(offsetMatch[3])) : 0;
-  const local = new Date(start.getTime() + (min + offsetMin) * 60_000);
+  const local = new Date(start.getTime() + (min * scale + offsetMin) * 60_000);
   const day = local.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).replace(/,/g, '');
   const zone = offsetMin === -300 ? 'CDT' : offsetMin === -360 ? 'CST' : `UTC${offsetMatch?.[0] ?? ''}`;
   return `${day} · ${pad(local.getUTCHours())}:${pad(local.getUTCMinutes())} ${zone}`;

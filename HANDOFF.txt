@@ -16,7 +16,7 @@ INFRASTRUCTURE (changed mid-event)
   32b/122b return 403). Reachable only on the venue Wi-Fi Eric is on now. These are the defaults in agent/llm.py.
 - Python env: .venv in repo (python3 -m venv; pip install -e ".[geo]" pytest). No uv on the laptop.
 - .env (untracked, filled in): VLLM_*, RETELL_API_KEY, RETELL_AGENT_ID, RETELL_FROM_NUMBER, DEMO_PHONE,
-  PUBLIC_URL (stale cloudflared URL — will change), DEMO_HOUSEHOLD_ID=h050. Never print or commit secrets.
+  PUBLIC_URL (stale cloudflared URL — will change), DEMO_HOUSEHOLD_ID=h095. Never print or commit secrets.
 - Harvey dataset downloaded at ~/Texas_Flood_Student_Data (HF: jennifer-fowler/UTSA-flood-images; 1,204 georeferenced images).
 
 DONE (all on main, 8 tests pass: .venv/bin/pytest -q)
@@ -30,9 +30,9 @@ DONE (all on main, 8 tests pass: .venv/bin/pytest -q)
 - agent/simulate.py 150 simulated residents through the real script (91.5% status accuracy, 34/34 needs-help flagged, 0 promises spoken,
                     48 blocked by guard; re-run after the call-script fixes); writes records/, briefings, answers.json, live_fallback.json (rehearsal call).
 - pipeline/*        Bear Creek bbox (-95.66,29.835,-95.62,29.865); OSM houses (lean Overpass query, mail.ru mirror —
-                    other mirrors overloaded); 3DEP DEM reprojected to lon/lat; HAND-lite depth (73/150 homes flood,
-                    arrival 143-338 min, up to 7 ft; smoothed low-point surface, no square-window artifacts); call timeline; ranking; depth-aware routes; door-knock clusters;
-                    baseline 45.7% vs Swift 100%; Monte Carlo 1000 nights median 28.6% vs 82.9% (Swift p10-p90 68.6-94.3%). Source of truth: web/public/data/results.json.
+                    other mirrors overloaded); 3DEP DEM reprojected to lon/lat; depth = observed Addicks pool (USGS 08073000, pipeline/data/) - ground, connected cells only (57/150 homes flood,
+                    arrival 136-355 min, up to 6.6 ft; Aug 27-30 compressed 14x); call order + ranking use only the pre-trigger gauge trend; call timeline; ranking; depth-aware routes; door-knock clusters;
+                    baseline 42.9% vs Swift 100%; Monte Carlo 1000 nights median 28.6% vs 82.9% (Swift p10-p90 68.6-94.3%). Source of truth: web/public/data/results.json.
 - web/public/data/  REAL fixtures for the dashboard (regenerate: pipeline.build --stage base -> agent.content ->
                     agent.simulate -> pipeline.build --stage dispatch, all with --out web/public/data).
 

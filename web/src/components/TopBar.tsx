@@ -13,6 +13,7 @@ import './TopBar.css';
 interface Props {
   clock: Clock;
   startIso: string;
+  timeScale?: number;
   households: number;
   mode: 'ready' | 'replay' | 'live';
   scene: number;
@@ -24,7 +25,7 @@ interface Props {
   split?: boolean;
 }
 
-export default function TopBar({ clock, startIso, households, mode, scene, running, finished, onRun, onStop, split }: Props) {
+export default function TopBar({ clock, startIso, timeScale, households, mode, scene, running, finished, onRun, onStop, split }: Props) {
   const progress = clock.endMin ? clock.t / clock.endMin : 0;
   return (
     <header className="top-bar top-bar--compact">
@@ -51,7 +52,7 @@ export default function TopBar({ clock, startIso, households, mode, scene, runni
         <IconButton icon={clock.playing ? pauseIcon : playIcon} label={clock.playing ? 'Pause' : 'Play'} onClick={clock.toggle} />
         <div className="clock">
           <strong>{formatT(clock.t)}</strong>
-          <span>{formatClock(startIso, clock.t)}</span>
+          <span>{formatClock(startIso, clock.t, timeScale)}</span>
         </div>
         <input
           className="scrubber"
@@ -86,7 +87,7 @@ export default function TopBar({ clock, startIso, households, mode, scene, runni
           <div className="top-bar__since">
             <span>Since the warning</span>
             <strong>{formatT(clock.t).replace('T+', '')}</strong>
-            <em>{formatClock(startIso, clock.t)}</em>
+            <em>{formatClock(startIso, clock.t, timeScale)}</em>
           </div>
         )}
         {running ? (

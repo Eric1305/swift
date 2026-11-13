@@ -38,23 +38,29 @@ def _arrival(lookup: dict, hid: str) -> float:
     return NO_ARRIVAL_MIN if arrival is None else arrival
 
 
+def _forecast(depths: pd.DataFrame) -> dict[str, float | None]:
+    column = "forecast_arrival_min" if "forecast_arrival_min" in depths else "water_arrival_min"
+    arrival = pd.to_numeric(depths[column], errors="coerce")
+    return {str(hid): (None if pd.isna(a) else float(a)) for hid, a in zip(depths["id"], arrival)}
+
+
 def rank(records: list[Record], depths: pd.DataFrame) -> list[dict]:
-    lookup = _lookup(depths)
+    """Rescue order from what the household said and the trigger-time forecast arrival (never the observed
+    water, which Swift could not have known): can't leave alone > water inside > sooner water."""
+    forecast = _forecast(depths)
     ranked = []
     for rec in records:
         if rec.status != "needs_help":
             continue
-        arrival, peak = lookup.get(rec.id, (None, 0.0))
-        score = (100 * bool(rec.cant_leave_alone) + 50 * bool(rec.water_inside) + 10 * peak
-                 - 0.1 * (NO_ARRIVAL_MIN if arrival is None else arrival))
+        arrival = forecast.get(rec.id)
+        score = (100 * bool(rec.cant_leave_alone) + 50 * bool(rec.water_inside)
+                 - 0.5 * (NO_ARRIVAL_MIN if arrival is None else arrival))
         reasons = []
         needs = [p.get("need") or p.get("who") for p in rec.cant_leave_alone]
         if needs := [n for n in needs if n]:
             reasons.append(", ".join(dict.fromkeys(needs)))
         if rec.water_inside:
             reasons.append("water inside")
-        if peak > 0:
-            reasons.append(f"{peak:.1f} ft peak")
         reasons.append(f"water in ~{arrival:.0f} min" if arrival is not None else "no flooding forecast")
         ranked.append({"household_id": rec.id, "score": round(score, 1), "reasons": reasons})
     return sorted(ranked, key=lambda r: (-r["score"], r["household_id"]))
@@ -196,10 +202,10 @@ def _write_briefings(out: Path, timeline: list[dict], records: dict[str, Record]
 
 
 def build_dispatch(source: str, out: Path, cache: Path, depths: pd.DataFrame) -> None:
-    from pipeline.area import DEMO_BBOX, dem_index, load_area
+    from pipeline.area import DEMO_BBOX, load_area
     from pipeline.baseline import compare, monte_carlo
-    from pipeline.depth import hand_ft, rise_curve
-    from pipeline.xp import BACKEND, to_numpy
+    from pipeline.depth import edge_depths, observed_curve
+    from pipeline.xp import BACKEND
 
     depths = depths.assign(id=depths["id"].astype(str))
     records = {r.id: r for r in (Record.model_validate_json(p.read_text()) for p in sorted((out / "records").glob("*.json")))}
@@ -216,16 +222,14 @@ def build_dispatch(source: str, out: Path, cache: Path, depths: pd.DataFrame) ->
 
     area = load_area(DEMO_BBOX, cache)
     graph = area.graph
-    hand = to_numpy(hand_ft(area))
-    rises = [r for _, r in rise_curve(source)]
-    edge_hand = {}
-    for u, v in graph.edges():
-        lon = (graph.nodes[u]["x"] + graph.nodes[v]["x"]) / 2
-        lat = (graph.nodes[u]["y"] + graph.nodes[v]["y"]) / 2
-        edge_hand[(u, v)] = float(hand[dem_index(area, lon, lat)])
+    edges = list(dict.fromkeys(graph.edges()))
+    midpoints = [((graph.nodes[u]["x"] + graph.nodes[v]["x"]) / 2, (graph.nodes[u]["y"] + graph.nodes[v]["y"]) / 2)
+                 for u, v in edges]
+    depth_by_min = edge_depths(area, midpoints, observed_curve())  # vehicles meet the water that was really there
+    edge_col = {edge: i for i, edge in enumerate(edges)}
 
     def edge_depth_ft(u, v, data, t: float) -> float:
-        return max(0.0, rises[int(min(max(t, 0), len(rises) - 1))] - edge_hand[(u, v)])
+        return float(depth_by_min[int(min(max(t, 0), len(depth_by_min) - 1)), edge_col[(u, v)]])
 
     lonlat = {str(h.id): (float(h.lon), float(h.lat)) for h in area.households.itertuples()}
     meta = json.loads((out / "meta.json").read_text())

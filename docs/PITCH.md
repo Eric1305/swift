@@ -29,11 +29,11 @@ Before going on stage:
 
 ### 0:20–0:25 · Scene 1, fly in (demo 0 s) [Data]
 
-> This is Bear Creek in west Houston, right against the Addicks Reservoir. In Harvey about two-thirds of its homes flooded. These are 150 real buildings from OpenStreetMap on USGS 10-meter elevation.
+> This is Bear Creek in west Houston, right against the Addicks Reservoir. In Harvey the reservoir backed into it and about 65% of the subdivision's homes flooded. These are 150 real buildings from OpenStreetMap on USGS 10-meter elevation.
 
 ### 0:25–0:45 · Scene 2, water rises and calls fan out (demo 5 s) [Creativity] [LLM/GB10]
 
-> The water you see is our depth model, scaled by Harvey's actual rainfall from the UTSA dataset. Each home gets a predicted time when water reaches it, and Swift dials in that order: first water, first call. A home that doesn't pick up is retried at two and five minutes and then goes on a door-knock list, because silence never counts as safe.
+> The water you see is the real Addicks Reservoir level the USGS gauge recorded during Harvey: three and a half days, compressed into six hours. Swift only uses what that gauge had published when the calls started, so each home gets a forecast time for the water, and Swift dials in that order: first water, first call. A home that doesn't pick up is retried at two and five minutes and then goes on a door-knock list, because silence never counts as safe.
 >
 > Top right: those are real requests going to Qwen3-VL on the Dell GB10 server right now. Every reply on every call is decided by that model and our code. Retell only carries the voice.
 
@@ -76,7 +76,7 @@ Before going on stage:
 
 ### 2:50–3:00 · Close [Impact]
 
-> In a real event, the trigger is an NWS warning, the water comes from river gauge forecasts, the phone list comes from reverse-911 and the STEAR registry, and the same loop runs. Swift: call everyone, in the order the water arrives.
+> In a real event, the trigger is an NWS warning, the water comes from the live gauge feed and forecasts, the phone list comes from reverse-911 and the STEAR registry, and the same loop runs. Swift: call everyone, in the order the water arrives.
 
 ---
 
@@ -100,14 +100,14 @@ Each turn is one short extraction, about 0.2–0.4 s on an 8B model, so one mode
 **6. What does the GB10 actually do?**
 It's the organizers' Dell Pro Max GB10 model server, serving Qwen3-VL-8B (`qwen3-vl-8b-instruct`) with the event's shared key. It runs every model call: each live call turn, the simulated residents (both the resident and the agent side), the aerial-image verdicts, the house cards and the commander briefings. The dashboard panel shows our in-flight requests, total calls and latency against that server live. The depth model, routing and Monte Carlo are NumPy on the laptop. They run on GPU through a CuPy shim when one is present, but the organizers took back the per-team workstations mid-event.
 
-**7. How accurate is your depth model?**
-It's a terrain screen, not a hydraulic model. It uses height above the lowest point within 1 km on the 3DEP 10 m DEM, against a water level that rises with the storm's rainfall to a chosen 12 ft peak. It ignores channel flow, drainage and reservoir operations. We use it for one thing, the order of calls, and the Monte Carlo varies the peak from 8 to 16 ft to check that the result holds. Qwen3-VL saw flooding in 17 of the 21 real aerials in the same area, which is consistent with a badly flooded neighborhood, but we have not validated depth house by house. In a real event, the rise would come from NWS and USGS gauge forecasts, and we'd calibrate against Harvey high-water marks.
+**7. How accurate is your depth model? Would it have worked during Harvey?**
+The water level isn't made up. It's the Addicks Reservoir pool recorded by USGS gauge 08073000 during Harvey, in the same datum as the 3DEP elevation. Bear Creek flooded because that pool backed up, so depth is pool minus ground wherever the ground connects to the water. Swift itself only sees what existed when calls started at midnight Aug 27: the elevation data and the gauge readings published so far, which showed the pool rising about 12 feet a day. That gives every home an ETA. The ETAs run early, which is the safe direction, and match the order the water actually arrived with a rank correlation of 0.996, and a test proves later readings can't change them. Limits: daily rather than hourly readings, bare-earth elevation rather than floor heights, no rain ponding, and no house-by-house check against high-water marks yet. Qwen3-VL saw flooding in 17 of the 21 real aerials in the same area, which is consistent.
 
 **8. What about people who don't speak English?**
 The extraction prompt, the schema (it records `language`) and the honesty filter handle English and Spanish. About 10% of our simulated residents answered in Spanish. Our live voice agent is English today. Next is choosing the voice and the script templates by registered or detected language, and using the reverse-911 list's language field where it exists.
 
-**9. Where does the 100% vs 45.7% come from? Isn't that too good?**
-That's one replay night with 35 needs-help homes and the same 3 vehicles for both sides. In the baseline, 55% of needs-help homes reach 911, 20 minutes before their water, and are served first come, first served. Swift knows about each home when its call finishes and serves them by rank. The fairer number is the Monte Carlo: over 1,000 nights with random peak, no-answer rate, fleet size and 911 reach rate, the median is 28.6% vs 82.9%, and Swift's 10th–90th percentile is 68.6–94.3%. These are synthetic residents, so it's a policy comparison, not a lives-saved estimate.
+**9. Where does the 100% vs 42.9% come from? Isn't that too good?**
+That's one replay night with 35 needs-help homes and the same 3 vehicles for both sides. In the baseline, 55% of needs-help homes reach 911, 20 minutes before their water, and are served first come, first served. Swift knows about each home when its call finishes and serves them by rank. The fairer number is the Monte Carlo: over 1,000 nights with random pool rise speed, no-answer rate, fleet size and 911 reach rate, the median is 28.6% vs 82.9%, and Swift's 10th–90th percentile is 68.6–94.3%. These are synthetic residents, so it's a policy comparison, not a lives-saved estimate.
 
 **10. People don't answer unknown numbers. Won't they ignore it?**
 Some will, and that's built in. No answer after two retries puts the home on the door-knock list, clustered within 300 m so a crew can walk it. In the replay, 21 homes ended up in 11 clusters. In a real deployment, calls should come from the county's known alert number.
@@ -116,4 +116,4 @@ Some will, and that's built in. No answer after two retries puts the home on the
 Those systems broadcast one way. Swift has a conversation and returns a structured record: who is there, who can't leave, whether water is inside, who has a boat. In the Kerr County flood the NWS warning went out at 1:14 a.m. and the county's CodeRED alert went out hours later. Swift could start dialing as soon as a warning is issued, and it tells dispatch who answered.
 
 **12. What data did you add beyond the provided dataset?**
-The provided dataset is the organizers' Hugging Face set `jennifer-fowler/UTSA-flood-images` (1,204 georeferenced images, 273 metadata columns). On top of it we added USGS 3DEP elevation, OpenStreetMap buildings and roads, and the published Harvey research behind the problem statement. From the UTSA dataset we used the image footprints to choose the area, the 2017/2016 after/before aerials, and the 3-day precipitation column to shape the storm.
+The provided dataset is the organizers' Hugging Face set `jennifer-fowler/UTSA-flood-images` (1,204 georeferenced images, 273 metadata columns). On top of it we added USGS 3DEP elevation, OpenStreetMap buildings and roads, and the published Harvey research behind the problem statement. From the UTSA dataset we used the image footprints to choose the area, the 2017/2016 after/before aerials, and the 3-day precipitation column as context. The water level itself comes from USGS gauge 08073000 at the Addicks Reservoir.

@@ -18,7 +18,8 @@ export interface Meta {
   zoom: number;
   pitch: number;
   bearing: number;
-  timeline: { start_iso: string; end_min: number; step_min: number };
+  /** time_scale: real minutes per replay minute (the replay compresses Harvey's pool rise). */
+  timeline: { start_iso: string; end_min: number; step_min: number; time_scale?: number };
   staging: LonLat;
   hub: LonLat;
   depth_stages: DepthStage[];
@@ -27,7 +28,7 @@ export interface Meta {
 export interface HouseholdProps {
   id: string;
   address: string;
-  /** null = the depth model never floods this home. */
+  /** null = the recorded Harvey pool never reached this home. */
   water_arrival_min: number | null;
   depth_ft_peak: number;
   height_m: number;

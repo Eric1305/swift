@@ -72,16 +72,16 @@ Qwen has **five jobs**. Each one is a single request with a short prompt, and th
 
 ## One live call, step by step
 1. The dashboard's Run Demo (scene 6) calls our server: `POST /api/demo-call`.
-2. Our server asks Retell's API to dial the demo phone from our Retell number, tagged with the house ID (`h050`).
+2. Our server asks Retell's API to dial the demo phone from our Retell number, tagged with the house ID (`h095`).
 3. You answer. Retell opens a WebSocket to the **relay**, which passes it through the laptop's open connection to **our server** (`/llm-websocket/{call_id}`).
-4. Our server sends the opening line: *"This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1586 Eagle Trail Drive?"* Retell speaks it.
+4. Our server sends the opening line: *"This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1630 Seven Springs Drive?"* Retell speaks it.
 5. You answer. Retell transcribes it and sends the text to our server.
 6. Our server sends that text to **Qwen** (job 1), which returns the facts as JSON plus a short acknowledgment.
 7. The **script** updates the record, decides the next step (next question, re-ask, "Who is it…?" follow-up, read-back, or "What should I fix?") and sends the line back. Retell speaks it.
 8. Steps 5–7 repeat for: people at home → who can't leave and why → water inside? → truck/boat/seats → read-back.
 9. At the end: a fixed closing line for the status, Qwen writes the house card, and the call hangs up.
 10. Retell posts a webhook when the call ends. If you didn't answer, busy, or voicemail, the house is marked ⚫ no answer.
-11. The whole time, the dashboard polls `GET /api/live` every 2 s. The transcript streams into house h050's drawer, and the house turns red.
+11. The whole time, the dashboard polls `GET /api/live` every 2 s. The transcript streams into house h095's drawer, and the house turns red.
 
 If anything in the chain fails, the dashboard plays `live_fallback.json`, which is the same rehearsal call recorded through the real model.
 
@@ -103,21 +103,21 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
 **Where it lives:** in memory on our server and in local JSON files. The model sees only the current turn's text. In a real deployment, the model and the records would sit on hardware the agency controls (that's the point of a local GB10), so medical information never goes to a public AI service.
 
 ## How the replay data was built (the pipeline)
-1. **Pick the area.** We used the UTSA dataset's image locations to find Bear Creek (west Houston, next to the Addicks Reservoir). The reservoir pool backed into it in Harvey, and about two-thirds of its homes flooded.
+1. **Pick the area.** We used the UTSA dataset's image locations to find Bear Creek (west Houston, next to the Addicks Reservoir). The reservoir pool backed into it in Harvey; the homeowners association reported about 65% of Bear Creek Village's homes flooded. Our box is wider than the subdivision, and 57 of our 150 sampled homes flood in the replay.
 2. **Homes and roads.** 150 real buildings and the drive network from OpenStreetMap.
-3. **Flood depth.** USGS 10 m elevation → "height above the lowest point within 1 km" (a quick terrain screen called HAND-lite) against a water level that rises over 6 hours to 12 ft, shaped by the dataset's Harvey rainfall.
-   - Result: 73 of 150 homes flood, with water arriving between minutes 143 and 338, up to 7 ft deep.
-4. **Call order.** Earliest water first, 20 lines at once. Non-answers are retried at +2 and +5 min, then sent to the door-knock list.
+3. **Flood depth.** The real Addicks pool level from USGS gauge 08073000 (87.8 ft at midnight Aug 27 → 109.1 ft at the Aug 30 peak), laid over USGS 10 m elevation: depth = pool − ground, wherever that ground connects to the main body of water. 3½ real days are compressed into the 6-hour replay.
+   - Result: 57 of 150 homes flood, with water arriving between minutes 136 and 355, up to 6.6 ft deep.
+4. **Call order.** Earliest *forecast* water first, 20 lines at once. The forecast uses only gauge readings published before the trigger (the pool rising 11.9 ft/day), so it is lowest ground first; it matches the observed arrival order with Spearman 0.996. Non-answers are retried at +2 and +5 min, then sent to the door-knock list.
 5. **Calls.** 150 simulated residents through the real script and Qwen. Results:
    - **91.5%** of statuses correct;
    - **all 34** households that truly needed help were flagged;
    - **0** promises spoken.
 6. **Dispatch.**
-   - Ranking: can't-leave > water inside > deeper > sooner.
+   - Ranking: can't-leave > water inside > sooner forecast water.
    - Routes: shortest path on the road network, skipping streets deeper than the vehicle can handle (high-water truck 3 ft; boats any depth).
    - Door-knock clusters: no-answers within 300 m of each other.
-7. **Comparison.** With the same fleet, "wait for 911" reaches **45.7%** of needs-help homes before water arrives, and Swift reaches **100%**.
-   - Across **1,000 randomized storms** (peak, no-answer rate, fleet size and 911 reach all varied): median **28.6% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–94.3%.
+7. **Comparison.** With the same fleet, "wait for 911" reaches **42.9%** of needs-help homes before water arrives, and Swift reaches **100%**.
+   - Across **1,000 randomized storms** (pool rise speed, no-answer rate, fleet size and 911 reach all varied): median **28.6% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–94.3%.
    - This is a policy simulation, not a lives-saved prediction.
 
 ## Dashboard ↔ server API
@@ -150,7 +150,9 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
 - It never drops a "can't leave" once it's recorded.
 - Unclear calls end as `unconfirmed` for a human to follow up.
 
-**How accurate is the flood model?** It's a terrain screen, not a hydraulic model: it ignores channels, drains and reservoir operations, and the 12 ft peak is chosen, not forecast. For a real event, it would take river-gauge forecasts from NOAA/NWS instead.
+**How accurate is the flood model?** The water level is not chosen: it is the Addicks Reservoir pool that USGS recorded during Harvey, in the same datum as the elevation data. Bear Creek flooded from that pool backing up, so a level-pool fill is the right first-order model there. It ignores rain ponding and drainage, uses bare-earth elevation rather than floor heights and daily readings, and hasn't been checked against high-water marks house by house.
+
+**Would it have worked during Harvey?** Swift's decisions use only data that existed at midnight Aug 27: pre-storm elevation and buildings, and the gauge readings published so far. From those, the pool was rising about 12 ft a day, so the lowest homes were called first. The water on the map and the scores come from what the gauge recorded afterward. The forecast ETAs were early, the safe direction, and in the right order. What it would still have needed: the county's phone list (reverse-911 and STEAR), which only an agency can provide.
 
 **Spanish?** The extraction handles Spanish (about 10% of the simulated residents spoke it). The live Retell voice is set to English for the demo.
 
