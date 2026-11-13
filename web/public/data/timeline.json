@@ -1,42 +1,12 @@
 [
  {
   "t_min": 0.0,
-  "household_id": "h095",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h110",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
   "household_id": "h011",
   "event": "call_start"
  },
  {
   "t_min": 0.0,
-  "household_id": "h043",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h030",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h014",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h066",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h118",
+  "household_id": "h095",
   "event": "call_start"
  },
  {
@@ -46,12 +16,32 @@
  },
  {
   "t_min": 0.0,
-  "household_id": "h004",
+  "household_id": "h147",
   "event": "call_start"
  },
  {
   "t_min": 0.0,
-  "household_id": "h090",
+  "household_id": "h030",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h060",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h113",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h110",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h021",
   "event": "call_start"
  },
  {
@@ -61,17 +51,7 @@
  },
  {
   "t_min": 0.0,
-  "household_id": "h098",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
   "household_id": "h101",
-  "event": "call_start"
- },
- {
-  "t_min": 0.0,
-  "household_id": "h145",
   "event": "call_start"
  },
  {
@@ -81,7 +61,12 @@
  },
  {
   "t_min": 0.0,
-  "household_id": "h050",
+  "household_id": "h066",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h090",
   "event": "call_start"
  },
  {
@@ -91,40 +76,33 @@
  },
  {
   "t_min": 0.0,
-  "household_id": "h133",
+  "household_id": "h076",
   "event": "call_start"
  },
  {
   "t_min": 0.0,
-  "household_id": "h078",
+  "household_id": "h118",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h112",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h014",
+  "event": "call_start"
+ },
+ {
+  "t_min": 0.0,
+  "household_id": "h022",
   "event": "call_start"
  },
  {
   "t_min": 2.0,
   "household_id": "h014",
   "event": "retry"
- },
- {
-  "t_min": 2.0,
-  "household_id": "h098",
-  "event": "retry"
- },
- {
-  "t_min": 2.0,
-  "household_id": "h078",
-  "event": "retry"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h095",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h110",
-  "event": "complete",
-  "status": "safe"
  },
  {
   "t_min": 3.0,
@@ -134,25 +112,7 @@
  },
  {
   "t_min": 3.0,
-  "household_id": "h043",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h030",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h066",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h118",
+  "household_id": "h095",
   "event": "complete",
   "status": "safe"
  },
@@ -164,13 +124,37 @@
  },
  {
   "t_min": 3.0,
-  "household_id": "h004",
+  "household_id": "h147",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h030",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h060",
   "event": "complete",
   "status": "safe"
  },
  {
   "t_min": 3.0,
-  "household_id": "h090",
+  "household_id": "h113",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h110",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h021",
   "event": "complete",
   "status": "safe"
  },
@@ -188,21 +172,21 @@
  },
  {
   "t_min": 3.0,
-  "household_id": "h145",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 3.0,
   "household_id": "h007",
   "event": "complete",
   "status": "needs_help"
  },
  {
   "t_min": 3.0,
-  "household_id": "h050",
+  "household_id": "h066",
   "event": "complete",
-  "status": "needs_help"
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h090",
+  "event": "complete",
+  "status": "safe"
  },
  {
   "t_min": 3.0,
@@ -212,58 +196,31 @@
  },
  {
   "t_min": 3.0,
+  "household_id": "h076",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h118",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h112",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h022",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 3.0,
   "household_id": "h133",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h134",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h147",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h120",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h113",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h119",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h060",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h022",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h112",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h034",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h021",
   "event": "call_start"
  },
  {
@@ -273,645 +230,650 @@
  },
  {
   "t_min": 3.0,
-  "household_id": "h111",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h127",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h053",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h142",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
-  "household_id": "h039",
-  "event": "call_start"
- },
- {
-  "t_min": 3.0,
   "household_id": "h010",
   "event": "call_start"
  },
  {
-  "t_min": 5.0,
-  "household_id": "h014",
-  "event": "retry"
+  "t_min": 3.0,
+  "household_id": "h100",
+  "event": "call_start"
  },
  {
-  "t_min": 5.0,
-  "household_id": "h098",
-  "event": "retry"
+  "t_min": 3.0,
+  "household_id": "h063",
+  "event": "call_start"
  },
  {
-  "t_min": 5.0,
-  "household_id": "h078",
-  "event": "retry"
+  "t_min": 3.0,
+  "household_id": "h085",
+  "event": "call_start"
  },
  {
-  "t_min": 5.0,
-  "household_id": "h119",
-  "event": "retry"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h014",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h098",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h078",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 6.0,
+  "t_min": 3.0,
   "household_id": "h134",
-  "event": "complete",
-  "status": "safe"
+  "event": "call_start"
  },
  {
-  "t_min": 6.0,
-  "household_id": "h147",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h120",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h113",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h060",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h022",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h112",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h034",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h021",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h038",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h111",
-  "event": "complete",
-  "status": "unconfirmed"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h127",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h053",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h142",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
+  "t_min": 3.0,
   "household_id": "h039",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h010",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h089",
   "event": "call_start"
  },
  {
-  "t_min": 6.0,
+  "t_min": 3.0,
+  "household_id": "h043",
+  "event": "call_start"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h009",
+  "event": "call_start"
+ },
+ {
+  "t_min": 3.0,
   "household_id": "h087",
   "event": "call_start"
  },
  {
-  "t_min": 6.0,
+  "t_min": 3.0,
+  "household_id": "h111",
+  "event": "call_start"
+ },
+ {
+  "t_min": 3.0,
+  "household_id": "h050",
+  "event": "call_start"
+ },
+ {
+  "t_min": 3.0,
   "household_id": "h091",
   "event": "call_start"
  },
  {
-  "t_min": 6.0,
-  "household_id": "h069",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h023",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h070",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h082",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h076",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h100",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h036",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h041",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h063",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
+  "t_min": 3.0,
   "household_id": "h099",
   "event": "call_start"
  },
  {
-  "t_min": 6.0,
-  "household_id": "h124",
+  "t_min": 3.0,
+  "household_id": "h127",
   "event": "call_start"
  },
  {
-  "t_min": 6.0,
-  "household_id": "h126",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h121",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h122",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h085",
-  "event": "call_start"
- },
- {
-  "t_min": 6.0,
-  "household_id": "h079",
-  "event": "call_start"
- },
- {
-  "t_min": 8.0,
-  "household_id": "h119",
-  "event": "retry"
- },
- {
-  "t_min": 8.0,
-  "household_id": "h089",
-  "event": "retry"
- },
- {
-  "t_min": 8.0,
-  "household_id": "h023",
-  "event": "retry"
- },
- {
-  "t_min": 8.0,
-  "household_id": "h063",
-  "event": "retry"
- },
- {
-  "t_min": 8.0,
-  "household_id": "h099",
-  "event": "retry"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h119",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h087",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h091",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h069",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h070",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h082",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h076",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h100",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h036",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h041",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h124",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h126",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h121",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h122",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h085",
-  "event": "complete",
-  "status": "unconfirmed"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h079",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h020",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h093",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h013",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h008",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h075",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h072",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h015",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h140",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h001",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h042",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h016",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h109",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h102",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h137",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h117",
-  "event": "call_start"
- },
- {
-  "t_min": 9.0,
-  "household_id": "h057",
-  "event": "call_start"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h089",
-  "event": "retry"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h023",
-  "event": "retry"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h063",
-  "event": "retry"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h099",
-  "event": "retry"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h137",
-  "event": "retry"
- },
- {
-  "t_min": 11.0,
-  "household_id": "h057",
-  "event": "retry"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h089",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h023",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h063",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h099",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h020",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h093",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h013",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h008",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h075",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h072",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h015",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h140",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h001",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h042",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h016",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h109",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h102",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h117",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 12.0,
+  "t_min": 3.0,
   "household_id": "h146",
   "event": "call_start"
  },
  {
-  "t_min": 12.0,
-  "household_id": "h135",
+  "t_min": 3.0,
+  "household_id": "h001",
   "event": "call_start"
  },
  {
-  "t_min": 12.0,
-  "household_id": "h077",
-  "event": "call_start"
- },
- {
-  "t_min": 12.0,
-  "household_id": "h068",
-  "event": "call_start"
- },
- {
-  "t_min": 12.0,
+  "t_min": 3.0,
   "household_id": "h003",
   "event": "call_start"
  },
  {
-  "t_min": 12.0,
-  "household_id": "h143",
+  "t_min": 5.0,
+  "household_id": "h014",
+  "event": "retry"
+ },
+ {
+  "t_min": 5.0,
+  "household_id": "h063",
+  "event": "retry"
+ },
+ {
+  "t_min": 5.0,
+  "household_id": "h099",
+  "event": "retry"
+ },
+ {
+  "t_min": 5.0,
+  "household_id": "h003",
+  "event": "retry"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h014",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h133",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h038",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h010",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h100",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h085",
+  "event": "complete",
+  "status": "unconfirmed"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h134",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h039",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h043",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h009",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h087",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h111",
+  "event": "complete",
+  "status": "unconfirmed"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h050",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h091",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h127",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h146",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h001",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h053",
   "event": "call_start"
  },
  {
-  "t_min": 12.0,
-  "household_id": "h064",
+  "t_min": 6.0,
+  "household_id": "h098",
   "event": "call_start"
  },
  {
-  "t_min": 12.0,
+  "t_min": 6.0,
+  "household_id": "h140",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h141",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h023",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h004",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h078",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h037",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
   "household_id": "h051",
   "event": "call_start"
  },
  {
+  "t_min": 6.0,
+  "household_id": "h121",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h122",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h067",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h064",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h124",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h102",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h070",
+  "event": "call_start"
+ },
+ {
+  "t_min": 6.0,
+  "household_id": "h145",
+  "event": "call_start"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h063",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h099",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h003",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h098",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h023",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h078",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h037",
+  "event": "retry"
+ },
+ {
+  "t_min": 8.0,
+  "household_id": "h051",
+  "event": "retry"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h063",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h099",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h003",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h053",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h140",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h141",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h004",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h121",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h122",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h067",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h064",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h124",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h102",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h070",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h145",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h020",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h117",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h034",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h089",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h119",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h135",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h041",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h047",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h082",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h136",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h028",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h097",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h013",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h068",
+  "event": "call_start"
+ },
+ {
+  "t_min": 9.0,
+  "household_id": "h142",
+  "event": "call_start"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h098",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h023",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h078",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h037",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h051",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h089",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h119",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h135",
+  "event": "retry"
+ },
+ {
+  "t_min": 11.0,
+  "household_id": "h068",
+  "event": "retry"
+ },
+ {
   "t_min": 12.0,
-  "household_id": "h009",
+  "household_id": "h098",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h023",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h078",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h037",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h051",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h020",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h117",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h034",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h041",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h047",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h082",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h136",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h028",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h097",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h013",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h142",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h120",
+  "event": "call_start"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h092",
   "event": "call_start"
  },
  {
@@ -931,7 +893,22 @@
  },
  {
   "t_min": 12.0,
+  "household_id": "h008",
+  "event": "call_start"
+ },
+ {
+  "t_min": 12.0,
   "household_id": "h012",
+  "event": "call_start"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h015",
+  "event": "call_start"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h016",
   "event": "call_start"
  },
  {
@@ -960,13 +937,23 @@
   "event": "call_start"
  },
  {
+  "t_min": 12.0,
+  "household_id": "h026",
+  "event": "call_start"
+ },
+ {
+  "t_min": 12.0,
+  "household_id": "h027",
+  "event": "call_start"
+ },
+ {
   "t_min": 14.0,
-  "household_id": "h137",
+  "household_id": "h089",
   "event": "retry"
  },
  {
   "t_min": 14.0,
-  "household_id": "h057",
+  "household_id": "h119",
   "event": "retry"
  },
  {
@@ -981,12 +968,7 @@
  },
  {
   "t_min": 14.0,
-  "household_id": "h003",
-  "event": "retry"
- },
- {
-  "t_min": 14.0,
-  "household_id": "h051",
+  "household_id": "h092",
   "event": "retry"
  },
  {
@@ -996,43 +978,31 @@
  },
  {
   "t_min": 15.0,
-  "household_id": "h137",
+  "household_id": "h089",
   "event": "no_answer",
   "status": "no_answer"
  },
  {
   "t_min": 15.0,
-  "household_id": "h057",
+  "household_id": "h119",
   "event": "no_answer",
   "status": "no_answer"
  },
  {
   "t_min": 15.0,
-  "household_id": "h146",
-  "event": "complete",
-  "status": "can_help"
+  "household_id": "h135",
+  "event": "no_answer",
+  "status": "no_answer"
  },
  {
   "t_min": 15.0,
-  "household_id": "h077",
-  "event": "complete",
-  "status": "unconfirmed"
+  "household_id": "h068",
+  "event": "no_answer",
+  "status": "no_answer"
  },
  {
   "t_min": 15.0,
-  "household_id": "h143",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 15.0,
-  "household_id": "h064",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 15.0,
-  "household_id": "h009",
+  "household_id": "h120",
   "event": "complete",
   "status": "safe"
  },
@@ -1056,7 +1026,25 @@
  },
  {
   "t_min": 15.0,
+  "household_id": "h008",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 15.0,
   "household_id": "h012",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h015",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h016",
   "event": "complete",
   "status": "needs_help"
  },
@@ -1087,17 +1075,14 @@
  {
   "t_min": 15.0,
   "household_id": "h026",
-  "event": "call_start"
+  "event": "complete",
+  "status": "can_help"
  },
  {
   "t_min": 15.0,
   "household_id": "h027",
-  "event": "call_start"
- },
- {
-  "t_min": 15.0,
-  "household_id": "h028",
-  "event": "call_start"
+  "event": "complete",
+  "status": "safe"
  },
  {
   "t_min": 15.0,
@@ -1116,12 +1101,17 @@
  },
  {
   "t_min": 15.0,
-  "household_id": "h037",
+  "household_id": "h036",
   "event": "call_start"
  },
  {
   "t_min": 15.0,
   "household_id": "h040",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h042",
   "event": "call_start"
  },
  {
@@ -1141,11 +1131,6 @@
  },
  {
   "t_min": 15.0,
-  "household_id": "h047",
-  "event": "call_start"
- },
- {
-  "t_min": 15.0,
   "household_id": "h048",
   "event": "call_start"
  },
@@ -1160,33 +1145,43 @@
   "event": "call_start"
  },
  {
-  "t_min": 17.0,
-  "household_id": "h135",
-  "event": "retry"
+  "t_min": 15.0,
+  "household_id": "h054",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h055",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h056",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h057",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h058",
+  "event": "call_start"
+ },
+ {
+  "t_min": 15.0,
+  "household_id": "h059",
+  "event": "call_start"
  },
  {
   "t_min": 17.0,
-  "household_id": "h068",
-  "event": "retry"
- },
- {
-  "t_min": 17.0,
-  "household_id": "h003",
-  "event": "retry"
- },
- {
-  "t_min": 17.0,
-  "household_id": "h051",
+  "household_id": "h092",
   "event": "retry"
  },
  {
   "t_min": 17.0,
   "household_id": "h018",
-  "event": "retry"
- },
- {
-  "t_min": 17.0,
-  "household_id": "h037",
   "event": "retry"
  },
  {
@@ -1195,26 +1190,13 @@
   "event": "retry"
  },
  {
-  "t_min": 18.0,
-  "household_id": "h135",
-  "event": "no_answer",
-  "status": "no_answer"
+  "t_min": 17.0,
+  "household_id": "h057",
+  "event": "retry"
  },
  {
   "t_min": 18.0,
-  "household_id": "h068",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h003",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h051",
+  "household_id": "h092",
   "event": "no_answer",
   "status": "no_answer"
  },
@@ -1223,24 +1205,6 @@
   "household_id": "h018",
   "event": "no_answer",
   "status": "no_answer"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h026",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h027",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h028",
-  "event": "complete",
-  "status": "safe"
  },
  {
   "t_min": 18.0,
@@ -1262,7 +1226,19 @@
  },
  {
   "t_min": 18.0,
+  "household_id": "h036",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 18.0,
   "household_id": "h040",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 18.0,
+  "household_id": "h042",
   "event": "complete",
   "status": "safe"
  },
@@ -1275,12 +1251,6 @@
  {
   "t_min": 18.0,
   "household_id": "h046",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 18.0,
-  "household_id": "h047",
   "event": "complete",
   "status": "safe"
  },
@@ -1305,27 +1275,32 @@
  {
   "t_min": 18.0,
   "household_id": "h054",
-  "event": "call_start"
+  "event": "complete",
+  "status": "needs_help"
  },
  {
   "t_min": 18.0,
   "household_id": "h055",
-  "event": "call_start"
+  "event": "complete",
+  "status": "needs_help"
  },
  {
   "t_min": 18.0,
   "household_id": "h056",
-  "event": "call_start"
+  "event": "complete",
+  "status": "safe"
  },
  {
   "t_min": 18.0,
   "household_id": "h058",
-  "event": "call_start"
+  "event": "complete",
+  "status": "safe"
  },
  {
   "t_min": 18.0,
   "household_id": "h059",
-  "event": "call_start"
+  "event": "complete",
+  "status": "unconfirmed"
  },
  {
   "t_min": 18.0,
@@ -1344,12 +1319,17 @@
  },
  {
   "t_min": 18.0,
-  "household_id": "h067",
+  "household_id": "h069",
   "event": "call_start"
  },
  {
   "t_min": 18.0,
   "household_id": "h071",
+  "event": "call_start"
+ },
+ {
+  "t_min": 18.0,
+  "household_id": "h072",
   "event": "call_start"
  },
  {
@@ -1360,6 +1340,21 @@
  {
   "t_min": 18.0,
   "household_id": "h074",
+  "event": "call_start"
+ },
+ {
+  "t_min": 18.0,
+  "household_id": "h075",
+  "event": "call_start"
+ },
+ {
+  "t_min": 18.0,
+  "household_id": "h077",
+  "event": "call_start"
+ },
+ {
+  "t_min": 18.0,
+  "household_id": "h079",
   "event": "call_start"
  },
  {
@@ -1389,150 +1384,146 @@
  },
  {
   "t_min": 18.0,
-  "household_id": "h092",
+  "household_id": "h093",
   "event": "call_start"
  },
  {
-  "t_min": 20.0,
-  "household_id": "h037",
-  "event": "retry"
- },
- {
-  "t_min": 20.0,
-  "household_id": "h045",
-  "event": "retry"
- },
- {
-  "t_min": 20.0,
-  "household_id": "h086",
-  "event": "retry"
- },
- {
-  "t_min": 20.0,
-  "household_id": "h092",
-  "event": "retry"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h037",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h045",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h054",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h055",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h056",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h058",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h059",
-  "event": "complete",
-  "status": "unconfirmed"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h061",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h062",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h065",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h067",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h071",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h073",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h074",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h081",
-  "event": "complete",
-  "status": "unconfirmed"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h083",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h084",
-  "event": "complete",
-  "status": "needs_help"
- },
- {
-  "t_min": 21.0,
-  "household_id": "h088",
-  "event": "complete",
-  "status": "can_help"
- },
- {
-  "t_min": 21.0,
+  "t_min": 18.0,
   "household_id": "h094",
   "event": "call_start"
  },
  {
-  "t_min": 21.0,
-  "household_id": "h096",
-  "event": "call_start"
+  "t_min": 20.0,
+  "household_id": "h045",
+  "event": "retry"
+ },
+ {
+  "t_min": 20.0,
+  "household_id": "h057",
+  "event": "retry"
+ },
+ {
+  "t_min": 20.0,
+  "household_id": "h086",
+  "event": "retry"
  },
  {
   "t_min": 21.0,
-  "household_id": "h097",
+  "household_id": "h045",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h057",
+  "event": "no_answer",
+  "status": "no_answer"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h061",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h062",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h065",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h069",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h071",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h072",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h073",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h074",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h075",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h077",
+  "event": "complete",
+  "status": "unconfirmed"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h079",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h081",
+  "event": "complete",
+  "status": "unconfirmed"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h083",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h084",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h088",
+  "event": "complete",
+  "status": "can_help"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h093",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h094",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h096",
   "event": "call_start"
  },
  {
@@ -1567,6 +1558,11 @@
  },
  {
   "t_min": 21.0,
+  "household_id": "h109",
+  "event": "call_start"
+ },
+ {
+  "t_min": 21.0,
   "household_id": "h114",
   "event": "call_start"
  },
@@ -1588,6 +1584,11 @@
  {
   "t_min": 21.0,
   "household_id": "h125",
+  "event": "call_start"
+ },
+ {
+  "t_min": 21.0,
+  "household_id": "h126",
   "event": "call_start"
  },
  {
@@ -1611,13 +1612,13 @@
   "event": "call_start"
  },
  {
-  "t_min": 23.0,
-  "household_id": "h086",
-  "event": "retry"
+  "t_min": 21.0,
+  "household_id": "h132",
+  "event": "call_start"
  },
  {
   "t_min": 23.0,
-  "household_id": "h092",
+  "household_id": "h086",
   "event": "retry"
  },
  {
@@ -1630,24 +1631,6 @@
   "household_id": "h086",
   "event": "no_answer",
   "status": "no_answer"
- },
- {
-  "t_min": 24.0,
-  "household_id": "h092",
-  "event": "no_answer",
-  "status": "no_answer"
- },
- {
-  "t_min": 24.0,
-  "household_id": "h094",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 24.0,
-  "household_id": "h097",
-  "event": "complete",
-  "status": "needs_help"
  },
  {
   "t_min": 24.0,
@@ -1687,6 +1670,12 @@
  },
  {
   "t_min": 24.0,
+  "household_id": "h109",
+  "event": "complete",
+  "status": "needs_help"
+ },
+ {
+  "t_min": 24.0,
   "household_id": "h114",
   "event": "complete",
   "status": "safe"
@@ -1712,6 +1701,12 @@
  {
   "t_min": 24.0,
   "household_id": "h125",
+  "event": "complete",
+  "status": "safe"
+ },
+ {
+  "t_min": 24.0,
+  "household_id": "h126",
   "event": "complete",
   "status": "safe"
  },
@@ -1742,11 +1737,12 @@
  {
   "t_min": 24.0,
   "household_id": "h132",
-  "event": "call_start"
+  "event": "complete",
+  "status": "safe"
  },
  {
   "t_min": 24.0,
-  "household_id": "h136",
+  "household_id": "h137",
   "event": "call_start"
  },
  {
@@ -1761,7 +1757,7 @@
  },
  {
   "t_min": 24.0,
-  "household_id": "h141",
+  "household_id": "h143",
   "event": "call_start"
  },
  {
@@ -1791,6 +1787,11 @@
  },
  {
   "t_min": 26.0,
+  "household_id": "h137",
+  "event": "retry"
+ },
+ {
+  "t_min": 26.0,
   "household_id": "h144",
   "event": "retry"
  },
@@ -1799,18 +1800,6 @@
   "household_id": "h096",
   "event": "no_answer",
   "status": "no_answer"
- },
- {
-  "t_min": 27.0,
-  "household_id": "h132",
-  "event": "complete",
-  "status": "safe"
- },
- {
-  "t_min": 27.0,
-  "household_id": "h136",
-  "event": "complete",
-  "status": "needs_help"
  },
  {
   "t_min": 27.0,
@@ -1826,9 +1815,9 @@
  },
  {
   "t_min": 27.0,
-  "household_id": "h141",
+  "household_id": "h143",
   "event": "complete",
-  "status": "safe"
+  "status": "needs_help"
  },
  {
   "t_min": 27.0,
@@ -1850,8 +1839,19 @@
  },
  {
   "t_min": 29.0,
+  "household_id": "h137",
+  "event": "retry"
+ },
+ {
+  "t_min": 29.0,
   "household_id": "h144",
   "event": "retry"
+ },
+ {
+  "t_min": 30.0,
+  "household_id": "h137",
+  "event": "no_answer",
+  "status": "no_answer"
  },
  {
   "t_min": 30.0,

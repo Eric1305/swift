@@ -47,8 +47,12 @@ def rise_curve(source: str = "replay") -> list[tuple[int, float]]:
 
 
 def hand_ft(area: Area):
+    """Height above the local low point. The 1 km minimum is smoothed so its square window can't stamp
+    rectangular wet/dry blocks into the result."""
     dem = xp.asarray(area.dem, dtype=xp.float32)
-    return (dem - ndimage.minimum_filter(dem, size=WINDOW_PX)) * 3.281
+    low = ndimage.gaussian_filter(ndimage.minimum_filter(dem, size=WINDOW_PX), sigma=WINDOW_PX / 3)
+    low = xp.minimum(low, dem)
+    return (dem - low) * 3.281
 
 
 def household_depths(area: Area, curve: list[tuple[int, float]]) -> pd.DataFrame:
@@ -74,11 +78,16 @@ def write_depth_stages(area: Area, curve: list[tuple[int, float]], out: Path) ->
     stack = to_numpy(depth_stack(area, [curve[t][1] for t in times]))
     bounds = dem_bounds(area)
     stages = []
+    from scipy.ndimage import gaussian_filter
+
+    shallow, deep = np.array([110, 175, 245]), np.array([25, 90, 200])
     for t, depth in zip(times, stack):
-        alpha = np.clip(depth / 6.0, 0, 1) * 210  # 6 ft and deeper = most opaque
+        depth = gaussian_filter(depth, sigma=1.5)  # soften DEM noise so water reads as water, not cloud
+        k = np.clip(depth / 6.0, 0, 1)[..., None]
         rgba = np.zeros(depth.shape + (4,), dtype=np.uint8)
-        rgba[..., 0], rgba[..., 1], rgba[..., 2] = 30, 120, 255
-        rgba[..., 3] = np.where(depth > 0.05, alpha, 0).astype(np.uint8)
+        rgba[..., :3] = (shallow * (1 - k) + deep * k).astype(np.uint8)
+        wet = depth > 0.3
+        rgba[..., 3] = np.where(wet, 150 + 60 * k[..., 0], 0).astype(np.uint8)
         name = f"depth_{t:03d}.png"
         Image.fromarray(rgba, "RGBA").save(out / name)
         stages.append({"t_min": t, "png": name, "bounds": bounds})

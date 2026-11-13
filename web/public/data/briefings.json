@@ -1,14 +1,14 @@
 [
   {
     "t_min": 10,
-    "text": "98 not called. 33 safe. 9 need help. 4 no answer (require door knocks). 2 unconfirmed. 4 can help. Top rescue: Hidden Acres Drive (un andador), Shawna Street (power wheelchair), Hidden Acres Drive (electric wheelchair). Mobility: manual wheelchair users, oxygen users, non-walker. Trucks/boats available if neighbors have them."
+    "text": "31 safe. 9 needs help. 2 unconfirmed. 5 can help. 99 not called. 4 no answer (require door knocks). Top queue: Hidden Acres (5.2ft, 166min), Cloudmount (6.2ft, 155min), Hidden Acres (6.0ft, 157min). Mobility: manual wheelchair, oxygen, non-walker. Neighbors with trucks/boats available if any."
   },
   {
     "t_min": 30,
-    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top rescue: Hidden Acres Drive (un andador), Shawna Street (power wheelchair), Hidden Acres Drive (electric wheelchair). Mobility: manual wheelchair users, oxygen users, non-walker. Trucks/boats available if neighbors present."
+    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top queue: Hidden Acres (5.2 ft, 166 min), Cloudmount (6.2 ft, 155 min), Hidden Acres (6.0 ft, 157 min). Mobility: manual wheelchair users, oxygen users, non-walkers. Trucks/boats available if neighbors have them."
   },
   {
     "t_min": 60,
-    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top rescue: Hidden Acres Drive (un andador), Shawna Street (power wheelchair), Hidden Acres Drive (electric wheelchair). Mobility: manual wheelchair users, oxygen users, non-walker. Trucks/boats available if neighbors present."
+    "text": "77 safe. 35 need help. 21 no answer (require door knocks). 12 can help. 5 unconfirmed. Top queue: Hidden Acres (5.2 ft, 166 min), Cloudmount (6.2 ft, 155 min), Hidden Acres (6.0 ft, 157 min). Mobility: manual wheelchair users, oxygen users, non-walkers. Trucks/boats available if neighbors have them."
   }
 ]

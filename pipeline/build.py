@@ -33,6 +33,8 @@ def build_base(source: str, out: Path) -> None:
     candidates = flooding[(flooding["water_arrival_min"] - median_arrival).abs() <= 30]
     distance = (candidates["lon"] - center[0]) ** 2 + (candidates["lat"] - center[1]) ** 2
     demo_id = candidates.loc[distance.idxmin(), "id"] if len(candidates) else houses.iloc[0]["id"]
+    if (out / "meta.json").exists():  # keep the live-call house stable across rebuilds
+        demo_id = json.loads((out / "meta.json").read_text()).get("demo_household_id", demo_id)
     highest = houses.loc[houses["hand_ft"].idxmax()]
 
     meta = {

@@ -106,7 +106,7 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
 1. **Pick the area.** We used the UTSA dataset's image locations to find Bear Creek (west Houston, next to the Addicks Reservoir). The reservoir pool backed into it in Harvey, and about two-thirds of its homes flooded.
 2. **Homes and roads.** 150 real buildings and the drive network from OpenStreetMap.
 3. **Flood depth.** USGS 10 m elevation → "height above the lowest point within 1 km" (a quick terrain screen called HAND-lite) against a water level that rises over 6 hours to 12 ft, shaped by the dataset's Harvey rainfall.
-   - Result: 81 of 150 homes flood, with water arriving between minutes 121 and 321, up to 9 ft deep.
+   - Result: 73 of 150 homes flood, with water arriving between minutes 143 and 338, up to 7 ft deep.
 4. **Call order.** Earliest water first, 20 lines at once. Non-answers are retried at +2 and +5 min, then sent to the door-knock list.
 5. **Calls.** 150 simulated residents through the real script and Qwen. Results:
    - **91.5%** of statuses correct;
@@ -116,8 +116,8 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
    - Ranking: can't-leave > water inside > deeper > sooner.
    - Routes: shortest path on the road network, skipping streets deeper than the vehicle can handle (high-water truck 3 ft; boats any depth).
    - Door-knock clusters: no-answers within 300 m of each other.
-7. **Comparison.** With the same fleet, "wait for 911" reaches **57.1%** of needs-help homes before water arrives, and Swift reaches **100%**.
-   - Across **1,000 randomized storms** (peak, no-answer rate, fleet size and 911 reach all varied): median **34.3% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–94.3%.
+7. **Comparison.** With the same fleet, "wait for 911" reaches **45.7%** of needs-help homes before water arrives, and Swift reaches **100%**.
+   - Across **1,000 randomized storms** (peak, no-answer rate, fleet size and 911 reach all varied): median **28.6% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–94.3%.
    - This is a policy simulation, not a lives-saved prediction.
 
 ## Dashboard ↔ server API

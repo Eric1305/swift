@@ -3,15 +3,15 @@
   "promise_violations": 0,
   "parallel_calls": 8,
   "n_households": 150,
-  "baseline_pct": 57.1,
+  "baseline_pct": 45.7,
   "swift_pct": 100.0,
   "mc": {
-    "median_baseline": 34.3,
+    "median_baseline": 28.6,
     "median_swift": 82.9,
     "p10": 68.6,
     "p90": 94.3,
     "n": 1000,
-    "seconds": 0.005
+    "seconds": 0.006
   },
   "promises_blocked": 48
 }
