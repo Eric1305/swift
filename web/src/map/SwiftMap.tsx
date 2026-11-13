@@ -43,10 +43,11 @@ interface Props {
  */
 const FLOOD_Q_START = 0.03;
 const FLOOD_Q_END = 0.4;
-/** 'terrain' = flood from real elevation tiles; 'pipeline' = depth_*.png from the pipeline. */
-/** Override with `?flood=pipeline` (offline / venue firewall: no S3 terrain tiles needed). */
+/** 'pipeline' (default) = depth_*.png from our flood model: the same model behind the queue's water-arrival
+ *  times, and no network needed. 'terrain' (`?flood=terrain`) floods from S3 elevation tiles, which load
+ *  unevenly on venue Wi-Fi (dry tile-shaped gaps) and don't match the pipeline's arrival times. */
 const FLOOD_SOURCE: 'terrain' | 'pipeline' =
-  new URLSearchParams(window.location.search).get('flood') === 'pipeline' ? 'pipeline' : 'terrain';
+  new URLSearchParams(window.location.search).get('flood') === 'terrain' ? 'terrain' : 'pipeline';
 const PIPELINE_DEPTH_OPACITY = 0.55;
 
 /** Interleaved-mode prop (@deck.gl/mapbox): insert the layer below this MapLibre layer. */

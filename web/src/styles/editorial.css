@@ -458,3 +458,24 @@
     transform: none;
   }
 }
+
+/* ?layout=lean: compact counters, soonest-water queue, briefing inside the model card */
+.app .lean-counters { display: flex; flex-wrap: wrap; gap: 6px; }
+.app .lean-counter { display: inline-flex; align-items: baseline; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); }
+.app .lean-counter strong { font-family: var(--font-mono); font-size: 17px; font-weight: 700; line-height: 1; }
+.app .lean-counter span { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
+.app .lean-row { width: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 3px; text-align: left; padding: 9px 11px 9px 13px; border-radius: 10px; border: 1px solid var(--border); background: #fff; cursor: pointer; position: relative; overflow: hidden; font: inherit; color: inherit; }
+.app .lean-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--status-needs-help); }
+.app .lean-row--soon::before, .app .lean-row--under::before { background: var(--status-ink-needs-help); }
+.app .lean-row--knock::before { background: #1f2937; }
+.app .lean-row.is-selected, .app .lean-row:hover { border-color: var(--accent); }
+.app .lean-row__top { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.app .lean-row__top strong { flex: 1; font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.app .lean-row__eta { flex: none; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-muted); white-space: nowrap; }
+.app .lean-row--soon .lean-row__eta { background: color-mix(in srgb, var(--status-needs-help) 45%, white); color: var(--status-ink-needs-help); }
+.app .lean-row--under .lean-row__eta { background: var(--status-ink-needs-help); color: #fff; }
+.app .lean-row--knock .lean-row__eta { background: #1f2937; color: #fff; }
+.app .lean-row__need { font-size: 11.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app .lean-row__crew { font-size: 11px; font-weight: 500; color: var(--accent); }
+.app .gb10__brief { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
+.app .gb10__brief p { margin: 0; font-size: 12px; line-height: 17px; color: var(--text); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }

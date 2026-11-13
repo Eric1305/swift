@@ -1,4 +1,6 @@
+import type { Briefing } from '../data/types';
 import type { GpuState } from '../demo/useGpu';
+import { formatT } from '../demo/timeline';
 import cx from './cx';
 
 const W = 150;
@@ -19,7 +21,7 @@ function Sparkline({ values, max }: { values: number[]; max: number }) {
  * Model panel. The model is hosted on the organizers' GB10 server, so /api/gpu reports LLM load
  * (calls in flight, total calls, latency); the GPU fields are usually 0 and are not shown.
  */
-export default function Gb10Panel({ gpu, shifted }: { gpu: GpuState; shifted: boolean }) {
+export default function Gb10Panel({ gpu, shifted, briefing }: { gpu: GpuState; shifted: boolean; briefing?: Briefing | null | false }) {
   const { stats, history, source } = gpu;
   const idle = source === 'idle';
   const peak = Math.max(4, ...history);
@@ -51,6 +53,12 @@ export default function Gb10Panel({ gpu, shifted }: { gpu: GpuState; shifted: bo
           <strong>{idle || !stats.latency_ms ? '—' : `${Math.round(stats.latency_ms)} ms`}</strong>
         </div>
       </div>
+      {briefing !== undefined && briefing !== false && (
+        <div className="gb10__brief">
+          <span className="micro">Briefing{briefing ? ` · ${formatT(briefing.t_min)}` : ''} · by Qwen</span>
+          <p>{briefing ? briefing.text : 'The first briefing appears once calls start.'}</p>
+        </div>
+      )}
     </aside>
   );
 }

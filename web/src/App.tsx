@@ -3,6 +3,7 @@ import type { DisplayStatus, Fixtures, HouseholdRecord } from './data/types';
 import { loadFixtures, loadRecord } from './data/load';
 import { api } from './data/api';
 import { briefingAt, countStatuses, queueAt, statusAt } from './demo/timeline';
+import { liveQueue } from './demo/liveQueue';
 import { useClock } from './demo/useClock';
 import { useGpu } from './demo/useGpu';
 import { useLiveCall } from './demo/useLiveCall';
@@ -19,6 +20,8 @@ import './styles/editorial.css';
 
 /** Model panel (Qwen3-VL on GB10 · calls in flight · total calls · latency), PLAN T4/T5. */
 const SHOW_GPU_PANEL = true;
+/** ?layout=lean: soonest-water queue with crew status, compact counters, briefing inside the model card. */
+const LEAN = new URLSearchParams(window.location.search).get('layout') !== 'classic';
 
 export default function App() {
   const [fx, setFx] = useState<Fixtures | null>(null);
@@ -62,6 +65,10 @@ function Dashboard({ fx }: { fx: Fixtures }) {
   const counts = useMemo(() => countStatuses(ids, statuses), [ids, statuses]);
   const queue = useMemo(() => queueAt(fx.queue, clock.t), [fx.queue, clock.t]);
   const briefing = useMemo(() => briefingAt(fx.briefings, clock.t), [fx.briefings, clock.t]);
+  const leanRows = useMemo(
+    () => (LEAN ? liveQueue(clock.t, statuses, households, fx.queue[fx.queue.length - 1], fx.routes) : null),
+    [clock.t, statuses, households, fx.queue, fx.routes],
+  );
 
   // Drawer record: live record for the demo house during the call, else the fixture.
   const [record, setRecord] = useState<HouseholdRecord | null>(null);
@@ -181,7 +188,11 @@ function Dashboard({ fx }: { fx: Fixtures }) {
   const liveMode = live.phase !== 'idle';
   const mode = liveMode && !showResults ? 'live' : !running && clock.t === 0 && !finished ? 'ready' : 'replay';
   const selectedStatus: DisplayStatus = selectedId ? statuses.get(selectedId) ?? 'not_called' : 'not_called';
-  const rank = selectedId ? queue.findIndex((q) => q.household_id === selectedId) + 1 || null : null;
+  const rank = !selectedId
+    ? null
+    : leanRows
+      ? leanRows.filter((r) => r.state !== 'picked').findIndex((r) => r.id === selectedId) + 1 || null
+      : queue.findIndex((q) => q.household_id === selectedId) + 1 || null;
 
   return (
     <div className={cx('app', drawerOpen && 'has-drawer', showResults && 'has-results')}>
@@ -214,8 +225,8 @@ function Dashboard({ fx }: { fx: Fixtures }) {
         onStop={stop}
       />
 
-      <LeftPanel counts={counts} queue={queue} addresses={addresses} statuses={statuses} briefing={briefing} selectedId={selectedId} onPick={pick} />
-      {SHOW_GPU_PANEL && <Gb10Panel gpu={gpu} shifted={drawerOpen} />}
+      <LeftPanel counts={counts} queue={queue} addresses={addresses} statuses={statuses} briefing={briefing} selectedId={selectedId} onPick={pick} lean={leanRows} />
+      {SHOW_GPU_PANEL && <Gb10Panel gpu={gpu} shifted={drawerOpen} briefing={LEAN ? briefing : undefined} />}
       {liveMode && !showResults && <LiveCallBanner live={live} elapsedS={liveElapsed} />}
 
       <div className="bottom-chrome">
