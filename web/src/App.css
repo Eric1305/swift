@@ -305,7 +305,7 @@
 .map-pill--ink { background: var(--map-ink); }
 
 .map-ring { display: block; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--map-ink); box-shadow: 0 0 0 8px transparent, 0 0 0 10px color-mix(in srgb, var(--map-ink) 40%, transparent); pointer-events: none; }
-.map-ring--live { width: 34px; height: 34px; border-color: var(--map-terracotta); box-shadow: 0 0 0 10px color-mix(in srgb, var(--map-terracotta) 25%, transparent); animation: ring 1.6s ease-out infinite; }
+.map-ring--live { width: 34px; height: 34px; border-color: var(--map-terracotta); box-shadow: 0 0 0 10px color-mix(in srgb, var(--map-terracotta) 25%, transparent); animation: ring 2.8s ease-in-out infinite; }
 
 .imagery-pin {
   position: relative; display: grid; place-items: center;
@@ -349,7 +349,7 @@
 
 @keyframes pulse { 50% { opacity: 0.35; } }
 @keyframes blink { 50% { opacity: 0.25; } }
-@keyframes ring { 0% { transform: scale(0.9); } 70% { transform: scale(1.15); } 100% { transform: scale(0.9); } }
+@keyframes ring { 0%, 100% { transform: scale(0.96); } 50% { transform: scale(1.06); } }
 @keyframes slide-in { from { transform: translateX(24px); opacity: 0; } }
 @keyframes rise { from { transform: translateY(16px); opacity: 0; } }
 

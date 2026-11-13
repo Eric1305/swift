@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } from 'react';
 import { AmbientLight, DirectionalLight, LightingEffect, type LayersList } from '@deck.gl/core';
-import { ArcLayer, BitmapLayer, PathLayer, PolygonLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
+import { BitmapLayer, PathLayer, PolygonLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
 import { SimpleMeshLayer } from '@deck.gl/mesh-layers';
 import { TileLayer, TripsLayer, type _TileLoadProps as TileLoadProps } from '@deck.gl/geo-layers';
 import { PathStyleExtension, type PathStyleExtensionProps } from '@deck.gl/extensions';
@@ -11,7 +11,7 @@ import maplibregl from './maplibreWorker';
 import type { DisplayStatus, DoorknockFeature, Fixtures, HouseholdFeature, LonLat, Route } from '../data/types';
 import { dataUrl } from '../data/load';
 import { applySitePlanStyle, BASEMAP_URL, CONTEXT_BUILDINGS_LAYER } from './sitePlanStyle';
-import { ACTIONABLE, EDGE, INK, NAVY, ROOF, VEHICLE } from './colors';
+import { ACTIONABLE, EDGE, INK, ROOF, VEHICLE } from './colors';
 import { houseFrame, ROOF_MESH, WALLS_MESH, type HouseFrame } from './houseMesh';
 import { decodeTile, FloodBitmapLayer, quantile, TERRARIUM_URL, type StudyArea, type TerrainTile } from './floodLayer';
 import { ImageryPin, ImageryPopup } from '../components/Imagery';
@@ -70,6 +70,80 @@ const HOUSE_PAD = 1.12;
 const WALL_COLOR: [number, number, number] = [246, 243, 236];
 /** Ridge height (m): walls clear typical basemap building heights, roof pitch stays readable. */
 const ridge = (d: HouseholdFeature) => Math.max(d.properties.height_m * 1.45, 10.5);
+/** Call glow: sky blue (calling status). Sizes in pixels; timings in real (wall-clock) ms,
+ *  independent of replay speed, so 20× stays as calm as 1×. */
+const CALL_GLOW: [number, number, number] = [56, 189, 248];
+const GLOW_CORE_PX = 13;
+const GLOW_MAX_PX = 30;
+const RIPPLE_MS = 2800;
+/** At 20× a call lasts ~0.5 s real time: fade glows in/out so they don't blink. */
+const GLOW_FADE_IN_MS = 350;
+const GLOW_FADE_OUT_MS = 900;
+
+interface Glow {
+  id: string;
+  alpha: number;
+}
+
+/**
+ * Tracks which homes glow and how strongly: a glow fades in when a call starts and fades
+ * out after it ends. Also returns a slow 0→1 ripple phase. Reduced motion: no ripple, no fades.
+ */
+function useCallGlow(callingIds: string[]): { glows: Glow[]; phase: number } {
+  const calm = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const live = useRef(new Map<string, { since: number; until: number | null }>());
+  const calling = useRef(new Set<string>());
+  const [state, setState] = useState<{ glows: Glow[]; phase: number }>({ glows: [], phase: 0 });
+  const key = callingIds.join(',');
+
+  useEffect(() => {
+    calling.current = new Set(callingIds);
+    if (calm) {
+      setState({ glows: callingIds.map((id) => ({ id, alpha: 1 })), phase: 0.4 });
+      return;
+    }
+    let raf = 0;
+    const tick = (now: number) => {
+      const m = live.current;
+      for (const id of calling.current) {
+        const e = m.get(id);
+        if (!e) m.set(id, { since: now, until: null });
+        else if (e.until !== null) m.set(id, { since: now - GLOW_FADE_IN_MS * fadeOut(e.until, now), until: null });
+      }
+      const glows: Glow[] = [];
+      for (const [id, e] of m) {
+        if (!calling.current.has(id) && e.until === null) e.until = now;
+        const fin = Math.min(1, (now - e.since) / GLOW_FADE_IN_MS);
+        const fout = e.until === null ? 1 : fadeOut(e.until, now);
+        if (fout <= 0) {
+          m.delete(id);
+          continue;
+        }
+        glows.push({ id, alpha: ease(fin) * fout });
+      }
+      setState({ glows, phase: (now % RIPPLE_MS) / RIPPLE_MS });
+      if (m.size > 0 || calling.current.size > 0) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+    // `key` captures callingIds' contents
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key, calm]);
+
+  return state;
+}
+
+/**
+ * Ground overlays (routes, door-knock areas, status discs, call glows) skip the depth test and
+ * don't write depth. At ground level they otherwise z-fight with the flood and basemap and get
+ * clipped frame-to-frame by nearby 3D buildings. Layer order (see `ordered`) keeps houses on top.
+ */
+const GROUND = { depthCompare: 'always', depthWriteEnabled: false } as const;
+const GROUND_IDS = new Set(['doorknock-fill', 'doorknock-outline', 'route-plan', 'trips', 'household-discs', 'call-ripple', 'call-glow']);
+
+const fadeOut = (until: number, now: number) => Math.max(0, 1 - (now - until) / GLOW_FADE_OUT_MS);
+const ease = (x: number) => 1 - (1 - x) * (1 - x);
+
 /** Address labels on actionable homes appear from this zoom. */
 const LABEL_MIN_ZOOM = 14.8;
 const withAlpha = (c: readonly number[], a: number): [number, number, number, number] => [c[0], c[1], c[2], a];
@@ -211,7 +285,6 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
     const status = (id: string): DisplayStatus => statuses.get(id) ?? 'not_called';
     const knock = fx.doorknock.filter((d) => d.properties.t_min <= t);
     const activeRoutes = fx.routes.filter((r) => r.timestamps[0] <= t);
-    const calling = fx.households.filter((h) => status(h.properties.id) === 'calling');
 
     // Flood: real terrain unless it failed to load, then the pipeline's depth PNGs.
     const useTerrain = FLOOD_SOURCE === 'terrain' && !terrainFailed;
@@ -286,6 +359,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       ...aerials,
       new PolygonLayer<DoorknockFeature>({
         id: 'doorknock-fill',
+        parameters: GROUND,
         data: knock,
         getPolygon: (d) => d.geometry.coordinates,
         filled: true,
@@ -294,6 +368,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       }),
       new PathLayer<DoorknockFeature, PathStyleExtensionProps<DoorknockFeature>>({
         id: 'doorknock-outline',
+        parameters: GROUND,
         data: knock,
         getPath: (d) => d.geometry.coordinates[0],
         getColor: INK,
@@ -305,6 +380,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       // Ground disc under every household: status at a glance at any zoom (min 8 px).
       new ScatterplotLayer<HouseholdFeature>({
         id: 'household-discs',
+        parameters: GROUND,
         data: fx.households,
         getPosition: (d) => centers.get(d.properties.id) ?? meta.center,
         radiusUnits: 'meters',
@@ -368,7 +444,6 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         radiusUnits: 'pixels',
         getRadius: (d) => {
           const s = status(d.properties.id);
-          if (s === 'calling') return 6.5 + Math.sin(t * 8) * 1.5;
           return ACTIONABLE.has(s) ? 7 : 5;
         },
         filled: true,
@@ -380,7 +455,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         pickable: true,
         onClick: ({ object }) => object && onSelect(object.properties.id),
         parameters: { depthCompare: 'always' },
-        updateTriggers: { getRadius: [statusKey, t], getFillColor: statusKey },
+        updateTriggers: { getRadius: statusKey, getFillColor: statusKey },
       }),
       // Address labels for homes that need action (and the selected one), once zoomed in.
       new TextLayer<HouseholdFeature>({
@@ -407,6 +482,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       }),
       new PathLayer<Route, PathStyleExtensionProps<Route>>({
         id: 'route-plan',
+        parameters: GROUND,
         data: activeRoutes,
         getPath: (d) => d.path,
         getColor: [INK[0], INK[1], INK[2], 110],
@@ -416,6 +492,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       }),
       new TripsLayer<Route>({
         id: 'trips',
+        parameters: GROUND,
         data: fx.routes,
         getPath: (d) => d.path,
         getTimestamps: (d) => d.timestamps,
@@ -426,19 +503,67 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         capRounded: true,
         jointRounded: true,
       }),
-      new ArcLayer<HouseholdFeature>({
-        id: 'call-arcs',
-        data: calling,
-        getSourcePosition: () => meta.hub,
-        getTargetPosition: (d) => centers.get(d.properties.id) ?? meta.hub,
-        getSourceColor: [NAVY[0], NAVY[1], NAVY[2], 140],
-        getTargetColor: [56, 189, 248, 230],
-        getWidth: 1.6 + Math.sin(t * 6) * 0.6,
-        getHeight: 0.6,
-        updateTriggers: { getWidth: t },
-      }),
     ];
   }, [fx, meta, t, statuses, centers, onSelect, area, getTileData, terrainFailed, level, floor, zoom, selectedId, statusKey, frame, imageryId]);
+
+  // Homes on an active call glow: a steady ring plus one slow ripple, fading in and out.
+  // (Replaces the hub → house call arcs, which crowded the map with 150 households.)
+  const callingIds = useMemo(
+    () => fx.households.filter((h) => statuses.get(h.properties.id) === 'calling').map((h) => h.properties.id),
+    // statusKey changes exactly when any status does
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [fx.households, statusKey],
+  );
+  const { glows, phase } = useCallGlow(callingIds);
+  const glowLayers = useMemo(() => {
+    if (!glows.length) return [];
+    const at = (g: Glow): [number, number] => centers.get(g.id) ?? meta.center;
+    // ease-out growth, fading as it expands
+    const p = 1 - (1 - phase) * (1 - phase);
+    const fade = 1 - phase;
+    return [
+      new ScatterplotLayer<Glow>({
+        id: 'call-ripple',
+        parameters: GROUND,
+        data: glows,
+        getPosition: at,
+        radiusUnits: 'pixels',
+        getRadius: GLOW_CORE_PX + p * (GLOW_MAX_PX - GLOW_CORE_PX),
+        filled: true,
+        getFillColor: (g) => [...CALL_GLOW, Math.round(g.alpha * fade * 40)],
+        stroked: true,
+        getLineColor: (g) => [...CALL_GLOW, Math.round(g.alpha * fade * 140)],
+        lineWidthUnits: 'pixels',
+        getLineWidth: 1.5,
+        updateTriggers: { getRadius: phase, getFillColor: [phase, glows], getLineColor: [phase, glows] },
+      }),
+      new ScatterplotLayer<Glow>({
+        id: 'call-glow',
+        parameters: GROUND,
+        data: glows,
+        getPosition: at,
+        radiusUnits: 'pixels',
+        getRadius: GLOW_CORE_PX,
+        filled: true,
+        getFillColor: (g) => [...CALL_GLOW, Math.round(g.alpha * 80)],
+        stroked: true,
+        getLineColor: (g) => [...CALL_GLOW, Math.round(g.alpha * 230)],
+        lineWidthUnits: 'pixels',
+        getLineWidth: 2,
+        updateTriggers: { getFillColor: glows, getLineColor: glows },
+      }),
+    ];
+  }, [glows, phase, centers, meta.center]);
+
+  // Draw order: flood/aerials (inside the basemap stack) → ground overlays → houses → pins/labels.
+  const ordered = useMemo(() => {
+    const all = [...layers, ...glowLayers] as { id: string }[];
+    const ground = all.filter((l) => GROUND_IDS.has(l.id));
+    const rest = all.filter((l) => !GROUND_IDS.has(l.id));
+    const firstHouse = rest.findIndex((l) => l.id === 'household-walls');
+    const at = firstHouse < 0 ? rest.length : firstHouse;
+    return [...rest.slice(0, at), ...ground, ...rest.slice(at)] as LayersList;
+  }, [layers, glowLayers]);
 
   const knockLabels = fx.doorknock.filter((d) => d.properties.t_min <= t);
   const selected = selectedId ? centers.get(selectedId) : undefined;
@@ -459,10 +584,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       }}
       style={{ width: '100%', height: '100%' }}
     >
-      {styleReady && <DeckOverlay layers={layers} effects={[lighting]} getCursor={({ isHovering }) => (isHovering ? 'pointer' : 'grab')} />}
-      <Marker longitude={meta.hub[0]} latitude={meta.hub[1]} anchor="left">
-        <span className="map-pill map-pill--navy">● Call hub</span>
-      </Marker>
+      {styleReady && <DeckOverlay layers={ordered} effects={[lighting]} getCursor={({ isHovering }) => (isHovering ? 'pointer' : 'grab')} />}
       <Marker longitude={meta.staging[0]} latitude={meta.staging[1]} anchor="center">
         <span className="map-pill map-pill--terracotta">Staging</span>
       </Marker>
