@@ -1,0 +1,69 @@
+{
+  "id": "h103",
+  "status": "safe",
+  "people": 5,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1724 Beaver Brook Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1724 Beaver Brook Drive. Everyone here is safe and we’re not in any immediate danger."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There are five people here total, and everyone can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming everyone can use the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave on their own. I just want to clarify — no one is bedbound or uses a wheelchair, so there’s no motorized equipment involved."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no one here can’t leave on their own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, there’s no water inside the home right now.  \n*(corrects themselves)*  \nActually, there are five people here, and no one needs to leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no water inside and all are together safely. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside and everyone’s safe here. I don’t have a truck, boat, or any free seats to offer."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no vehicles or seats available. Let me read that back: 5 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right — five people, no water inside yet. Just to clarify, I’m safe and no one needs to leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your safety and clarity. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

@@ -1,0 +1,77 @@
+{
+  "id": "h077",
+  "status": "unconfirmed",
+  "people": null,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 136 Stroudwater Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 136 Stroudwater Lane, just me here, no one else, water’s not in the house, and I’m totally fine—no need for any truck, boat, or extra seats, I’m good on my own."
+    },
+    {
+      "who": "agent",
+      "text": "How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me here, all by myself, no one else around, and I’m totally fine—no water in the house either, so no rush."
+    },
+    {
+      "who": "agent",
+      "text": "Sorry, I didn't catch that. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me, all by myself, no one else here, and I’m totally fine, no water in the house either."
+    },
+    {
+      "who": "agent",
+      "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, just me, all good, no one here who can’t leave on their own, and I’m not stuck inside or needing any special help—water’s fine, no issues at all."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re alone and unimpeded. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside at all, just me here by myself, no trouble leaving or anything, everything’s dry and fine."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and I’m all by myself—no seats to spare, sorry!"
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re alone with no truck or boat. Let me read that back: people at the home not confirmed; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just me here, no water in yet, and I’m not stuck or anything, just chillin’ at 136 Stroudwater Lane."
+    },
+    {
+      "who": "agent",
+      "text": "You’re at 136 Stroudwater Lane, no water in yet. I wasn't able to confirm everything, so a responder may follow up with you. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

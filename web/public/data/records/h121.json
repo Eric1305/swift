@@ -1,0 +1,69 @@
+{
+  "id": "h121",
+  "status": "can_help",
+  "people": 2,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": true,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 524 Glamis Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 524 Glamis Lane, just me and my partner here, no one’s stuck inside or anything, and we’re good to go—no water in the house, and I’ve got a truck to help if needed, just not a boat or any seats"
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you’re at 524 Glamis Lane, no water, no one stuck inside. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, just me and one other person here at 524 Glamis Lane, no water inside, and we’re both good to go—no one’s stuck or needing help, and I’ve got a truck ready if needed."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re both safe and prepared. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave on their own, and no wheelchairs or medical gear—just us two, fine as can be, no water in yet, and we’re good to go."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re both able to leave on your own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside at all, just us two here, no need to worry—though we’re not getting a boat or truck, so we’re good for now."
+    },
+    {
+      "who": "agent",
+      "text": "You’re staying put for now, that’s fine. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, I’m staying put, no worries—got a high-clearance truck I can use if anyone needs a ride out, but no boat or extra seats in any vehicle right now."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know your situation. Let me read that back: 2 people; no water inside yet; you can help with a truck. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just two of us, no water in yet, and we’ve got a truck to help with, no problem!"
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you’re good for now. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

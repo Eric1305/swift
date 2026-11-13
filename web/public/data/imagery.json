@@ -1,18 +1,443 @@
 [
   {
     "image_id": "TX001_2017_NOAA",
-    "lon": -95.648,
-    "lat": 29.822,
+    "lon": -95.63873291,
+    "lat": 29.84302629,
+    "bounds": [
+      [
+        -95.6414794921875,
+        29.84064389983442
+      ],
+      [
+        -95.635986328125,
+        29.84540862642843
+      ]
+    ],
     "thumb": "img/TX001_2017_NOAA.jpg",
+    "before_thumb": "img/TX001_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
     "verdict": "flooded",
-    "explanation": "Brown water covers streets and surrounds houses (approx. location)."
+    "explanation": "Widespread water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TX002_2017_NOAA",
+    "lon": -95.63323975,
+    "lat": 29.84302629,
+    "bounds": [
+      [
+        -95.635986328125,
+        29.84064389983442
+      ],
+      [
+        -95.6304931640625,
+        29.84540862642843
+      ]
+    ],
+    "thumb": "img/TX002_2017_NOAA.jpg",
+    "before_thumb": "img/TX002_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
   },
   {
     "image_id": "TX003_2017_NOAA",
-    "lon": -95.632,
-    "lat": 29.812,
+    "lon": -95.62225342,
+    "lat": 29.84302629,
+    "bounds": [
+      [
+        -95.625,
+        29.84064389983442
+      ],
+      [
+        -95.6195068359375,
+        29.84540862642843
+      ]
+    ],
     "thumb": "img/TX003_2017_NOAA.jpg",
+    "before_thumb": "img/TX003_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Muddy water spreads beyond natural water bodies, covering land and trees."
+  },
+  {
+    "image_id": "TX004_2017_NOAA",
+    "lon": -95.63873291,
+    "lat": 29.83826145,
+    "bounds": [
+      [
+        -95.6414794921875,
+        29.835878945929952
+      ],
+      [
+        -95.635986328125,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TX004_2017_NOAA.jpg",
+    "before_thumb": "img/TX004_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TX005_2017_NOAA",
+    "lon": -95.64971924,
+    "lat": 29.83826145,
+    "bounds": [
+      [
+        -95.6524658203125,
+        29.835878945929952
+      ],
+      [
+        -95.64697265625,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TX005_2017_NOAA.jpg",
+    "before_thumb": "img/TX005_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 752.9,
+    "verdict": "flooded",
+    "explanation": "Water visibly covers roads and surrounds houses, indicating widespread flooding."
+  },
+  {
+    "image_id": "TX006_2017_NOAA",
+    "lon": -95.62774658,
+    "lat": 29.83826145,
+    "bounds": [
+      [
+        -95.6304931640625,
+        29.835878945929952
+      ],
+      [
+        -95.625,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TX006_2017_NOAA.jpg",
+    "before_thumb": "img/TX006_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread water covers land and trees, indicating flooding beyond normal water bodies."
+  },
+  {
+    "image_id": "TX007_2017_NOAA",
+    "lon": -95.62225342,
+    "lat": 29.83826145,
+    "bounds": [
+      [
+        -95.625,
+        29.835878945929952
+      ],
+      [
+        -95.6195068359375,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TX007_2017_NOAA.jpg",
+    "before_thumb": "img/TX007_2016_NAIP.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
     "verdict": "not_flooded",
-    "explanation": "Dense tree cover, no visible water outside channels (approx. location)."
+    "explanation": "No roads or houses visible; only forested area with scattered water patches."
+  },
+  {
+    "image_id": "TXH_15354_27072_after_20170830_NOAA",
+    "lon": -95.65521240234375,
+    "lat": 29.838261422882184,
+    "bounds": [
+      [
+        -95.657958984375,
+        29.835878945929952
+      ],
+      [
+        -95.6524658203125,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TXH_15354_27072_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15354_27072_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 752.9,
+    "verdict": "flooded",
+    "explanation": "Water covers roads and surrounds houses, indicating widespread flooding."
+  },
+  {
+    "image_id": "TXH_15356_27071_after_20170830_NOAA",
+    "lon": -95.64422607421875,
+    "lat": 29.843026263131424,
+    "bounds": [
+      [
+        -95.64697265625,
+        29.84064389983442
+      ],
+      [
+        -95.6414794921875,
+        29.84540862642843
+      ]
+    ],
+    "thumb": "img/TXH_15356_27071_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15356_27071_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15356_27072_after_20170830_NOAA",
+    "lon": -95.64422607421875,
+    "lat": 29.838261422882184,
+    "bounds": [
+      [
+        -95.64697265625,
+        29.835878945929952
+      ],
+      [
+        -95.6414794921875,
+        29.84064389983442
+      ]
+    ],
+    "thumb": "img/TXH_15356_27072_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15356_27072_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15357_27069_after_20170830_NOAA",
+    "lon": -95.63873291015625,
+    "lat": 29.852555261643296,
+    "bounds": [
+      [
+        -95.6414794921875,
+        29.850173125689896
+      ],
+      [
+        -95.635986328125,
+        29.8549373975967
+      ]
+    ],
+    "thumb": "img/TXH_15357_27069_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15357_27069_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 706.9,
+    "verdict": "not_flooded",
+    "explanation": "No visible floodwater covers roads or land around houses."
+  },
+  {
+    "image_id": "TXH_15357_27070_after_20170830_NOAA",
+    "lon": -95.63873291015625,
+    "lat": 29.847790876059165,
+    "bounds": [
+      [
+        -95.6414794921875,
+        29.84540862642843
+      ],
+      [
+        -95.635986328125,
+        29.850173125689896
+      ]
+    ],
+    "thumb": "img/TXH_15357_27070_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15357_27070_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Multiple roads and yards show extensive water coverage, consistent with post-Harvey flooding."
+  },
+  {
+    "image_id": "TXH_15358_27068_after_20170830_NOAA",
+    "lon": -95.63323974609375,
+    "lat": 29.857319419861724,
+    "bounds": [
+      [
+        -95.635986328125,
+        29.8549373975967
+      ],
+      [
+        -95.6304931640625,
+        29.859701442126752
+      ]
+    ],
+    "thumb": "img/TXH_15358_27068_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15358_27068_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 706.9,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding beyond normal water bodies."
+  },
+  {
+    "image_id": "TXH_15358_27069_after_20170830_NOAA",
+    "lon": -95.63323974609375,
+    "lat": 29.852555261643296,
+    "bounds": [
+      [
+        -95.635986328125,
+        29.850173125689896
+      ],
+      [
+        -95.6304931640625,
+        29.8549373975967
+      ]
+    ],
+    "thumb": "img/TXH_15358_27069_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15358_27069_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 706.9,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15358_27070_after_20170830_NOAA",
+    "lon": -95.63323974609375,
+    "lat": 29.847790876059165,
+    "bounds": [
+      [
+        -95.635986328125,
+        29.84540862642843
+      ],
+      [
+        -95.6304931640625,
+        29.850173125689896
+      ]
+    ],
+    "thumb": "img/TXH_15358_27070_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15358_27070_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers streets and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15359_27068_after_20170830_NOAA",
+    "lon": -95.62774658203125,
+    "lat": 29.857319419861724,
+    "bounds": [
+      [
+        -95.6304931640625,
+        29.8549373975967
+      ],
+      [
+        -95.625,
+        29.859701442126752
+      ]
+    ],
+    "thumb": "img/TXH_15359_27068_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15359_27068_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 706.9,
+    "verdict": "flooded",
+    "explanation": "Widespread water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15359_27069_after_20170830_NOAA",
+    "lon": -95.62774658203125,
+    "lat": 29.852555261643296,
+    "bounds": [
+      [
+        -95.6304931640625,
+        29.850173125689896
+      ],
+      [
+        -95.625,
+        29.8549373975967
+      ]
+    ],
+    "thumb": "img/TXH_15359_27069_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15359_27069_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "not_flooded",
+    "explanation": "No visible water covering roads or land; dense forest and structures appear dry."
+  },
+  {
+    "image_id": "TXH_15359_27070_after_20170830_NOAA",
+    "lon": -95.62774658203125,
+    "lat": 29.847790876059165,
+    "bounds": [
+      [
+        -95.6304931640625,
+        29.84540862642843
+      ],
+      [
+        -95.625,
+        29.850173125689896
+      ]
+    ],
+    "thumb": "img/TXH_15359_27070_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15359_27070_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Light brown patches indicate water covering land beyond normal river/pond levels."
+  },
+  {
+    "image_id": "TXH_15359_27071_after_20170830_NOAA",
+    "lon": -95.62774658203125,
+    "lat": 29.843026263131424,
+    "bounds": [
+      [
+        -95.6304931640625,
+        29.84064389983442
+      ],
+      [
+        -95.625,
+        29.84540862642843
+      ]
+    ],
+    "thumb": "img/TXH_15359_27071_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15359_27071_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "flooded",
+    "explanation": "Brown water covers roads and land, indicating floodwater from Hurricane Harvey."
+  },
+  {
+    "image_id": "TXH_15360_27068_after_20170830_NOAA",
+    "lon": -95.62225341796875,
+    "lat": 29.857319419861724,
+    "bounds": [
+      [
+        -95.625,
+        29.8549373975967
+      ],
+      [
+        -95.6195068359375,
+        29.859701442126752
+      ]
+    ],
+    "thumb": "img/TXH_15360_27068_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15360_27068_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 706.9,
+    "verdict": "flooded",
+    "explanation": "Widespread brown water covers roads and surrounds houses, indicating severe flooding."
+  },
+  {
+    "image_id": "TXH_15360_27070_after_20170830_NOAA",
+    "lon": -95.62225341796875,
+    "lat": 29.847790876059165,
+    "bounds": [
+      [
+        -95.625,
+        29.84540862642843
+      ],
+      [
+        -95.6195068359375,
+        29.850173125689896
+      ]
+    ],
+    "thumb": "img/TXH_15360_27070_after_20170830_NOAA.jpg",
+    "before_thumb": "img/TXH_15360_27070_before_20160928_USDA.jpg",
+    "date": "2017-08-30",
+    "rain_3d_mm": 660.0,
+    "verdict": "not_flooded",
+    "explanation": "Image shows river and forest, no roads or houses visible."
   }
 ]

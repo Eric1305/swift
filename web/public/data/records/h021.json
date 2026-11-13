@@ -1,0 +1,69 @@
+{
+  "id": "h021",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1564 Birch Vale Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, soy yo en 1564 Birch Vale Drive. Todo está bien, no hay agua adentro y no necesito ayuda."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Cuatro personas están aquí. Todos pueden hablar por teléfono."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar la situación actual. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No, nadie necesita ayuda especial. Todo el mundo puede moverse solo."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, everyone can move on their own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no hay agua adentro. Todo está bien."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no water inside, everything is fine. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no tengo camión con buena altura, barco ni asientos libres en ningún vehículo."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no high-clearance truck, boat, or free seats available. Let me read that back: 4 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, cuatro personas, sin agua adentro. Todo bien."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, todo bien. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

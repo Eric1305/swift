@@ -1,0 +1,78 @@
+{
+  "id": "h075",
+  "status": "needs_help",
+  "people": 3,
+  "cant_leave_alone": [
+    {
+      "who": "husband",
+      "need": "oxygen"
+    },
+    {
+      "who": "he",
+      "need": "oxygen"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 482 Fox Springs Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is me. We’re trapped, water’s in, and my husband needs oxygen—can’t leave him alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re trapped and your husband needs oxygen. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Three people total. My husband’s on oxygen and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you have three people at home. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my husband needs oxygen and can’t leave alone. He’s not in a wheelchair, but he can’t move without help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear your husband needs oxygen and can’t move without help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, water’s inside. He’s on oxygen and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear water’s inside and he needs oxygen. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no seats. Can’t leave alone—husband needs oxygen."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck with no truck, boat, or seats. Let me read that back: 3 people; husband needs help leaving because of oxygen; he needs help leaving because of oxygen; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Three people. Husband on oxygen, can’t leave alone. Water’s inside. No truck, boat, or seats."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Three people. Husband on oxygen. Water inside. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Three people trapped. Husband and he need oxygen. Water inside. English.",
+  "attempts": 1
+}

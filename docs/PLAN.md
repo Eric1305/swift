@@ -2,28 +2,28 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** When a flood threatens an area, an AI agent phones every household (Retell voice + Qwen on the GB10 as Retell's custom LLM), records who needs help, who can help and who never picked up, and shows it all on a dispatcher map. The demo is a scripted Harvey replay plus one live call to Eric's phone.
+**Goal:** When a flood threatens an area, an AI agent phones every household (Retell voice + Qwen3-VL on the organizers' hosted GB10 model server as Retell's custom LLM), records who needs help, who can help and who never picked up, and shows it all on a dispatcher map. The demo is a scripted Harvey replay plus one live call to Eric's phone.
 
 **Architecture:**
 - **Python pipeline** precomputes the replay into static JSON/PNG "fixtures": flood depth, call timeline, records, routes, results.
 - **React map app** plays those fixtures from a **Run Demo** button.
-- **FastAPI agent server** on the GB10 is Retell's **custom LLM** over WebSocket. Retell handles phone lines, speech-to-text, turn-taking and voice; our server decides every reply. Code drives the conversation; Qwen only extracts facts and writes short acknowledgments.
+- **FastAPI agent server** on Eric's laptop is Retell's **custom LLM** over WebSocket. Retell handles phone lines, speech-to-text, turn-taking and voice; our server decides every reply. Code drives the conversation; Qwen only extracts facts and writes short acknowledgments.
 - A live event would swap the pipeline's `--source replay` inputs for live ones (NWS alerts, gauge forecasts). Same outputs.
 
 **Tech Stack:**
-- Python 3.11 with uv **on the GB10**: fastapi, uvicorn, httpx, openai (vLLM client), pydantic, osmnx, networkx, py3dep, numpy, scipy, pillow, pytest.
-- GPU on the GB10:
-  - **CuPy** for the depth grid and the Monte Carlo replay, through an `xp` shim that falls back to numpy;
-  - **nx-cugraph** as networkx's GPU backend for routing (`NX_CUGRAPH_AUTOCONFIG=True`), falling back to CPU networkx;
-  - prefer the NGC RAPIDS container from the DGX Spark "CUDA-X Data Science" playbook if pip wheels fail on ARM64.
+- Python 3.11 on the laptops: fastapi, uvicorn, httpx, openai (OpenAI-compatible client), pydantic, osmnx, networkx, py3dep, numpy, scipy, pillow, pytest.
+- Array math uses an `xp` shim (CuPy if a GPU is present, else NumPy). On the laptops it runs on NumPy.
 - Web: Vite + React + TS, maplibre-gl + deck.gl (`@deck.gl/react`, layers, geo-layers TripsLayer), CARTO dark-matter basemap (no key needed).
-- GB10: vLLM serving `Qwen/Qwen3-VL-8B-Instruct` on :8000. cloudflared tunnel so Retell can reach the WebSocket and webhook. Retell: one agent (Custom LLM, English voice) + one Retell-purchased US number.
+- **Model:** the organizers' hosted Qwen3-VL server on their GB10 cluster (GPUStack, OpenAI-compatible) at `http://10.246.100.230/v1`, key `usaadatathon`, model `qwen3-vl-8b-instruct`. `qwen3-vl-32b-instruct` and `qwen3.5-122b-a10b` are also served. Reachable only on the venue network that routes to `10.246.x.x`.
+- cloudflared tunnel on the laptop so Retell can reach the WebSocket and webhook. Retell: one agent (Custom LLM, English voice) + one Retell-purchased US number.
+
+> **Infrastructure change (2026-11-13):** the organizers took back the per-team GB10 workstations (no more NVIDIA Sync or SSH). Everything now runs on the laptops, and every model call goes to the hosted GB10 model server above. Sections below were updated to match; anything still saying "on the GB10" means "via the hosted GB10 model server".
 
 **Spec (inline; this file is the only artifact):**
 - **Product:** call households in **order of predicted water arrival**. Retry non-answers at +2 and +5 min, then mark them ⚫ **no answer → door-knock list**. Silence never counts as safe.
 - **Statuses:** `needs_help` 🔴, `can_help` 🟠 (truck/boat/seats), `safe` 🟢, `unconfirmed` 🟡, `no_answer` ⚫, `not_called` ⚪.
 - **The agent never promises rescue.** Every sentence about help is a fixed template, and a guard blanks LLM text containing promise phrases.
-- **LLM uses on the GB10:**
+- **LLM uses (all on the organizers' GB10 model server):**
   1. per-turn fact extraction + acknowledgment;
   2. Qwen3-VL verdicts on the provided Harvey after-images (imagery check);
   3. responder house cards;
@@ -46,11 +46,11 @@
   - 4:35–5:00 Rehearse 3× and submit.
 - **Checkpoints at 1:15, 2:15, 3:15:** "Can we demo right now?" If not, fix that before anything else.
 - **Timebox:** any task more than 30 min over its box gets cut using the Cut List.
-- **Tests are cut** to exactly: `tests/test_script.py`, `tests/test_schedule.py`, `tests/test_llm.py` (stubbed, no GB10 needed).
+- **Tests are cut** to exactly: `tests/test_script.py`, `tests/test_schedule.py`, `tests/test_llm.py` (stubbed, no model server needed).
   - No frontend tests, no LLM-grader eval, no stress, load or integration suites.
   - Everything else is verified by the smoke command in its task.
 - **Fixture directory:** `web/public/data/`. The frontend reads only from here plus the two live endpoints.
-- **Environment variables** (agent server): `VLLM_BASE_URL` (default `http://localhost:8000/v1`), `VLLM_MODEL` (default `Qwen/Qwen3-VL-8B-Instruct`), `RETELL_API_KEY`, `RETELL_AGENT_ID`, `RETELL_FROM_NUMBER`, `DEMO_PHONE`, `PUBLIC_URL` (cloudflared URL), `DEMO_HOUSEHOLD_ID`. Never commit `.env`. Commit `.env.example`.
+- **Environment variables** (agent server): `VLLM_BASE_URL` (default `http://10.246.100.230/v1`), `VLLM_MODEL` (default `qwen3-vl-8b-instruct`), `VLLM_API_KEY` (default `usaadatathon`), `RETELL_API_KEY`, `RETELL_AGENT_ID`, `RETELL_FROM_NUMBER`, `DEMO_PHONE`, `PUBLIC_URL` (cloudflared URL), `DEMO_HOUSEHOLD_ID`. Never commit `.env`. Commit `.env.example`.
 - **Frontend environment variable:** `VITE_API_URL` (empty → offline fallback).
 - **Demo constants:** about 150 households; persona mix 20% needs_help / 15% can_help / 50% safe / 15% no_answer; seed `7`.
 - **Depth model:** peak rise `12 ft`.
@@ -61,29 +61,27 @@
   - Free tier: $10 credit and 20 concurrent calls, which covers the rehearsals plus the demo. Retell-purchased numbers call US numbers only.
   - **Re-point both URLs whenever the cloudflared URL changes.** A quick tunnel gets a new URL every restart, so keep the tunnel running all day.
   - `max_tokens` 150 per turn.
-- **Where things run: everything on the GB10** (rubric: "use a large language model on the GB10", "use data on the GB10"):
-  - vLLM :8000.
-  - The agent server :8080, which **also serves the built dashboard** (`web/dist`) at `/`, with the API on the same origin.
-  - The pipeline, the simulation, the imagery check and Monte Carlo, with GPU compute.
-  - The repo and all of Eric's Claude Code sessions run **on the GB10** over NVIDIA Sync (VS Code Remote or SSH terminal); Claude Code supports ARM64 Linux.
-  - The laptops are only screens and keyboards. The judges' view is `PUBLIC_URL` (one tunnel URL for Retell + dashboard), which also avoids venue Wi-Fi client isolation.
-  - The teammate develops against fixtures locally with `npm run dev`, then pushes. The GB10 builds and serves `web/dist`.
-- **GB10 visible in the demo:**
-  - `GET /api/gpu` returns `nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu --format=csv,noheader,nounits` + vLLM `/metrics` running-requests count.
-  - The dashboard shows a live "GB10" panel: GPU %, memory, LLM calls in flight.
-  - Run Demo starts the 150-household simulation **live on the GB10** while the replay plays, so the panel spikes for real.
+- **Where things run:**
+  - **Eric's laptop:** the agent server on :8080 (Retell WebSocket + webhook + dashboard API), which also serves the built dashboard (`web/dist`) at `/`; the pipeline; the simulation; the imagery check; the cloudflared tunnel.
+  - **Organizers' GB10 model server:** every LLM/VLM call (live call turns, imagery verdicts, house cards, briefings, simulated residents).
+  - **Teammate's laptop:** `npm run dev` against fixtures, then pushes; Eric builds and serves `web/dist`.
+  - The hosted model is **shared by every team**: simulated calls default to 8 at a time, and the full simulation is run early, not during judging.
+- **Model visible in the demo:**
+  - `GET /api/gpu` reports what the laptop can measure: our LLM calls in flight, total calls and recent latency (GPU fields are 0, since we don't control the server).
+  - The dashboard panel reads "Qwen3-VL on GB10 · N calls in flight · N calls · N ms".
+  - Run Demo starts a small live simulation so the in-flight count moves for real.
 - **The demo household:** `meta.json` carries `demo_household_id` (chosen by Task 1: a mid-arrival house near the center). The agent's `DEMO_HOUSEHOLD_ID` must equal it.
 
-## Rubric re-run (GB10-first)
-| Criterion | What judges see | Where it lives on the GB10 |
+## Rubric re-run (hosted GB10 model)
+| Criterion | What judges see | Where it runs |
 |---|---|---|
-| Creativity | Calls in **water-arrival order**, neighbor trucks/boats, depth-limited routing, door-knock list, flood map checked against the images | All of it computed on the GB10 |
+| Creativity | Calls in **water-arrival order**, neighbor trucks/boats, depth-limited routing, door-knock list, real Harvey aerials draped on the map with Qwen3-VL verdicts | Laptop + GB10 model server |
 | Social impact | Harvey numbers + the "how it works in a real event" table | n/a |
-| **LLM on the GB10** | A real phone call whose every reply is decided by **Qwen on the GB10** (Retell only does voice); 150 simulated calls running in parallel; Qwen3-VL imagery verdicts; house cards; commander briefings; **live GB10 panel** showing LLM calls in flight | vLLM :8000 |
-| **Data on the GB10** | GPU depth grid from the 3DEP DEM + provided rainfall database; GPU routing (nx-cugraph); **1,000-night GPU Monte Carlo** giving a p10–p90 range, not one number; provided Harvey images through Qwen3-VL | CuPy / nx-cugraph / vLLM |
-| Interface | Dark 3D map, Run Demo, the phone rings live, GB10 panel spikes as the system works | Served by the GB10 at `PUBLIC_URL` |
+| **LLM on the GB10** | A real phone call whose every reply is decided by **Qwen3-VL on the organizers' GB10 server** (Retell only does voice); simulated calls; imagery verdicts; house cards; commander briefings; live "calls in flight" panel | GB10 model server |
+| **Data** | 1,204 georeferenced Harvey/Hill Country images with 273 metadata columns (rainfall, elevation, FEMA zones, county disability %), 3DEP elevation, OSM roads/buildings, 1,000-night Monte Carlo giving a p10–p90 range | Laptop (NumPy), images through the GB10 model |
+| Interface | Dark 3D map, Run Demo, the phone rings live, aerial before/after overlays | Laptop at `PUBLIC_URL` |
 
-Remaining laptop use: screens and the teammate's local `npm run dev` before integration. Nothing in the final demo runs off the GB10 except Retell's voice layer.
+Tradeoff accepted: the data math no longer runs on a GB10 GPU, since the organizers took the workstations back for everyone.
 
 ## Grill findings (checked against docs, 2026-11-13)
 | # | Assumption | Finding | Change |
@@ -95,8 +93,8 @@ Remaining laptop use: screens and the teammate's local `npm run dev` before inte
 | 4 | Parse JSON from free text | [vLLM supports `response_format={"type":"json_schema",...}`](https://docs.vllm.ai/en/latest/features/structured_outputs.html); `guided_json` was removed in v0.12 | `extract` sends a per-step JSON schema; keep the parse fallback in case the container's vLLM is old |
 | 5 | osmnx v1 call style | [v2: `ox.graph.graph_from_bbox(bbox=(left,bottom,right,top), network_type=...)`, `ox.features.features_from_bbox(bbox, tags)`; keyword-only args](https://osmnx.readthedocs.io/en/stable/user-reference.html) | Task 1 uses the v2 signatures; pin `osmnx>=2` |
 | 6 | TripsLayer timestamps in ms | [Units only need to match `currentTime` and `trailLength`; float32 precision](https://deck.gl/docs/api-reference/geo-layers/trips-layer) | Use **minutes since start** everywhere (`timestamps`, `currentTime`); `trailLength` 20 |
-| 7 | Harvey images have coordinates | The `image_metadata.csv` columns (from `texas_flood.py`) show only locality, with no lat/lon | Use the fixed Bear Creek bbox; place imagery pins at locality centroids; label them "approx. location" |
-| 8 | Laptop can reach the GB10 directly | Venue Wi-Fi often isolates clients | All live traffic goes through `PUBLIC_URL` |
+| 7 | Harvey images have coordinates | The full dataset (`hf download jennifer-fowler/UTSA-flood-images --repo-type dataset`) has 1,204 Texas images with `latitude/longitude` and `west/south/east/north` footprints, 273 columns incl. rainfall, elevation, FEMA zone, county disability/65+/no-vehicle %; `flood_visible` is empty for all rows | Demo bbox = densest response-image cluster; imagery is draped at true footprints; our Qwen3-VL verdicts are the only labels |
+| 8 | Laptop can reach the model server | It's on `10.246.x.x`; the venue Wi-Fi on `10.184.x.x` couldn't reach it until Eric switched networks | Use the organizers' network; test with `curl -H 'Authorization: Bearer usaadatathon' http://10.246.100.230/v1/models` |
 | 9 | The live house exists on the map | It wasn't guaranteed before | `demo_household_id` goes in `meta.json` (Task 1) and is shared with the agent env |
 | 10 | Depth rolling minimum | Needs a fast filter on the 10 m DEM | `scipy.ndimage.minimum_filter(size=101)`; add the `scipy` dependency |
 
@@ -142,18 +140,18 @@ swift/
 
 ## Parallel lanes
 - **Eric** runs three Claude Code sessions in separate git worktrees after Task 0: **Lane A** (Tasks 1, 5), **Lane B** (Tasks 2, 6), **Lane C** (Tasks 3, 7). Eric reviews and merges at each checkpoint.
-  - Lane A needs no model, but runs on the GB10 for GPU compute (CuPy, nx-cugraph).
-  - Lanes B and C need vLLM running.
+  - Lane A needs no model (NumPy on the laptop).
+  - Lanes B and C need the hosted model server (organizers' network).
   - Lane C imports `agent.script` and `agent.llm` from Lane B. Until B merges at 1:15, Lane C uses the interfaces below with a stub.
 - **The teammate** runs Tasks T1–T6 against the sample fixtures only.
 
 ---
 
-### Task 0 (Eric, 0:00–0:20): Repo, contract, sample fixtures, GB10 + Retell up
+### Task 0 (Eric, 0:00–0:20): Repo, contract, sample fixtures, model server + Retell up
 **Files:** Create `CONTRACT.md`, `.env.example`, `pyproject.toml`, `web/public/data/*` (samples: 5 households, 1 depth stage PNG, 20 timeline events, 5 records, 1 route, 1 briefing, 2 imagery items, results, live_fallback).
 - [ ] **Step 1:** `gh repo create swift --private --clone`. Write `CONTRACT.md` from the table above. Write the samples **by hand or with Claude** in the exact shapes. Push. *Tell the teammate to start T1.*
-- [ ] **Step 2:** On the GB10 (NVIDIA Sync terminal), run the workbook's `docker run ... --model Qwen/Qwen3-VL-8B-Instruct --max-model-len 8192`. Verify with `curl $VLLM_BASE_URL/models`: it lists the model.
-- [ ] **Step 3:** On the GB10, install cloudflared (arm64 .deb) and run `cloudflared tunnel --url http://localhost:8080`; save the URL as `PUBLIC_URL`. In the Retell dashboard, create the Custom LLM agent with the WebSocket and webhook URLs pointing at `PUBLIC_URL`, buy a US number, bind it, and copy the API key, agent ID and number into `.env`. Check: `curl -H "Authorization: Bearer $RETELL_API_KEY" https://api.retellai.com/list-agents` lists the agent. (The phone only rings once Task 6 serves the WebSocket.)
+- [ ] **Step 2:** Join the network that reaches `10.246.100.230`; verify `curl -H 'Authorization: Bearer usaadatathon' http://10.246.100.230/v1/models` lists `qwen3-vl-8b-instruct`.
+- [ ] **Step 3:** On the laptop, `brew install cloudflared` and run `cloudflared tunnel --url http://localhost:8080`; save the URL as `PUBLIC_URL`. In the Retell dashboard, create the Custom LLM agent with the WebSocket and webhook URLs pointing at `PUBLIC_URL`, buy a US number, bind it, and copy the API key, agent ID and number into `.env`.
 - [ ] **Step 4:** Commit: `git commit -m "chore: contract, sample fixtures, env template"`.
 
 ### Task 1 (Lane A, 0:20–1:15): Area, depth, households → real `meta/households/depth`
@@ -164,11 +162,11 @@ swift/
 - Produces: `household_depths(area, curve) -> DataFrame[id, water_arrival_min, depth_ft_peak]`.
 - Produces: `write_depth_stages(area, curve, out: Path) -> list[dict]`.
 - Produces: `python -m pipeline.build --source replay --stage base --out web/public/data` (stage `base` = area/depth/households; stage `dispatch` = Task 5 outputs, which need the `records/` from Task 7).
-- [ ] **Step 1:** Bbox `(-95.67,29.80,-95.62,29.84)` (Bear Creek, west Houston; the metadata has no coordinates, see Grill #7). `ox.features.features_from_bbox(bbox, {"building": True})` → sample 150 with seed 7 (address = `addr:*` tags or `"<n> <nearest street name>"`); drive graph via `ox.graph.graph_from_bbox(bbox=bbox, network_type="drive")`; 3DEP 10 m DEM via `py3dep.get_dem(bbox, 10)`. Choose `demo_household_id` (median arrival, nearest the center) and write it to `meta.json`. Cache to `pipeline/cache/`.
+- [ ] **Step 1:** Bbox `(-95.66,29.835,-95.62,29.865)` (Bear Creek, west Houston: Addicks Reservoir backflow flooded it in Harvey; ~3,000 buildings and 21 georeferenced response images. The earlier Barker bbox had only 71 buildings, since it is mostly reservoir land). `ox.features.features_from_bbox(bbox, {"building": True})` → sample 150 with seed 7 (address = `addr:*` tags or `"<n> <nearest street name>"`); drive graph via `ox.graph.graph_from_bbox(bbox=bbox, network_type="drive")`; 3DEP 10 m DEM via `py3dep.get_dem(bbox, 10)`. Choose `demo_household_id` (median arrival, nearest the center) and write it to `meta.json`. Cache to `pipeline/cache/`.
 - [ ] **Step 2: Depth model.**
-  - `hand_ft = (dem - minimum_filter(dem, size=101)) * 3.281`, using `cupyx.scipy.ndimage.minimum_filter` on the GB10 GPU (the `xp` shim falls back to `scipy.ndimage`). All depth stages are computed as one GPU array op over time × grid.
+  - `hand_ft = (dem - minimum_filter(dem, size=101)) * 3.281`, through the `xp` shim (NumPy/SciPy on the laptop). All depth stages are computed as one array op over time × grid.
   - `depth_ft(t) = max(0, rise_ft(t) - hand_ft)`.
-  - `rise_ft(t) = 12 * cumrain(t)/cumrain_total`, where cumrain comes from `observations.sqlite` via the datathon's `load_rainfall("TX001_2017_NOAA", 14)`. If that file is missing, use a fixed logistic curve over 0–360 min.
+  - `rise_ft(t) = 12 * cumrain(t)/cumrain_total`, where the cumrain shape is a logistic curve over 0–360 min scaled by the dataset's own Harvey rainfall: the median `preceding_3d_precipitation_mm` of response images in the bbox (from `~/Texas_Flood_Student_Data/image_metadata.csv`, about 754 mm). The `image_metadata.csv` columns also include `elevation_m`, `fema_flood_zones`, `nearest_high_water_mark_distance_km` and `usgs_gage_height_station_id` if useful.
   - `water_arrival_min` = first t where the household's depth > 0.5 ft (else null).
   - Stages every 30 min, rendered as blue RGBA PNGs with alpha ∝ depth.
 - [ ] **Step 3: Smoke.** `uv run python -m pipeline.build --source replay --stage base --out web/public/data` writes `meta.json`, `households.geojson` and 13 stage PNGs. Open one PNG: low areas are blue.
@@ -230,8 +228,8 @@ swift/
   - **Baseline:** 55% of needs_help households "reach 911" at arrival − 20 min; first come first served; same fleet.
   - **Swift:** every needs_help known at call completion; served in rank order.
   - `pct` = share picked up before `water_arrival_min`.
-  - **GPU Monte Carlo on the GB10:** `monte_carlo(depths, records, n=1000) -> dict` reruns baseline vs. Swift over 1,000 randomized flood nights in a vectorized `xp` (CuPy) array: peak rise 8–16 ft, no-answer rate 5–30%, fleet 2–5 vehicles, 911 reach rate 30–70%. It writes `results.json` with the `mc:{median_baseline, median_swift, p10, p90, n, seconds}` field and prints the CuPy vs. numpy runtime for the README.
-  - **Routing on GPU:** `NX_CUGRAPH_AUTOCONFIG=True` before importing networkx; log which backend ran.
+  - **Monte Carlo (vectorized):** `monte_carlo(depths, records, n=1000) -> dict` reruns baseline vs. Swift over 1,000 randomized flood nights in a vectorized `xp` array: peak rise 8–16 ft, no-answer rate 5–30%, fleet 2–5 vehicles, 911 reach rate 30–70%. It writes `results.json` with the `mc:{median_baseline, median_swift, p10, p90, n, seconds}` field and prints the CuPy vs. numpy runtime for the README.
+  - **Routing:** networkx shortest paths on the OSM drive graph.
 - [ ] **Step 4:** Tests pass. Until Task 7 lands, stub `records/` from sample fixtures. Then `uv run python -m pipeline.build --source replay --stage dispatch --out web/public/data` writes `timeline.json`, `queue.json`, `routes.json`, `doorknock.geojson`, `results.json` (baseline/swift + `mc` filled).
 - [ ] **Step 5:** Commit `feat(pipeline): call schedule, rescue ranking, depth-aware routes, baseline`.
 
@@ -252,7 +250,7 @@ swift/
     - Always answer with the **latest** `response_id`; drop work for stale ids.
   - `POST /retell/webhook`: `event=="call_ended"`. If `call.disconnection_reason` is in `{"dial_no_answer","dial_busy","dial_failed","voicemail_reached"}` → `status="no_answer"`, `attempts+=1`, `call_status="no-answer"`; else `call_status="completed"`.
   - `GET /api/live`.
-  - `GET /api/gpu` (shells out to `nvidia-smi --query-gpu=... --format=csv,noheader,nounits`; `llm_running` parsed from `GET VLLM /metrics` `vllm:num_requests_running`; on any error return zeros).
+  - `GET /api/gpu` (our LLM stats from `agent.llm.STATS`: `llm_running`, `llm_calls`, `latency_ms`; GPU fields only if `nvidia-smi` exists locally).
   - `POST /api/simulate-live` (spawns `agent.simulate.simulate_all(households, Path("/tmp/hg_live"))` in a background task; ignores repeat calls while one is running).
   - Mount `web/dist` with `StaticFiles(html=True)` at `/`, **after** the API routes.
   - CORS allows all origins.
@@ -260,7 +258,7 @@ swift/
 - [ ] **Step 1:** Implement with FastAPI `WebSocket` + `httpx`, without the Retell SDK. Keep each reply as one complete chunk (no streaming) to stay simple.
 - [ ] **Step 2: Smoke.** `uv run uvicorn agent.server:app --port 8080`, then `curl -X POST localhost:8080/api/demo-call`. Eric's phone rings and the agent speaks first. Answer with the rehearsal script (Task 10). `curl localhost:8080/api/live` shows `status:"needs_help"`, `cant_leave_alone:[{who:"mom", need:"power wheelchair"}]`, and a non-empty house card. **The gap after you stop talking is under about 2 s.** If not, lower `max_tokens` to 80 and shorten the extract prompt.
 - [ ] **Step 3: Smoke.** Decline the call → the `call_ended` webhook arrives → `/api/live` shows `call_status:"no-answer"` and `status:"no_answer"`.
-- [ ] **Step 4:** Commit `feat(agent): Retell custom-LLM call loop on GB10`.
+- [ ] **Step 4:** Commit `feat(agent): Retell custom-LLM call loop`.
 
 ### Task 7 (Lane C, 1:15–2:45): Simulated residents, house cards, briefings, accuracy
 **Files:** Modify `agent/content.py`; create `agent/simulate.py`.
@@ -332,9 +330,9 @@ Tips for saving Claude usage: paste `CONTRACT.md` into one session, ask for one 
   5. 55 s: show the imagery pins with one popup open;
   6. 65 s: **Live call scene**: highlight `DEMO_HOUSEHOLD_ID`, POST `/api/demo-call`, poll `/api/live` every 2 s, stream the transcript into the drawer and recolor the house when the status arrives. If the API fails or 90 s pass, play `live_fallback.json` steps;
   7. end: slide in the results card (baseline % vs. Swift %, the 1,000-night Monte Carlo range p10–p90, accuracy, 0 promise violations, parallel calls).
-  - From scene 2 onward, the **GB10 panel** (top right) polls `/api/gpu` every 1 s. Scene 2 also POSTs `/api/simulate-live` so the GPU and LLM-in-flight numbers climb during the replay.
+  - From scene 2 onward, the **model panel** (top right) polls `/api/gpu` every 1 s and shows "Qwen3-VL on GB10 · calls in flight · calls · latency". Scene 2 also POSTs `/api/simulate-live` so the in-flight count climbs during the replay.
   - Check: Run Demo plays end to end on the samples with `VITE_API_URL` empty.
-- **T5 (3:15–4:10) Integrate + polish:** add the **GB10 panel** (GPU % sparkline, memory bar, "LLM calls in flight", from `/api/gpu`; sample: `{gpu_util, mem_used_gb, mem_total_gb, temp_c, llm_running}`); pull the real fixtures; build with `VITE_API_URL=` (same origin) so the GB10 serves it; fix layout overlaps; smooth camera moves; legend; screenshots for the README.
+- **T5 (3:15–4:10) Integrate + polish:** add the **model panel** ("Qwen3-VL on GB10", calls in flight with a sparkline, total calls, latency ms, from `/api/gpu`; sample in `gpu_sample.json`); pull the real fixtures; build with `VITE_API_URL=` (same origin) so the laptop server serves it; fix layout overlaps; smooth camera moves; legend; screenshots for the README.
 - **T6 (4:10–5:00):** rehearse with Eric; keep a second browser tab ready with `VITE_API_URL` empty as a fallback.
 
 ## Cut List (cut in this order when a timebox overruns)
@@ -351,6 +349,6 @@ Tips for saving Claude usage: paste `CONTRACT.md` into one session, ask for one 
 ## Verification (whole project)
 - `uv run pytest -q`: 7 tests pass.
 - `uv run python -m pipeline.build --source replay --stage base --out web/public/data && uv run python -m agent.simulate --out web/public/data && uv run python -m pipeline.build --source replay --stage dispatch --out web/public/data`: every contract file present; accuracy ≥ 0.85; promise_violations printed.
-- On the GB10: `cd web && npm run build`, then `uv run uvicorn agent.server:app --port 8080` serves the dashboard at `PUBLIC_URL/`. Run Demo completes in about 100 s, the GB10 panel shows GPU activity, Eric's phone rings and the house turns red with a house card.
+- On Eric's laptop: `cd web && npm run build`, then `uvicorn agent.server:app --port 8080` serves the dashboard at `PUBLIC_URL/`. Run Demo completes in about 100 s, the model panel shows calls in flight, Eric's phone rings and the house turns red with a house card.
 - With the agent server off, Run Demo still completes using `live_fallback.json`.
 - Repo public, link submitted before the deadline.

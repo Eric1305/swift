@@ -1,0 +1,69 @@
+{
+  "id": "h113",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1420 Birch Vale Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1420 Birch Vale Drive. I can help—no water inside, four people here, and I have a boat available."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming and offering assistance. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Four people are here. Everyone can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know everyone can come to the phone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave on their own. No wheelchair or oxygen needed."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no one needs assistance to leave. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. We’re safe."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "I don’t have a truck or boat, but I can help with a ride—just let me know."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for offering to help with a ride. Let me read that back: 4 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right. Four people, no water inside. We can use a boat."
+    },
+    {
+      "who": "agent",
+      "text": "Acknowledged, four people, no water inside, boat available. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

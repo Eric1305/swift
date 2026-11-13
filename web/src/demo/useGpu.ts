@@ -31,7 +31,7 @@ export function useGpu(active: boolean, sample: GpuStats): GpuState {
         source = 'sample';
       }
       if (!alive) return;
-      setState((prev) => ({ stats, source, history: [...prev.history, stats.gpu_util].slice(-HISTORY) }));
+      setState((prev) => ({ stats, source, history: [...prev.history, stats.llm_running].slice(-HISTORY) }));
     };
     void poll();
     const id = setInterval(poll, 1000);

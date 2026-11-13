@@ -1,0 +1,77 @@
+{
+  "id": "h111",
+  "status": "unconfirmed",
+  "people": null,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 974 Shawna Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 974 Shawna Drive. I’m safe, alone, no water inside, and no help needed right now."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me. No one else here."
+    },
+    {
+      "who": "agent",
+      "text": "Sorry, I didn't catch that. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me. No one else here."
+    },
+    {
+      "who": "agent",
+      "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave alone. No wheelchair or oxygen needed."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no one needs assistance to leave. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. I’m safe alone."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I don’t have a truck, boat, or free seats. I’m safe right now."
+    },
+    {
+      "who": "agent",
+      "text": "Let me read that back: people at the home not confirmed; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right. Just me here, no water inside yet."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you’re alone and no water inside yet. I wasn't able to confirm everything, so a responder may follow up with you. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

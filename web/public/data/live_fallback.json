@@ -1,11 +1,11 @@
 {
   "record": {
-    "id": "h003",
+    "id": "h050",
     "status": "needs_help",
     "people": 2,
     "cant_leave_alone": [
       {
-        "who": "mother",
+        "who": "mom",
         "need": "power wheelchair"
       }
     ],
@@ -19,7 +19,7 @@
     "transcript": [
       {
         "who": "agent",
-        "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2207 Rolling Oak Lane?"
+        "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1586 Eagle Trail Drive?"
       },
       {
         "who": "resident",
@@ -27,7 +27,7 @@
       },
       {
         "who": "agent",
-        "text": "How many people are at the home right now?"
+        "text": "Acknowledged, address confirmed as correct. How many people are at the home right now, including anyone who can't come to the phone?"
       },
       {
         "who": "resident",
@@ -35,46 +35,109 @@
       },
       {
         "who": "agent",
-        "text": "Is there anyone who can't leave on their own?"
+        "text": "Thank you for letting us know about your mom. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
       },
       {
         "who": "resident",
         "text": "My mom uses a power wheelchair."
+      },
+      {
+        "who": "agent",
+        "text": "I heard your mom uses a power wheelchair. Is there water inside the home right now?"
+      },
+      {
+        "who": "resident",
+        "text": "It's at the front step, not inside yet."
+      },
+      {
+        "who": "agent",
+        "text": "Water at front step, not inside yet. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+      },
+      {
+        "who": "resident",
+        "text": "No."
+      },
+      {
+        "who": "agent",
+        "text": "Understood, no high-clearance truck, boat, or free seats mentioned. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+      },
+      {
+        "who": "resident",
+        "text": "Yes."
+      },
+      {
+        "who": "agent",
+        "text": "Thank you for confirming the read-back was correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
       }
     ],
-    "house_card": "2 adults; mother in a power wheelchair (~400 lb, needs 2-3 lifters). Water at the front step. English.",
+    "house_card": "Two people live here. Mom needs power wheelchair and can\u2019t leave alone. No water inside. Language: English. Power chair: ~400 lb, bring 2-3 lifters.",
     "attempts": 1
   },
   "steps": [
     {
       "delay_ms": 0,
       "who": "agent",
-      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2207 Rolling Oak Lane?"
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1586 Eagle Trail Drive?"
     },
     {
-      "delay_ms": 1500,
+      "delay_ms": 1800,
       "who": "resident",
       "text": "Yes, that's right."
     },
     {
-      "delay_ms": 3000,
+      "delay_ms": 3600,
       "who": "agent",
-      "text": "How many people are at the home right now?"
+      "text": "Acknowledged, address confirmed as correct. How many people are at the home right now, including anyone who can't come to the phone?"
     },
     {
-      "delay_ms": 4500,
+      "delay_ms": 5400,
       "who": "resident",
       "text": "Two, me and my mom."
     },
     {
-      "delay_ms": 6000,
+      "delay_ms": 7200,
       "who": "agent",
-      "text": "Is there anyone who can't leave on their own?"
+      "text": "Thank you for letting us know about your mom. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
     },
     {
-      "delay_ms": 7500,
+      "delay_ms": 9000,
       "who": "resident",
       "text": "My mom uses a power wheelchair."
+    },
+    {
+      "delay_ms": 10800,
+      "who": "agent",
+      "text": "I heard your mom uses a power wheelchair. Is there water inside the home right now?"
+    },
+    {
+      "delay_ms": 12600,
+      "who": "resident",
+      "text": "It's at the front step, not inside yet."
+    },
+    {
+      "delay_ms": 14400,
+      "who": "agent",
+      "text": "Water at front step, not inside yet. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "delay_ms": 16200,
+      "who": "resident",
+      "text": "No."
+    },
+    {
+      "delay_ms": 18000,
+      "who": "agent",
+      "text": "Understood, no high-clearance truck, boat, or free seats mentioned. Let me read that back: 2 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+    },
+    {
+      "delay_ms": 19800,
+      "who": "resident",
+      "text": "Yes."
+    },
+    {
+      "delay_ms": 21600,
+      "who": "agent",
+      "text": "Thank you for confirming the read-back was correct. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ]
 }

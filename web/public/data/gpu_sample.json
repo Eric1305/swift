@@ -1,7 +1,1 @@
-{
-  "gpu_util": 63,
-  "mem_used_gb": 41.2,
-  "mem_total_gb": 128.0,
-  "temp_c": 58,
-  "llm_running": 24
-}
+{"gpu_util": 0, "mem_used_gb": 0.0, "mem_total_gb": 0.0, "temp_c": 0, "llm_running": 6, "llm_calls": 412, "latency_ms": 840.0}

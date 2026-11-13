@@ -1,0 +1,69 @@
+{
+  "id": "h026",
+  "status": "can_help",
+  "people": 1,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": true,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1500 Afton Ridge Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1500 Afton Ridge Lane. I’m alone and the water’s not inside, but I can’t leave myself — I can help with a truck, not a boat."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you’re at 1500 Afton Ridge Lane. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s one person here, and they can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for letting us know who’s here. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave on their own. I’m the only person, and I’m able to move around without assistance."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re the only person here and can move without help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, there’s no water inside the home. I’m the only person here and can move without help."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for your update and for being able to move safely. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "I have a high-clearance truck available, but no boat or free seats in any vehicle."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, high-clearance truck available. Let me read that back: 1 people; no water inside yet; you can help with a truck. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right — one person, no water inside, and I can help with a truck."
+    },
+    {
+      "who": "agent",
+      "text": "Got it — you’re ready to help with a truck. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

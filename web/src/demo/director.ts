@@ -44,11 +44,14 @@ export async function runDemo(ctx: DirectorContext, signal: AbortSignal): Promis
   ctx.seek(0);
   ctx.flyIn();
 
-  // 2 · 5 s: play at 20×, arcs fan out, GB10 load starts
+  // 2 · 5 s: arcs fan out, GB10 load starts. The real timeline places every call in
+  // T+0–30 min (water arrives T+121 min and later), so this scene plays at 5× (≈25 replay
+  // minutes in 20 s) to keep the calls visible; scene 4 then runs at 20× through the
+  // routes (T+3–63), door-knock clusters (T+30), briefings and the rising water.
   await at(5);
   ctx.setScene(2);
   ctx.startGpu();
-  ctx.play(20);
+  ctx.play(5);
 
   // 3 · 25 s: pause and open the top-ranked red house
   await at(25);

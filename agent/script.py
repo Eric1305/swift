@@ -2,6 +2,14 @@
 from pydantic import BaseModel, Field
 
 STEPS = ["confirm_address", "people", "cant_leave", "water_inside", "can_help", "readback", "close"]
+# Off the main path: a follow-up when someone "can't leave" but wasn't named, and one correction round after the
+# read-back. REQUIRED is the field a step must produce; without it the question is asked once more.
+NEXT = {"cant_leave_detail": "water_inside", "fix": "readback"}
+REQUIRED = {"people": "people", "cant_leave": "cant_leave_alone", "cant_leave_detail": "cant_leave_alone",
+            "water_inside": "water_inside", "can_help": "can_help", "readback": "correct"}
+# Steps whose answer may overwrite a value already recorded; elsewhere volunteered facts only fill gaps.
+OVERWRITES = {"people": {"people", "readback", "fix"}, "water_inside": {"water_inside", "readback", "fix"},
+              "can_help": {"can_help", "fix"}}
 
 INTRO = "This is Swift, an automated flood assistant working with local emergency services."
 
@@ -52,6 +60,7 @@ class CallState(BaseModel):
     record: Record
     step: str = STEPS[0]
     reasked: bool = False
+    corrected: bool = False
 
 
 def guard(text: str) -> str:
@@ -95,21 +104,22 @@ def prompt_for(state: CallState) -> str:
         ),
         "water_inside": "Is there water inside the home right now?",
         "can_help": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?",
+        "cant_leave_detail": "Who is it that can't leave on their own, and what do they need to get out?",
         "readback": _readback(rec),
+        "fix": "Sorry about that. What should I fix?",
         "close": TEMPLATES[status_of(rec)] + " Goodbye.",
     }[state.step]
 
 
-def _merge(rec: Record, fields: dict) -> Record:
+def _merge(rec: Record, fields: dict, step: str = "fix") -> Record:
     data = rec.model_dump()
-    if "people" in fields:
-        data["people"] = fields["people"]
+    for key in ("people", "water_inside"):
+        if key in fields and (step in OVERWRITES[key] or data[key] is None):
+            data[key] = fields[key]
     for person in fields.get("cant_leave_alone") or []:
         if person not in data["cant_leave_alone"]:
             data["cant_leave_alone"].append(person)  # never dropped once recorded
-    if "water_inside" in fields:
-        data["water_inside"] = fields["water_inside"]
-    if "can_help" in fields:
+    if "can_help" in fields and step in OVERWRITES["can_help"]:
         data["can_help"] = {**data["can_help"], **fields["can_help"]}
     if "language" in fields:
         data["language"] = fields["language"]
@@ -118,13 +128,33 @@ def _merge(rec: Record, fields: dict) -> Record:
     return merged
 
 
+def _next_step(state: CallState, fields: dict) -> str:
+    step = state.step
+    if step == "cant_leave" and fields.get("someone") and not fields.get("cant_leave_alone"):
+        return "cant_leave_detail"  # "yes" without saying who: ask, never guess
+    if step == "readback" and fields.get("correct") is False and not state.corrected:
+        return "fix"
+    if step == "fix" and fields.get("no_change"):
+        return "close"
+    return NEXT.get(step) or STEPS[min(STEPS.index(step) + 1, len(STEPS) - 1)]
+
+
 def advance(state: CallState, fields: dict, ack: str) -> tuple[CallState, str]:
-    """Apply one caller turn. Empty input re-asks once, then moves on. Returns the new state and the line to speak."""
-    if not fields and not ack and not state.reasked and state.step != "close":
-        new = state.model_copy(update={"reasked": True})
+    """Apply one caller turn. An answer that doesn't fit the question is asked once more (without pretending it
+    was understood), then the call moves on. Returns the new state and the line to speak."""
+    if state.step == "close":
+        return state, prompt_for(state)
+    required = REQUIRED.get(state.step)
+    answered = required in fields if required else bool(fields or ack)
+    if state.step == "cant_leave" and fields.get("someone"):
+        answered = True
+    record = _merge(state.record, fields, state.step)
+    if not answered and not state.reasked:
+        new = state.model_copy(update={"record": record, "reasked": True})
         return new, "Sorry, I didn't catch that. " + prompt_for(new)
-    record = _merge(state.record, fields)
-    next_step = STEPS[min(STEPS.index(state.step) + 1, len(STEPS) - 1)]
-    new = CallState(record=record, step=next_step, reasked=False)
-    safe_ack = guard(ack).strip()
+    next_step = _next_step(state, fields)
+    new = CallState(record=record, step=next_step, reasked=False,
+                    corrected=state.corrected or state.step == "fix")
+    # The follow-up question speaks for itself; an ack there tends to restate the answer wrongly.
+    safe_ack = guard(ack).strip() if answered and next_step != "cant_leave_detail" else ""
     return new, (safe_ack + " " if safe_ack else "") + prompt_for(new)

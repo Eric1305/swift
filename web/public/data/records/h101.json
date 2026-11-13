@@ -1,0 +1,98 @@
+{
+  "id": "h101",
+  "status": "needs_help",
+  "people": 1,
+  "cant_leave_alone": [
+    {
+      "who": "mi hijo",
+      "need": "un andador"
+    },
+    {
+      "who": "mi hijo",
+      "need": "ayuda para salir porque usa un andador"
+    },
+    {
+      "who": "mi hijo",
+      "need": "ayuda con el andador"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "es",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 638 Hidden Acres Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, soy yo en 638 Hidden Acres Drive. Tengo a mi hijo con un andador y el agua está adentro, no puedo salir solo."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re at 638 Hidden Acres Drive with your son. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, estoy en 638 Hidden Acres Drive con mi hijo. Solo hay una persona en casa, pero él necesita un andador para moverse."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por informar, estamos atentos. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, hay alguien que no puede salir solo: mi hijo necesita un andador. No tiene silla de ruedas ni oxígeno."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por compartir esa información. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, hay agua adentro de la casa.  \n(Lo siento, me equivoqué: hay agua adentro de la casa.)"
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar el agua adentro de la casa. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no tengo camioneta con buena altura, barco ni asientos libres en un vehículo. Mi hijo necesita un andador y no puedo salir solo."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re not alone in this. Let me read that back: 2 people; mi hijo needs help leaving because of un andador; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "No, solo hay una persona aquí; mi hijo necesita ayuda para salir porque usa un andador, y el agua está adentro."
+    },
+    {
+      "who": "agent",
+      "text": "Entendido, tu hijo necesita ayuda por el andador. Sorry about that. What should I fix?"
+    },
+    {
+      "who": "resident",
+      "text": "Lo siento, me equivoqué: mi hijo necesita ayuda con el andador, pero no puedo salir solo. Vivo en 638 Hidden Acres Drive."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re staying with your child needing walker help. Let me read that back: 1 people; mi hijo needs help leaving because of un andador; mi hijo needs help leaving because of ayuda para salir porque usa un andador; mi hijo needs help leaving because of ayuda con el andador; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, mi hijo necesita ayuda para salir porque usa un andador, y el agua está adentro.  \n(¡Corrección! No es “ayuda para salir porque usa un andador”, sino “ayuda para salir porque necesita un andador”.)"
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por la corrección, entiendo la situación. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "1 persona. Mi hijo necesita ayuda con andador, no puede salir solo. Agua dentro. Español.",
+  "attempts": 1
+}

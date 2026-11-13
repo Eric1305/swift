@@ -85,7 +85,9 @@ export default function HouseholdDrawer({ household, status, record, transcript,
         <p>
           {live
             ? 'Live call to DEMO_PHONE · every reply decided by Qwen on the GB10; Retell handles voice only'
-            : `${household.id} · predicted water arrival ${formatT(household.water_arrival_min)} · peak depth ${household.depth_ft_peak.toFixed(1)} ft`}
+            : household.water_arrival_min == null
+              ? `${household.id} · no flooding predicted at this home`
+              : `${household.id} · predicted water arrival ${formatT(household.water_arrival_min)} · peak depth ${household.depth_ft_peak.toFixed(1)} ft`}
         </p>
       </div>
 

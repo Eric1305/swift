@@ -1,0 +1,77 @@
+{
+  "id": "h006",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1392 Laurel Heights Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, soy yo en 1392 Laurel Heights Drive, todo está bien aquí, no hay agua dentro y no necesito ayuda, ¡pero sí me encantaría que alguien viniera a charlar!"
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "¡Hola! Aquí estoy, todo bien, hay cuatro personas en casa, y no hay nadie que no pueda salir solo, y el agua no ha entrado."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, seguimos atentos. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no hay nadie que no pueda salir solo, todo el mundo está bien, y no hay nadie con silla de ruedas ni que necesite oxígeno, todo está tranquilo aquí en la casa."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, everyone can leave on their own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no hay agua adentro, estamos todos bien y no necesitamos ayuda, gracias."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, estamos atentos. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Gracias, no tenemos camioneta con buena altura, ni bote, ni asientos libres en ningún vehículo, pero estamos bien aquí con los cuatro."
+    },
+    {
+      "who": "agent",
+      "text": "Sorry, I didn't catch that. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No tengo ni camioneta con buena altura, ni bote, ni asientos libres en ningún vehículo, pero estamos todos bien aquí en casa, no necesitamos ayuda."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re all well at home. Let me read that back: 4 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, todo bien, cuatro personas aquí, sin agua adentro todavía, y no necesitamos ayuda ni camión ni bote."
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, todo bien aquí. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

@@ -1,25 +1,86 @@
 {
   "id": "h005",
-  "status": "safe",
-  "people": 4,
-  "cant_leave_alone": [],
+  "status": "needs_help",
+  "people": 5,
+  "cant_leave_alone": [
+    {
+      "who": "a father",
+      "need": "a manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "a manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "help leaving"
+    }
+  ],
   "water_inside": false,
   "can_help": {
     "truck": false,
     "boat": false,
     "seats": 0
   },
-  "language": "es",
+  "language": "en",
   "transcript": [
     {
       "who": "agent",
-      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 3001 Ridgecrest Court?"
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1590 West Vista Glen Loop?"
     },
     {
       "who": "resident",
-      "text": "S\u00ed, estamos bien, ya nos vamos."
+      "text": "Yes, this is 1590 West Vista Glen Loop. Five people are here, including a father who needs a manual wheelchair. We can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming the address and details. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Five people are here. One can’t leave alone — the father needs a manual wheelchair."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you have five people here, including the father needing a manual wheelchair. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, the father can’t leave alone and needs a manual wheelchair. It’s not motorized."
+    },
+    {
+      "who": "agent",
+      "text": "Acknowledged, father needs manual wheelchair, not motorized. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Father needs manual wheelchair, can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, father needs wheelchair and can’t leave alone. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no free seats."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, no truck, no boat, no free seats. Let me read that back: 5 people; a father needs help leaving because of a manual wheelchair; father needs help leaving because of a manual wheelchair; father needs help leaving because of manual wheelchair; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Five people. Father needs help leaving — he’s in a manual wheelchair. No water inside yet."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Father needs help leaving. No water inside yet. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": null,
+  "house_card": "Five people. Father needs manual wheelchair help leaving. No water inside. English.",
   "attempts": 1
 }

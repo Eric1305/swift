@@ -1,0 +1,69 @@
+{
+  "id": "h039",
+  "status": "safe",
+  "people": 3,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 838 Dounreay Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 838 Dounreay Drive, just hanging out with my two roomies, no water in the house, and we’re all good to stay put—no need for any trucks or boats or anything, we’re totally fine here."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming you’re all safe and staying put. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just three of us here, all good, no one’s stuck inside or can’t come to the phone—everyone’s accounted for and we’re staying put."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming everyone is accounted for and safe. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, everyone’s good to go—no one’s stuck or needs special help, not even a wheelchair or oxygen, and definitely no motorized chair or bedbound folks here at 838 Dounreay Drive."
+    },
+    {
+      "who": "agent",
+      "text": "Everyone’s good to go—no one needs special help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside at all, just us three hanging out fine, no one needs a hand, and we’re all good to go—no need for a truck or boat or anything, we’re totally set."
+    },
+    {
+      "who": "agent",
+      "text": "You’re all good to go, no need for a truck or boat. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and I don’t have any free seats in a vehicle—just me and the folks here, all safe and cozy inside, no water in, no need for anything."
+    },
+    {
+      "who": "agent",
+      "text": "You’re all safe and cozy inside, no water in. Let me read that back: 3 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—three of us, cozy as can be, no water in at all, and we’re all good here, no one needs to leave alone, and we don’t have any truck or boat or seats to help with either."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming your situation is stable. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

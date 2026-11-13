@@ -1,0 +1,106 @@
+{
+  "id": "h136",
+  "status": "needs_help",
+  "people": 4,
+  "cant_leave_alone": [
+    {
+      "who": "father",
+      "need": "manual wheelchair"
+    },
+    {
+      "who": "one's father",
+      "need": "manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "his manual wheelchair"
+    },
+    {
+      "who": "father",
+      "need": "manual wheelchair to get out"
+    },
+    {
+      "who": "father",
+      "need": "help leaving because of his manual wheelchair"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 660 Royal Mile Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 660 Royal Mile Lane. Four people are here, including my father who needs a manual wheelchair. We can’t leave alone. No truck, boat, or seats available."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and needs. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Four people are here. One’s father, he needs a manual wheelchair and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you have four people here, including one needing a wheelchair. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my father can’t leave alone—he uses a manual wheelchair. It doesn’t have a motor."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you mentioned your father and his wheelchair. Who is it that can't leave on their own, and what do they need to get out?"
+    },
+    {
+      "who": "resident",
+      "text": "My father can't leave alone. He needs his manual wheelchair to get out."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you need help getting your father out safely. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Father needs a manual wheelchair to get out."
+    },
+    {
+      "who": "agent",
+      "text": "We heard you, father needs a manual wheelchair to get out. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Father needs a manual wheelchair to get out. No truck, boat, or free seats available."
+    },
+    {
+      "who": "agent",
+      "text": "Sorry, I didn't catch that. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no free seats."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no truck, boat, or free seats. Let me read that back: 4 people; father needs help leaving because of manual wheelchair; one's father needs help leaving because of manual wheelchair; father needs help leaving because of his manual wheelchair; father needs help leaving because of manual wheelchair to get out; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Four people. Father needs help leaving because of his manual wheelchair. No water inside yet."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Four people. Father needs manual wheelchair to leave. Water not inside. English.",
+  "attempts": 1
+}

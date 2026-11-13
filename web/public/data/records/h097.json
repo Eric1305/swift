@@ -1,0 +1,74 @@
+{
+  "id": "h097",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "grandmother",
+      "need": "bedbound"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1552 Unnamed Rd?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1552 Unnamed Rd. I’m here with my grandmother—she’s bedbound and we’re trapped inside with rising water."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re trapped with rising water. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There are two people here — me and my bedbound grandmother. I’m the one answering."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for letting us know who’s here. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my grandmother is bedbound and can’t leave alone. I’m sorry, I meant to say she’s bedbound, not wheelchair."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you, and I’m sorry for the confusion. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, there’s water inside the home right now. I’m sorry — there are two people here, including a bedbound grandmother, and we can’t leave her alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re staying with a bedbound grandmother. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I don’t have a truck, boat, or any free seats in a vehicle. I’m stuck with my bedbound grandmother and can’t leave her alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re caring for your grandmother right now. Let me read that back: 2 people; grandmother needs help leaving because of bedbound; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right — two people here, my grandmother is bedbound and can’t leave alone, and water’s already inside. I just corrected myself — it’s “bedbound,” not “bedridden.”"
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming and correcting the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people live here. Grandmother, bedbound, can’t leave alone. Water inside. Language: English.",
+  "attempts": 1
+}

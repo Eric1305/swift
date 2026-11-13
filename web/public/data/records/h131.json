@@ -1,0 +1,69 @@
+{
+  "id": "h131",
+  "status": "safe",
+  "people": 1,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1304 Fox Springs Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1304 Fox Springs Drive. I’m safe and alone right now."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "One person is here. No one else is at the home."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, one person is here and no one else. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave alone. No wheelchair or medical needs."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no one here can’t leave alone. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. I’m alone and safe."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I don’t have a truck, boat, or free seats in a vehicle."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you don’t have a truck, boat, or free seats. Let me read that back: 1 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, that’s right. Just me, no water inside, and I don’t need help."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re alone and dry. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

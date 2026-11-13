@@ -1,0 +1,85 @@
+{
+  "id": "h070",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1208 Catherwood Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, soy yo en 1208 Catherwood Lane. No hay agua dentro y todos estamos bien, no necesitamos ayuda."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Hay cuatro personas en casa, y no hay nadie que no pueda salir solo.  \n*(Corrección: Hay cuatro personas en casa, y no hay nadie que no pueda salir solo —es decir, todos pueden salir solos.)*"
+    },
+    {
+      "who": "agent",
+      "text": "Understood, everyone can leave alone. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No, todos pueden salir solos. No hay nadie que no pueda salir solo, ni silla de ruedas ni oxígeno ni persona en cama."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, everyone can leave on their own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no hay agua dentro de la casa.  \n(Actualizo: sí, hay agua dentro de la casa.)"
+    },
+    {
+      "who": "agent",
+      "text": "I’ve noted the update about water inside the home. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No tengo un camión con buena altura, ni barco, ni asientos libres en un vehículo para llevar a vecinos. (Corrección: no tengo un camión con buena altura, ni barco, ni asientos libres en un vehículo para llevar a vecinos.)"
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no high-clearance truck, boat, or free seats available. Let me read that back: 4 people; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "No, el agua no está dentro. Hay cuatro personas, y no necesitamos ayuda con camión, bote ni asientos libres."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, no water inside, four people, no need for truck, boat, or seats. Sorry about that. What should I fix?"
+    },
+    {
+      "who": "resident",
+      "text": "Gracias, no hay agua adentro y hay cuatro personas, pero no necesitamos camión, bote ni asientos.  \n(¡Corrección! No necesitamos nada de eso, ya que estamos seguros y no hay agua ni gente que requiera ayuda.)"
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar, entendido. Let me read that back: 4 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Sí, cuatro personas, y aún no hay agua adentro. (Corrijo: no hay agua adentro, no hay nadie que no pueda salir solo.)"
+    },
+    {
+      "who": "agent",
+      "text": "Gracias por confirmar los detalles. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}
