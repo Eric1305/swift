@@ -1,6 +1,6 @@
 # Swift: 3-minute pitch
 
-Timed to the Run Demo scene list in `web/src/demo/director.ts` (PLAN T4). Press **Run Demo** at 0:20, so demo time = pitch time − 20 s. Rubric tags: **[Creativity]**, **[Impact]**, **[LLM/GB10]**, **[Data]**, **[Interface]**.
+Timed to the Run Demo scene list in `web/src/demo/director.ts` (PLAN T4). Press **Run Demo** at 0:20, so demo time = pitch time − 20 s. Rubric tags: **[Creativity]**, **[Impact]**, **[LLM/AI]** (creative use of LLMs/AI), **[Data]**, **[Interface]**.
 
 Before going on stage:
 - Agent server running (`.venv/bin/uvicorn agent.server:app --port 8080`), relay client running (`.venv/bin/python -m relay.client`), and `https://swift-w7bb.onrender.com/health` shows `"agent_connected": true`.
@@ -31,13 +31,13 @@ Before going on stage:
 
 > This is Bear Creek in west Houston, right against the Addicks Reservoir. In Harvey the reservoir backed into it and about 65% of the subdivision's homes flooded. These are 150 real buildings from OpenStreetMap on USGS 10-meter elevation.
 
-### 0:25–0:45 · Scene 2, water rises and calls fan out (demo 5 s) [Creativity] [LLM/GB10]
+### 0:25–0:45 · Scene 2, water rises and calls fan out (demo 5 s) [Creativity] [LLM/AI]
 
 > The water you see is the real Addicks Reservoir level the USGS gauge recorded during Harvey: three and a half days, compressed into six hours. Swift only uses what that gauge had published when the calls started, so each home gets a forecast time for the water, and Swift dials in that order: first water, first call. A home that doesn't pick up is retried at two and five minutes and then goes on a door-knock list, because silence never counts as safe.
 >
-> Top right: those are real requests going to Qwen3-VL on the Dell GB10 server right now. Every reply on every call is decided by that model and our code. Retell only carries the voice.
+> Top right: those are real requests going to Qwen3-VL on the event's model server right now. Every reply on every call is decided by that model and our code. Retell only carries the voice.
 
-### 0:45–0:55 · Scene 3, top-ranked house opens (demo 25 s) [Interface] [LLM/GB10]
+### 0:45–0:55 · Scene 3, top-ranked house opens (demo 25 s) [Interface] [LLM/AI]
 
 > Red means someone can't leave on their own. Here's the transcript, the structured record, and a responder card the model wrote: who is home, the power chair, roughly how heavy it is, how many people to bring. The queue on the left ranks homes by who can't leave, water inside, depth and time left.
 
@@ -45,11 +45,11 @@ Before going on stage:
 
 > 63% of flood deaths with a known cause are in vehicles, so routing matters. High-water trucks only take streets under three feet, and boats go anywhere. Orange homes told us they have a truck, a boat or free seats, and they become part of the fleet. The dashed outlines are door-knock clusters. The commander briefing on the left is written by the model.
 
-### 1:15–1:25 · Scene 5, Harvey aerials (demo 55 s) [Data] [LLM/GB10]
+### 1:15–1:25 · Scene 5, Harvey aerials (demo 55 s) [Data] [LLM/AI]
 
 > These are real NOAA aerials taken after Harvey, placed at their true footprints, with before images from 2016. The dataset had no flood labels, so Qwen3-VL looked at each one: 17 of 21 show flooding, with a one-line reason for each.
 
-### 1:25–2:25 · Scene 6, live call (demo 65 s) [LLM/GB10] [Interface]
+### 1:25–2:25 · Scene 6, live call (demo 65 s) [LLM/AI] [Interface]
 
 > Now a real call. This house is mine.
 
@@ -72,7 +72,9 @@ Before going on stage:
 
 ### 2:25–2:50 · Scene 7, results card [Impact] [Data]
 
-> We tested it with 150 simulated residents, each role-played by the model with a hidden truth. Swift got the right status for 96% of them. We then compared it with the 911-only baseline on the same fleet. On this night the baseline reaches 49% of the people who need help before their water arrives, and Swift reaches all of them. Over 1,000 randomized nights the median goes from 34% to 83%. These are simulations with synthetic residents, not predictions, but the gap comes from one thing: knowing who needs help early.
+> We replayed Harvey on 150 real homes in Bear Creek using the actual reservoir gauge readings. Using only what was known that night, Swift reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under. When people had to get through to 911 themselves, fewer than half made it: 42.9%, with the same vehicles.
+>
+> We tested the calls with 150 simulated residents, each role-played by the model with a hidden truth. Swift recorded the right status for 91.5% of them and flagged all 34 who truly needed help. Over 1,000 randomized storms the median goes from 28.6% to 82.9%. The residents are simulated, so this is a policy comparison, not a prediction; the water and the timing are real.
 
 ### 2:50–3:00 · Close [Impact]
 
@@ -97,7 +99,7 @@ Calls work on any phone, including landlines, with no install and no data plan. 
 **5. How does it scale to a whole county?**
 Each turn is one short extraction, about 0.2–0.4 s on an 8B model, so one model server handles many calls at once. The limit is phone lines, and the scheduler already runs N lines in parallel. Ordering by water arrival means the first calls go to the homes with the least time, so even a partial run helps the right people first. Telephony trunks (Retell or Twilio) scale to hundreds of concurrent lines.
 
-**6. What does the GB10 actually do?**
+**6. Where does the model run, and what does it do?**
 It's the organizers' Dell Pro Max GB10 model server, serving Qwen3-VL-8B (`qwen3-vl-8b-instruct`) with the event's shared key. It runs every model call: each live call turn, the simulated residents (both the resident and the agent side), the aerial-image verdicts, the house cards and the commander briefings. The dashboard panel shows our in-flight requests, total calls and latency against that server live. The depth model, routing and Monte Carlo are NumPy on the laptop. They run on GPU through a CuPy shim when one is present, but the organizers took back the per-team workstations mid-event.
 
 **7. How accurate is your depth model? Would it have worked during Harvey?**
