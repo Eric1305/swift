@@ -51,9 +51,37 @@ def _street_name(value) -> str:
     return value if isinstance(value, str) and value else "Unnamed Rd"
 
 
+def _fetch_buildings(bbox) -> gpd.GeoDataFrame:
+    """Building outlines (closed ways only) via a lean Overpass query; osmnx's own query stalls overloaded mirrors."""
+    import httpx
+    from shapely.geometry import Polygon
+
+    west, south, east, north = bbox
+    query = f'[out:json][timeout:250];way["building"]({south},{west},{north},{east});out geom tags;'
+    error = None
+    for url in OVERPASS_MIRRORS:
+        try:
+            response = httpx.post(f"{url}/interpreter", data={"data": query}, timeout=280,
+                                  headers={"User-Agent": ox.settings.http_user_agent})
+            response.raise_for_status()
+            elements = response.json()["elements"]
+            break
+        except Exception as exc:  # noqa: BLE001 - any mirror failure means try the next one
+            error = exc
+            print(f"overpass mirror failed ({url}): {str(exc)[:120]}")
+    else:
+        raise error
+    rows, shapes = [], []
+    for element in elements:
+        points = [(p["lon"], p["lat"]) for p in element.get("geometry", [])]
+        if len(points) >= 4 and points[0] == points[-1]:
+            rows.append(element.get("tags", {}))
+            shapes.append(Polygon(points))
+    return gpd.GeoDataFrame(rows, geometry=shapes, crs=4326)
+
+
 def _households(bbox, graph: nx.MultiDiGraph) -> gpd.GeoDataFrame:
-    buildings = _with_mirrors(lambda: ox.features.features_from_bbox(bbox, {"building": True}))
-    buildings = buildings[buildings.geometry.geom_type == "Polygon"].copy()
+    buildings = _fetch_buildings(bbox)
     houses = buildings[buildings["building"].isin(HOUSE_TYPES)]
     houses = (houses if len(houses) >= N_HOUSEHOLDS else buildings).sample(
         n=min(N_HOUSEHOLDS, len(buildings)), random_state=SEED).reset_index(drop=True)
@@ -101,7 +129,11 @@ def load_area(bbox: tuple[float, float, float, float], cache: Path) -> Area:
         dem, lons, lats = saved["dem"], saved["lons"], saved["lats"]
     else:
         grid = py3dep.get_dem(bbox, 10)
+        if grid.rio.crs is not None and grid.rio.crs.to_epsg() != 4326:  # 3DEP returns a projected (metre) grid
+            grid = grid.rio.reproject("EPSG:4326")
+        grid = grid.where(grid > -1000)  # drop nodata fill from the reprojection edges
         dem = grid.values.astype("float32")
+        dem = np.where(np.isnan(dem), np.nanmedian(dem), dem)
         lons, lats = grid["x"].values, grid["y"].values
         if lats[0] < lats[-1]:  # make row 0 the northern edge
             dem, lats = dem[::-1], lats[::-1]
