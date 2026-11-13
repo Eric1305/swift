@@ -32,7 +32,7 @@ DONE (all on main, 8 tests pass: .venv/bin/pytest -q)
 - pipeline/*        Bear Creek bbox (-95.66,29.835,-95.62,29.865); OSM houses (lean Overpass query, mail.ru mirror —
                     other mirrors overloaded); 3DEP DEM reprojected to lon/lat; HAND-lite depth (81/150 homes flood,
                     arrival 121-321 min, up to 9 ft); call timeline; ranking; depth-aware routes; door-knock clusters;
-                    baseline 48.6% vs Swift 100%; Monte Carlo 1000 nights median 25.5% vs 80.9% (p10-p90 70-91.5%).
+                    baseline 48.6% vs Swift 100%; Monte Carlo 1000 nights median 34.3% vs 82.9% (Swift p10-p90 68.6-94.3%). Source of truth: web/public/data/results.json.
 - web/public/data/  REAL fixtures for the dashboard (regenerate: pipeline.build --stage base -> agent.content ->
                     agent.simulate -> pipeline.build --stage dispatch, all with --out web/public/data).
 

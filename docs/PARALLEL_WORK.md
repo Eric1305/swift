@@ -1,5 +1,7 @@
 # Parallel work launched before the session handoff
 
+> **Status: both branches are already merged into `main`** (`web-fixes` builds; `docs` stats were verified with links). Nothing to merge; read the notes below for what changed.
+
 Two background agents were started at the end of the previous session (a third, for the relay, was stopped because Eric's other session is building the relay). Each works in its own git worktree and
 pushes **only to its own branch**, never to `main`. Read `HANDOFF.txt` first, then use this file to pick up their work.
 
