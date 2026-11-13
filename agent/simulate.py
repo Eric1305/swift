@@ -112,7 +112,7 @@ def run_call(persona: dict, use_llm_resident: bool = True) -> tuple[Record, int]
     return state.record, blanked
 
 
-def simulate_all(households: dict, out: Path, concurrency: int = 32, use_llm_resident: bool = True) -> dict:
+def simulate_all(households: dict, out: Path, concurrency: int = 8, use_llm_resident: bool = True) -> dict:
     """Call every household (in parallel on the GB10), write records/*.json and briefings.json, return stats."""
     personas = make_personas(households)
     (out / "records").mkdir(parents=True, exist_ok=True)
@@ -156,7 +156,7 @@ def simulate_all(households: dict, out: Path, concurrency: int = 32, use_llm_res
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Simulate calls to every household through the real script.")
     parser.add_argument("--out", type=Path, default=Path("web/public/data"))
-    parser.add_argument("--concurrency", type=int, default=32)
+    parser.add_argument("--concurrency", type=int, default=8, help="the hosted model is shared by every team")
     parser.add_argument("--scripted", action="store_true", help="scripted residents instead of LLM role-play")
     args = parser.parse_args()
     households = json.loads((args.out / "households.geojson").read_text())

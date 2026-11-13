@@ -6,7 +6,6 @@ the code-driven script picks the question, Qwen (on the GB10) only extracts fact
 import asyncio
 import json
 import os
-import re
 import subprocess
 from pathlib import Path
 
@@ -29,7 +28,7 @@ def _load_env(path: Path) -> None:
 
 _load_env(ROOT / ".env")
 
-from agent.llm import BASE_URL, extract  # noqa: E402  (after .env so VLLM_* are picked up)
+from agent.llm import STATS, extract  # noqa: E402  (after .env so VLLM_* are picked up)
 from agent.script import INTRO, CallState, Record, advance, prompt_for  # noqa: E402
 
 DATA = ROOT / "web" / "public" / "data"
@@ -154,32 +153,18 @@ async def api_live():
     return live
 
 
-def _memory_gb() -> tuple[float, float]:
-    """GB10 memory is unified, so nvidia-smi often reports it as N/A; fall back to /proc/meminfo."""
-    info = dict(re.findall(r"(\w+):\s+(\d+)", Path("/proc/meminfo").read_text()))
-    total, available = int(info["MemTotal"]) / 1048576, int(info["MemAvailable"]) / 1048576
-    return round(total - available, 1), round(total, 1)
-
-
 @app.get("/api/gpu")
 async def api_gpu():
-    stats = {"gpu_util": 0, "mem_used_gb": 0.0, "mem_total_gb": 0.0, "temp_c": 0, "llm_running": 0}
+    """The model runs on the organizers' GB10 server; report what we can measure from here: our calls in flight,
+    total calls and recent latency. GPU fields stay 0 unless nvidia-smi is local."""
+    stats = {"gpu_util": 0, "mem_used_gb": 0.0, "mem_total_gb": 0.0, "temp_c": 0,
+             "llm_running": STATS["in_flight"], "llm_calls": STATS["calls"], "latency_ms": STATS["latency_ms"]}
     try:
         out = subprocess.run(
-            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu",
-             "--format=csv,noheader,nounits"], capture_output=True, text=True, timeout=3).stdout
-        util, used, total, temp = [v.strip() for v in out.splitlines()[0].split(",")]
+            ["nvidia-smi", "--query-gpu=utilization.gpu,temperature.gpu", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=3).stdout
+        util, temp = [v.strip() for v in out.splitlines()[0].split(",")]
         stats["gpu_util"], stats["temp_c"] = int(util), int(temp)
-        if used.replace(".", "").isdigit():
-            stats["mem_used_gb"], stats["mem_total_gb"] = round(float(used) / 1024, 1), round(float(total) / 1024, 1)
-        else:
-            stats["mem_used_gb"], stats["mem_total_gb"] = _memory_gb()
-    except Exception:
-        pass
-    try:
-        async with httpx.AsyncClient(timeout=2) as client:
-            metrics = (await client.get(BASE_URL.removesuffix("/v1") + "/metrics")).text
-        stats["llm_running"] = int(sum(float(v) for v in re.findall(r"^vllm:num_requests_running\{[^}]*\}\s+([\d.]+)", metrics, re.M)))
     except Exception:
         pass
     return stats
@@ -195,7 +180,7 @@ async def simulate_live():
         return {"started": False}
     households = json.loads((DATA / "households.geojson").read_text())
     simulation["task"] = asyncio.create_task(
-        run_in_threadpool(simulate_all, households, Path("/tmp/hg_live")))
+        run_in_threadpool(simulate_all, households, Path("/tmp/hg_live"), 6))
     return {"started": True}
 
 
