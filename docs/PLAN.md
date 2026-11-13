@@ -269,7 +269,7 @@ swift/
 - Produces:
   - `house_card(rec: Record) -> str` (≤40 words: people, who can't leave and why, power chair weight note if any, language, water inside);
   - `briefing(t_min: int, records: list[Record], ranked: list[dict]) -> str` (≤60 words);
-  - `simulate_all(households: GeoDataFrame, out: Path, concurrency: int = 32) -> dict` (writes `records/*.json`; returns `{record_accuracy, promise_violations, parallel_calls, answers: dict[id,bool]}`).
+  - `simulate_all(households: dict, out: Path, concurrency: int = 32) -> dict` (`households` is the parsed `households.geojson` FeatureCollection; `agent/server.py` calls it this way) (writes `records/*.json`; returns `{record_accuracy, promise_violations, parallel_calls, answers: dict[id,bool]}`).
 - [ ] **Step 1: Personas.** Seed 7, with the mix from Global Constraints. Each persona is a ground-truth dict and a speaking style (plain, rambling, corrects themselves, 10% Spanish). A resident LLM turn answers `prompt_for(state)` in character (`ask`, max 60 tokens). Run the same `extract` → `advance` loop as the live call; asyncio with `concurrency` parallel calls.
 - [ ] **Step 2: Accuracy.** `record_accuracy` = share of personas whose `status_of(record)` equals the ground-truth status. `promise_violations` = count of agent acknowledgments that `guard` blanked. Then house cards for needs_help records, and briefings at t = 60, 180, 300.
 - [ ] **Step 3: Smoke.** `uv run python -m agent.simulate --out web/public/data` writes about 130 records + `briefings.json` and prints accuracy (target ≥ 0.85) and the parallel count. **Show this run on the DGX Dashboard and screenshot it for the README.**
