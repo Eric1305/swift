@@ -50,7 +50,7 @@ export function ImageryPopup({ item, onClose }: { item: ImageryItem; onClose: ()
           <i />
           {v.label}
         </span>
-        <span className="mono-dim">{item.image_id}</span>
+        <span className="mono-dim imagery-popup__id" title={item.image_id}>{`${item.image_id.split('_').pop() ?? ''} aerial`}</span>
         <button type="button" className="imagery-popup__close" aria-label="Close" onClick={onClose}>
           <img src={closeIcon} width={14} height={14} alt="" />
         </button>

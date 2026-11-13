@@ -341,6 +341,7 @@
 .imagery-popup__pair .imagery-popup__thumb { flex: 1; min-width: 0; }
 .imagery-popup__thumb span.imagery-popup__label { padding: 1px 5px; border-radius: 4px; background: rgba(0, 0, 0, 0.55); color: #fff; }
 .imagery-popup p { font-size: 12px; line-height: 17px; }
+.imagery-popup__id { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; margin: 0 8px; }
 .verdict { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: color-mix(in srgb, var(--verdict) 16%, transparent); }
 .verdict i { width: 7px; height: 7px; border-radius: 50%; background: var(--verdict); }
 
