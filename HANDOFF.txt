@@ -1,0 +1,80 @@
+SWIFT — SESSION HANDOFF (2026-11-13, written mid-hackathon)
+================================================================
+
+FIRST: cd ~/Coding/Personal/swift && git checkout main && git pull
+Then read docs/PLAN.md (full plan; top note explains the infra change) and CONTRACT.md (data contract with the frontend).
+
+WHAT SWIFT IS
+When a flood threatens a neighborhood, an AI agent phones every household in order of predicted water arrival
+(Retell does phone + voice; our server decides every reply using Qwen3-VL on the organizers' GB10 model server).
+It records who needs help / can help (truck, boat, seats) / is safe / never answered (-> door-knock list).
+A deck.gl dashboard replays Hurricane Harvey in Bear Creek (west Houston) and makes one LIVE call to Eric's phone.
+
+INFRASTRUCTURE (changed mid-event)
+- No GB10 workstation anymore. Everything runs on Eric's laptop.
+- Model server: http://10.246.100.230/v1, key "usaadatathon", model "qwen3-vl-8b-instruct" (ONLY model our key may use;
+  32b/122b return 403). Reachable only on the venue Wi-Fi Eric is on now. These are the defaults in agent/llm.py.
+- Python env: .venv in repo (python3 -m venv; pip install -e ".[geo]" pytest). No uv on the laptop.
+- .env (untracked, filled in): VLLM_*, RETELL_API_KEY, RETELL_AGENT_ID, RETELL_FROM_NUMBER, DEMO_PHONE,
+  PUBLIC_URL (stale cloudflared URL — will change), DEMO_HOUSEHOLD_ID=h050. Never print or commit secrets.
+- Harvey dataset downloaded at ~/Texas_Flood_Student_Data (HF: jennifer-fowler/UTSA-flood-images; 1,204 georeferenced images).
+
+DONE (all on main, 8 tests pass: .venv/bin/pytest -q)
+- agent/script.py   code-driven call script, honesty guard (never promises rescue / "you're safe"), statuses.
+- agent/llm.py      extraction via hosted Qwen; JSON schema with ALL keys required (model skips optional keys);
+                    placeholder/vague people filtered; truck/boat/seats flattened. 0.2-0.4 s per turn.
+- agent/server.py   FastAPI on :8080: POST /api/demo-call (Retell create-phone-call to DEMO_PHONE),
+                    WS /llm-websocket/{call_id} (Retell custom-LLM protocol), POST /retell/webhook (no-answer -> no_answer),
+                    GET /api/live, GET /api/gpu (LLM in-flight/calls/latency), POST /api/simulate-live, serves web/dist.
+- agent/content.py  Qwen3-VL imagery check (real footprints + before/after thumbs), house cards, briefings.
+- agent/simulate.py 150 simulated residents through the real script (96.1% status accuracy, 0 promises spoken,
+                    47 blocked by guard); writes records/, briefings, answers.json, live_fallback.json (rehearsal call).
+- pipeline/*        Bear Creek bbox (-95.66,29.835,-95.62,29.865); OSM houses (lean Overpass query, mail.ru mirror —
+                    other mirrors overloaded); 3DEP DEM reprojected to lon/lat; HAND-lite depth (81/150 homes flood,
+                    arrival 121-321 min, up to 9 ft); call timeline; ranking; depth-aware routes; door-knock clusters;
+                    baseline 48.6% vs Swift 100%; Monte Carlo 1000 nights median 25.5% vs 80.9% (p10-p90 70-91.5%).
+- web/public/data/  REAL fixtures for the dashboard (regenerate: pipeline.build --stage base -> agent.content ->
+                    agent.simulate -> pipeline.build --stage dispatch, all with --out web/public/data).
+
+CURRENT BLOCKER: Retell can't reach the laptop
+- Venue firewall blocks cloudflared (port 7844 reset) AND Tailscale (controlplane connection reset).
+- Outbound HTTPS (443) and SSH (22) work; render.com is reachable.
+- Claude Code's safety check refused to start a public tunnel (localhost.run) on its own; Eric must approve/run tunnels.
+- Quick option Eric can run himself: ssh -R 80:localhost:8080 nokey@localhost.run  (prints https://....lhr.life)
+
+NEXT TASK: build the Render relay (Eric chose this)
+  Retell --wss--> Render relay (public) <--wss (outbound from laptop)-- relay client on laptop --> localhost:8080
+- relay/app.py (deploy on Render, free web service):
+    * WS  /agent                     — the laptop's single persistent connection (protect with a shared secret,
+                                        e.g. env RELAY_SECRET as ?token=; reject others).
+    * WS  /llm-websocket/{call_id}   — Retell connects here; relay forwards frames tagged with call_id over /agent
+                                        ({"type":"open"|"msg"|"close","call_id",...}) and routes replies back.
+    * POST /retell/webhook           — forward body over /agent as {"type":"webhook","body":...}; return 200.
+    * GET /health                    — for Render + keep-warm.
+- relay/client.py (runs on laptop): connect wss://<app>.onrender.com/agent?token=..., auto-reconnect with backoff,
+  ping every ~20 s (keeps free tier awake); per call_id open a local ws://localhost:8080/llm-websocket/{call_id}
+  and pipe both ways; POST webhooks to http://localhost:8080/retell/webhook. Server code stays unchanged.
+- render.yaml (rootDir relay/ or startCommand "uvicorn relay.app:app --host 0.0.0.0 --port $PORT"), small
+  requirements (fastapi, uvicorn[standard], websockets/httpx).
+- Then Eric: Render -> New Web Service -> repo Eric1305/swift -> set RELAY_SECRET; in Retell set
+  LLM WebSocket URL = wss://<app>.onrender.com/llm-websocket and webhook = https://<app>.onrender.com/retell/webhook.
+- Test: .venv/bin/uvicorn agent.server:app --port 8080 ; .venv/bin/python -m relay.client ;
+  curl -X POST localhost:8080/api/demo-call ; answer with the rehearsal lines (docs/PLAN.md Task 10):
+  "Yes, that's right" / "Two, me and my mom" / "My mom uses a power wheelchair" /
+  "It's at the front step, not inside yet" / "No" / "Yes". Then curl localhost:8080/api/live -> status needs_help.
+- Retell docs: custom LLM https://docs.retellai.com/integrate-llm/overview ;
+  websocket shapes https://docs.retellai.com/api-references/llm-websocket ;
+  create call https://docs.retellai.com/api-references/create-phone-call
+
+OTHER OPEN ITEMS
+- Frontend (teammate, branch `web`): nothing pushed yet as of this handoff — biggest risk. Real data is on main.
+  The dashboard model panel shows "Qwen3-VL on GB10 · calls in flight · calls · latency" from /api/gpu.
+- README: still needs problem stats with sources, results, "how it works in a real event" (see docs/PLAN.md).
+- Demo prep: backup video, rehearse 3x, make repo public at submission (gh repo edit --visibility public ...).
+- GB10 cleanup (Eric, if he still has access): tmux kill-session -t eric-data; gh auth logout.
+
+GOTCHAS
+- Hosted model is shared by all teams: keep simulate concurrency at 8.
+- Don't run the full simulation during judging; fixtures are precomputed.
+- Commits end with: Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+- Don't credit other hackathon projects anywhere (user's instruction).
