@@ -6,14 +6,6 @@
     {
       "who": "mi hijo",
       "need": "un andador"
-    },
-    {
-      "who": "mi hijo",
-      "need": "ayuda para salir porque usa un andador"
-    },
-    {
-      "who": "mi hijo",
-      "need": "ayuda con el andador"
     }
   ],
   "water_inside": true,
@@ -93,6 +85,6 @@
       "text": "Gracias por la corrección, entiendo la situación. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "1 persona. Mi hijo necesita ayuda con andador, no puede salir solo. Agua dentro. Español.",
+  "house_card": "Una persona. Mi hijo no puede salir solo: necesita un andador. Hay agua dentro. Español.",
   "attempts": 1
 }

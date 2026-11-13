@@ -6,18 +6,6 @@
     {
       "who": "wife",
       "need": "can't walk"
-    },
-    {
-      "who": "wife",
-      "need": "help getting out"
-    },
-    {
-      "who": "wife",
-      "need": "can’t walk—she’s recovering from surgery"
-    },
-    {
-      "who": "wife",
-      "need": "can't walk, recovering from surgery"
     }
   ],
   "water_inside": false,
@@ -89,6 +77,6 @@
       "text": "Thank you for confirming the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Three people. Wife can’t walk—recovering from surgery. Needs help getting out. No water inside. English.",
+  "house_card": "Three people. Wife can’t walk, so can’t leave alone. No water inside. English.",
   "attempts": 1
 }

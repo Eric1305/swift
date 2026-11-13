@@ -6,10 +6,6 @@
     {
       "who": "dad",
       "need": "manual wheelchair"
-    },
-    {
-      "who": "dad",
-      "need": "get him out"
     }
   ],
   "water_inside": false,
@@ -81,6 +77,6 @@
       "text": "I heard you clearly—stuck and need help to leave. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Five people. Dad needs manual wheelchair to get him out. No water inside. English.",
+  "house_card": "Five people. Dad needs manual wheelchair, can’t leave alone. No water inside. English language.",
   "attempts": 1
 }

@@ -6,14 +6,6 @@
     {
       "who": "wife",
       "need": "can't walk"
-    },
-    {
-      "who": "wife",
-      "need": "can't walk at all, she's totally bedbound"
-    },
-    {
-      "who": "wife",
-      "need": "can't walk at all"
     }
   ],
   "water_inside": false,
@@ -77,6 +69,6 @@
       "text": "I heard you, and I’m listening. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people. Wife can’t walk at all, totally bedbound. No water inside. English.",
+  "house_card": "Four people. Wife can’t walk, can’t leave alone. No water inside. English.",
   "attempts": 1
 }

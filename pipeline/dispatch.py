@@ -182,13 +182,16 @@ def _write_briefings(out: Path, timeline: list[dict], records: dict[str, Record]
     """Commander briefings from what was known at each time: finished calls only, and the queue at that moment."""
     from agent.content import briefing
 
+    features = json.loads((out / "households.geojson").read_text())["features"]
+    addresses = {f["properties"]["id"]: f["properties"]["address"] for f in features}
     briefings = []
     for t in BRIEFING_TIMES:
         finished = {e["household_id"]: e["status"] for e in timeline
                     if e["event"] in ("complete", "no_answer") and e["t_min"] <= t}
         snapshot = [records[hid].model_copy(update={"status": finished.get(hid, "not_called")}) for hid in records]
         ranked = rank([r for r in snapshot if r.status == "needs_help"], depths)
-        briefings.append({"t_min": t, "text": briefing(t, snapshot, ranked)})
+        named = [{**r, "household_id": addresses.get(r["household_id"], r["household_id"])} for r in ranked]
+        briefings.append({"t_min": t, "text": briefing(t, snapshot, named)})
     (out / "briefings.json").write_text(json.dumps(briefings, indent=2) + "\n")
 
 

@@ -117,7 +117,7 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
    - Routes: shortest path on the road network, skipping streets deeper than the vehicle can handle (high-water truck 3 ft; boats any depth).
    - Door-knock clusters: no-answers within 300 m of each other.
 7. **Comparison.** With the same fleet, "wait for 911" reaches **57.1%** of needs-help homes before water arrives, and Swift reaches **100%**.
-   - Across **1,000 randomized storms** (peak, no-answer rate, fleet size and 911 reach all varied): median **34.3% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–91.4%.
+   - Across **1,000 randomized storms** (peak, no-answer rate, fleet size and 911 reach all varied): median **34.3% vs 82.9%**, with Swift's 10th–90th percentile at 68.6–94.3%.
    - This is a policy simulation, not a lives-saved prediction.
 
 ## Dashboard ↔ server API

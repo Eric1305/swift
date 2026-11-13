@@ -2,12 +2,7 @@
   "id": "h034",
   "status": "needs_help",
   "people": 4,
-  "cant_leave_alone": [
-    {
-      "who": "four people",
-      "need": "to be rescued"
-    }
-  ],
+  "cant_leave_alone": [],
   "water_inside": true,
   "can_help": {
     "truck": false,
@@ -69,6 +64,6 @@
       "text": "Got it, four people stuck, water in the house. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people trapped inside, can't leave alone due to water inside. English language. Rescue needed immediately.",
+  "house_card": "Four people reside; none barred from leaving. Water inside. Language: English.",
   "attempts": 1
 }

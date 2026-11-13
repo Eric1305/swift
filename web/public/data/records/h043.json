@@ -6,26 +6,6 @@
     {
       "who": "mother",
       "need": "power wheelchair"
-    },
-    {
-      "who": "Mom",
-      "need": "power wheelchair"
-    },
-    {
-      "who": "Mom",
-      "need": "power wheelchair, motorized"
-    },
-    {
-      "who": "mom",
-      "need": "her power wheelchair"
-    },
-    {
-      "who": "mom",
-      "need": "wheelchair"
-    },
-    {
-      "who": "mom",
-      "need": "help leaving — power wheelchair"
     }
   ],
   "water_inside": false,
@@ -89,6 +69,6 @@
       "text": "Got it, thanks for confirming. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "4 people. Mom needs power wheelchair to leave. Water not inside. English. Power chair: ~400 lb, bring 2-3 lifters.",
+  "house_card": "Four people live here. Mother needs power wheelchair and can’t leave alone. No water inside. Language: English. Power chair: ~400 lb, bring 2-3 lifters.",
   "attempts": 1
 }

@@ -77,3 +77,13 @@ def test_status_rules():
 def test_nothing_to_fix_closes_the_call():
     state, _ = advance(new_state("fix"), {"no_change": True}, "Okay.")
     assert state.step == "close"
+
+
+def test_same_person_twice_is_one_entry():
+    state, _ = advance(new_state("cant_leave"),
+                       {"cant_leave_alone": [{"who": "mom", "need": "power wheelchair"}]}, "Okay.")
+    state, _ = advance(state.model_copy(update={"step": "fix"}),
+                       {"cant_leave_alone": [{"who": "her mom", "need": "motorized wheelchair"},
+                                             {"who": "dad", "need": "uses a wheelchair"}]}, "Okay.")
+    assert state.record.cant_leave_alone == [{"who": "mom", "need": "power wheelchair"},
+                                             {"who": "dad", "need": "uses a wheelchair"}]

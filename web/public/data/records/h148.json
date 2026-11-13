@@ -5,10 +5,6 @@
   "cant_leave_alone": [
     {
       "who": "grandmother",
-      "need": "bedbound, can’t move or leave alone"
-    },
-    {
-      "who": "grandmother",
       "need": "bedbound"
     }
   ],
@@ -73,6 +69,6 @@
       "text": "Thank you for confirming the details. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Four people. Grandmother bedbound, can’t move or leave alone. No water inside. English.",
+  "house_card": "Four people live here; grandmother bedbound, can’t leave alone. No water inside. English spoken.",
   "attempts": 1
 }

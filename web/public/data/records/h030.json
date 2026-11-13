@@ -6,14 +6,6 @@
     {
       "who": "madre",
       "need": "silla de ruedas eléctrica"
-    },
-    {
-      "who": "una madre",
-      "need": "silla de ruedas motorizada"
-    },
-    {
-      "who": "la madre",
-      "need": "ayuda para salir por su silla de ruedas motorizada"
     }
   ],
   "water_inside": false,
@@ -77,6 +69,6 @@
       "text": "Gracias por confirmar los detalles. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Dos personas. Madre necesita silla de ruedas eléctrica/motorizada; no puede salir sola. No hay agua dentro. Español.",
+  "house_card": "Dos personas. Madre necesita silla de ruedas eléctrica y no puede salir sola. No hay agua dentro. Español.",
   "attempts": 1
 }

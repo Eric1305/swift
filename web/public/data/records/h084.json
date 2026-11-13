@@ -6,10 +6,6 @@
     {
       "who": "husband",
       "need": "oxygen"
-    },
-    {
-      "who": "husband",
-      "need": "help leaving because he’s on oxygen"
     }
   ],
   "water_inside": false,
@@ -89,6 +85,6 @@
       "text": "I heard you’re here with your husband needing oxygen. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people. Husband on oxygen, needs help leaving. No water inside. English.",
+  "house_card": "Two people live here. Husband needs oxygen and can’t leave alone. No water inside. Language: English.",
   "attempts": 1
 }

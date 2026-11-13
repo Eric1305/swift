@@ -6,18 +6,6 @@
     {
       "who": "wife",
       "need": "can't walk"
-    },
-    {
-      "who": "wife",
-      "need": "a truck or boat"
-    },
-    {
-      "who": "wife",
-      "need": "can't walk, totally dependent on me"
-    },
-    {
-      "who": "wife",
-      "need": "can't walk at all"
     }
   ],
   "water_inside": false,
@@ -89,6 +77,6 @@
       "text": "I hear you’re stuck and can’t leave your wife alone. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people. Wife can’t walk, totally dependent. Needs truck or boat. Can’t leave alone. No water inside. English.",
+  "house_card": "Two people. Wife can’t walk. No water inside. English.",
   "attempts": 1
 }

@@ -10,10 +10,6 @@
     {
       "who": "son",
       "need": "a walker"
-    },
-    {
-      "who": "son",
-      "need": "his walker to move"
     }
   ],
   "water_inside": true,
@@ -77,6 +73,6 @@
       "text": "Got it. Staying put with your son and walker. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people: me and son. Both need walkers; son needs his walker to move. Water inside. English.",
+  "house_card": "Two people: me and son, both need walkers to move. Water inside. English.",
   "attempts": 1
 }

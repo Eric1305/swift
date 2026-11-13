@@ -174,15 +174,19 @@ STOPWORDS = {"the", "and", "who", "can", "can't", "cant", "has", "needs", "need"
 
 
 NEGATED = re.compile(r"\b(no|not|none|nobody|no one|nothing|don'?t|doesn'?t|fine|good|okay|ok)\b", re.I)
-GROUP = re.compile(r"^(everyone|everybody|all of us|us|we|no one|nobody|me and|the (two|three|four|five)|\w+ of us)", re.I)
+GROUP = re.compile(r"^(everyone|everybody|all of us|us|we|no one|nobody|me and|the (two|three|four|five)|\w+ of us|\w+ people$)", re.I)
 MOBILITY = re.compile(r"wheel ?chair|oxygen|bed ?bound|bedridden|walker|crutch|cane|can'?t walk|cannot walk|stretcher|"
                       r"dialysis|disab|paraly|blind|deaf|hospice|surgery|injur|frail|dementia|mobility|silla de ruedas|"
                       r"ox[ií]geno|en cama|andadera|muletas", re.I)
 
 
+VAGUE_NEED = re.compile(r"^(to )?(be )?(rescued|help(ed)?|assistance|evacuat\w*|picked up|get out|leave|ayuda)\.?$", re.I)
+
+
 def _plausible(person: dict) -> bool:
-    """Reject chatty negatives the model turns into people ("everyone: no need", "us: no truck or boat")."""
-    return not NEGATED.search(person["need"]) and not GROUP.match(person["who"])
+    """Reject chatty negatives and empty needs ("everyone: no need", "us: no truck", "to be rescued")."""
+    return (not NEGATED.search(person["need"]) and not GROUP.match(person["who"])
+            and not VAGUE_NEED.match(person["need"].strip()))
 
 
 def _grounded(people: list[dict], utterance: str) -> list[dict]:
@@ -196,13 +200,19 @@ def _grounded(people: list[dict], utterance: str) -> list[dict]:
     return kept
 
 
+def _short(need: str) -> str:
+    """Keep a need card-sized: long run-ons ("power chair, motorized chair, help leaving because...") -> first clause."""
+    need = need.strip()
+    return need.split(",")[0].strip() if len(need) > 32 else need
+
+
 def _real_people(people) -> list[dict]:
     """Drop entries the model filled with placeholders like "null" or an empty need."""
     if not isinstance(people, list):
         return []
     blank = {"", "null", "none", "n/a", "unknown", "no", "nothing", "nobody", "help", "assistance", "a ride",
              "ride", "boat", "truck", "car", "transportation", "evacuation", "evacuate", "leaving"}
-    return [{"who": re.sub(r"^(my|our|the|his|her|their)\s+", "", p["who"].strip(), flags=re.I), "need": p["need"].strip()}
+    return [{"who": re.sub(r"^(my|our|the|his|her|their)\s+", "", p["who"].strip(), flags=re.I), "need": _short(p["need"])}
             for p in people
             if isinstance(p, dict) and isinstance(p.get("who"), str) and isinstance(p.get("need"), str)
             and p["who"].strip().lower() not in blank and p["need"].strip().lower() not in blank]

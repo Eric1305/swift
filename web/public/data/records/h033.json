@@ -2,12 +2,7 @@
   "id": "h033",
   "status": "needs_help",
   "people": 3,
-  "cant_leave_alone": [
-    {
-      "who": "three people",
-      "need": "can't leave"
-    }
-  ],
+  "cant_leave_alone": [],
   "water_inside": true,
   "can_help": {
     "truck": false,
@@ -69,6 +64,6 @@
       "text": "Acknowledged, three people inside with water. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Three people can't leave alone; water inside. English.",
+  "house_card": "Three people inside. None can't leave alone. Water inside. Language: English.",
   "attempts": 1
 }

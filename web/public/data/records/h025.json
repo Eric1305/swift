@@ -6,10 +6,6 @@
     {
       "who": "dad",
       "need": "manual wheelchair"
-    },
-    {
-      "who": "dad",
-      "need": "his manual wheelchair"
     }
   ],
   "water_inside": true,
@@ -81,6 +77,6 @@
       "text": "I heard you’re stuck with your dad in the water. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
     }
   ],
-  "house_card": "Two people. Dad needs his manual wheelchair to move. Water inside. English.",
+  "house_card": "Two people live here. Dad needs a manual wheelchair and can’t leave alone. Water is inside. Language: English.",
   "attempts": 1
 }

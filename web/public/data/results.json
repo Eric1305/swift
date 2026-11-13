@@ -9,9 +9,9 @@
     "median_baseline": 34.3,
     "median_swift": 82.9,
     "p10": 68.6,
-    "p90": 91.4,
+    "p90": 94.3,
     "n": 1000,
-    "seconds": 0.007
+    "seconds": 0.005
   },
   "promises_blocked": 48
 }

@@ -111,13 +111,33 @@ def prompt_for(state: CallState) -> str:
     }[state.step]
 
 
+POSSESSIVE = ("my ", "mi ", "our ", "her ", "his ", "their ", "the ", "su ", "a ", "an ", "one's ", "una ", "un ", "la ", "el ")
+SAME_NAME = {"mom": "mother", "mama": "mother", "mamá": "mother", "madre": "mother", "mommy": "mother",
+             "dad": "father", "papa": "father", "papá": "father", "padre": "father",
+             "grandma": "grandmother", "abuela": "grandmother", "grandpa": "grandfather", "abuelo": "grandfather",
+             "hijo": "son", "hija": "daughter", "esposo": "husband", "esposa": "wife"}
+
+
+def _person_key(person: dict) -> str:
+    who = person.get("who", "").lower().strip()
+    for prefix in POSSESSIVE:
+        if who.startswith(prefix):
+            who = who[len(prefix):]
+    return SAME_NAME.get(who, who)
+
+
+def _same_person(a: dict, b: dict) -> bool:
+    """The same person mentioned twice ("mother" / "Mom" / "her mom") is one entry; their first stated need wins."""
+    return _person_key(a) == _person_key(b)
+
+
 def _merge(rec: Record, fields: dict, step: str = "fix") -> Record:
     data = rec.model_dump()
     for key in ("people", "water_inside"):
         if key in fields and (step in OVERWRITES[key] or data[key] is None):
             data[key] = fields[key]
     for person in fields.get("cant_leave_alone") or []:
-        if person not in data["cant_leave_alone"]:
+        if not any(_same_person(person, known) for known in data["cant_leave_alone"]):
             data["cant_leave_alone"].append(person)  # never dropped once recorded
     if "can_help" in fields and step in OVERWRITES["can_help"]:
         data["can_help"] = {**data["can_help"], **fields["can_help"]}
