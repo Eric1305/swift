@@ -10,7 +10,7 @@ export function Legend({ narrow }: { narrow: boolean }) {
   return (
     <div className={cx('legend', narrow && 'is-narrow')} aria-label="Water depth scale">
       <div className="legend__depth">
-        <span>Water depth&nbsp;&nbsp;0 → 6 ft</span>
+        <span>Water depth&nbsp;&nbsp;0 → 6+ ft</span>
         <i />
       </div>
     </div>
@@ -55,7 +55,7 @@ export function LiveCallBanner({ live, elapsedS }: { live: LiveCall; elapsedS: n
       <i className={cx(live.phase === 'running' && 'is-pulsing')} />
       <div>
         <strong>
-          LIVE · Calling DEMO_PHONE · {STATUS_TEXT[live.callStatus]} {fmt(elapsedS)}
+          LIVE · Calling the presenter’s phone · {STATUS_TEXT[live.callStatus]} {fmt(elapsedS)}
         </strong>
         <span>{live.source === 'fallback' ? 'Fallback · live_fallback.json' : 'call_status from /api/live · fallback ready'}</span>
       </div>
@@ -79,7 +79,7 @@ export function ResultsCard({ r, onClose }: { r: Results; onClose: () => void })
       <span className="eyebrow eyebrow--tight">At-risk households reached before water arrives</span>
       <div className="results__bar">
         <div className="row-between results__bar-head">
-          <span>Baseline (sirens + manual calls)</span>
+          <span>Baseline (residents reach 911 themselves)</span>
           <strong>{pct(r.baseline_pct)}</strong>
         </div>
         <div className="track">

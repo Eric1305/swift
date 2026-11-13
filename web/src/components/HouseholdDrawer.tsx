@@ -30,7 +30,7 @@ const fmtElapsed = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s %
 function fields(r: HouseholdRecord | null, live: boolean): [string, string, boolean][] {
   const pending = (v: string | null) => (v === null ? [live ? 'listening…' : '—', true] as const : [v, false] as const);
   const people = r?.people ?? null;
-  const cant = r?.cant_leave_alone?.length ? r.cant_leave_alone.map((c) => `${c.who} — ${c.need}`).join('; ') : r ? 'No one' : null;
+  const cant = r?.cant_leave_alone?.length ? r.cant_leave_alone.map((c) => `${c.who} — ${c.need}`).join('; ') : r && !(live && r.water_inside === null) ? 'No one' : null;
   const water = r?.water_inside == null ? null : r.water_inside ? 'Yes' : 'No';
   const help = r ? [r.can_help.truck && 'truck', r.can_help.boat && 'boat', r.can_help.seats > 0 && `${r.can_help.seats} seats`].filter(Boolean).join(', ') || '—' : null;
   const rows: [string, string | null][] = [
@@ -73,7 +73,7 @@ export default function HouseholdDrawer({ household, status, record, transcript,
           <StatusChip status={status} />
         </div>
         <span className="drawer__meta">
-          {live ? 'DEMO_HOUSEHOLD_ID' : rank ? `#${rank} in queue` : household.id}
+          {live ? 'Live call' : rank ? `#${rank} in queue` : household.id}
           <button type="button" className="drawer__close" aria-label="Close" onClick={onClose}>
             <img src={closeIcon} width={14} height={14} alt="" />
           </button>
@@ -84,7 +84,7 @@ export default function HouseholdDrawer({ household, status, record, transcript,
         <h2>{household.address}</h2>
         <p>
           {live
-            ? 'Live call to DEMO_PHONE · every reply decided by Qwen on the GB10; Retell handles voice only'
+            ? 'Calling the presenter’s phone · every reply decided by Qwen on the GB10; Retell handles voice only'
             : household.water_arrival_min == null
               ? `${household.id} · no flooding predicted at this home`
               : `${household.id} · predicted water arrival ${formatT(household.water_arrival_min)} · peak depth ${household.depth_ft_peak.toFixed(1)} ft`}
