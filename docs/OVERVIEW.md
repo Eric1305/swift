@@ -100,7 +100,12 @@ Exactly one record per household (`records/{id}.json`, shape in `CONTRACT.md`):
 
 **Not collected:** names, dates of birth, insurance, diagnoses beyond what affects leaving, or audio. Retell keeps its own call recording by default; that can be switched off in a real deployment.
 
-**Where it lives:** in memory on our server and in local JSON files. The model sees only the current turn's text. In a real deployment, the model and the records would sit on hardware the agency controls (that's the point of a local GB10), so medical information never goes to a public AI service.
+**Where it lives:** a local **SQLite database** (`data/swift.db`, `agent/store.py`), one file on the agency's own machine.
+- **`households`**: the latest known state of each home: status, people, who can't leave and why, water inside, truck/boat/seats, language, house card, attempts, last call. Dispatch and crews read this.
+- **`calls`**: one row per phone call: call status, how it ended (answered, no answer, voicemail), start and update times, the full transcript, and the record as captured on that call.
+- It's written after every turn of a call and again when the call ends. Read it back at `GET /api/households` and `GET /api/calls/{household_id}`.
+- The model only ever sees the current answer, never the database. In a real deployment, the database and the model sit on hardware the agency controls; medical details never go to a public AI service. Audio isn't stored by us (Retell keeps its own recording by default, which can be switched off).
+- The 150 simulated replay calls are precomputed into JSON files (`web/public/data/records/`) so the demo runs offline.
 
 ## How the replay data was built (the pipeline)
 1. **Pick the area.** We used the UTSA dataset's image locations to find Bear Creek (west Houston, next to the Addicks Reservoir). The reservoir pool backed into it in Harvey; the homeowners association reported about 65% of Bear Creek Village's homes flooded. Our box is wider than the subdivision, and 57 of our 150 sampled homes flood in the replay.

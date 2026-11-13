@@ -119,3 +119,7 @@ Those systems broadcast one way. Swift has a conversation and returns a structur
 
 **12. What data did you add beyond the provided dataset?**
 The provided dataset is the organizers' Hugging Face set `jennifer-fowler/UTSA-flood-images` (1,204 georeferenced images, 273 metadata columns). On top of it we added USGS 3DEP elevation, OpenStreetMap buildings and roads, and the published Harvey research behind the problem statement. From the UTSA dataset we used the image footprints to choose the area, the 2017/2016 after/before aerials, and the 3-day precipitation column as context. The water level itself comes from USGS gauge 08073000 at the Addicks Reservoir.
+
+**Where is the call data stored?**
+In a local SQLite database on our server (`data/swift.db`). There's one row per household with its latest state (people, who can't leave and why, water inside, truck/boat/seats, language, the responder card), and one row per call with the full transcript and how the call ended. It's saved after every answer, so nothing is lost if the server restarts. The model never sees the database, only the current answer. In a real deployment it would live on the county's own machine.
+

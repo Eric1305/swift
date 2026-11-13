@@ -30,6 +30,7 @@ _load_env(ROOT / ".env")
 
 from agent.llm import STATS, extract  # noqa: E402  (after .env so VLLM_* are picked up)
 from agent.script import INTRO, CallState, Record, advance, prompt_for  # noqa: E402
+from agent import store  # noqa: E402
 
 DATA = ROOT / "web" / "public" / "data"
 NO_ANSWER_REASONS = {"dial_no_answer", "dial_busy", "dial_failed", "voicemail_reached"}
@@ -53,8 +54,14 @@ def demo_state() -> CallState:
     return CallState(record=Record(id=household_id, address=address, attempts=1))
 
 
-def publish(state: CallState) -> None:
+def publish(state: CallState, call_id: str | None = None, reason: str | None = None) -> None:
+    """Show the record on the dashboard and persist it (households + calls tables in SQLite)."""
     live["record"] = state.record.model_dump(exclude={"address"})
+    if call_id:
+        try:
+            store.save_call(call_id, state.record, live["call_status"], reason)
+        except Exception as exc:  # storage must never break a live call
+            print(f"store.save_call failed: {exc}")
 
 
 def house_card(record: Record) -> str:
@@ -85,7 +92,7 @@ async def demo_call():
     call_id = response.json()["call_id"]
     calls[call_id] = state
     live.update(call_status="ringing")
-    publish(state)
+    publish(state, call_id)
     return {"call_id": call_id}
 
 
@@ -101,7 +108,7 @@ async def llm_websocket(ws: WebSocket, call_id: str):
     await ws.send_json({"response_type": "config", "config": {"auto_reconnect": True, "call_details": True}})
     opening = f"{INTRO} {prompt_for(state)}"
     state.record.transcript.append({"who": "agent", "text": opening})
-    publish(state)
+    publish(state, call_id)
     await _send(ws, 0, opening)
     try:
         while True:
@@ -126,7 +133,7 @@ async def llm_websocket(ws: WebSocket, call_id: str):
                     state.record.house_card = await run_in_threadpool(house_card, state.record)
                 state.record.transcript.append({"who": "agent", "text": reply})
                 calls[call_id] = state
-                publish(state)
+                publish(state, call_id)
                 await _send(ws, message["response_id"], reply, end_call=done)
     except WebSocketDisconnect:
         pass
@@ -137,15 +144,30 @@ async def retell_webhook(request: Request):
     body = await request.json()
     if body.get("event") == "call_ended":
         call = body.get("call", {})
-        state = calls.get(call.get("call_id", ""))
-        if call.get("disconnection_reason") in NO_ANSWER_REASONS:
+        call_id = call.get("call_id", "")
+        state = calls.get(call_id)
+        reason = call.get("disconnection_reason")
+        if reason in NO_ANSWER_REASONS:
             live["call_status"] = "no-answer"
             if state:
                 state.record.status = "no_answer"
-                publish(state)
         else:
             live["call_status"] = "completed"
+        if state:
+            publish(state, call_id, reason)
     return {"ok": True}
+
+
+@app.get("/api/households")
+async def api_households():
+    """Latest known state of every home that has been called (from SQLite)."""
+    return store.households()
+
+
+@app.get("/api/calls/{household_id}")
+async def api_calls(household_id: str):
+    """Every call to one home: status, how it ended, full transcript, record as captured."""
+    return store.calls_for(household_id)
 
 
 @app.get("/api/live")
