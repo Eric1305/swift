@@ -1,0 +1,39 @@
+[
+  {
+    "t_min": 3,
+    "ranked": [
+      {
+        "household_id": "h001",
+        "score": 184.0,
+        "reasons": [
+          "bedbound, oxygen",
+          "water inside",
+          "3.4 ft peak"
+        ]
+      }
+    ]
+  },
+  {
+    "t_min": 7,
+    "ranked": [
+      {
+        "household_id": "h001",
+        "score": 184.0,
+        "reasons": [
+          "bedbound, oxygen",
+          "water inside",
+          "3.4 ft peak"
+        ]
+      },
+      {
+        "household_id": "h003",
+        "score": 114.0,
+        "reasons": [
+          "power wheelchair",
+          "2.1 ft peak",
+          "water in ~70 min"
+        ]
+      }
+    ]
+  }
+]

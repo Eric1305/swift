@@ -1,0 +1,80 @@
+{
+  "record": {
+    "id": "h003",
+    "status": "needs_help",
+    "people": 2,
+    "cant_leave_alone": [
+      {
+        "who": "mother",
+        "need": "power wheelchair"
+      }
+    ],
+    "water_inside": false,
+    "can_help": {
+      "truck": false,
+      "boat": false,
+      "seats": 0
+    },
+    "language": "en",
+    "transcript": [
+      {
+        "who": "agent",
+        "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2207 Rolling Oak Lane?"
+      },
+      {
+        "who": "resident",
+        "text": "Yes, that's right."
+      },
+      {
+        "who": "agent",
+        "text": "How many people are at the home right now?"
+      },
+      {
+        "who": "resident",
+        "text": "Two, me and my mom."
+      },
+      {
+        "who": "agent",
+        "text": "Is there anyone who can't leave on their own?"
+      },
+      {
+        "who": "resident",
+        "text": "My mom uses a power wheelchair."
+      }
+    ],
+    "house_card": "2 adults; mother in a power wheelchair (~400 lb, needs 2-3 lifters). Water at the front step. English.",
+    "attempts": 1
+  },
+  "steps": [
+    {
+      "delay_ms": 0,
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2207 Rolling Oak Lane?"
+    },
+    {
+      "delay_ms": 1500,
+      "who": "resident",
+      "text": "Yes, that's right."
+    },
+    {
+      "delay_ms": 3000,
+      "who": "agent",
+      "text": "How many people are at the home right now?"
+    },
+    {
+      "delay_ms": 4500,
+      "who": "resident",
+      "text": "Two, me and my mom."
+    },
+    {
+      "delay_ms": 6000,
+      "who": "agent",
+      "text": "Is there anyone who can't leave on their own?"
+    },
+    {
+      "delay_ms": 7500,
+      "who": "resident",
+      "text": "My mom uses a power wheelchair."
+    }
+  ]
+}

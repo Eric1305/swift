@@ -1,0 +1,25 @@
+{
+  "id": "h005",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "es",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 3001 Ridgecrest Court?"
+    },
+    {
+      "who": "resident",
+      "text": "S\u00ed, estamos bien, ya nos vamos."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

@@ -1,0 +1,38 @@
+{
+  "id": "h001",
+  "status": "needs_help",
+  "people": 1,
+  "cant_leave_alone": [
+    {
+      "who": "resident",
+      "need": "oxygen, bedbound"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1412 Bear Creek Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. It's just me, I'm on oxygen and I can't get out of bed."
+    },
+    {
+      "who": "agent",
+      "text": "Understood. Is there water inside the home?"
+    },
+    {
+      "who": "resident",
+      "text": "It's coming under the door."
+    }
+  ],
+  "house_card": "1 adult, bedbound on oxygen; needs stretcher and 2 crew. Water entering the home. English.",
+  "attempts": 1
+}

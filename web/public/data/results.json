@@ -1,0 +1,16 @@
+{
+  "baseline_pct": 12.0,
+  "swift_pct": 88.0,
+  "record_accuracy": 0.9,
+  "promise_violations": 0,
+  "parallel_calls": 32,
+  "n_households": 5,
+  "mc": {
+    "median_baseline": 11.5,
+    "median_swift": 86.0,
+    "p10": 71.0,
+    "p90": 94.0,
+    "n": 1000,
+    "seconds": 0.8
+  }
+}

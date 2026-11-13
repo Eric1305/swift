@@ -1,0 +1,18 @@
+[
+  {
+    "image_id": "TX001_2017_NOAA",
+    "lon": -95.648,
+    "lat": 29.822,
+    "thumb": "img/TX001_2017_NOAA.jpg",
+    "verdict": "flooded",
+    "explanation": "Brown water covers streets and surrounds houses (approx. location)."
+  },
+  {
+    "image_id": "TX003_2017_NOAA",
+    "lon": -95.632,
+    "lat": 29.812,
+    "thumb": "img/TX003_2017_NOAA.jpg",
+    "verdict": "not_flooded",
+    "explanation": "Dense tree cover, no visible water outside channels (approx. location)."
+  }
+]

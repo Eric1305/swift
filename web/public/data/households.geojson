@@ -1,0 +1,190 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.65061999999999,
+              29.82298
+            ],
+            [
+              -95.65038,
+              29.82298
+            ],
+            [
+              -95.65038,
+              29.82322
+            ],
+            [
+              -95.65061999999999,
+              29.82322
+            ],
+            [
+              -95.65061999999999,
+              29.82298
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "h001",
+        "address": "1412 Bear Creek Dr",
+        "water_arrival_min": 25,
+        "depth_ft_peak": 3.4,
+        "height_m": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.64931999999999,
+              29.822480000000002
+            ],
+            [
+              -95.64908,
+              29.822480000000002
+            ],
+            [
+              -95.64908,
+              29.82272
+            ],
+            [
+              -95.64931999999999,
+              29.82272
+            ],
+            [
+              -95.64931999999999,
+              29.822480000000002
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "h002",
+        "address": "1418 Bear Creek Dr",
+        "water_arrival_min": 40,
+        "depth_ft_peak": 2.6,
+        "height_m": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.64522,
+              29.81968
+            ],
+            [
+              -95.64498,
+              29.81968
+            ],
+            [
+              -95.64498,
+              29.81992
+            ],
+            [
+              -95.64522,
+              29.81992
+            ],
+            [
+              -95.64522,
+              29.81968
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "h003",
+        "address": "2207 Rolling Oak Ln",
+        "water_arrival_min": 70,
+        "depth_ft_peak": 2.1,
+        "height_m": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.64412,
+              29.81918
+            ],
+            [
+              -95.64388000000001,
+              29.81918
+            ],
+            [
+              -95.64388000000001,
+              29.819419999999997
+            ],
+            [
+              -95.64412,
+              29.819419999999997
+            ],
+            [
+              -95.64412,
+              29.81918
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "h004",
+        "address": "2213 Rolling Oak Ln",
+        "water_arrival_min": 95,
+        "depth_ft_peak": 1.2,
+        "height_m": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.63892,
+              29.81608
+            ],
+            [
+              -95.63868000000001,
+              29.81608
+            ],
+            [
+              -95.63868000000001,
+              29.816319999999997
+            ],
+            [
+              -95.63892,
+              29.816319999999997
+            ],
+            [
+              -95.63892,
+              29.81608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "h005",
+        "address": "3001 Ridgecrest Ct",
+        "water_arrival_min": null,
+        "depth_ft_peak": 0.0,
+        "height_m": 9
+      }
+    }
+  ]
+}

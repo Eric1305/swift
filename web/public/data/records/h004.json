@@ -1,0 +1,25 @@
+{
+  "id": "h004",
+  "status": "can_help",
+  "people": 3,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": true,
+    "boat": false,
+    "seats": 2
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2213 Rolling Oak Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah. We're fine, and I've got a lifted truck if anyone needs a ride."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

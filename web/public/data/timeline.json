@@ -1,0 +1,67 @@
+[
+  {
+    "t_min": 0,
+    "household_id": "h001",
+    "event": "call_start"
+  },
+  {
+    "t_min": 0,
+    "household_id": "h002",
+    "event": "call_start"
+  },
+  {
+    "t_min": 3,
+    "household_id": "h001",
+    "event": "complete",
+    "status": "needs_help"
+  },
+  {
+    "t_min": 3,
+    "household_id": "h002",
+    "event": "retry"
+  },
+  {
+    "t_min": 4,
+    "household_id": "h003",
+    "event": "call_start"
+  },
+  {
+    "t_min": 5,
+    "household_id": "h002",
+    "event": "retry"
+  },
+  {
+    "t_min": 7,
+    "household_id": "h003",
+    "event": "complete",
+    "status": "needs_help"
+  },
+  {
+    "t_min": 8,
+    "household_id": "h002",
+    "event": "no_answer",
+    "status": "no_answer"
+  },
+  {
+    "t_min": 8,
+    "household_id": "h004",
+    "event": "call_start"
+  },
+  {
+    "t_min": 11,
+    "household_id": "h004",
+    "event": "complete",
+    "status": "can_help"
+  },
+  {
+    "t_min": 12,
+    "household_id": "h005",
+    "event": "call_start"
+  },
+  {
+    "t_min": 14,
+    "household_id": "h005",
+    "event": "complete",
+    "status": "safe"
+  }
+]
