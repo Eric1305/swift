@@ -144,13 +144,40 @@ def simulate_all(households: dict, out: Path, concurrency: int = 8, use_llm_resi
     briefings = [{"t_min": t, "text": briefing(t, records)} for t in (60, 180, 300)]
     (out / "briefings.json").write_text(json.dumps(briefings, indent=2) + "\n")
     correct = sum(status_of(r) == p["truth"]["status"] for p, r in answered)
+    spoken = sum(1 for _, r, _ in results for line in r.transcript
+                 if line["who"] == "agent" and not guard(line["text"]))
     return {
         "record_accuracy": round(correct / len(answered), 3) if answered else 0.0,
-        "promise_violations": sum(b for _, _, b in results),
+        "promise_violations": spoken,
+        "promises_blocked": sum(b for _, _, b in results),
         "parallel_calls": gauge.peak,
         "n_households": len(personas),
         "answers": {p["id"]: p["truth"]["status"] != "no_answer" for p in personas},
     }
+
+
+REHEARSAL = {"confirm_address": "Yes, that's right.", "people": "Two, me and my mom.",
+             "cant_leave": "My mom uses a power wheelchair.", "water_inside": "It's at the front step, not inside yet.",
+             "can_help": "No.", "readback": "Yes."}
+
+
+def write_live_fallback(households: dict, out: Path, demo_id: str, delay_ms: int = 1800) -> dict:
+    """Record the rehearsal call through the real script + model, for the demo's no-network fallback."""
+    address = next(f["properties"]["address"] for f in households["features"] if f["properties"]["id"] == demo_id)
+    state = CallState(record=Record(id=demo_id, address=address, attempts=1))
+    lines = [{"who": "agent", "text": f"{INTRO} {prompt_for(state)}"}]
+    while state.step != "close":
+        said = REHEARSAL[state.step]
+        fields, ack = extract(state.step, said)
+        state, reply = advance(state, fields, ack)
+        lines += [{"who": "resident", "text": said}, {"who": "agent", "text": reply}]
+    record = state.record
+    record.transcript = lines
+    record.house_card = house_card(record)
+    fallback = {"record": record.model_dump(exclude={"address"}),
+                "steps": [{"delay_ms": delay_ms * i, **line} for i, line in enumerate(lines)]}
+    (out / "live_fallback.json").write_text(json.dumps(fallback, indent=2) + "\n")
+    return fallback
 
 
 if __name__ == "__main__":
@@ -167,3 +194,6 @@ if __name__ == "__main__":
     results_path.write_text(json.dumps(results, indent=2) + "\n")
     (args.out / "answers.json").write_text(json.dumps(stats["answers"], indent=2) + "\n")
     print({k: v for k, v in stats.items() if k != "answers"})
+    demo_id = json.loads((args.out / "meta.json").read_text())["demo_household_id"]
+    fallback = write_live_fallback(households, args.out, demo_id)
+    print("live fallback:", fallback["record"]["status"], "|", fallback["record"]["house_card"])

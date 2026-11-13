@@ -1,0 +1,69 @@
+{
+  "id": "h020",
+  "status": "can_help",
+  "people": 3,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": true,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1480 Bethan Glen Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1480 Bethan Glen Lane.  \nI’m here, three people, no water inside."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Three people total. Everyone can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave alone. No wheelchairs or oxygen here."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, no one here can’t leave alone or needs special help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. We’re safe."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No boat, but I have a high-clearance truck. No free seats right now."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, you have a high-clearance truck. Let me read that back: 3 people; no water inside yet; you can help with a truck. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Three people. No water inside. Truck’s good."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Three people. No water. Truck’s good. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

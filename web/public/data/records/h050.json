@@ -1,0 +1,78 @@
+{
+  "id": "h050",
+  "status": "needs_help",
+  "people": 4,
+  "cant_leave_alone": [
+    {
+      "who": "wife",
+      "need": "bedbound"
+    },
+    {
+      "who": "my wife",
+      "need": "can't walk"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1586 Eagle Trail Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 1586 Eagle Trail Drive, and I’ve got four people here—my wife’s recovering from surgery and can’t walk, so we can’t leave her alone, and we’re not in any water yet, but we’re totally stuck with no truck,"
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for sharing your situation and details. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s four of us total, including my wife who’s still recovering from surgery and can’t walk—she’s the only one who can’t come to the phone, but I’m here answering."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, my wife’s recovering from surgery and can’t walk at all, she’s totally bedbound, and I’m the only one here—no truck, no boat, no seats, and we’re not even flooded in, but she really can’t move without help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re caring for someone who can’t move without help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside at all, thank goodness—just my wife who’s still recovering from surgery and can’t walk, and I’m stuck here with her, no truck or boat or seats to help us get out."
+    },
+    {
+      "who": "agent",
+      "text": "I’m glad no water is inside. You’re not alone here. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and no seats to spare—my wife’s recovering from surgery and can’t walk, so I’m stuck here with her and the kids, can’t leave alone, and we’re all just waiting for help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck here with your family—holding tight through this. Let me read that back: 4 people; wife needs help leaving because of bedbound; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—four of us, my wife’s bedbound from surgery and can’t walk, no water in the house yet, but we’re stuck and can’t leave alone, and we don’t have any truck or boat or seats to help us get out."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck and can’t leave alone—thank you for sharing. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Four people. Wife bedbound. My wife can't walk. No water inside. English.",
+  "attempts": 1
+}

@@ -1,46 +1,16 @@
 {
   "id": "h003",
-  "status": "needs_help",
-  "people": 2,
-  "cant_leave_alone": [
-    {
-      "who": "mother",
-      "need": "power wheelchair"
-    }
-  ],
-  "water_inside": false,
+  "status": "no_answer",
+  "people": null,
+  "cant_leave_alone": [],
+  "water_inside": null,
   "can_help": {
     "truck": false,
     "boat": false,
     "seats": 0
   },
-  "language": "en",
-  "transcript": [
-    {
-      "who": "agent",
-      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 2207 Rolling Oak Lane?"
-    },
-    {
-      "who": "resident",
-      "text": "Yes, that's right."
-    },
-    {
-      "who": "agent",
-      "text": "How many people are at the home right now?"
-    },
-    {
-      "who": "resident",
-      "text": "Two, me and my mom."
-    },
-    {
-      "who": "agent",
-      "text": "Is there anyone who can't leave on their own?"
-    },
-    {
-      "who": "resident",
-      "text": "My mom uses a power wheelchair."
-    }
-  ],
-  "house_card": "2 adults; mother in a power wheelchair (~400 lb, needs 2-3 lifters). Water at the front step. English.",
-  "attempts": 1
+  "language": "es",
+  "transcript": [],
+  "house_card": null,
+  "attempts": 3
 }

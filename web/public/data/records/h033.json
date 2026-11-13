@@ -1,0 +1,69 @@
+{
+  "id": "h033",
+  "status": "needs_help",
+  "people": 3,
+  "cant_leave_alone": [],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 862 Echo Canyon Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 862 Echo Canyon Drive. Three people here, water’s inside. Need help."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Three people total. Everyone can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave alone. No wheelchair or oxygen needed."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, no one needs help leaving alone. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, water’s inside. Three people here, no way to leave."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you're trapped with water inside. Stay safe. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no free seats. We’re stuck inside, three of us."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re inside with three people. Let me read that back: 3 people; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Water’s inside. Three people here."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Stay safe and stay put. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Three people inside. None can't leave alone. Water inside. Language: English.",
+  "attempts": 1
+}

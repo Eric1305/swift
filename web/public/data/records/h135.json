@@ -1,0 +1,16 @@
+{
+  "id": "h135",
+  "status": "no_answer",
+  "people": null,
+  "cant_leave_alone": [],
+  "water_inside": null,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [],
+  "house_card": null,
+  "attempts": 3
+}

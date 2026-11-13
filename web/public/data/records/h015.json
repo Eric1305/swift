@@ -1,0 +1,69 @@
+{
+  "id": "h015",
+  "status": "can_help",
+  "people": 3,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 2
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1596 Pathfield Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 1596 Pathfield Drive.  \nWe’re three people here, no water inside, and we can help—just need two seats."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming and offering help. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Three people total. Everyone can come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that information with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave alone. No wheelchairs or oxygen here."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, no one here can’t leave alone or needs special help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Just us three, no one needs special help."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for letting us know you’re all well. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat. Two seats free in my car."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, two seats free in your car. Let me read that back: 3 people; no water inside yet; you can help with 2 free seats. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Three people. No water. Two seats free."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Three people. No water. Two seats free. I've recorded that you may be able to help neighbors. A dispatcher may contact you. Only go out if it's safe for you, and never drive into water you can't see the bottom of. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

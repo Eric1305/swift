@@ -1,0 +1,69 @@
+{
+  "id": "h124",
+  "status": "safe",
+  "people": 2,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 942 Ben Nevis Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 942 Ben Nevis Drive.  \nWe’re safe, two people here, no water inside."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and safety. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Two people here. No one can’t come to the phone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for letting us know about the people here. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one can’t leave alone. No wheelchairs or medical needs here."
+    },
+    {
+      "who": "agent",
+      "text": "Got it, no one here can’t leave alone or has special needs. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Just us two, safe here."
+    },
+    {
+      "who": "agent",
+      "text": "If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I don’t have a truck, boat, or free seats. I’m safe here with my partner."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing your situation. Let me read that back: 2 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Just us two. No water in yet."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Staying put for now. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

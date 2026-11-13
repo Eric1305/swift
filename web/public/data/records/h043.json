@@ -1,0 +1,74 @@
+{
+  "id": "h043",
+  "status": "needs_help",
+  "people": 4,
+  "cant_leave_alone": [
+    {
+      "who": "mom",
+      "need": "power wheelchair"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 486 Shawna Street?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is me at 486 Shawna Street. We’re stuck—mother needs her power wheelchair and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Four people total. Mom’s in her power wheelchair—she can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that important detail with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my mom can’t leave alone—she uses a power wheelchair. It’s motorized."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for sharing that info. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Just us four stuck here. Mom’s in her power wheelchair—can’t leave her alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck with Mom in her wheelchair—staying close is key. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no seats. We’re stuck here with Mom in her wheelchair."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck with Mom in her wheelchair. Let me read that back: 4 people; mom needs help leaving because of power wheelchair; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Four people. Mom’s in power wheelchair. No water in yet."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Four people, mom in power wheelchair, no water in yet. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Four people live here. Mom needs power wheelchair to leave. No water inside. Language: English. Power chair: ~400 lb, bring 2-3 lifters.",
+  "attempts": 1
+}

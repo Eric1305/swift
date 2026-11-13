@@ -1,0 +1,74 @@
+{
+  "id": "h107",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "husband",
+      "need": "oxygen"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1346 Wilmington Park Lane?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is me. My husband needs oxygen and can’t leave him alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me and my husband. He’s on oxygen and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re staying with your husband on oxygen. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my husband needs oxygen and can’t leave alone. He’s not in a wheelchair, but he can’t move without help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear your husband needs oxygen and can’t leave alone. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. He’s on oxygen and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "We heard you, staying safe is key right now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No truck, no boat, no free seats. Can’t leave alone—husband needs oxygen."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re staying with your husband needing oxygen. Let me read that back: 2 people; husband needs help leaving because of oxygen; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Just me and my husband. He needs oxygen and can’t leave alone. No water in yet."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your situation. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people live here. Husband needs oxygen and can’t leave alone. No water inside. Language: English.",
+  "attempts": 1
+}

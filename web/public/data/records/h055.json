@@ -1,0 +1,78 @@
+{
+  "id": "h055",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "father",
+      "need": "manual wheelchair"
+    },
+    {
+      "who": "Dad",
+      "need": "manual wheelchair"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1758 Echo Canyon Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is me. My father needs help—he’s in a manual wheelchair and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Two people here. Dad’s in a manual wheelchair, can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that important detail with us. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my father can’t leave alone—he uses a manual wheelchair. It’s not motorized."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that information. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside. Just us two, dad’s in a manual wheelchair, can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re staying together safely inside. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, we don’t have a truck, boat, or any free seats. We’re stuck inside with my father in his wheelchair."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with your father in his wheelchair. Let me read that back: 2 people; father needs help leaving because of manual wheelchair; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes. Two people. Dad’s in manual wheelchair. No water in yet."
+    },
+    {
+      "who": "agent",
+      "text": "Got it. Stay safe and watch for changes. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people: father and Dad, both need manual wheelchairs. Cannot leave alone. No water inside. Language: English.",
+  "attempts": 1
+}

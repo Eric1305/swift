@@ -97,15 +97,21 @@ def house_card(rec: Record) -> str:
     """A <=40-word card a rescue crew reads before knocking."""
     facts = rec.model_dump(include={"people", "cant_leave_alone", "water_inside", "language"})
     prompt = (
-        "Write a rescue crew's house card in at most 40 words, using only these facts: "
-        f"{json.dumps(facts)}. Include people count, who can't leave and why, and the language. "
-        "If someone uses a power wheelchair, note it can weigh about 400 lb and needs 2-3 lifters. "
-        "If someone is bedbound, note a stretcher is needed. Plain text, no promises."
+        "Write a rescue crew's house card in at most 35 words, using ONLY these facts and adding no new conditions: "
+        f"{json.dumps(facts)}. Include the people count, who can't leave and why, water inside or not, and the language. "
+        "Plain text, no promises."
     )
     try:
         card = guard(ask(prompt, max_tokens=90))
     except Exception:
         card = ""
+    mentioned = " ".join(p.get("need", "") for p in rec.cant_leave_alone).lower()
+    invented = [w for w in ("bedbound", "oxygen", "wheelchair", "walker", "stretcher", "dialysis")
+                if w in card.lower() and w not in mentioned and not (w == "stretcher" and "bedbound" in mentioned)]
+    if invented:
+        card = ""
+    if card and "power wheelchair" in mentioned and "lb" not in card:
+        card += " Power chair: ~400 lb, bring 2-3 lifters."
     return card or _card_fallback(rec)
 
 

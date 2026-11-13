@@ -1,0 +1,78 @@
+{
+  "id": "h115",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "wife",
+      "need": "bedbound"
+    },
+    {
+      "who": "wife",
+      "need": "can't walk"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1022 Cascade Point Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 1022 Cascade Point Drive, and I’ve got my wife here—she’s still recovering from surgery and can’t walk—so we’re stuck inside, no water in yet, but we really need help getting out, and we don’t have any truck"
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside and need help getting out. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s two of us here, me and my wife—she’s still recovering from surgery and can’t walk, so I’m the only one who can answer the phone, but we’re both stuck inside and need help getting out."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re both inside and need assistance getting out. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, my wife’s recovering from surgery and can’t walk at all, she’s totally bedbound, and I’m the only one here who can move — no truck, no boat, no seats, and we’re not even in water yet, but we’re stuck inside at 102"
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with no way out — I’m here to listen. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, there’s no water inside, but I’m stuck here with my wife who’s recovering from surgery and can’t walk — we can’t leave alone, and we don’t have any truck, boat, or seats to get help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck and need support — I’m here to listen. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and no seats at all — just me and my wife who’s still recovering from surgery and can’t walk, so we’re stuck inside at 1022 Cascade Point Drive, can’t leave alone, and the water’s not in yet but we"
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with limited mobility — I’m here to listen. Let me read that back: 2 people; wife needs help leaving because of bedbound; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right — just me and my wife, she’s bedbound from surgery and can’t walk, so we can’t leave alone, and no water’s in yet, but we’re stuck inside with no way to get help or get out."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with no way out — I’m here to listen. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people. Wife bedbound, can’t walk. No water inside. English.",
+  "attempts": 1
+}

@@ -1,0 +1,69 @@
+{
+  "id": "h073",
+  "status": "safe",
+  "people": 4,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 692 Barkerview Court?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 692 Barkerview Court—just the four of us here, no water inside, and we’re all good to stay put, no need to come get us."
+    },
+    {
+      "who": "agent",
+      "text": "How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s four of us here total, and everyone’s able to answer the phone—no one’s stuck inside or can’t come to the line."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know everyone’s reachable. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave on their own, not even a wheelchair or oxygen user—everyone’s fine and mobile, no motorized chairs or anything like that."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming everyone is mobile and able to leave on their own. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No water inside at all, thanks for asking—just the four of us here, all good to go, no need for any truck or boat or seats, we’re totally fine."
+    },
+    {
+      "who": "agent",
+      "text": "Glad to hear everyone is safe and dry. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and I don’t have any free seats—everyone’s safe and dry right here at 692 Barkerview Court, no need for a ride out."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know everyone’s safe and dry. Let me read that back: 4 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—four of us, all safe and dry inside, no water in yet, and we’re good to stay put for now."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming you’re all safe and dry inside. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

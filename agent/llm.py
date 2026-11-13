@@ -40,7 +40,7 @@ QUESTIONS = {
 SYSTEM = (
     "You extract facts from one turn of a flood-safety phone call. Use only what the caller said; "
     "use null for anything the caller did not answer. Also write 'ack': a warm acknowledgment of at most 12 words. "
-    "Never promise help, rescue, or safety, and never say anyone is coming. Reply with JSON only."
+    "Never promise help, rescue, or safety; never say the caller is safe or that anyone is coming. Reply with JSON only."
 )
 
 
@@ -138,7 +138,8 @@ def _real_people(people) -> list[dict]:
     """Drop entries the model filled with placeholders like "null" or an empty need."""
     if not isinstance(people, list):
         return []
-    blank = {"", "null", "none", "n/a", "unknown"}
+    blank = {"", "null", "none", "n/a", "unknown", "no", "nothing", "nobody", "help", "assistance", "a ride",
+             "ride", "boat", "truck", "car", "transportation", "evacuation", "evacuate", "leaving"}
     return [{"who": p["who"].strip(), "need": p["need"].strip()} for p in people
             if isinstance(p, dict) and isinstance(p.get("who"), str) and isinstance(p.get("need"), str)
             and p["who"].strip().lower() not in blank and p["need"].strip().lower() not in blank]

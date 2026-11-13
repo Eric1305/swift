@@ -1,0 +1,69 @@
+{
+  "id": "h036",
+  "status": "safe",
+  "people": 2,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 868 Blueberry Hill Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 868 Blueberry Hill Drive, just me and my partner here, no one’s stuck inside or anything, and we’re totally fine, no water in the house either, just chillin’ safe as can be."
+    },
+    {
+      "who": "agent",
+      "text": "How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s just me and my partner here, we’re both fine and can handle things ourselves, no one’s stuck inside or needing help—water’s not even in the house, so we’re good."
+    },
+    {
+      "who": "agent",
+      "text": "You and your partner are handling things well on your own. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No one here can’t leave on their own, and we’re good—we’re just the two of us, no wheelchair, no oxygen, nothing like that, just us minding our own business."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know you’re both fine and able to stay put. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no water inside at all, just us two hanging tight here, no need to worry about that—everything’s dry and we’re good to stay put."
+    },
+    {
+      "who": "agent",
+      "text": "You’re staying dry and safe for now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and I don’t have any free seats in a vehicle—just me and my partner, both good and dry right here at 868 Blueberry Hill Drive, no need to worry about anyone needing a ride out."
+    },
+    {
+      "who": "agent",
+      "text": "Let me read that back: 2 people; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just me and my roommate, no water in yet, and we’re both good, no one needs to be left alone or anything."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming everything’s okay so far. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

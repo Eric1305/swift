@@ -1,0 +1,74 @@
+{
+  "id": "h084",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "husband",
+      "need": "oxygen"
+    }
+  ],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 428 Gretna Green Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, this is 428 Gretna Green Drive. I’m alone, but my husband needs oxygen and can’t leave him alone."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for confirming your address and situation. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s one person here, me, and my husband who needs oxygen and can’t leave alone."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re here with your husband who needs oxygen. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yes, my husband is here and he needs oxygen. He can’t leave alone, but he doesn’t use a wheelchair or need a motorized one."
+    },
+    {
+      "who": "agent",
+      "text": "I understand your husband needs oxygen and can’t leave alone. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, there’s no water inside the home right now. I just corrected myself — my husband needs oxygen and can’t leave alone, but I’m here with him."
+    },
+    {
+      "who": "agent",
+      "text": "Thank you for sharing that — I’m here to listen. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I don’t have a high-clearance truck, boat, or any free seats in a vehicle. I’m alone and my husband needs oxygen — we can’t leave without help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re alone and need help — I’m here to listen. Let me read that back: 2 people; husband needs help leaving because of oxygen; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "No, it’s just me — my husband needs help leaving because he’s on oxygen, but I’m not alone. I’m here, and we’re both at 428 Gretna Green Drive."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re both here at 428 Gretna Green Drive. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people live here. Husband needs oxygen and can't leave alone. No water inside. Language: English.",
+  "attempts": 1
+}

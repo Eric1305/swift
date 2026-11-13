@@ -1,0 +1,69 @@
+{
+  "id": "h102",
+  "status": "safe",
+  "people": 1,
+  "cant_leave_alone": [],
+  "water_inside": false,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1062 Sheffield Run Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 1062 Sheffield Run Drive, just me here, no one else, water’s not in the house, and I’m totally fine—no need for any truck, boat, or extra seats, I’m good on my own."
+    },
+    {
+      "who": "agent",
+      "text": "How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Just me here, all by myself, no one else around, and I’m totally fine—no water in the house either, so no rush or anything."
+    },
+    {
+      "who": "agent",
+      "text": "Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No, I’m the only one here and I’m fine, no one’s stuck or needs special help, and I don’t need a wheelchair or oxygen or anything like that."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for letting us know you're fine and no one needs help. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no water inside at all, just me here, all good, no need for anything—trucks, boats, or seats, nothing’s needed, I’m totally fine on my own."
+    },
+    {
+      "who": "agent",
+      "text": "You’re all set and handling things well on your own. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, I’m good on my own, no water in the house, and I don’t have a truck, boat, or any free seats to give anyone a ride—sorry, neighbors!"
+    },
+    {
+      "who": "agent",
+      "text": "Let me read that back: people at the home not confirmed; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just me here, no water in yet, and I’m totally fine, no need to send anyone or anything, I’m good on my own."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming you’re okay and not needing help. I've recorded that everyone there can leave on their own. Don't drive through flooded roads. Turn around, don't drown. Goodbye."
+    }
+  ],
+  "house_card": null,
+  "attempts": 1
+}

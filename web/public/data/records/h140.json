@@ -1,0 +1,78 @@
+{
+  "id": "h140",
+  "status": "needs_help",
+  "people": 2,
+  "cant_leave_alone": [
+    {
+      "who": "son",
+      "need": "walker"
+    },
+    {
+      "who": "I",
+      "need": "no truck or boat coming"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1698 Clydesdale Street?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 1698 Clydesdale Street, just me and my son stuck inside—my son needs his walker to get around, and we can’t leave him alone, and we’re not in any water yet, but we’re totally stuck and nobody’s coming with"
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with your son. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "There’s me and my son, just the two of us, and he’s got to use his walker so he can’t leave alone — we’re both stuck inside, no water in yet but we’re really in need of help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re both inside and need support — I’m here to listen. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, my son’s here and he needs his walker to get around—he can’t leave without it, and I’m stuck too, no truck or boat coming, just us two inside at 1698 Clydesdale Street."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for sharing your situation, I’m here to listen. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "No, there’s no water inside the house right now, but I’ve got two people here—my son needs his walker to get around, and we can’t leave him alone, and I don’t have a truck, boat, or any seats to help us get out."
+    },
+    {
+      "who": "agent",
+      "text": "I hear your concern about your son and getting out safely. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and I’ve got zero seats to spare—my son needs his walker and I can’t leave him alone, so we’re stuck here for now."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck—your son’s walker is priority right now. Let me read that back: 2 people; son needs help leaving because of walker; I needs help leaving because of no truck or boat coming; no water inside yet. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—just me and my son, he’s got this walker and can’t leave without it, and we’re stuck with no truck or boat coming, but the water’s still out here, so we’re safe for now."
+    },
+    {
+      "who": "agent",
+      "text": "Thanks for confirming your situation and staying safe. I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Two people. Son needs walker; I need no truck or boat coming. Water inside. English.",
+  "attempts": 1
+}

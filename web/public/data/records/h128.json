@@ -1,0 +1,74 @@
+{
+  "id": "h128",
+  "status": "needs_help",
+  "people": 3,
+  "cant_leave_alone": [
+    {
+      "who": "us",
+      "need": "no truck or boat coming, no seats either"
+    }
+  ],
+  "water_inside": true,
+  "can_help": {
+    "truck": false,
+    "boat": false,
+    "seats": 0
+  },
+  "language": "en",
+  "transcript": [
+    {
+      "who": "agent",
+      "text": "This is Swift, an automated flood assistant working with local emergency services. Am I speaking with someone at 1426 Echo Canyon Drive?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, this is me at 1426 Echo Canyon Drive, and I’m stuck inside with three people, water’s already in the house, and we can’t get out—no truck, no boat, and no one’s coming to help us right now."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck inside with water in the house. How many people are at the home right now, including anyone who can't come to the phone?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, there’s three of us inside, all good, no one’s stuck or can’t get to the phone—just water everywhere, and we’re totally on our own with no help coming."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re all safe and managing for now. Is there anyone there who can't leave on their own, for example someone who uses a wheelchair, needs oxygen, or is bedbound? If it's a wheelchair, does it have a motor?"
+    },
+    {
+      "who": "resident",
+      "text": "No, no one here can’t leave on their own—everyone’s able to get out if they needed to, and we’re all just stuck inside with the water rising, no help coming, no truck or boat, just us three at 1426 Echo Canyon Drive."
+    },
+    {
+      "who": "agent",
+      "text": "Understood, you’re all currently stuck inside with rising water. Is there water inside the home right now?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, water’s already inside, creeping up fast, and we’re all three of us stuck here—no way out, no truck or boat coming to help, and we’re not even sure how we’re gonna get out of this mess."
+    },
+    {
+      "who": "agent",
+      "text": "I hear how urgent this feels right now. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats in a vehicle?"
+    },
+    {
+      "who": "resident",
+      "text": "Nope, no truck, no boat, and no free seats—just three of us stuck here with water already inside, and we’re not leaving without help."
+    },
+    {
+      "who": "agent",
+      "text": "I hear you’re stuck and need help. Let me read that back: 3 people; water is inside. Is that right?"
+    },
+    {
+      "who": "resident",
+      "text": "Yeah, that’s right—three of us here, water’s already inside the place, and we’re not stuck out there, we’re stuck in here, no way out, no truck or boat coming, no seats either, just us and the rising water."
+    },
+    {
+      "who": "agent",
+      "text": "I heard you, staying put with rising water, no help coming I've recorded that you need help leaving. No responder has been assigned yet. If water is rising inside, move to the highest floor and call 911 if you can get through. Goodbye."
+    }
+  ],
+  "house_card": "Three people. Us: no truck, boat, or seats. Water inside. English.",
+  "attempts": 1
+}
