@@ -27,7 +27,7 @@ While a call is ringing or in progress the frontend shows the derived state `cal
 | `routes.json` | `[{vehicle_id, vehicle:"hwv"\|"boat"\|"neighbor_truck"\|"neighbor_boat", to_household_id, path:[[lon,lat]...], timestamps:[t_min...]}]` (deck.gl TripsLayer format) |
 | `doorknock.geojson` | FeatureCollection of Polygons, `properties:{t_min, household_ids:[...]}` |
 | `briefings.json` | `[{t_min, text}]` |
-| `imagery.json` | `[{image_id, lon, lat, thumb:"img/<id>.jpg", verdict:"flooded"\|"not_flooded"\|"uncertain", explanation}]` (locations are approximate) |
+| `imagery.json` | `[{image_id, lon, lat, bounds:[[w,s],[e,n]], thumb:"img/<id>.jpg", before_thumb:"img/<id>.jpg"\|null, date, rain_3d_mm, verdict:"flooded"\|"not_flooded"\|"uncertain", explanation}]` — real georeferenced Harvey aerials: drape `thumb` on the map with a BitmapLayer at `bounds`; popup can show before/after |
 | `results.json` | `{baseline_pct, swift_pct, record_accuracy, promise_violations, parallel_calls, n_households, mc:{median_baseline, median_swift, p10, p90, n, seconds}}` |
 | `live_fallback.json` | `{record:<record for demo_household_id>, steps:[{delay_ms, who, text}]}` |
 | `gpu_sample.json` | sample response of `/api/gpu` |

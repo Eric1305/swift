@@ -3,7 +3,6 @@ import argparse
 import csv
 import json
 import os
-import random
 import re
 from pathlib import Path
 
@@ -12,17 +11,13 @@ from agent.script import Record, guard
 
 DATA_DIR = Path(os.environ.get("SWIFT_DATA_DIR", Path.home() / "Texas_Flood_Student_Data"))
 
-# image_metadata.csv has no coordinates, only a locality name; pins are approximate and labeled so.
-LOCALITY_CENTROIDS = {
-    "bear creek": (-95.648, 29.822),
-    "eldridge": (-95.622, 29.772),
-    "kingwood": (-95.199, 30.050),
-}
-DEFAULT_CENTROID = (-95.645, 29.820)
+# Demo area: densest cluster of georeferenced Harvey response images (west Houston, Barker/Addicks reservoirs).
+DEMO_BBOX = (-95.70, 29.74, -95.66, 29.78)  # (west, south, east, north)
 
 IMAGERY_PROMPT = (
-    "Is floodwater visibly covering roads or land around houses? An ordinary river or pond alone is not "
-    'flooding. Reply JSON {"verdict":"flooded|not_flooded|uncertain","explanation":"<=20 words"}'
+    "This is an aerial photo taken after Hurricane Harvey. Is floodwater visibly covering roads or land around "
+    "houses? An ordinary river, pond or reservoir pool alone is not flooding. "
+    'Reply JSON {"verdict":"flooded|not_flooded|uncertain","explanation":"<=20 words"}'
 )
 
 
@@ -35,42 +30,58 @@ def _first_json(text: str) -> dict:
     return data if isinstance(data, dict) else {}
 
 
-def _centroid(locality: str) -> tuple[float, float]:
-    key = next((name for name in LOCALITY_CENTROIDS if name in locality.lower()), None)
-    return LOCALITY_CENTROIDS[key] if key else DEFAULT_CENTROID
+def _in_bbox(row: dict, bbox: tuple[float, float, float, float]) -> bool:
+    try:
+        lon, lat = float(row["longitude"]), float(row["latitude"])
+    except (KeyError, ValueError):
+        return False
+    return bbox[0] <= lon <= bbox[2] and bbox[1] <= lat <= bbox[3]
 
 
-def imagery_check(image_ids: list[str] | None, out: Path, data_dir: Path = DATA_DIR) -> list[dict]:
-    """Ask Qwen3-VL whether each Harvey after-image shows flooding. Writes imagery.json + 512 px thumbs."""
+def _thumb(src: Path, dst: Path) -> None:
     from PIL import Image
 
+    with Image.open(src) as image:
+        image.convert("RGB").resize((512, 512)).save(dst, quality=85)
+
+
+def imagery_check(image_ids: list[str] | None, out: Path, data_dir: Path = DATA_DIR,
+                  bbox: tuple[float, float, float, float] = DEMO_BBOX, limit: int = 40) -> list[dict]:
+    """Ask Qwen3-VL whether each Harvey response image in the demo area shows flooding.
+
+    Writes imagery.json with each image's real footprint (for draping on the map) plus 512 px thumbs of the
+    response image and its paired before image."""
     with open(data_dir / "image_metadata.csv", newline="") as handle:
-        rows = [r for r in csv.DictReader(handle) if r.get("state", "Texas") == "Texas"]
-    if image_ids is None:
-        image_ids = [r["image_id"] for r in rows if r["image_id"].endswith("_2017_NOAA")]
+        rows = list(csv.DictReader(handle))
     by_id = {r["image_id"]: r for r in rows}
-    rng = random.Random(7)
+    if image_ids is None:
+        image_ids = [r["image_id"] for r in rows
+                     if r.get("image_role") == "response" and r.get("georeferenced") == "true" and _in_bbox(r, bbox)][:limit]
     (out / "img").mkdir(parents=True, exist_ok=True)
     results = []
     for image_id in image_ids:
         row = by_id[image_id]
-        path = data_dir / row["image_path"]
         thumb = out / "img" / f"{image_id}.jpg"
-        with Image.open(path) as image:
-            image.convert("RGB").resize((512, 512)).save(thumb, quality=85)
+        _thumb(data_dir / row["image_path"], thumb)
+        before = by_id.get(row.get("paired_image_id", ""))
+        if before:
+            _thumb(data_dir / before["image_path"], out / "img" / f"{before['image_id']}.jpg")
         try:
             data = _first_json(ask(IMAGERY_PROMPT, image_path=str(thumb), max_tokens=80))
         except Exception:
             data = {}
         verdict = data.get("verdict") if data.get("verdict") in ("flooded", "not_flooded", "uncertain") else "uncertain"
-        lon, lat = _centroid(row.get("locality", ""))
         results.append({
             "image_id": image_id,
-            "lon": round(lon + rng.uniform(-0.004, 0.004), 5),
-            "lat": round(lat + rng.uniform(-0.003, 0.003), 5),
+            "lon": float(row["longitude"]),
+            "lat": float(row["latitude"]),
+            "bounds": [[float(row["west"]), float(row["south"])], [float(row["east"]), float(row["north"])]],
             "thumb": f"img/{image_id}.jpg",
+            "before_thumb": f"img/{before['image_id']}.jpg" if before else None,
+            "date": row.get("acquisition_date", ""),
+            "rain_3d_mm": float(row["preceding_3d_precipitation_mm"] or 0),
             "verdict": verdict,
-            "explanation": f"{data.get('explanation', 'No explanation returned.')} (approx. location: {row.get('locality', '')})",
+            "explanation": data.get("explanation", "No explanation returned."),
         })
     (out / "imagery.json").write_text(json.dumps(results, indent=2) + "\n")
     return results
