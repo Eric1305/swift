@@ -1,0 +1,38 @@
+/* Navbar from the current Wireframes canvas; scoped to avoid map styles. */
+.top-bar--compact .top-bar__brand {
+  flex-shrink: 0;
+}
+
+.top-bar__logo {
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
+
+.top-bar--compact .brand-text strong {
+  font-family: 'jsMath-cmbx10', 'CMU Serif', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--palette-lagoon-mist), var(--palette-sky-ripple) 50%, var(--palette-cool-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.top-bar--compact .clock {
+  min-width: 0;
+}
+
+.top-bar--compact .speed__opt.is-active,
+.top-bar--compact .top-bar__run {
+  background: linear-gradient(90deg, var(--palette-ocean), var(--palette-teal));
+}
+
+.top-bar--compact .top-bar__run {
+  border-color: transparent;
+}
+
+/* Button supplies a default icon; this navbar uses the canvas's light icon. */
+.top-bar__run > .btn__icon {
+  display: none;
+}
