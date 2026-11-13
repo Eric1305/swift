@@ -1,0 +1,78 @@
+SWIFT — CALL SCRIPT ISSUES FROM FIRST LIVE CALL (2026-11-13)
+=============================================================
+
+CONTEXT
+- The Render relay works end to end: Retell -> https://swift-w7bb.onrender.com (relay/app.py) -> relay/client.py
+  on the laptop -> agent.server on :8080 -> Qwen (agent/llm.py). Commit c503e42. Webhook arrived, status needs_help.
+- First real demo call to Eric's phone went through all 13 turns, but the saved record was wrong.
+- Root trigger: Eric's answers drifted one question behind the agent (said "Yep" to the address question, then the
+  rehearsal line "Yes, that's right" to the people question). That's a demo-rehearsal issue, but the agent's handling
+  of it exposed four real weaknesses below. A real resident (or a judge) will trigger them too.
+
+TRANSCRIPT (agent / resident)
+  A: ...Am I speaking with someone at 1586 Eagle Trail Drive?
+  R: Yep.
+  A: Got it, thanks for confirming. How many people are at the home right now...?
+  R: Yes. That's right.
+  A: Thank you for confirming that. Is there anyone there who can't leave on their own...? If it's a wheelchair, does it have a motor?
+  R: Yes.
+  A: Thank you for sharing that information. Is there water inside the home right now?
+  R: Yes. Me and my mom. My mom uses a power wheelchair.
+  A: I hear you're both inside with water present. If neighbors need a ride out, do you have a high-clearance truck, a boat, or free seats...?
+  R: No.
+  A: ...Let me read that back: people at the home not confirmed; wheelchair needs help leaving because of manual; water is inside. Is that right?
+  R: No. I do not.
+  A: I hear you're not sure about the read-back. I've recorded that you need help leaving. No responder has been assigned yet. ...Goodbye.
+
+RECORDED: people=None, cant_leave_alone=[{who:"wheelchair", need:"manual"}], water_inside=True
+HOUSE CARD: "? people. Can't leave alone: wheelchair: manual. Water inside. Language: en."
+EXPECTED (from what was actually said overall): people=2, cant_leave_alone=[{who:"mom", need:"power wheelchair"}].
+
+ISSUES (priority order)
+1. Invented facts from the agent's own question (WORST — puts false info on a rescue card).
+   A bare "Yes." to the cant_leave question became {who:"wheelchair", need:"manual"} — words from the question, not
+   the resident. Fix: in agent/llm.py extract(), drop any person whose who/need doesn't appear (or isn't clearly
+   implied) in the resident's utterance; a bare yes/no to cant_leave should set a "yes, details unknown" flag and
+   trigger a follow-up ("Who is it, and what do they need?"), never a fabricated person. Also tighten the SYSTEM /
+   per-step prompt: "Only use words the resident said; never copy examples from the question."
+
+2. No re-ask when the answer doesn't fit the question.
+   "Yes. That's right." to "How many people?" got "Thank you for confirming" and moved on with people=None.
+   Fix: in agent/script.py advance(), if the step's required field is still empty after extraction, re-ask once
+   (there's already a re-ask path for empty replies — see test_empty_reply_reasks_once; extend it to "reply had no
+   usable value for this step"). The ack should not claim to have understood when nothing was extracted.
+
+3. Extraction is scoped to the current step only, so volunteered info is lost.
+   "Yes. Me and my mom. My mom uses a power wheelchair." (answered during water_inside) lost people=2 and the
+   power wheelchair. Fix: let extract() also return out-of-step fields when clearly stated (people count,
+   cant_leave persons), and have _merge() fill them only if currently empty. Watch the "ALL keys required" schema
+   gotcha in agent/llm.py (the model skips optional keys) — use nullable values, not optional keys.
+
+4. "No" to the read-back doesn't lead to a correction.
+   Agent closed with "I've recorded that you need help leaving" after the resident said the read-back was wrong.
+   Fix: on a negative readback, ask "What should I fix?", extract against all fields, merge, read back once more;
+   only then close. Cap at one correction round to keep calls short. (test_correction_keeps_cant_leave exists —
+   build on it.)
+
+WHERE TO LOOK
+- agent/script.py: STEPS, TEMPLATES, prompt_for(), _merge(), advance(), _readback(), guard() (honesty guard —
+  never promises rescue / "you're safe"; keep it).
+- agent/llm.py: STEP_FIELDS, QUESTIONS, SYSTEM, _schema(), extract(), _real_people() (already filters placeholder
+  people — extend it for issue 1).
+- tests/test_script.py, tests/test_llm.py — add a test per issue. Run: .venv/bin/pytest -q (10 pass now).
+- agent/simulate.py re-scores 150 simulated residents (96.1% status accuracy baseline). Re-run after changes
+  ONLY if needed, concurrency 8 (shared model server), and not during judging.
+
+HOW TO RETEST LIVE
+  .venv/bin/uvicorn agent.server:app --port 8080
+  .venv/bin/python -m relay.client          # check https://swift-w7bb.onrender.com/health -> agent_connected:true
+  curl -X POST localhost:8080/api/demo-call
+  Answer ONE line per question, waiting for each question to finish:
+    "Yes, that's right" / "Two, me and my mom" / "My mom uses a power wheelchair" /
+    "It's at the front step, not inside yet" / "No" / "Yes"
+  curl localhost:8080/api/live  -> status needs_help, people 2, mom/power wheelchair, water_inside false.
+  Also try the misaligned answers above to confirm issues 1-4 are fixed.
+
+RULES
+- Never print or commit secrets from .env. Commits end with: Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+- Don't credit other hackathon projects anywhere.
