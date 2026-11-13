@@ -12,9 +12,9 @@ Spoken, informal, about 70–80 seconds. Every number below is from our data (`w
 >
 > So we built **Swift**, which flips it around. **Instead of waiting for people to call 911, an AI agent calls them**: every house, in the order the water reaches them. In about a minute it learns who can't leave and why, whether water's already inside, and who has a truck or boat to help a neighbor. Nobody who stays silent gets marked safe; they go on a door-knock list.
 >
-> Every call runs through **Qwen**, a vision-language model. It understands what people actually say on a real phone call, even messy answers or Spanish. It looked at the real Harvey aerial photos from the datathon dataset to confirm where it flooded. And it writes short cards for rescue crews, like "mom, power wheelchair, needs two lifters."
+> Every call runs through **Qwen**, a vision-language model. It understands what people actually say on a real phone call, even messy answers or Spanish. It also looked at the **UTSA datathon's Harvey aerial imagery**, real photos taken from planes right after the storm, each paired with a photo of the same spot from before. Those photos had no flood labels, so Qwen labeled them: **17 of 21 in our area show flooding**, which confirmed our flood map. And it writes short cards for rescue crews, like "mom, power wheelchair, needs two lifters."
 >
-> We replayed Harvey on 150 real homes in Bear Creek, using the actual reservoir gauge readings and **USGS elevation data** for every house. Bear Creek flooded because the reservoir backed into it, so the lowest ground floods first. That gives Swift its **calling order: lowest homes first**. **Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under.** When people had to get through to 911 themselves, **fewer than half made it**.
+> We replayed Harvey on **150 real homes in Bear Creek, mapped from OpenStreetMap**, using the actual reservoir gauge readings and **USGS elevation data** for every house. Bear Creek flooded because the reservoir backed into it, so the lowest ground floods first. That gives Swift its **calling order: lowest homes first**. **Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under.** When people had to get through to 911 themselves, **fewer than half made it**.
 >
 > And it has one hard rule: it never tells anyone help is on the way until a crew has actually said yes.
 >
@@ -43,13 +43,13 @@ Spoken, informal, about 70–80 seconds. Every number below is from our data (`w
 | Metric | Value | Source / meaning |
 |---|---|---|
 | Area | Bear Creek, west Houston, next to the Addicks Reservoir | Reservoir backflow flooded about 65% of the subdivision in Harvey (KHOU / KPRC, in README) |
-| Homes modeled | **150** real buildings | OpenStreetMap footprints |
+| Homes modeled | **150** real buildings | **OpenStreetMap** building footprints and the road network (real addresses and streets) |
 | Water level | Real Addicks pool, **87.8 ft at the trigger → 109.06 ft peak (Aug 30, 2017)** | USGS gauge 08073000, approved daily means, matched exactly |
 | Elevation | **USGS 3DEP 10 m elevation data** for every house and street | Depth = pool − ground, only where connected to the reservoir; lowest ground floods first, which sets the calling order |
 | Homes that flood | **57 of 150**, up to about 6.6 ft deep | From the real pool over real ground |
 | Calling order vs. the order homes actually flooded | **Spearman 0.996** | An order, not a prediction of exactly which homes flood: lowest ground first, from USGS elevation + gauge readings published before the trigger (Aug 25–26) |
 
-**Harvey aerial imagery (the datathon dataset):**
+**Harvey aerial imagery (the UTSA datathon dataset; aerial photos taken from planes, not satellite):**
 | Metric | Value |
 |---|---|
 | Dataset | `jennifer-fowler/UTSA-flood-images`: **1,204** georeferenced Texas flood images, **273** metadata columns, **no flood labels** |

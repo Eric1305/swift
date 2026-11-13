@@ -72,7 +72,7 @@ Before going on stage:
 
 ### 2:25–2:50 · Scene 7, results card [Impact] [Data]
 
-> We replayed Harvey on 150 real homes in Bear Creek, using the actual reservoir gauge readings and USGS elevation data for every house. The lowest ground floods first, so that's Swift's calling order. Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under. When people had to get through to 911 themselves, fewer than half made it: 42.9%, with the same vehicles.
+> We replayed Harvey on 150 real homes in Bear Creek, mapped from OpenStreetMap, using the actual reservoir gauge readings and USGS elevation data for every house. The lowest ground floods first, so that's Swift's calling order. Using only what was known that night, that order reached every home that flooded at least a day before the water got there, and got everyone who needed help out before their street went under. When people had to get through to 911 themselves, fewer than half made it: 42.9%, with the same vehicles.
 >
 > We tested the calls with 150 simulated residents, each role-played by the model with a hidden truth. Swift recorded the right status for 91.5% of them and flagged all 34 who truly needed help. Over 1,000 randomized storms the median goes from 28.6% to 82.9%. The residents are simulated, so this is a policy comparison, not a prediction; the water and the timing are real.
 
