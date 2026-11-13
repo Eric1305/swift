@@ -307,8 +307,26 @@
 .map-ring { display: block; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--map-ink); box-shadow: 0 0 0 8px transparent, 0 0 0 10px color-mix(in srgb, var(--map-ink) 40%, transparent); pointer-events: none; }
 .map-ring--live { width: 34px; height: 34px; border-color: var(--map-terracotta); box-shadow: 0 0 0 10px color-mix(in srgb, var(--map-terracotta) 25%, transparent); animation: ring 1.6s ease-out infinite; }
 
-.imagery-pin { display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border-radius: 6px; background: #fff; border: 2px solid var(--verdict); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); cursor: pointer; }
-.imagery-pin.is-active { outline: 2px solid var(--verdict); outline-offset: 2px; }
+.imagery-pin {
+  position: relative; display: grid; place-items: center;
+  width: 34px; height: 34px; padding: 0; border-radius: 11px;
+  background: linear-gradient(145deg, #fff, #edf5ff);
+  border: 1px solid rgba(32, 60, 107, 0.22);
+  box-shadow: 0 2px 4px rgba(0, 27, 72, 0.16), 0 5px 12px rgba(0, 27, 72, 0.12), inset 0 1px 0 #fff;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+.imagery-pin img { display: block; pointer-events: none; }
+.imagery-pin__status {
+  position: absolute; right: -3px; bottom: -3px;
+  width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%;
+  background: var(--verdict); box-shadow: 0 1px 3px rgba(0, 27, 72, 0.25);
+  pointer-events: none;
+}
+.imagery-pin:hover { transform: translateY(-2px); border-color: var(--ui-blue); box-shadow: 0 5px 14px rgba(0, 27, 72, 0.24); }
+.imagery-pin.is-active { border-color: var(--ui-blue); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 0 5px var(--ui-blue), 0 5px 14px rgba(0, 27, 72, 0.2); }
+.imagery-pin:focus-visible { outline: 3px solid var(--ui-navy); outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .imagery-pin { transition: none; } }
 
 .imagery-popup {
   width: 262px; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 10px;

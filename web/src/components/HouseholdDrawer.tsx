@@ -4,6 +4,7 @@ import { formatT } from '../demo/timeline';
 import { Button, Eyebrow, StatusChip } from './ui';
 import cx from './cx';
 import closeIcon from '../assets/icons/close.svg';
+import swiftLogo from '../assets/swift-logo.png';
 
 const LANG: Record<string, string> = { en: 'English', es: 'Spanish', vi: 'Vietnamese', zh: 'Chinese' };
 
@@ -64,7 +65,13 @@ export default function HouseholdDrawer({ household, status, record, transcript,
   return (
     <aside className="drawer" aria-label={`Household ${household.address}`}>
       <div className="row-between">
-        <StatusChip status={status} />
+        <div className="drawer__status">
+          <span className={cx('drawer__mascot', status === 'needs_help' && 'drawer__mascot--urgent')} aria-hidden="true">
+            <img src={swiftLogo} width={52} height={52} alt="" />
+            {status === 'needs_help' && <span className="drawer__mascot-alert">!</span>}
+          </span>
+          <StatusChip status={status} />
+        </div>
         <span className="drawer__meta">
           {live ? 'DEMO_HOUSEHOLD_ID' : rank ? `#${rank} in queue` : household.id}
           <button type="button" className="drawer__close" aria-label="Close" onClick={onClose}>

@@ -23,12 +23,12 @@
   --accent-ink: var(--palette-cloud-veil);
 
   /* household status (CONTRACT.md) */
-  --status-needs-help: #ef4444;
-  --status-can-help: #f59e0b;
-  --status-safe: #22c55e;
-  --status-unconfirmed: #eab308;
-  --status-no-answer: #111827;
-  --status-not-called: #6b7280;
+  --status-needs-help: #f5b8be;
+  --status-can-help: #f6d5aa;
+  --status-safe: #b6e4ca;
+  --status-unconfirmed: #f1e2ac;
+  --status-no-answer: #cbd7e6;
+  --status-not-called: #d8dce2;
   --status-calling: #38bdf8;
 
   /* readable status text on light surfaces */
@@ -54,4 +54,17 @@
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --shadow-pop: 0 8px 24px rgba(0, 27, 72, 0.18);
+
+  /* Playful editorial components; the basemap keeps its own palette. */
+  --ui-paper: #f8fbff;
+  --ui-ice: #edf5ff;
+  --ui-line: #d5e5f6;
+  --ui-blue: #2368d1;
+  --ui-sky: #328af5;
+  --ui-navy: #203c6b;
+  --ui-radius: 24px;
+  --ui-card-radius: 16px;
+  --ui-shadow: 0 8px 28px rgba(29, 62, 104, 0.10), 0 2px 5px rgba(29, 62, 104, 0.04);
+  --ui-wash: linear-gradient(145deg, #fcfdff, #edf5ff 75%, #e3efff);
+  --ui-action: linear-gradient(125deg, #2368d1, #328af5);
 }

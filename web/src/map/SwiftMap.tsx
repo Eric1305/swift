@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } from 'react';
 import { AmbientLight, DirectionalLight, LightingEffect, type LayersList } from '@deck.gl/core';
-import { ArcLayer, BitmapLayer, PathLayer, PolygonLayer } from '@deck.gl/layers';
+import { ArcLayer, BitmapLayer, PathLayer, PolygonLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
+import { SimpleMeshLayer } from '@deck.gl/mesh-layers';
 import { TileLayer, TripsLayer, type _TileLoadProps as TileLoadProps } from '@deck.gl/geo-layers';
 import { PathStyleExtension, type PathStyleExtensionProps } from '@deck.gl/extensions';
 import { MapboxOverlay, type MapboxOverlayProps } from '@deck.gl/mapbox';
@@ -10,7 +11,8 @@ import maplibregl from './maplibreWorker';
 import type { DisplayStatus, DoorknockFeature, Fixtures, HouseholdFeature, LonLat, Route } from '../data/types';
 import { dataUrl } from '../data/load';
 import { applySitePlanStyle, BASEMAP_URL, CONTEXT_BUILDINGS_LAYER } from './sitePlanStyle';
-import { INK, NAVY, ROOF, VEHICLE } from './colors';
+import { ACTIONABLE, EDGE, INK, NAVY, ROOF, VEHICLE } from './colors';
+import { houseFrame, ROOF_MESH, WALLS_MESH, type HouseFrame } from './houseMesh';
 import { decodeTile, FloodBitmapLayer, quantile, TERRARIUM_URL, type StudyArea, type TerrainTile } from './floodLayer';
 import { ImageryPin, ImageryPopup } from '../components/Imagery';
 import cx from '../components/cx';
@@ -55,11 +57,20 @@ const centroid = (f: { geometry: { coordinates: LonLat[][] } }): LonLat => {
 };
 
 const lighting = new LightingEffect({
-  ambient: new AmbientLight({ color: [255, 255, 255], intensity: 1.1 }),
-  sun: new DirectionalLight({ color: [255, 250, 240], intensity: 1.4, direction: [-1.2, -0.6, -2] }),
+  // Moderate light so status colors stay true (bright light washed red → pink, amber → cream).
+  ambient: new AmbientLight({ color: [255, 255, 255], intensity: 1.0 }),
+  sun: new DirectionalLight({ color: [255, 250, 240], intensity: 0.6, direction: [-1.2, -0.6, -2] }),
 });
 
 const dash = new PathStyleExtension({ dash: true });
+/** Houses are drawn this much larger than their footprint (hides the basemap box beneath). */
+const HOUSE_PAD = 1.12;
+const WALL_COLOR: [number, number, number] = [246, 243, 236];
+/** Ridge height (m): walls clear typical basemap building heights, roof pitch stays readable. */
+const ridge = (d: HouseholdFeature) => Math.max(d.properties.height_m * 1.45, 10.5);
+/** Address labels on actionable homes appear from this zoom. */
+const LABEL_MIN_ZOOM = 14.8;
+const withAlpha = (c: readonly number[], a: number): [number, number, number, number] => [c[0], c[1], c[2], a];
 
 /**
  * deck.gl drawn inside MapLibre's own WebGL context: markers stay on top, 3D depth is shared.
@@ -133,6 +144,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
   const mapRef = useRef<MapRef>(null);
   const [styleReady, setStyleReady] = useState(false);
   const [terrainFailed, setTerrainFailed] = useState(false);
+  const [zoom, setZoom] = useState(meta.zoom);
   const elevation = useElevationStats();
 
   const home = useMemo(
@@ -140,13 +152,15 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
     [meta],
   );
   const centers = useMemo(() => new Map(fx.households.map((f) => [f.properties.id, centroid(f)])), [fx.households]);
+  const frames = useMemo(() => new Map<string, HouseFrame>(fx.households.map((f) => [f.properties.id, houseFrame(f.geometry.coordinates[0])])), [fx.households]);
+  const frame = useCallback((d: HouseholdFeature) => frames.get(d.properties.id)!, [frames]);
 
-  // Study area = the pipeline's depth bounds, slightly padded; the flood feathers out at its edge.
+  // Study area = the pipeline's depth bounds, slightly padded; the flood ends with a hard edge.
   const area = useMemo<StudyArea>(() => {
     const [[w, s], [e, n]] = meta.depth_stages[0]?.bounds ?? [[meta.center[0] - 0.03, meta.center[1] - 0.02], [meta.center[0] + 0.03, meta.center[1] + 0.02]];
     const px = (e - w) * 0.08;
     const py = (n - s) * 0.08;
-    return { west: w - px, south: s - py, east: e + px, north: n + py, feather: 0.12 };
+    return { west: w - px, south: s - py, east: e + px, north: n + py, feather: 0 };
   }, [meta]);
 
   useImperativeHandle(ref, () => ({
@@ -186,6 +200,10 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
     },
     [area, addSamples],
   );
+
+  // deck.gl compares updateTriggers by value and a Map has no enumerable keys, so changes
+  // to `statuses` would never re-color the layers. A string key changes whenever any status does.
+  const statusKey = useMemo(() => [...statuses].map(([k, v]) => `${k}:${v}`).join('|'), [statuses]);
 
   const layers = useMemo(() => {
     const status = (id: string): DisplayStatus => statuses.get(id) ?? 'not_called';
@@ -268,22 +286,108 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         dashJustified: true,
         extensions: [dash],
       }),
-      new PolygonLayer<HouseholdFeature>({
-        id: 'households',
+      // Ground disc under every household: status at a glance at any zoom (min 8 px).
+      new ScatterplotLayer<HouseholdFeature>({
+        id: 'household-discs',
         data: fx.households,
-        getPolygon: (d) => d.geometry.coordinates,
-        extruded: true,
-        wireframe: true,
-        // +1.5 m so the status roof sits above the matching basemap building
-        getElevation: (d) => d.properties.height_m + 1.5,
-        getFillColor: (d) => ROOF[status(d.properties.id)],
-        getLineColor: (d) => (status(d.properties.id) === 'no_answer' ? [255, 255, 255, 255] : [0, 0, 0, 30]),
-        material: { ambient: 0.55, diffuse: 0.6, shininess: 8, specularColor: [255, 255, 255] },
+        getPosition: (d) => centers.get(d.properties.id) ?? meta.center,
+        radiusUnits: 'meters',
+        getRadius: (d) => (ACTIONABLE.has(status(d.properties.id)) ? 26 : 18),
+        radiusMinPixels: 8,
+        filled: true,
+        getFillColor: (d) => withAlpha(ROOF[status(d.properties.id)], 70),
+        stroked: true,
+        getLineColor: (d) => withAlpha(status(d.properties.id) === 'no_answer' ? ROOF.no_answer : EDGE[status(d.properties.id)], 220),
+        lineWidthUnits: 'pixels',
+        getLineWidth: 1.5,
+        pickable: true,
+        onClick: ({ object }) => object && onSelect(object.properties.id),
+        updateTriggers: { getRadius: statusKey, getFillColor: statusKey, getLineColor: statusKey },
+      }),
+      // Houses: neutral walls + pitched roof in the status color, sized and turned to each
+      // footprint. Slightly oversized so the basemap's own box for the same building stays hidden.
+      new SimpleMeshLayer<HouseholdFeature>({
+        id: 'household-walls',
+        data: fx.households,
+        mesh: WALLS_MESH,
+        getPosition: (d) => frame(d).center,
+        getOrientation: (d) => [0, frame(d).yaw, 0],
+        getScale: (d) => {
+          const f = frame(d);
+          return [f.length * HOUSE_PAD, f.width * HOUSE_PAD, ridge(d)];
+        },
+        getColor: WALL_COLOR,
+        material: { ambient: 0.8, diffuse: 0.45, shininess: 0, specularColor: [0, 0, 0] },
+        pickable: true,
+        onClick: ({ object }) => object && onSelect(object.properties.id),
+      }),
+      new SimpleMeshLayer<HouseholdFeature>({
+        id: 'household-roofs',
+        data: fx.households,
+        mesh: ROOF_MESH,
+        getPosition: (d) => frame(d).center,
+        getOrientation: (d) => [0, frame(d).yaw, 0],
+        getScale: (d) => {
+          const f = frame(d);
+          return [f.length * HOUSE_PAD, f.width * HOUSE_PAD, ridge(d)];
+        },
+        getColor: (d) => ROOF[status(d.properties.id)],
+        // mostly ambient: true status color; enough diffuse that the two slopes read apart
+        material: { ambient: 0.75, diffuse: 0.45, shininess: 0, specularColor: [0, 0, 0] },
         pickable: true,
         autoHighlight: true,
-        highlightColor: [0, 78, 120, 90],
+        highlightColor: [0, 78, 120, 110],
         onClick: ({ object }) => object && onSelect(object.properties.id),
-        updateTriggers: { getFillColor: statuses, getLineColor: statuses },
+        updateTriggers: { getColor: statusKey },
+      }),
+      // Unlit pin floating above the roof, always drawn on top: the crispest status signal.
+      new ScatterplotLayer<HouseholdFeature>({
+        id: 'household-pins',
+        data: fx.households,
+        getPosition: (d) => {
+          const c = centers.get(d.properties.id) ?? meta.center;
+          return [c[0], c[1], ridge(d) + 3];
+        },
+        billboard: true,
+        radiusUnits: 'pixels',
+        getRadius: (d) => {
+          const s = status(d.properties.id);
+          if (s === 'calling') return 6.5 + Math.sin(t * 8) * 1.5;
+          return ACTIONABLE.has(s) ? 7 : 5;
+        },
+        filled: true,
+        getFillColor: (d) => ROOF[status(d.properties.id)],
+        stroked: true,
+        getLineColor: [255, 255, 255, 255],
+        lineWidthUnits: 'pixels',
+        getLineWidth: 2,
+        pickable: true,
+        onClick: ({ object }) => object && onSelect(object.properties.id),
+        parameters: { depthCompare: 'always' },
+        updateTriggers: { getRadius: [statusKey, t], getFillColor: statusKey },
+      }),
+      // Address labels for homes that need action (and the selected one), once zoomed in.
+      new TextLayer<HouseholdFeature>({
+        id: 'household-labels',
+        data: zoom >= LABEL_MIN_ZOOM ? fx.households.filter((h) => ACTIONABLE.has(status(h.properties.id)) || h.properties.id === selectedId) : [],
+        getPosition: (d) => {
+          const c = centers.get(d.properties.id) ?? meta.center;
+          return [c[0], c[1], ridge(d) + 3];
+        },
+        getText: (d) => d.properties.address.split(',')[0],
+        getSize: 11,
+        fontFamily: 'Inter, system-ui, sans-serif',
+        fontWeight: 600,
+        characterSet: 'auto',
+        getColor: INK,
+        getPixelOffset: [0, -20],
+        background: true,
+        getBackgroundColor: [255, 255, 255, 235],
+        getBorderColor: (d) => EDGE[status(d.properties.id)],
+        getBorderWidth: 1,
+        backgroundPadding: [5, 3],
+        parameters: { depthCompare: 'always' },
+        updateTriggers: { getBorderColor: statusKey },
       }),
       new PathLayer<Route, PathStyleExtensionProps<Route>>({
         id: 'route-plan',
@@ -318,7 +422,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
         updateTriggers: { getWidth: t },
       }),
     ];
-  }, [fx, meta, t, statuses, centers, onSelect, area, getTileData, terrainFailed, level, floor]);
+  }, [fx, meta, t, statuses, centers, onSelect, area, getTileData, terrainFailed, level, floor, zoom, selectedId, statusKey, frame]);
 
   const knockLabels = fx.doorknock.filter((d) => d.properties.t_min <= t);
   const selected = selectedId ? centers.get(selectedId) : undefined;
@@ -332,6 +436,7 @@ export default function SwiftMap({ ref, fx, t, statuses, selectedId, liveId, ima
       initialViewState={{ longitude: home.center[0], latitude: home.center[1], zoom: home.zoom, pitch: home.pitch, bearing: home.bearing }}
       maxPitch={70}
       attributionControl={false}
+      onZoomEnd={(e) => setZoom(e.viewState.zoom)}
       onLoad={(e) => {
         applySitePlanStyle(e.target);
         setStyleReady(true);

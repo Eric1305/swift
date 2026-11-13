@@ -15,6 +15,7 @@ import HouseholdDrawer from './components/HouseholdDrawer';
 import { Legend, LiveCallBanner, MapControls, ResultsCard, SheetTag } from './components/Overlays';
 import cx from './components/cx';
 import './App.css';
+import './styles/editorial.css';
 
 const SHOW_GPU_PANEL = false;
 
