@@ -2,7 +2,20 @@
 
 Timed to the Run Demo scene list in `web/src/demo/director.ts` (PLAN T4). Press **Run Demo** at 0:20, so demo time = pitch time − 20 s. Rubric tags: **[Creativity]**, **[Impact]**, **[LLM/GB10]**, **[Data]**, **[Interface]**.
 
-Before going on stage: agent server running and reachable by Retell, phone on loud with ringer on, a second tab open with `VITE_API_URL` empty (it plays `live_fallback.json` if the live call fails), and the backup video ready.
+Before going on stage:
+- Agent server running (`.venv/bin/uvicorn agent.server:app --port 8080`), relay client running (`.venv/bin/python -m relay.client`), and `https://swift-w7bb.onrender.com/health` shows `"agent_connected": true`.
+- Dashboard open at `http://localhost:8080/?flood=pipeline`. Start the call with **Run Demo**, not `curl` (that would make two calls).
+- Phone on loud with the ringer on. If the live call fails, the dashboard plays `live_fallback.json` on its own.
+- Backup video ready. No pushes to `main` during the demo (a push can redeploy the relay).
+
+## What runs where (for questions)
+| Piece | Where | Details |
+|---|---|---|
+| AI model | Organizers' Dell Pro Max GB10 model server | `http://10.246.100.230/v1`, organizer key, model `qwen3-vl-8b-instruct` (the only model our key can use). Runs every live-call turn, the 150 simulated calls, the aerial-image verdicts, house cards and briefings: 1,600+ calls so far, ~0.3–0.4 s each |
+| Phone calls | Retell (phone line, speech-to-text, voice) → Render relay → our FastAPI server on the laptop | Retell never decides what to say; our code and the GB10 model do |
+| Flood images + metadata | Hugging Face `jennifer-fowler/UTSA-flood-images` (organizers' dataset) | 1,204 georeferenced Texas images, `image_metadata.csv` with 273 columns. Downloaded once; results are precomputed into `web/public/data/`, so the demo doesn't download anything |
+| Homes and roads | OpenStreetMap | 150 real Bear Creek buildings and the drive network, cached in `pipeline/cache/` |
+| Ground elevation | USGS 3DEP 10 m DEM | Basis of the flood-depth model, cached in `pipeline/cache/` |
 
 ---
 
@@ -85,7 +98,7 @@ Calls work on any phone, including landlines, with no install and no data plan. 
 Each turn is one short extraction, about 0.2–0.4 s on an 8B model, so one model server handles many calls at once. The limit is phone lines, and the scheduler already runs N lines in parallel. Ordering by water arrival means the first calls go to the homes with the least time, so even a partial run helps the right people first. Telephony trunks (Retell or Twilio) scale to hundreds of concurrent lines.
 
 **6. What does the GB10 actually do?**
-It runs every model call: each live call turn, the simulated residents (both the resident and the agent side), the aerial-image verdicts, the house cards and the commander briefings. The dashboard panel shows our in-flight requests, total calls and latency against that server live. The depth model, routing and Monte Carlo are NumPy on the laptop. They run on GPU through a CuPy shim when one is present, but the organizers took back the per-team workstations mid-event.
+It's the organizers' Dell Pro Max GB10 model server, serving Qwen3-VL-8B (`qwen3-vl-8b-instruct`) with the event's shared key. It runs every model call: each live call turn, the simulated residents (both the resident and the agent side), the aerial-image verdicts, the house cards and the commander briefings. The dashboard panel shows our in-flight requests, total calls and latency against that server live. The depth model, routing and Monte Carlo are NumPy on the laptop. They run on GPU through a CuPy shim when one is present, but the organizers took back the per-team workstations mid-event.
 
 **7. How accurate is your depth model?**
 It's a terrain screen, not a hydraulic model. It uses height above the lowest point within 1 km on the 3DEP 10 m DEM, against a water level that rises with the storm's rainfall to a chosen 12 ft peak. It ignores channel flow, drainage and reservoir operations. We use it for one thing, the order of calls, and the Monte Carlo varies the peak from 8 to 16 ft to check that the result holds. Qwen3-VL saw flooding in 17 of the 21 real aerials in the same area, which is consistent with a badly flooded neighborhood, but we have not validated depth house by house. In a real event, the rise would come from NWS and USGS gauge forecasts, and we'd calibrate against Harvey high-water marks.
@@ -103,4 +116,4 @@ Some will, and that's built in. No answer after two retries puts the home on the
 Those systems broadcast one way. Swift has a conversation and returns a structured record: who is there, who can't leave, whether water is inside, who has a boat. In the Kerr County flood the NWS warning went out at 1:14 a.m. and the county's CodeRED alert went out hours later. Swift could start dialing as soon as a warning is issued, and it tells dispatch who answered.
 
 **12. What data did you add beyond the provided dataset?**
-USGS 3DEP elevation, OpenStreetMap buildings and roads, and the published Harvey research behind the problem statement. From the UTSA dataset we used the image footprints to choose the area, the 2017/2016 after/before aerials, and the 3-day precipitation column to shape the storm.
+The provided dataset is the organizers' Hugging Face set `jennifer-fowler/UTSA-flood-images` (1,204 georeferenced images, 273 metadata columns). On top of it we added USGS 3DEP elevation, OpenStreetMap buildings and roads, and the published Harvey research behind the problem statement. From the UTSA dataset we used the image footprints to choose the area, the 2017/2016 after/before aerials, and the 3-day precipitation column to shape the storm.
