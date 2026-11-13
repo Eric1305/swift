@@ -4,12 +4,16 @@ import json
 import mimetypes
 import os
 import re
+import threading
+import time
 from pathlib import Path
 
 from openai import OpenAI
 
-BASE_URL = os.environ.get("VLLM_BASE_URL", "http://localhost:8000/v1")
-MODEL = os.environ.get("VLLM_MODEL", "Qwen/Qwen3-VL-8B-Instruct")
+# Organizer-hosted Qwen3-VL on the GB10 cluster (OpenAI-compatible). Override with env vars.
+BASE_URL = os.environ.get("VLLM_BASE_URL", "http://10.246.100.230/v1")
+MODEL = os.environ.get("VLLM_MODEL", "qwen3-vl-8b-instruct")
+API_KEY = os.environ.get("VLLM_API_KEY", "usaadatathon")
 NO_THINKING = {"chat_template_kwargs": {"enable_thinking": False}}
 
 PERSON = {"type": "object", "properties": {"who": {"type": "string"}, "need": {"type": "string"}},
@@ -42,7 +46,42 @@ SYSTEM = (
 
 
 def _client() -> OpenAI:
-    return OpenAI(base_url=BASE_URL, api_key="NONE", timeout=20, max_retries=0)
+    return OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=30, max_retries=0)
+
+
+STATS = {"in_flight": 0, "calls": 0, "latency_ms": 0.0}
+_stats_lock = threading.Lock()
+
+
+def _create(**kwargs):
+    """Call the server (tracking in-flight calls and latency); if it rejects structured output or template
+    kwargs, retry without them."""
+    with _stats_lock:
+        STATS["in_flight"] += 1
+    started = time.perf_counter()
+    try:
+        return _create_once(**kwargs)
+    finally:
+        elapsed = (time.perf_counter() - started) * 1000
+        with _stats_lock:
+            STATS["in_flight"] -= 1
+            STATS["calls"] += 1
+            STATS["latency_ms"] = round(0.8 * STATS["latency_ms"] + 0.2 * elapsed, 1) if STATS["calls"] > 1 else round(elapsed, 1)
+
+
+def _create_once(**kwargs):
+    client = _client()
+    try:
+        return client.chat.completions.create(**kwargs)
+    except Exception as exc:
+        if "response_format" not in kwargs and "extra_body" not in kwargs:
+            raise
+        status = getattr(exc, "status_code", None)
+        if status not in (400, 422):
+            raise
+        kwargs.pop("response_format", None)
+        kwargs.pop("extra_body", None)
+        return client.chat.completions.create(**kwargs)
 
 
 def _schema(step: str) -> dict:
@@ -55,7 +94,7 @@ def extract(step: str, utterance: str) -> tuple[dict, str]:
     if not utterance.strip():
         return {}, ""
     try:
-        completion = _client().chat.completions.create(
+        completion = _create(
             model=MODEL,
             temperature=0,
             max_tokens=150,
@@ -88,7 +127,7 @@ def ask(prompt: str, image_path: str | None = None, max_tokens: int = 300) -> st
     content: list[dict] = [{"type": "text", "text": prompt}]
     if image_path:
         content.append({"type": "image_url", "image_url": {"url": _image_url(image_path)}})
-    completion = _client().chat.completions.create(
+    completion = _create(
         model=MODEL,
         temperature=0,
         max_tokens=max_tokens,
